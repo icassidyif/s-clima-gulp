@@ -1,0 +1,29 @@
+.container
+  max-width: $container-width
+  margin: 0 auto
+  padding: 0 $gutter/2
+.row
+  display: flex
+  flex-wrap: wrap
+  margin: 0 #{-$gutter/2}
+.column
+  width: 100%
+  padding: 0 $gutter/2
+  @each $dim in $dims
+    &-#{$dim}
+      +breakpoint($dim)
+        @for $i from 1 through 3
+          @for $j from 2 to 12
+            @if $i != 1 and $j%$i == 0 or $i == $j or $i > $j
+            @else
+              &-#{$i}-#{$j}
+                width: percentage(1/$j)*$i
+
+//  atomic automatic step
+//$step: 5
+//$i: 1
+//@for $i from 1 through 5
+//  .m-b-#{$step*$i}
+//    margin-bottom: $i*$step*1px
+//// -------
+

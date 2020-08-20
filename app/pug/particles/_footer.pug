@@ -1,0 +1,73 @@
+footer.footer#footer
+  .footer__body
+    .footer__bg
+    .footer__container.container
+      .footer__row.row
+        .footer__column.column.column-lg-1-4.column-md-2-5
+          a(href='/').footer__logo
+            +image('logo.png')
+          .footer__subtitle
+            span
+              span(style='font-weight: 700; color: white') “Smartik” –
+              |  це навчальниій простір, який включає в себе курси іноземних мов, дитячий садок та організаціяю літніх / зимових таборів.
+          .footer__social
+            a(href='https://www.facebook.com/smartik2017' target='blank')
+              +icon('facebook')
+            a(href='https://www.instagram.com/smartik_if/' target='blank')
+              +icon('instagram')
+
+        .footer__column.column.column-lg-1-6.column-md-1-5.column-sm-2-5.column-min-2-5
+          h2.footer__title Навігація
+          nav.footer__menu.menu-footer
+            ul.menu-footer__list
+              li.menu-footer__item
+                a(data-scroll href='#')
+                  +icon('lang-list2')
+                  span Головна
+              li.menu-footer__item
+                a(data-scroll href='#garden')
+                  +icon('lang-list2')
+                  span Садок
+              li.menu-footer__item
+                a(data-scroll href='#camp')
+                  +icon('lang-list2')
+                  span Табори
+              li.menu-footer__item
+                a(data-scroll href='#languages')
+                  +icon('lang-list2')
+                  span Мовні курси
+              li.menu-footer__item
+                a(data-scroll href='#advantages')
+                  +icon('lang-list2')
+                  span Переваги
+              li.menu-footer__item
+                a(data-scroll href='#about')
+                  +icon('lang-list2')
+                  span Про нас
+
+
+        .footer__column.column.column-lg-1-4.column-md-2-5.column-sm-3-5.column-min-3-5
+          h2.footer__title Контакти
+          .footer__contacts.contacts-footer
+            span.contacts-footer__title Дитячий садок
+            .contacts-footer__item
+              +icon('phone-contact')
+              a(href='tel:+380675232357').contacts-footer__phone + 38 (067) 523-23-57
+            .contacts-footer__item
+              +icon('mail-contact')
+              a(href='mailto:smartikif@gmail.com') smartikif@gmail.com
+            .contacts-footer__item
+              +icon('locate-contact')
+              span вул. Шевченка 34 б, м. Івано-Франківськ
+            .contacts-footer__hr
+            span.contacts-footer__title Мовні табори, курси іноземних мов
+            .contacts-footer__item
+              +icon('phone-contact')
+              a(href='tel:+380675232357').contacts-footer__phone + 38 (067) 523-23-57
+
+        .footer__column.column.column-lg-1-3
+          h2.footer__title Ми знаходимося тут
+          iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2102.0224596515454!2d24.70054333018558!3d48.917436915791384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4730c13fccf074f9%3A0x7b63faa103dffe2a!2z0YPQuy4g0KjQtdCy0YfQtdC90LrQviwgMzTQkSwg0JjQstCw0L3Qvi3QpNGA0LDQvdC60L7QstGB0LosINCY0LLQsNC90L4t0KTRgNCw0L3QutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNzYwMDA!5e0!3m2!1sru!2sua!4v1591640985670!5m2!1sru!2sua" width="100%" height="230px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0")
+
+        .footer__column.column
+          .footer__copyright

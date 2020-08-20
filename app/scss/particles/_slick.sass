@@ -1,0 +1,121 @@
+// Slider
+.slick-slider
+// Bounding shell
+.slick-list
+  overflow: hidden
+// Tape slide
+.slick-track
+  display: flex
+  align-items: flex-start
+// Slide
+.slick-slide
+  text-align: center
+  +breakpoint(md)
+    margin: 0 15px
+// Active slide
+.slick-slide.slick-active
+// Main slide
+.slick-slide.slick-current
+// Centered slide
+.slick-slide.slick-center
+// Arrow
+.slick-arrow
+// Arrow prev
+.slick-arrow.slick-prev
+// Arrow next
+.slick-arrow.slick-next
+// Disabled arrow
+.slick-arrow.slick-disabled
+// Dots
+.slick-dots
+  li
+  button
+
+
+
+
+// Team slider styles
+.slider
+  position: relative
+  +breakpoint(sm)
+    padding: 0 50px
+  .slick-arrow
+    position: absolute
+    top: calc(50% - 30px)
+    //transform: translateY(-50%)
+    z-index: 5
+    font-size: 0
+    width: 27.5px
+    height: 44px
+    +breakpoint(md)
+      top: calc(50% - 70px)
+  .slick-prev
+    left: 0
+    background: url("../img/icons/prev.svg") 0 0 / 100% no-repeat
+  .slick-next
+    right: 0
+    background: url("../img/icons/next.svg") 0 0 / 100% no-repeat
+
+  .slick-dots
+    display: flex
+    justify-content: center
+    margin: 30px 0 0 0
+    +breakpoint(md)
+      margin: 70px 0 0 0
+    li
+      margin: 0 10px
+      +breakpoint(sm)
+        margin: 0 15px
+
+    .slick-active
+      button
+        width: 25px
+        height: 25px
+        background-color: transparent
+        border: 5px solid #FFCA41
+
+    button
+      font-size: 0
+      width: 17px
+      height: 17px
+      background-color: #FFCA41
+      border-radius: 50%
+      transition: background-color, border 0.3s ease-out
+
+  &__item
+    align-items: center
+
+//=========================================================
+
+//slick garden and slick camp styles
+.slider-garden,.slider-school-camp,.slider-karpaty-camp,.slider-foreign-camp
+  position: relative
+  .slick-arrow
+    position: absolute
+    top: calc(50%)
+    transform: translateY(-50%)
+    z-index: 5
+    font-size: 0
+    width: 15px
+    height: 30px
+    +breakpoint(md)
+      width: 27.5px
+      height: 44px
+  .slick-prev
+    left: 50%
+    background: url("../img/icons/prev-or.svg") 0 0 / 100% no-repeat
+    top: 100%
+    transform: translate(-200%, 50%)
+    +breakpoint(md)
+      left: 20px
+      top: 50%
+      transform: translate(0, -50%)
+  .slick-next
+    right: 50%
+    background: url("../img/icons/next-or.svg") 0 0 / 100% no-repeat
+    top: 100%
+    transform: translate(200%, 50%)
+    +breakpoint(md)
+      right: 20px
+      top: 50%
+      transform: translate(0, -50%)

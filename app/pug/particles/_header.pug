@@ -1,0 +1,49 @@
+header.header
+  .header__body
+    .header__bg
+    .header__container.container
+      .header__row.row
+        .header__column.column.column-xl-1-2
+          h1.header__title.title.title_main Вітаємо в приватному закладі дошкільної освіти
+          .header__subtitle
+            span
+              span(style='font-weight: 700') “Smartik”
+              | – це ліцензований навчальниій простір, який включає
+              span(style='color:#77BF98')  дитячий садок,
+              span(style='color:#dfacf7')  курси іноземних мов
+              |, та проведення
+              span(style='color:#f5be9e')  мовних таборів.
+        .header__column.column.column-xl-1-2
+          .header__kid
+            +image('kid.png')
+
+    .header__navigation.navigation-header(data-scroll-header)
+      .navigation-header__container.container
+        .navigation-header__body
+          .burger-menu
+            span
+          a(href='/').navigation-header__logo
+            +image('logo.png')
+          nav.navigation-header__menu.menu
+            -let mainMenu = {'Переваги': '#advantages', 'Садок': '#garden', 'Табори': '#camp', 'Мовні курси': '#languages', 'Про нас':'#about','Викладачі': '#team', 'Контакти': '#footer'};
+            ul.menu__list
+              each val, key in mainMenu
+                li
+                  a(data-scroll href=val).menu__link=key
+          .navigation-header__btn
+            a(href='#call-me').btn.btn_header.popup-with-move-anim
+              .btn__icon
+                +icon('phone')
+              span.btn__text Передзвоніть мені
+
+#call-me.modal-info.modal-info_center.zoom-anim-dialog.mfp-hide
+  .modal-info__body
+    form(action='' id='callMeForm' method='get').form.modal-info__form
+      .modal-info__title Вкажіть свій номер телефону і ми Вам зателефонуємо
+      .form__input
+        input(type='tel' id='phone' name='phone' value='' placeholder="+380...")
+      .modal-info__btn
+        button(type='reset').btn.btn_green.my-custom-close
+          span Скасувати
+        button(type='submit').btn.btn_green
+          span Надіслати

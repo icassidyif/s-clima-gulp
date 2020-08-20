@@ -1,0 +1,337 @@
+//My custom burger menu style style========================================
+.burger-menu
+  position: relative
+  display: block
+  width: 30px
+  height: 20px
+  z-index: 2
+  &:before, &:after
+    content: ''
+    position: absolute
+    background-color: #FFFFFF
+    height: 2px
+    width: 100%
+    left: 0
+    transition: all 0.3s ease-out
+  &:before
+    top: 0
+  &:after
+    bottom: 0
+  span
+    position: absolute
+    top: calc(50% - 1px)
+    height: 2px
+    width: 100%
+    background-color: #ffffff
+    transition: transform 0.1s ease-out
+  &.active
+    &:before
+      transform: rotate(45deg)
+      top: 50%
+    &:after
+      transform: rotate(-45deg)
+      top: 50%
+    span
+      transform: scale(0)
+  +breakpoint(lg)
+    display: none
+
+.menu
+  position: fixed
+  top: -100%
+  left: 0
+  width: 100%
+  height: 100%
+  overflow: auto
+  background: linear-gradient(0deg, #3983C8, #3983C8), linear-gradient(360deg, #2768B4 0%, rgba(93, 131, 176, 0.53) 103.71%)
+  transition: top 0.3s ease-out
+  padding: 100px 0 20px 0
+  text-align: center
+  z-index: 1
+  +breakpoint(lg)
+    position: static
+    padding: 0
+    display: block
+    height: auto
+  &__list
+    display: block
+    position: relative
+    z-index: 1
+    +breakpoint(lg)
+      display: flex
+      justify-content: center
+      flex-wrap: wrap
+      flex: 0 0 auto
+      padding: 0 em(20,17)
+    li
+      font-size: rem(20px)
+      margin: 0 0 em(20,20) 0
+      +breakpoint(lg)
+        font-size: rem(17px)
+        margin: 0 em(20,17) 0 0
+        &:last-child
+          margin: 0
+  &__link
+    display: block
+    font-weight: 700
+    color: #FFFFFF
+    text-transform: uppercase
+    white-space: nowrap
+    position: relative
+    +breakpoint(lg)
+      text-transform: none
+      font-weight: 500
+      line-height: em(35,17)
+      &:after
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 50%
+        transform: translate(-50%)
+        height: 2px
+        background-color: #FFCA41
+        width: 0
+        transition: width 0.3s ease-out
+      &:hover
+        color: #FFCA41
+        &:after
+          width: 50%
+  &:after
+    content: ''
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 80px
+    background: linear-gradient(0deg, #3983C8, #3983C8), linear-gradient(360deg, #2768B4 0%, rgba(93, 131, 176, 0.53) 103.71%)
+    z-index: 2
+    +breakpoint(lg)
+      display: none
+  &.active
+    top: 0
+//===================================================================
+
+
+//My custom form style========================================
+.form
+  &__row
+  &__column
+  &__line
+  &__input
+  &__button
+  &__error
+    color: red
+//===================================================================
+
+//My custom inputs style========================================
+input[type='text'], input[type='email'], input[type='tel'], textarea
+  appearance: none
+.input
+  border-radius: 0
+  width: 100%
+  height: 100%
+  color: #4f4f4f
+  font-size: 15px
+  display: block
+  padding: 0 25px
+  &.focus
+    color: #000
+  &.error
+textarea.input
+  resize: none
+  padding: 0
+//===================================================================
+
+.title
+  text-align: center
+  font-size: rem(32px)
+  font-weight: 700
+  line-height: em(41,32)
+  color: #FFFFFF
+  position: relative
+  &:after
+    content: ''
+    position: absolute
+    bottom: -20px
+    height: 4px
+    width: 130px
+    left: 50%
+    transform: translate(-50%)
+    background: #45B0ED
+  +breakpoint(md)
+    font-size: rem(38px)
+    line-height: em(41,38)
+  &_main
+    font-size: rem(32px)
+    line-height: em(35,32)
+    text-align: left
+    &:after
+      bottom: -15px
+    +breakpoint(md)
+      font-size: rem(42px)
+      line-height: em(45,42)
+      &:after
+        bottom: -30px
+  &_small
+    font-size: rem(24px)
+    &:after
+      width: 58px
+      bottom: -12px
+      height: 3px
+    +breakpoint(md)
+      font-size: rem(28px)
+  &_black
+    color: #181818
+  &_green
+    color: #65C338
+    &:after
+      background: #65C338
+  &_orange
+    color: #F28345
+    &:after
+      background: #F28345
+  &_violet
+    color: #973FDD
+    &:after
+      background: #973FDD
+// Images like a BG
+.ibg
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+  position: relative
+  img
+    width: 0
+    height: 0
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+    visibility: hidden
+//-----end
+
+//--------------------------
+.btn
+  display: inline-flex
+  align-items: center
+  font-family: Bloggersans, serif
+  font-weight: 700
+  color: #ffffff
+  font-size: rem(16px)
+  letter-spacing: 0.05em
+  text-transform: uppercase
+  background-color: #FFCA41
+  padding: 0 53px
+  position: relative
+  height: 52px
+  border-radius: 26px
+  border: 2px solid
+  transition: background-color 0.3s ease-out
+  &_green
+    background-color: #65C338
+    border-color: #65C338
+    +breakpoint(md)
+      &:hover
+        background-color: #FFFFFF
+        color: #65C338
+  &_orange
+    border-color: #F28345
+    background-color: #F28345
+    +breakpoint(md)
+      &:hover
+        background-color: #FFFFFF
+        color: #F28345
+  &_violet
+    border-color: #973FDD
+    background-color: #973FDD
+    +breakpoint(md)
+      &:hover
+        background-color: #FFFFFF
+        color: #973FDD
+  &_blue
+    border-color: #3983C8
+    background-color: #3983C8
+    +breakpoint(md)
+      &:hover
+        background-color: #FFFFFF
+        color: #3983C8
+  &_header
+    font-size: rem(14px)
+    padding: 0 23px
+    white-space: nowrap
+    background: none
+    border: none
+    +breakpoint(lg)
+      background-color: #FFCA41
+      color: #3983C8
+    &:hover
+      background-color: #FFFFFF
+
+  &__icon
+  &__text
+    display: none
+    margin: 0 0 0 em(8,14)
+    +breakpoint(lg)
+      display: block
+  +breakpoint(md)
+    &:hover
+      span
+        animation: btnAnim 0.5s ease-out
+      .btn__icon
+        animation: btnAnim 0.5s ease-out
+
+@keyframes btnAnim
+  0%
+    transform: translateY(0px)
+  10%
+    transform: translateY(-1px)
+  20%
+    transform: translateY(-2px)
+  30%
+    transform: translateY(-3px)
+  50%
+    transform: translateY(-2px)
+  75%
+    transform: translateY(-1px)
+  100%
+    transform: translateY(0px)
+//-----------------------------------------
+
+
+// TABS
+.tabs
+  &__items
+    display: flex
+  &__item
+    background-color: #F8F8F8
+    padding: 13px 20px
+    display: flex
+    align-items: center
+    justify-content: center
+    font-family: Bloggersans,serif
+    font-size: rem(18px)
+    font-weight: 500
+    color: #C5C5C5
+    transition: background-color, border, color 0.3s ease-out
+    flex: 1 1 auto
+    &.active
+      background-color: #FFFFFF
+      border-top: 2px solid #F28345
+      color: #F28345
+      .tabs__icon
+        fill: #F28345
+    &:hover
+      color: #F28345
+      .tabs__icon
+        fill: #F28345
+    span
+      display: none
+      +breakpoint(md)
+        display: block
+  &__icon
+    margin: 0 15px 0 0
+    transition: fill 0.2s ease-out
+  &__tab
+
+
+
