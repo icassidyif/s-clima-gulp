@@ -84,8 +84,10 @@ function showPopupError() {
     $.magnificPopup.close();
   });
 } //end popup alert
-//Menu BURGER
 
+
+var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+console.log(supportsTouch); //Menu BURGER
 
 var burgerMenu = document.querySelector('.burger-menu');
 var body = document.querySelector('body');
@@ -98,9 +100,33 @@ if (burgerMenu != null) {
     body.classList.toggle('lock');
   });
 } // end menu
+//dropdown sub-menu
+
+
+function changeMaxHeight(li, ul, height) {
+  if (li.classList.contains('closed')) {
+    li.classList.remove('closed');
+    ul.style.maxHeight = height + 'px';
+  } else {
+    li.classList.add('closed');
+    ul.style.maxHeight = 0;
+  }
+}
+
+var hasSubmenus = document.querySelectorAll('.menu ul li a:not(:only-child)');
+hasSubmenus.forEach(function (element) {
+  var subMenu = element.parentElement.querySelector('ul');
+  var heightSubmenu = subMenu.clientHeight;
+  var liItem = element.parentElement;
+  liItem.classList.add('has-submenu');
+  changeMaxHeight(liItem, subMenu, heightSubmenu);
+  element.addEventListener('click', function (event) {
+    event.preventDefault();
+    changeMaxHeight(liItem, subMenu, heightSubmenu);
+  });
+}); // end dropdown-menu
 //Check scroll position=by Cassidy=======================================================
 //=========================================================================//init SmoothScroll========================================================
-
 
 var scroll = new SmoothScroll('a[href*="#"]', {
   header: '[data-scroll-header]',

@@ -1,2 +1,82 @@
 .header
-  background-color: #4E4E4E
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  background-color: #2768b4
+
+  &__body
+    display: flex
+    align-items: center
+    height: 50px
+    +breakpoint(md)
+      height: 150px
+
+  &__logo
+    margin: 0 35px 0 0
+    +breakpoint(md)
+      margin: 0 70px 0 0
+    +breakpoint(lg)
+      margin: 0 40px 0 0
+    +breakpoint(xl)
+      margin: 0 90px 0 0
+    .logo-full
+      display: none
+      visibility: hidden
+      +breakpoint(sm)
+        display: inline-block
+        visibility: visible
+    .logo-min
+      +breakpoint(sm)
+        display: none
+        visibility: hidden
+    img
+      max-height: 24px
+      +breakpoint(md)
+        max-height: 41px
+
+  &__contacts
+    display: flex
+    align-items: center
+    margin: 0 auto 0 0
+    +breakpoint(lg)
+      margin: 0 40px 0 0
+    svg
+      fill: #ffffff
+      margin: 0 10px 0 0
+
+  &__phones
+    display: flex
+    flex-direction: column
+    a
+      font-size: 12px
+      white-space: nowrap
+      +breakpoint(md)
+        font-size: 16px
+
+  &__cart
+    position: relative
+    margin: 0 35px 0 0
+    +breakpoint(lg)
+      margin: 0
+    svg
+      fill: #ffffff
+    span
+      position: absolute
+      font-size: 7px
+      color: #ffffff
+      top: -3px
+      display: flex
+      align-items: center
+      justify-content: center
+      right: -10px
+      width: 15px
+      height: 15px
+      background-color: #D11586
+      border-radius: 50%
+      line-height: 15px
+
+
+  .burger-menu
+    justify-self: end
+    z-index: 2

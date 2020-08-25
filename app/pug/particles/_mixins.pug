@@ -6,9 +6,10 @@ mixin icon(name, mode)
 //======================================================
 
 //insert img tag========================================
-mixin image(title)
+mixin image(title, className)
   -title = title || 'none'
-  img(src='img/'+ title, alt = title)
+  -className = className || ' '
+  img(src='img/'+ title, alt = title class = className)
 //======================================================
 
 //======================================================
