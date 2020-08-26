@@ -56,7 +56,7 @@
   backdrop-filter: blur(15px)
   transition: right 0.3s ease-out
   padding: 70px 20px 20px 20px
-  z-index: 1
+  z-index: 5
   overflow: auto
   +breakpoint(md)
     width: calc(100% - 100px)
@@ -93,14 +93,14 @@
             &:hover
               color: #7EB5F9
         > li
-          &:first-child
-            a
-              +breakpoint(lg)
-                margin-top: 15px
-          &:last-child
-            a
-              +breakpoint(lg)
-                margin-bottom: 15px
+          //&:first-child
+          //  a
+          //    +breakpoint(lg)
+          //      margin-top: 15px
+          //&:last-child
+          //  a
+          //    +breakpoint(lg)
+          //      margin-bottom: 15px
       >a
         user-select: none
         display: flex
