@@ -2156,6 +2156,10 @@ body.lock {
     max-height: 41px;
   }
 
+  .header__contacts svg {
+    margin: 0 20px 0 0;
+  }
+
   .header__phones a {
     font-size: 16px;
   }
