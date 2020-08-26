@@ -1567,6 +1567,10 @@ body.lock {
   white-space: nowrap;
 }
 
+.header__phones a:hover {
+  color: #7EB5F9;
+}
+
 .header__cart {
   position: relative;
   margin: 0 35px 0 0;
@@ -1592,9 +1596,19 @@ body.lock {
   line-height: 15px;
 }
 
+.header a {
+  transition: color .1s ease-out;
+}
+
 .header .burger-menu {
   justify-self: end;
   z-index: 2;
+}
+
+.parallax {
+  background-color: #7eb5f9;
+  min-height: 100vh;
+  padding: 50px 0 0 0;
 }
 
 /* overlay at start */
@@ -2157,11 +2171,15 @@ body.lock {
   }
 
   .header__contacts svg {
-    margin: 0 20px 0 0;
+    margin: 0 15px 0 0;
   }
 
   .header__phones a {
     font-size: 16px;
+  }
+
+  .parallax {
+    padding: 150px 0 0 0;
   }
 
   .slick-slide {
