@@ -2328,6 +2328,8 @@ body.lock {
     -webkit-backdrop-filter: none;
             backdrop-filter: none;
     padding: 0;
+    margin: 0 15px 0 0;
+    overflow: visible;
   }
 
   .menu > ul {
