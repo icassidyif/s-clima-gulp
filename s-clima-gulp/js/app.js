@@ -144,6 +144,7 @@ document.addEventListener('scrollStart', function (e) {
   menu.classList.remove('active');
   body.classList.remove('lock');
 }, false); //=========================================================================
+//=include ./particles/parallax.js
 ////=include ./particles/swipper.js
 
 $(document).ready(function () {

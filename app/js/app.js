@@ -1,6 +1,7 @@
 //=include ./particles/functions.js
 //=include ./particles/menu.js
 //=include ./particles/smooth-scroll.js
+//=include ./particles/parallax.js
 
 ////=include ./particles/swipper.js
 //=include ./particles/popup.js

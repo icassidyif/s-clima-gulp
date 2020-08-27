@@ -7,14 +7,30 @@
   z-index: -1
   +breakpoint(md)
     padding: 150px 0 0 0
-  &__bg
+
+  &__scene
+
+  &__layer
     position: absolute
     top: 0
-    left: 0
     right: 0
     bottom: 0
-    background: linear-gradient(180deg, #83B4E4 0%, #BADEF6 50.46%, #D6EAF7 100%)
-    //background: no-repeat url('../img/main-parallax/main-bg.jpg') 25% 50%
+    left: 0
+  &__bg
+    background: linear-gradient(180deg, #4C79C3 0%, #7FA5E0 46.52%, #A3BEF4 100%)
+  &__layer-1
+    background: url("../img/main-parallax/layer-3.png") center top no-repeat
+    background-size: cover
+  &__layer-2
+    background: url("../img/main-parallax/layer-2.png") center top no-repeat
+    background-size: cover
+  &__layer-3
+    background: url("../img/main-parallax/layer-1.png") center top no-repeat
+    background-size: cover
+  &__layer-4
+    background: url("../img/main-parallax/layer-4.png") center top no-repeat
+    background-size: cover
+
   &__container
     display: flex
     flex: 1 0 auto

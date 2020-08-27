@@ -1601,7 +1601,7 @@ body.lock {
 
 .header .burger-menu {
   justify-self: end;
-  z-index: 2;
+  z-index: 7;
 }
 
 .parallax {
@@ -1613,13 +1613,44 @@ body.lock {
   z-index: -1;
 }
 
-.parallax__bg {
+.parallax__layer {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, #83B4E4 0%, #BADEF6 50.46%, #D6EAF7 100%);
+  left: 0;
+}
+
+.parallax__bg {
+  background: linear-gradient(180deg, #4C79C3 0%, #7FA5E0 46.52%, #A3BEF4 100%);
+}
+
+no-webp .parallax__layer-1 {
+  background: url("../img/main-parallax/layer-3.png") center top no-repeat; }
+
+.parallax__layer-1 {
+  background-size: cover;
+}
+
+no-webp .parallax__layer-2 {
+  background: url("../img/main-parallax/layer-2.png") center top no-repeat; }
+
+.parallax__layer-2 {
+  background-size: cover;
+}
+
+no-webp .parallax__layer-3 {
+  background: url("../img/main-parallax/layer-1.png") center top no-repeat; }
+
+.parallax__layer-3 {
+  background-size: cover;
+}
+
+no-webp .parallax__layer-4 {
+  background: url("../img/main-parallax/layer-4.png") center top no-repeat; }
+
+.parallax__layer-4 {
+  background-size: cover;
 }
 
 .parallax__container {
@@ -2566,4 +2597,12 @@ body.lock {
     padding: 0;
   }
 }
+
+.webp .parallax__layer-1 { background: url(../img/main-parallax/layer-3.webp) center top no-repeat; }
+
+.webp .parallax__layer-2 { background: url(../img/main-parallax/layer-2.webp) center top no-repeat; }
+
+.webp .parallax__layer-3 { background: url(../img/main-parallax/layer-1.webp) center top no-repeat; }
+
+.webp .parallax__layer-4 { background: url(../img/main-parallax/layer-4.webp) center top no-repeat; }
 /*# sourceMappingURL=style.css.map */
