@@ -221,12 +221,33 @@
 // BTN STYLES
 .btn
   display: inline-block
+  position: relative
   color: #ffffff
   font-size: 14px
   line-height: 25px
   font-weight: 900
   letter-spacing: .16em
   text-transform: uppercase
-  background-color: #D11586
+  //background-color: #D11586
   padding: 15px 25px
+  &:before
+    content: ''
+    position: absolute
+    padding: 15px 25px
+    background-color: #D11586
+    z-index: -1
+
+
+
+  &_min
+    //display: inline-block
+    //color: #ffffff
+    //font-size: 14px
+    //line-height: 25px
+    //font-weight: 900
+    //letter-spacing: .16em
+    //text-transform: uppercase
+    //background-color: #D11586
+    //padding: 15px 25px
+
 // End BTN STYLES
