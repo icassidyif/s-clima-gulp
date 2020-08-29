@@ -3,18 +3,19 @@
   top: 0
   left: 0
   width: 100%
+  z-index: 2
   //background-color: #2768b4
 
   &__body
     display: flex
     align-items: center
     height: 50px
-    +breakpoint(md)
-      height: 150px
+    +breakpoint(sm)
+      height: 80px
 
   &__logo
     margin: 0 35px 0 0
-    +breakpoint(md)
+    +breakpoint(sm)
       margin: 0 70px 0 0
     +breakpoint(lg)
       margin: 0 40px 0 0
@@ -23,16 +24,16 @@
     .logo-full
       display: none
       visibility: hidden
-      +breakpoint(sm)
+      +breakpoint(420)
         display: inline-block
         visibility: visible
     .logo-min
-      +breakpoint(sm)
+      +breakpoint(420)
         display: none
         visibility: hidden
     img
       max-height: 24px
-      +breakpoint(md)
+      +breakpoint(sm)
         max-height: 41px
 
   &__contacts
@@ -44,7 +45,7 @@
     svg
       fill: #ffffff
       margin: 0 10px 0 0
-      +breakpoint(md)
+      +breakpoint(sm)
         margin: 0 15px 0 0
 
   &__phones
@@ -55,7 +56,7 @@
       white-space: nowrap
       &:hover
         color: #7EB5F9
-      +breakpoint(md)
+      +breakpoint(sm)
         font-size: 16px
 
   &__cart

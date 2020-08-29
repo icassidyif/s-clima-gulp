@@ -1,12 +1,16 @@
 .parallax
-  min-height: 100vh
-  padding: 50px 0 0 0
+  padding: 50px 0 55px 0
   display: flex
   flex-direction: column
   position: relative
-  z-index: -1
-  +breakpoint(md)
-    padding: 150px 0 0 0
+  z-index: 1
+  +breakpoint(sm)
+    padding: 80px 0 45px 0
+  +breakpoint(lg)
+    min-height: 100vh
+
+  &__container
+
 
   &__scene
 
@@ -31,16 +35,65 @@
     background: url("../img/main-parallax/layer-4.png") center top no-repeat
     background-size: cover
 
-  &__container
+  &__content
     display: flex
-    flex: 1 0 auto
     flex-direction: column
     width: 100%
-    padding: 20px 15px
+    max-width: 500px
+    padding: 50px 0
+    position: relative
+    margin: 0 0 55px 0
+    +breakpoint(lg)
+      //margin: 40px 0 55px 0
+      margin: 0
+    &:before
+      content: ''
+      position: absolute
+      width: 300%
+      left: -100%
+      top: 0
+      bottom: 0
+      background: rgba(0, 0, 0, 0.1)
+      +breakpoint(lg)
+        width: 130%
+        left: -15%
+        transform: skew(-.312rad)
+
+
+  &__desc
+    font-size: 18px
+    line-height: 28px
+    color: #ffffff
+    display: block
+    margin: 0 0 20px 0
+    z-index: 1
+    +breakpoint(sm)
+      font-size: 20px
+      line-height: 34px
+
+  &__btn
+    display: flex
+    justify-content: flex-start
+    z-index: 1
+
 
   &__body
     flex: 1 0 auto
-    width: 100%
     display: flex
     flex-direction: column
-    padding: 20px 0
+    z-index: 1
+    justify-content: center
+
+
+
+  &__title
+    font-size: 35px
+    line-height: 40px
+    padding: 0 0 0 25px
+    margin: 0 0 20px 0
+    &:before
+      width: 7px
+      background-color: #D11586
+    +breakpoint(sm)
+      font-size: 42px
+      line-height: 49px

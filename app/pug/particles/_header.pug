@@ -1,42 +1,40 @@
 -let mainMenu = {'Головна': '#', 'Каталог': '#','Готові роботи':'#','Статті': '#', 'Контакти': '#'};
 header.header
   .header__container.container
-    .header__row.row
-      .header__column.column
-        .header__body
-          a(href='#').header__logo
-            +image('logo-min.png','logo-min')
-            +image('logo.png', 'logo-full')
-          .header__contacts
-            +icon('phone')
-            .header__phones
-              a(href='tel:+380507777777').link.link_2 (050) 77-77-777
-              a(href='tel:+380507777777').link.link_2 (050) 77-77-777
-          nav.header__menu.menu
+    .header__body
+      a(href='#').header__logo
+        +image('logo-min.png','logo-min')
+        +image('logo.png', 'logo-full')
+      .header__contacts
+        +icon('phone')
+        .header__phones
+          a(href='tel:+380507777777').link.link_2 (050) 77-77-777
+          a(href='tel:+380507777777').link.link_2 (050) 77-77-777
+      nav.header__menu.menu
+        ul
+          li
+            a(href='#').active Головна
+          li
+            a(href='#') Каталог
             ul
               li
-                a(href='#').active Головна
+                a(href='#') Кондиціонери
               li
-                a(href='#') Каталог
-                ul
-                  li
-                    a(href='#') Кондиціонери
-                  li
-                    a(href='#') Осушувачі/Очищувачі повітря
-                  li
-                    a(href='#') Теплові завіси
-                  li
-                    a(href='#') Теплові насоси
-                  li
-                    a(href='#') Вентиляція
+                a(href='#') Осушувачі/Очищувачі повітря
               li
-                a(href='#') Роботи
+                a(href='#') Теплові завіси
               li
-                a(href='#') Статті
+                a(href='#') Теплові насоси
               li
-                a(href='#') Контакти
-          .header__cart
-            +icon('cart')
-            span 4
-          .burger-menu
-            span
+                a(href='#') Вентиляція
+          li
+            a(href='#') Роботи
+          li
+            a(href='#') Статті
+          li
+            a(href='#') Контакти
+      .header__cart
+        +icon('cart')
+        span 4
+      .burger-menu
+        span

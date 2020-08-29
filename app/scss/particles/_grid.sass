@@ -1,15 +1,23 @@
 .container
   max-width: $container-width
+  width: 100%
   margin: 0 auto
-  padding: 0 $gutter/2
+  padding: 0 $gutter/2-$diff-padd
+  overflow: hidden
+  +breakpoint(lg)
+    overflow: visible
+  +breakpoint(md)
+    padding: 0 $gutter/2
+
 
 .row
   display: flex
   flex-wrap: wrap
   margin: 0 #{-$gutter/2}
+
 .column
   width: 100%
-  padding: 0 $gutter/2-$diff-padd
+  padding: 0 $gutter/2
   @each $dim in $dims
     &-#{$dim}
       +breakpoint($dim)
@@ -20,10 +28,7 @@
               &-#{$i}-#{$j}
                 width: percentage(1/$j)*$i
 
-  +breakpoint(md)
-    padding: 0 $gutter+10px
-  +breakpoint(lg)
-    padding: 0 $gutter/2
+
 
 
 //  atomic automatic step
