@@ -1775,29 +1775,6 @@ no-webp .parallax__layer-4 {
   background-color: #D11586;
 }
 
-.parallax__arrow {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  width: 15px;
-  height: 15px;
-  border-left: 2px solid rgba(255, 255, 255, 0.6);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
-}
-
-.parallax__arrow_1 {
-  -webkit-animation: arrow-animation-1 infinite 2s;
-          animation: arrow-animation-1 infinite 2s;
-}
-
-.parallax__arrow_2 {
-  border-left: 2px solid rgba(255, 255, 255, 0.4);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-  bottom: 17px;
-  -webkit-animation: arrow-animation-2 infinite 2s;
-          animation: arrow-animation-2 infinite 2s;
-}
-
 @-webkit-keyframes arrow-animation-1 {
   from {
     -webkit-transform: translateX(-50%) rotate(-45deg) translateY(-20px);
@@ -2727,6 +2704,29 @@ no-webp .parallax__layer-4 {
     -webkit-transform: skew(-0.312rad);
         -ms-transform: skew(-0.312rad);
             transform: skew(-0.312rad);
+  }
+
+  .parallax__arrow {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border-left: 2px solid rgba(255, 255, 255, 0.6);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .parallax__arrow_1 {
+    -webkit-animation: arrow-animation-1 infinite 2s;
+            animation: arrow-animation-1 infinite 2s;
+  }
+
+  .parallax__arrow_2 {
+    border-left: 2px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    bottom: 17px;
+    -webkit-animation: arrow-animation-2 infinite 2s;
+            animation: arrow-animation-2 infinite 2s;
   }
 
   .references__column:not(:last-child) {
