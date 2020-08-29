@@ -1678,14 +1678,18 @@ body.lock {
   flex-direction: column;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 .parallax__layer {
   position: absolute;
-  top: 0;
+  top: -2%;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: -2%;
+  transition: -webkit-transform .1s ease-out;
+  transition: transform .1s ease-out;
+  transition: transform .1s ease-out, -webkit-transform .1s ease-out;
 }
 
 .parallax__bg {
