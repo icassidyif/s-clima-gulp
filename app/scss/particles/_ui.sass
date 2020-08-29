@@ -230,12 +230,40 @@
   text-transform: uppercase
   //background-color: #D11586
   padding: 15px 25px
+  //border: 1px solid #ffffff
+
+  &:after,
   &:before
     content: ''
     position: absolute
-    padding: 15px 25px
-    background-color: #D11586
+    top: 0
+    bottom: 0
+    width: 65%
     z-index: -1
+    transition: all .2s ease-out
+
+  &:after
+    left: -5%
+    background-color: #D11586
+    transform: translate(0px,-20%) skew(-.312rad)
+
+  &:before
+    right: -5%
+    background-color: #7EB5F9
+    transform: translate(0px,20%) skew(-.312rad)
+    opacity: 1
+
+  &:hover
+    &:after
+      left: 0
+      width: 100%
+      transform: translate(0px,0px) skew(0)
+    &:before
+      right: 0
+      width: 100%
+      transform: translate(0px,0px) skew(0)
+      opacity: 0
+
 
 
 
