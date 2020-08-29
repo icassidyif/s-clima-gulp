@@ -1140,26 +1140,26 @@ img.mfp-img {
 
 .svg-experience {
   fill: #ffffff;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .svg-professionalizm {
   fill: #ffffff;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .svg-complex {
   fill: #ffffff;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .svg-economy {
   fill: #ffffff;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .burger-menu {
@@ -1294,8 +1294,8 @@ img.mfp-img {
 
 .menu a {
   display: inline-block;
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
   line-height: 19px;
   color: #ffffff;
   text-transform: uppercase;
@@ -1329,8 +1329,8 @@ img.mfp-img {
 
 .link {
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 500;
   line-height: 1.5625em;
   color: #D11586;
   letter-spacing: 0.16em;
@@ -1716,7 +1716,7 @@ no-webp .parallax__layer-4 {
   flex-direction: column;
   width: 100%;
   max-width: 500px;
-  padding: 35px 0;
+  padding: 40px 0;
   position: relative;
   margin: 0 0 55px 0;
 }
@@ -1733,7 +1733,7 @@ no-webp .parallax__layer-4 {
 
 .parallax__desc {
   font-size: 18px;
-  line-height: 28px;
+  line-height: 30px;
   color: #ffffff;
   display: block;
   margin: 0 0 20px 0;
@@ -1814,8 +1814,8 @@ no-webp .parallax__layer-4 {
 }
 
 .references__desc {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 22px;
   color: #CDE3FF;
   display: none;
   visibility: hidden;
@@ -2289,21 +2289,16 @@ no-webp .parallax__layer-4 {
   }
 
   .header__phones a {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .parallax {
     padding: 80px 0 45px 0;
   }
 
-  .parallax__desc {
-    font-size: 20px;
-    line-height: 34px;
-  }
-
   .parallax__title {
-    font-size: 42px;
-    line-height: 49px;
+    font-size: 38px;
+    line-height: 45px;
   }
 
   .references__header {
@@ -2311,7 +2306,7 @@ no-webp .parallax__layer-4 {
   }
 
   .references__label {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
   }
 
@@ -2425,8 +2420,8 @@ no-webp .parallax__layer-4 {
   }
 
   .references__icon {
-    min-width: 55px;
-    min-height: 47px;
+    min-width: 48px;
+    min-height: 41px;
   }
 
   .slick-slide {
