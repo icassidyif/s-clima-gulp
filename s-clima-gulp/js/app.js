@@ -144,8 +144,17 @@ document.addEventListener('scrollStart', function (e) {
   menu.classList.remove('active');
   body.classList.remove('lock');
 }, false); //=========================================================================
-//=include ./particles/parallax.js
-////=include ./particles/swipper.js
+
+function parallaxEffect(event) {
+  layers.forEach(function (layer) {
+    var speed = layer.getAttribute('data-speed');
+    layer.style.transform = "translate(".concat(event.clientX * speed / 1000, "px, ").concat(event.clientY * speed / 1300, "px )");
+  });
+}
+
+var parallax = document.querySelector('.parallax');
+var layers = parallax.querySelectorAll('.parallax__layer');
+parallax.addEventListener('mousemove', parallaxEffect); ////=include ./particles/swipper.js
 
 $(document).ready(function () {
   $('.popup-gallery').magnificPopup({

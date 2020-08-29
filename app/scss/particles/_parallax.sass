@@ -4,6 +4,7 @@
   flex-direction: column
   position: relative
   z-index: 1
+  overflow: hidden
   +breakpoint(sm)
     padding: 80px 0 25px 0
   +breakpoint(lg)
@@ -13,14 +14,13 @@
   &__container
 
 
-  &__scene
-
   &__layer
     position: absolute
-    top: 0
+    top: -2%
     right: 0
     bottom: 0
-    left: 0
+    left: -2%
+    transition: transform .1s ease-out
   &__bg
     background: linear-gradient(180deg, #4C79C3 0%, #7FA5E0 46.52%, #A3BEF4 100%)
   &__layer-1
