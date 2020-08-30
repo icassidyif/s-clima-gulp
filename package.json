@@ -48,6 +48,7 @@
     "jquery-mask-plugin": "^1.14.16",
     "jquery-validation": "^1.19.2",
     "magnific-popup": "^1.1.0",
+    "materialize-css": "^1.0.0-rc.2",
     "slick-carousel": "^1.8.1",
     "smooth-scroll": "^16.1.3"
   },

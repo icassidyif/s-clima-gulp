@@ -64,6 +64,7 @@ let path = {
   },
   clean: `./${projectFolder}/`
 };
+
 //--------------------------------------------------------------------------
 
 // Налаштування browserSync
@@ -126,13 +127,6 @@ function jsVendorsCompiler() {
     .pipe(changed(projectFolder))
     .pipe(plumberNotifier())
     .pipe(include())
-    .pipe(babel({
-        compact: false
-    }
-    ))
-    .pipe(uglify({
-      toplevel: true
-    }))
     .pipe(dest(path.build.js))
     .pipe(browsersync.stream())
 }
