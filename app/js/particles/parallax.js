@@ -4,6 +4,15 @@ function parallaxEffect(event) {
     layer.style.transform = `translate(${event.clientX * speed / 1000}px, ${event.clientY * speed / 1300}px )`;
   })
 }
-let parallax = document.querySelector('.parallax');
-let layers = parallax.querySelectorAll('.parallax__layer');
+let parallax = document.querySelector('.parallax-main');
+let layers = parallax.querySelectorAll('.parallax-main__layer');
 parallax.addEventListener('mousemove', parallaxEffect);
+
+
+
+//Scroll parallax
+document.addEventListener('DOMContentLoaded', function() {
+  let elems = document.querySelectorAll('.parallax');
+  let instances = M.Parallax.init(elems);
+});
+//end scroll parallax

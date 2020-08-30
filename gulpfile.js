@@ -154,12 +154,12 @@ function imgCompiler() {
   return src(path.app.img)
       .pipe(changed(projectFolder))
       .pipe(plumberNotifier())
-      .pipe(webp({quality: 70}))
+      .pipe(webp({quality: 85}))
       .pipe(dest(path.build.img))
       .pipe(src(path.app.img))
       .pipe(imagemin({
         progressive: true,
-        svgoPlugins: [{removeViewBox: false}],
+        svgoPlugins: [{removeViewBox: true}],
         interlaced: true,
         optimizationlevel: 3  //0 to 7
       }))

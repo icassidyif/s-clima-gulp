@@ -137,13 +137,7 @@ var scroll = new SmoothScroll('a[href*="#"]', {
   updateURL: true,
   popstate: true
 }); //=========================================================================
-//=========================================================================//listeners========================================================
-
-document.addEventListener('scrollStart', function (e) {
-  burgerMenu.classList.remove('active');
-  menu.classList.remove('active');
-  body.classList.remove('lock');
-}, false); //=========================================================================
+//=========================================================================//
 
 function parallaxEffect(event) {
   layers.forEach(function (layer) {
@@ -152,9 +146,15 @@ function parallaxEffect(event) {
   });
 }
 
-var parallax = document.querySelector('.parallax');
-var layers = parallax.querySelectorAll('.parallax__layer');
-parallax.addEventListener('mousemove', parallaxEffect); ////=include ./particles/swipper.js
+var parallax = document.querySelector('.parallax-main');
+var layers = parallax.querySelectorAll('.parallax-main__layer');
+parallax.addEventListener('mousemove', parallaxEffect); //Scroll parallax
+
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.parallax');
+  var instances = M.Parallax.init(elems);
+}); //end scroll parallax
+////=include ./particles/swipper.js
 
 $(document).ready(function () {
   $('.popup-gallery').magnificPopup({
