@@ -23,7 +23,7 @@ function changeMaxHeight (li, ul, height) {
     ul.style.maxHeight = height + 'px';
   } else {
     li.classList.add('closed');
-    ul.style.maxHeight = 0;
+    ul.style.maxHeight = `0px`;
   }
 }
 

@@ -1241,7 +1241,7 @@ img.mfp-img {
 .menu > ul .has-submenu ul {
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  padding: 0 0 0 10px 0;
+  padding: 0 0 0 10px;
 }
 
 .menu > ul .has-submenu ul a {
@@ -1387,52 +1387,8 @@ img.mfp-img {
   font-weight: 900;
   letter-spacing: .16em;
   text-transform: uppercase;
-  padding: 15px 25px;
-}
-
-.btn:after,
-.btn:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 65%;
-  z-index: -1;
-  transition: all .2s ease-out;
-}
-
-.btn:after {
-  left: -5%;
   background-color: #D11586;
-  -webkit-transform: translate(0px, -20%) skew(-0.312rad);
-      -ms-transform: translate(0px, -20%) skew(-0.312rad);
-          transform: translate(0px, -20%) skew(-0.312rad);
-}
-
-.btn:before {
-  right: -5%;
-  background-color: #7EB5F9;
-  -webkit-transform: translate(0px, 20%) skew(-0.312rad);
-      -ms-transform: translate(0px, 20%) skew(-0.312rad);
-          transform: translate(0px, 20%) skew(-0.312rad);
-  opacity: 1;
-}
-
-.btn:hover:after {
-  left: 0;
-  width: 100%;
-  -webkit-transform: translate(0px, 0px) skew(0);
-      -ms-transform: translate(0px, 0px) skew(0);
-          transform: translate(0px, 0px) skew(0);
-}
-
-.btn:hover:before {
-  right: 0;
-  width: 100%;
-  -webkit-transform: translate(0px, 0px) skew(0);
-      -ms-transform: translate(0px, 0px) skew(0);
-          transform: translate(0px, 0px) skew(0);
-  opacity: 0;
+  padding: 15px 25px;
 }
 
 .form {
@@ -2702,7 +2658,7 @@ no-webp .parallax__layer-4 {
     background-color: rgba(255, 255, 255, 0.8);
     position: absolute;
     display: block;
-    padding: 0 20px;
+    padding: 0 30px;
   }
 
   .menu > ul .has-submenu ul a {
@@ -2714,8 +2670,66 @@ no-webp .parallax__layer-4 {
     color: #7EB5F9;
   }
 
+  .menu > ul .has-submenu ul > li:first-child {
+    padding: 20px 0 0 0;
+  }
+
+  .menu > ul .has-submenu ul > li:last-child {
+    padding: 0 0 20px 0;
+  }
+
   .menu > ul > li {
     margin: 0 25px 0 0;
+  }
+
+  .btn {
+    background: none;
+  }
+
+  .btn:after,
+  .btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 65%;
+    z-index: -1;
+    transition: all .2s ease-out;
+    pointer-events: none;
+  }
+
+  .btn:after {
+    left: -5%;
+    background-color: #D11586;
+    -webkit-transform: translate(0px, -20%) skew(-0.312rad);
+        -ms-transform: translate(0px, -20%) skew(-0.312rad);
+            transform: translate(0px, -20%) skew(-0.312rad);
+  }
+
+  .btn:before {
+    right: -5%;
+    background-color: #7EB5F9;
+    -webkit-transform: translate(0px, 20%) skew(-0.312rad);
+        -ms-transform: translate(0px, 20%) skew(-0.312rad);
+            transform: translate(0px, 20%) skew(-0.312rad);
+    opacity: 1;
+  }
+
+  .btn:hover:after {
+    left: 0;
+    width: 100%;
+    -webkit-transform: translate(0px, 0px) skew(0);
+        -ms-transform: translate(0px, 0px) skew(0);
+            transform: translate(0px, 0px) skew(0);
+  }
+
+  .btn:hover:before {
+    right: 0;
+    width: 100%;
+    -webkit-transform: translate(0px, 0px) skew(0);
+        -ms-transform: translate(0px, 0px) skew(0);
+            transform: translate(0px, 0px) skew(0);
+    opacity: 0;
   }
 
   .header__logo {

@@ -79,12 +79,12 @@
         overflow: hidden
         //max-height generating via JavaScript
         transition: max-height 0.3s ease-out
-        padding: 0 0 0 10px 0
+        padding: 0 0 0 10px
         +breakpoint(lg)
           background-color: rgba(255, 255, 255, 0.8)
           position: absolute
           display: block
-          padding: 0 20px
+          padding: 0 30px
         a
           font-size: 14px
           padding: 10px 0
@@ -94,6 +94,12 @@
             &:hover
               color: #7EB5F9
         > li
+          +breakpoint(lg)
+            &:first-child
+              padding: 20px 0 0 0
+            &:last-child
+              padding: 0 0 20px 0
+
           //&:first-child
           //  a
           //    +breakpoint(lg)
@@ -228,54 +234,41 @@
   font-weight: 900
   letter-spacing: .16em
   text-transform: uppercase
-  //background-color: #D11586
+  background-color: #D11586
   padding: 15px 25px
-  //border: 1px solid #ffffff
-
-  &:after,
-  &:before
-    content: ''
-    position: absolute
-    top: 0
-    bottom: 0
-    width: 65%
-    z-index: -1
-    transition: all .2s ease-out
-
-  &:after
-    left: -5%
-    background-color: #D11586
-    transform: translate(0px,-20%) skew(-.312rad)
-
-  &:before
-    right: -5%
-    background-color: #7EB5F9
-    transform: translate(0px,20%) skew(-.312rad)
-    opacity: 1
-
-  &:hover
-    &:after
-      left: 0
-      width: 100%
-      transform: translate(0px,0px) skew(0)
+  +breakpoint(lg)
+    background: none
+    &:after,
     &:before
-      right: 0
-      width: 100%
-      transform: translate(0px,0px) skew(0)
-      opacity: 0
+      content: ''
+      position: absolute
+      top: 0
+      bottom: 0
+      width: 65%
+      z-index: -1
+      transition: all .2s ease-out
+      pointer-events: none
 
+    &:after
+      left: -5%
+      background-color: #D11586
+      transform: translate(0px,-20%) skew(-.312rad)
 
+    &:before
+      right: -5%
+      background-color: #7EB5F9
+      transform: translate(0px,20%) skew(-.312rad)
+      opacity: 1
 
-
-  &_min
-    //display: inline-block
-    //color: #ffffff
-    //font-size: 14px
-    //line-height: 25px
-    //font-weight: 900
-    //letter-spacing: .16em
-    //text-transform: uppercase
-    //background-color: #D11586
-    //padding: 15px 25px
+    &:hover
+      &:after
+        left: 0
+        width: 100%
+        transform: translate(0px,0px) skew(0)
+      &:before
+        right: 0
+        width: 100%
+        transform: translate(0px,0px) skew(0)
+        opacity: 0
 
 // End BTN STYLES
