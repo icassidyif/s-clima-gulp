@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('.slider').slick({
+  $('.comments__slider').slick({
     arrows: true,
     dots: true,
     adaptiveHeight: true,

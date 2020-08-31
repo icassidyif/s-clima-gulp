@@ -50,6 +50,7 @@ let path = {
   app: {
     html: `${sourceFolder}/pug/*.pug`,
     css: `${sourceFolder}/scss/style.sass`,
+    cssVendor: `${sourceFolder}/scss/style-vendors.sass`,
     js: `${sourceFolder}/js/app.js`,
     jsVendors: `${sourceFolder}/js/vendors.js`,
     img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
@@ -58,6 +59,7 @@ let path = {
   watch: {
     html: `${sourceFolder}/pug/**/*.pug`,
     css: `${sourceFolder}/scss/**/*.sass`,
+    cssVendor: `${sourceFolder}/scss/style-vendors.sass`,
     js: `${sourceFolder}/js/**/*.js`,
     img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
     favicon: `${sourceFolder}/img/favicon.png}`
@@ -95,7 +97,25 @@ function htmlCompiler() {
       .pipe(browsersync.stream())
 }
 //--------------------------------------------------------------------------
-
+// Переганяэмо файли стилів бібліотек та мініфікуємо-----------------------------------
+function cssVendorCompiler() {
+  return src(path.app.cssVendor)
+    .pipe(changed(projectFolder))
+    .pipe(plumberNotifier())
+    .pipe(sourcemaps.init())
+    .pipe(sass({outputStyle: 'expanded', importer: tildeImporter, includePaths: require("scss-resets").includePaths}))
+    .pipe(groupmedia())
+    .pipe(autoprefixer({
+      cascade: true
+    }))
+    .pipe(sourcemaps.write('/'))
+    .pipe(dest(path.build.css))
+    .pipe(cleanCSS({level:2}))
+    .pipe(rename({extname: '.min.css'}))
+    .pipe(sourcemaps.write('/'))
+    .pipe(dest(path.build.css))
+    .pipe(browsersync.stream())
+}
 // Переганяэмо файли стилів і мініфікуємо-----------------------------------
 function cssCompiler() {
   return src(path.app.css)
@@ -341,12 +361,13 @@ function cb() {
 function watcher() {
   watch(path.watch.html, htmlCompiler);
   watch(path.watch.css, cssCompiler);
+  watch(path.watch.cssVendor, cssVendorCompiler);
   watch(path.watch.js, parallel(jsVendorsCompiler, jsCompiler));
   watch(path.watch.img, imgCompiler);
 }
 //--------------------------------------------------------------------------
 
-let build = series(clean, parallel(htmlCompiler,cssCompiler,jsVendorsCompiler,jsCompiler,imgCompiler,fonts),fontsStyle,svgSprite);
+let build = series(clean, parallel(htmlCompiler,cssCompiler,cssVendorCompiler,jsVendorsCompiler,jsCompiler,imgCompiler,fonts),fontsStyle,svgSprite);
 let dev = parallel(build, watcher, browserSync);
 let favicon = series(generateFavicon,injectFaviconMarkups);
 
@@ -354,6 +375,7 @@ let favicon = series(generateFavicon,injectFaviconMarkups);
 exports.clean = clean;
 exports.htmlCompiler = htmlCompiler;
 exports.cssCompiler = cssCompiler;
+exports.cssVendorCompiler = cssVendorCompiler;
 exports.jsCompiler = jsCompiler;
 exports.jsVendorsCompiler = jsVendorsCompiler;
 exports.imgCompiler = imgCompiler;

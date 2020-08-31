@@ -16,6 +16,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style-vendors.min.css" type="text/css">
   <link rel="stylesheet" href="css/style.min.css" type="text/css">
 </head>
 
@@ -23,18 +24,18 @@
 
 <body>
   <div class="wrapper">
-    <header class="header">
-      <div class="header__container container">
-        <div class="header__body"><a class="header__logo" href="#">
+    <header class="header-main">
+      <div class="header-main__container container">
+        <div class="header-main__body"><a class="header-main__logo" href="#">
             <picture>
               <source srcset="img/logo-min.webp" type="image/webp"><img class="logo-min" src="img/logo-min.png" alt="logo-min.png" /></picture><img class="logo-full" src="img/logo.png" alt="logo.png" />
           </a>
-          <div class="header__contacts"><svg class="svg-phone ">
+          <div class="header-main__contacts"><svg class="svg-phone ">
               <use xlink:href="img/icons/icons.svg#phone"></use>
             </svg>
-            <div class="header__phones"><a class="link link_2" href="tel:+380507777777">(050) 77-77-777</a><a class="link link_2" href="tel:+380507777777">(050) 77-77-777</a></div>
+            <div class="header-main__phones"><a class="link link_2" href="tel:+380507777777">(050) 77-77-777</a><a class="link link_2" href="tel:+380507777777">(050) 77-77-777</a></div>
           </div>
-          <nav class="header__menu menu">
+          <div class="header-main__menu menu-main">
             <ul>
               <li><a class="active" href="#">Головна</a></li>
               <li><a href="#">Каталог</a>
@@ -50,7 +51,7 @@
               <li><a href="#">Статті</a></li>
               <li><a href="#">Контакти</a></li>
             </ul>
-          </nav><a class="header__cart" href="#"><svg class="svg-cart ">
+          </div><a class="header-main__cart" href="#"><svg class="svg-cart ">
               <use xlink:href="img/icons/icons.svg#cart"></use>
             </svg><span>4</span></a>
           <div class="burger-menu"><span></span></div>
@@ -69,7 +70,7 @@
         <div class="parallax-main__container container">
           <div class="parallax-main__content">
             <h1 class="parallax-main__title title">Створіть свій мікроклімат з S-Clima</h1><span class="parallax-main__desc">Пропонуємо комплексний підхід до проєктування та встановлення систем вентиляції, кондиціонування та опалення для промислових та побутових об'єктів.</span>
-            <div class="parallax-main__btn"><a class="btn" href="#">Підібрати</a></div>
+            <div class="parallax-main__btn"><a class="btn-main" href="#">Підібрати</a></div>
           </div>
         </div>
       </div>
@@ -131,7 +132,13 @@
     <!--  |Content-->
     <section class="comments">
       <div class="comments__parallax parallax-container">
-        <div class="parallax"><img src="img/household.jpg"></div>
+        <div class="parallax"><img src="img/comments_fon.png"><span>ldfkldkflklk</span>
+          <div class="comments__slider">
+            <div>your content</div>
+            <div>your content</div>
+            <div>your content</div>
+          </div>
+        </div>
       </div>
     </section>
     <footer class="footer" id="footer">

@@ -12,7 +12,7 @@ parallax.addEventListener('mousemove', parallaxEffect);
 
 //Scroll parallax
 document.addEventListener('DOMContentLoaded', function() {
-  let elems = document.querySelectorAll('.parallax');
-  let instances = M.Parallax.init(elems);
+  var elems = document.querySelectorAll('.parallax');
+  var instances = M.Parallax.init(elems);
 });
 //end scroll parallax

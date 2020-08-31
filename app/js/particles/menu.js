@@ -5,7 +5,7 @@ console.log(supportsTouch);
 //Menu BURGER
 let burgerMenu = document.querySelector('.burger-menu');
 let body = document.querySelector('body');
-let menu = document.querySelector('.menu');
+let menu = document.querySelector('.menu-main');
 if(burgerMenu != null){
   burgerMenu.addEventListener('click', () => {
     burgerMenu.classList.toggle('active');
@@ -27,7 +27,7 @@ function changeMaxHeight (li, ul, height) {
   }
 }
 
-let hasSubmenus = document.querySelectorAll('.menu ul li a:not(:only-child)');
+let hasSubmenus = document.querySelectorAll('.menu-main ul li a:not(:only-child)');
 
 hasSubmenus.forEach(element => {
   let subMenu = element.parentElement.querySelector('ul');

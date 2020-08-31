@@ -91,7 +91,7 @@ console.log(supportsTouch); //Menu BURGER
 
 var burgerMenu = document.querySelector('.burger-menu');
 var body = document.querySelector('body');
-var menu = document.querySelector('.menu');
+var menu = document.querySelector('.menu-main');
 
 if (burgerMenu != null) {
   burgerMenu.addEventListener('click', function () {
@@ -113,7 +113,7 @@ function changeMaxHeight(li, ul, height) {
   }
 }
 
-var hasSubmenus = document.querySelectorAll('.menu ul li a:not(:only-child)');
+var hasSubmenus = document.querySelectorAll('.menu-main ul li a:not(:only-child)');
 hasSubmenus.forEach(function (element) {
   var subMenu = element.parentElement.querySelector('ul');
   var heightSubmenu = subMenu.clientHeight;
@@ -398,7 +398,7 @@ $('#languagesForm').validate({
   }
 });
 $(document).ready(function () {
-  $('.slider').slick({
+  $('.comments__slider').slick({
     arrows: true,
     dots: true,
     adaptiveHeight: true,

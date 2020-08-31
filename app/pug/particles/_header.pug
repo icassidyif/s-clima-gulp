@@ -1,16 +1,15 @@
--let mainMenu = {'Головна': '#', 'Каталог': '#','Готові роботи':'#','Статті': '#', 'Контакти': '#'};
-header.header
-  .header__container.container
-    .header__body
-      a(href='#').header__logo
+header.header-main
+  .header-main__container.container
+    .header-main__body
+      a(href='#').header-main__logo
         +image('logo-min.png','logo-min')
         +image('logo.png', 'logo-full')
-      .header__contacts
+      .header-main__contacts
         +icon('phone')
-        .header__phones
+        .header-main__phones
           a(href='tel:+380507777777').link.link_2 (050) 77-77-777
           a(href='tel:+380507777777').link.link_2 (050) 77-77-777
-      nav.header__menu.menu
+      .header-main__menu.menu-main
         ul
           li
             a(href='#').active Головна
@@ -33,7 +32,7 @@ header.header
             a(href='#') Статті
           li
             a(href='#') Контакти
-      a(href='#').header__cart
+      a(href='#').header-main__cart
         +icon('cart')
         span 4
       .burger-menu
