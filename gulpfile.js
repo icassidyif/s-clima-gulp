@@ -277,7 +277,7 @@ function svgSprite() {
       }))
       .pipe(cheerio({
         run: function ($) {
-          $('[fill]').removeAttr('fill');
+          //$('[fill]').removeAttr('fill');
           $('[stroke]').removeAttr('stroke');
           $('[style]').removeAttr('style');
         },
@@ -287,11 +287,11 @@ function svgSprite() {
       .pipe(plumberNotifier())
       .pipe(svgsprite({
         mode: {
-          symbol: {
+          stack: {
             dest: 'icons/',
             sprite: 'icons.svg',
             render: {
-              scss: true // Activate Sass output (with default options)
+              scss: true
             },
             example: true
           }

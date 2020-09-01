@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG CSS sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		<style>i{text-indent:200%;white-space:nowrap;overflow:hidden;display:inline-block;background-size:225px 197px!important}</style>
+
+<!--
+
+Sprite CSS
+====================================================================================================
+This is an all-in-one inline version of the CSS necessary to use the SVG sprite.
+
+-->
+
+<style type="text/css">
+.svg-add-room {
+	background: url("icons2-12be7fb7.svg") 10.471204188481675% 80.3680981595092% no-repeat;
+	width: 34px;
+	height: 34px;
+}
+.svg-cart {
+	background: url("icons2-12be7fb7.svg") 14.925373134328359% 98.23529411764706% no-repeat;
+	width: 24px;
+	height: 27px;
+}
+.svg-check {
+	background: url("icons2-12be7fb7.svg") 57.57575757575758% 74.85714285714286% no-repeat;
+	width: 27px;
+	height: 22px;
+}
+.svg-close-modal {
+	background: url("icons2-12be7fb7.svg") 27.272727272727273% 98.23529411764706% no-repeat;
+	width: 27px;
+	height: 27px;
+}
+.svg-close-small {
+	background: url("icons2-12be7fb7.svg") 40.375586854460096% 59.45945945945946% no-repeat;
+	width: 12px;
+	height: 12px;
+}
+.svg-complex {
+	background: url("icons2-12be7fb7.svg") 40.5% 95.97701149425288% no-repeat;
+	width: 25px;
+	height: 23px;
+}
+.svg-economy {
+	background: url("icons2-12be7fb7.svg") 100% 0 no-repeat;
+	width: 25px;
+	height: 25px;
+}
+.svg-email {
+	background: url("icons2-12be7fb7.svg") 98.52216748768473% 97.76536312849161% no-repeat;
+	width: 22px;
+	height: 18px;
+}
+.svg-experience {
+	background: url("icons2-12be7fb7.svg") 98.03921568627452% 14.534883720930232% no-repeat;
+	width: 21px;
+	height: 25px;
+}
+.svg-fb {
+	background: url("icons2-12be7fb7.svg") 95.23809523809524% 29.069767441860463% no-repeat;
+	width: 15px;
+	height: 25px;
+}
+.svg-fb-fill {
+	background: url("icons2-12be7fb7.svg") 83.5680751173709% 58.959537572254334% no-repeat;
+	width: 12px;
+	height: 24px;
+}
+.svg-home {
+	background: url("icons2-12be7fb7.svg") 32.19512195121951% 62.14689265536723% no-repeat;
+	width: 20px;
+	height: 20px;
+}
+.svg-insta {
+	background: url("icons2-12be7fb7.svg") 100% 43.604651162790695% no-repeat;
+	width: 25px;
+	height: 25px;
+}
+.svg-insta-fill {
+	background: url("icons2-12be7fb7.svg") 69.45812807881774% 74.85714285714286% no-repeat;
+	width: 22px;
+	height: 22px;
+}
+.svg-locate {
+	background: url("icons2-12be7fb7.svg") 98.03921568627452% 58.13953488372093% no-repeat;
+	width: 21px;
+	height: 25px;
+}
+.svg-phone {
+	background: url("icons2-12be7fb7.svg") 96.61835748792271% 72.67441860465117% no-repeat;
+	width: 18px;
+	height: 25px;
+}
+.svg-professionalizm {
+	background: url("icons2-12be7fb7.svg") 97.78038525471791% 87.20930232558139% no-repeat;
+	width: 20.46px;
+	height: 25px;
+}
+.svg-quote {
+	background: url("icons2-12be7fb7.svg") 0 100% no-repeat;
+	width: 30px;
+	height: 30px;
+}
+.svg-serv-cond {
+	background: url("icons2-12be7fb7.svg") 42.76729559748428% 0 no-repeat;
+	width: 66px;
+	height: 65px;
+}
+.svg-serv-dry-clean {
+	background: url("icons2-12be7fb7.svg") 40.993788819875775% 43.13725490196079% no-repeat;
+	width: 64px;
+	height: 44px;
+}
+.svg-serv-project {
+	background: url("icons2-12be7fb7.svg") 0 50% no-repeat;
+	width: 66px;
+	height: 65px;
+}
+.svg-serv-serv {
+	background: url("icons2-12be7fb7.svg") 84.27672955974843% 0 no-repeat;
+	width: 66px;
+	height: 66px;
+}
+.svg-serv-temp {
+	background: url("icons2-12be7fb7.svg") 74.03314917127072% 50% no-repeat;
+	width: 44px;
+	height: 65px;
+}
+.svg-serv-vent {
+	background: url("icons2-12be7fb7.svg") 0 0 no-repeat;
+	width: 68px;
+	height: 66px;
+}
+.svg-slide-next {
+	background: url("icons2-12be7fb7.svg") 86.82926829268293% 40.993788819875775% no-repeat;
+	width: 20px;
+	height: 36px;
+}
+.svg-slide-prev {
+	background: url("icons2-12be7fb7.svg") 0 81.36645962732919% no-repeat;
+	width: 20px;
+	height: 36px;
+}
+.svg-time {
+	background: url("icons2-12be7fb7.svg") 80.29556650246306% 74.85714285714286% no-repeat;
+	width: 22px;
+	height: 22px;
+}
+.svg-yt {
+	background: url("icons2-12be7fb7.svg") 27.835051546391753% 76.16279069767442% no-repeat;
+	width: 31px;
+	height: 25px;
+}
+.svg-yt-fill {
+	background: url("icons2-12be7fb7.svg") 43.36734693877551% 75.72254335260115% no-repeat;
+	width: 29px;
+	height: 24px;
+}
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG CSS sprite preview</h1>
+			<p>This preview features the generated SVG file as a conventional CSS sprite. The shapes are displayed as background images of several <code>&lt;i&gt;</code> elements.</p>
+		</header>
+		<section>
+
+<!--
+
+Conventional CSS sprite
+====================================================================================================
+This technique uses CSS classes to display portions of the sprite as background image of
+appropriately sized elements.
+
+-->
+
+			<ul>
+				<li title="add-room">
+					<div class="icon-box">
+
+						<!-- add-room -->
+						<i class="svg-add-room">add-room</i>
+
+					</div>
+					<h2>add-room</h2>
+				</li>
+				<li title="cart">
+					<div class="icon-box">
+
+						<!-- cart -->
+						<i class="svg-cart">cart</i>
+
+					</div>
+					<h2>cart</h2>
+				</li>
+				<li title="check">
+					<div class="icon-box">
+
+						<!-- check -->
+						<i class="svg-check">check</i>
+
+					</div>
+					<h2>check</h2>
+				</li>
+				<li title="close-modal">
+					<div class="icon-box">
+
+						<!-- close-modal -->
+						<i class="svg-close-modal">close-modal</i>
+
+					</div>
+					<h2>close-modal</h2>
+				</li>
+				<li title="close-small">
+					<div class="icon-box">
+
+						<!-- close-small -->
+						<i class="svg-close-small">close-small</i>
+
+					</div>
+					<h2>close-small</h2>
+				</li>
+				<li title="complex">
+					<div class="icon-box">
+
+						<!-- complex -->
+						<i class="svg-complex">complex</i>
+
+					</div>
+					<h2>complex</h2>
+				</li>
+				<li title="economy">
+					<div class="icon-box">
+
+						<!-- economy -->
+						<i class="svg-economy">economy</i>
+
+					</div>
+					<h2>economy</h2>
+				</li>
+				<li title="email">
+					<div class="icon-box">
+
+						<!-- email -->
+						<i class="svg-email">email</i>
+
+					</div>
+					<h2>email</h2>
+				</li>
+				<li title="experience">
+					<div class="icon-box">
+
+						<!-- experience -->
+						<i class="svg-experience">experience</i>
+
+					</div>
+					<h2>experience</h2>
+				</li>
+				<li title="fb">
+					<div class="icon-box">
+
+						<!-- fb -->
+						<i class="svg-fb">fb</i>
+
+					</div>
+					<h2>fb</h2>
+				</li>
+				<li title="fb-fill">
+					<div class="icon-box">
+
+						<!-- fb-fill -->
+						<i class="svg-fb-fill">fb-fill</i>
+
+					</div>
+					<h2>fb-fill</h2>
+				</li>
+				<li title="home">
+					<div class="icon-box">
+
+						<!-- home -->
+						<i class="svg-home">home</i>
+
+					</div>
+					<h2>home</h2>
+				</li>
+				<li title="insta">
+					<div class="icon-box">
+
+						<!-- insta -->
+						<i class="svg-insta">insta</i>
+
+					</div>
+					<h2>insta</h2>
+				</li>
+				<li title="insta-fill">
+					<div class="icon-box">
+
+						<!-- insta-fill -->
+						<i class="svg-insta-fill">insta-fill</i>
+
+					</div>
+					<h2>insta-fill</h2>
+				</li>
+				<li title="locate">
+					<div class="icon-box">
+
+						<!-- locate -->
+						<i class="svg-locate">locate</i>
+
+					</div>
+					<h2>locate</h2>
+				</li>
+				<li title="phone">
+					<div class="icon-box">
+
+						<!-- phone -->
+						<i class="svg-phone">phone</i>
+
+					</div>
+					<h2>phone</h2>
+				</li>
+				<li title="professionalizm">
+					<div class="icon-box">
+
+						<!-- professionalizm -->
+						<i class="svg-professionalizm">professionalizm</i>
+
+					</div>
+					<h2>professionalizm</h2>
+				</li>
+				<li title="quote">
+					<div class="icon-box">
+
+						<!-- quote -->
+						<i class="svg-quote">quote</i>
+
+					</div>
+					<h2>quote</h2>
+				</li>
+				<li title="serv-cond">
+					<div class="icon-box">
+
+						<!-- serv-cond -->
+						<i class="svg-serv-cond">serv-cond</i>
+
+					</div>
+					<h2>serv-cond</h2>
+				</li>
+				<li title="serv-dry-clean">
+					<div class="icon-box">
+
+						<!-- serv-dry-clean -->
+						<i class="svg-serv-dry-clean">serv-dry-clean</i>
+
+					</div>
+					<h2>serv-dry-clean</h2>
+				</li>
+				<li title="serv-project">
+					<div class="icon-box">
+
+						<!-- serv-project -->
+						<i class="svg-serv-project">serv-project</i>
+
+					</div>
+					<h2>serv-project</h2>
+				</li>
+				<li title="serv-serv">
+					<div class="icon-box">
+
+						<!-- serv-serv -->
+						<i class="svg-serv-serv">serv-serv</i>
+
+					</div>
+					<h2>serv-serv</h2>
+				</li>
+				<li title="serv-temp">
+					<div class="icon-box">
+
+						<!-- serv-temp -->
+						<i class="svg-serv-temp">serv-temp</i>
+
+					</div>
+					<h2>serv-temp</h2>
+				</li>
+				<li title="serv-vent">
+					<div class="icon-box">
+
+						<!-- serv-vent -->
+						<i class="svg-serv-vent">serv-vent</i>
+
+					</div>
+					<h2>serv-vent</h2>
+				</li>
+				<li title="slide-next">
+					<div class="icon-box">
+
+						<!-- slide-next -->
+						<i class="svg-slide-next">slide-next</i>
+
+					</div>
+					<h2>slide-next</h2>
+				</li>
+				<li title="slide-prev">
+					<div class="icon-box">
+
+						<!-- slide-prev -->
+						<i class="svg-slide-prev">slide-prev</i>
+
+					</div>
+					<h2>slide-prev</h2>
+				</li>
+				<li title="time">
+					<div class="icon-box">
+
+						<!-- time -->
+						<i class="svg-time">time</i>
+
+					</div>
+					<h2>time</h2>
+				</li>
+				<li title="yt">
+					<div class="icon-box">
+
+						<!-- yt -->
+						<i class="svg-yt">yt</i>
+
+					</div>
+					<h2>yt</h2>
+				</li>
+				<li title="yt-fill">
+					<div class="icon-box">
+
+						<!-- yt-fill -->
+						<i class="svg-yt-fill">yt-fill</i>
+
+					</div>
+					<h2>yt-fill</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Tue, 01 Sep 2020 12:33:27 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>

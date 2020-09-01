@@ -4,7 +4,9 @@
   left: 0
   width: 100%
   z-index: 2
-  //background-color: #2768b4
+  transition: background-color .3s ease-out
+  &_scroll
+    background-color: #4C79C3
   &__body
     display: flex
     align-items: center
@@ -67,15 +69,15 @@
       fill: #ffffff
     span
       position: absolute
-      font-size: 7px
+      font-size: 10px
       color: #ffffff
       top: -3px
       display: flex
       align-items: center
       justify-content: center
       right: -10px
-      width: 15px
-      height: 15px
+      width: 17px
+      height: 17px
       background-color: #D11586
       border-radius: 50%
       line-height: 15px

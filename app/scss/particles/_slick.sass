@@ -1,5 +1,7 @@
 // Slider
 .slick-slider
+  min-width: 0
+  position: relative
 // Bounding shell
 .slick-list
   overflow: hidden
@@ -32,9 +34,47 @@
   button
 
 
+// Comments slider styles
+.slider-comments
+
+  &__item
+  .slick-arrow
+    position: absolute
+    top: 50%
+    z-index: 1
+    font-size: 0
+
+  .slick-prev
+    top: unset
+    bottom: 0
+    left: 50%
+    width: 18px
+    height: 35px
+    background: url('../img/icons/icons.svg#slide-prev') no-repeat -8px
+    background-size: 35px 52px
+    transform: translateY(190%) translateX(-200%)
+    +breakpoint(md)
+      top: 50%
+      left: 10px
+      transform: none
 
 
-// Team slider styles
+  .slick-next
+    top: unset
+    right: 50%
+    width: 18px
+    height: 35px
+    bottom: 0
+    background: url('../img/icons/icons.svg#slide-next') no-repeat -8px
+    background-size: 35px 52px
+    transform: translateY(190%) translateX(200%)
+    +breakpoint(md)
+      top: 50%
+      right: 10px
+      transform: none
+
+
+
 
 //=========================================================
 

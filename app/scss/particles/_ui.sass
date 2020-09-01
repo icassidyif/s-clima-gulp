@@ -55,7 +55,7 @@
   background: rgba(0, 0, 0, 0.5)
   backdrop-filter: blur(15px)
   transition: right 0.3s ease-out
-  padding: 70px 20px 20px 20px
+  padding: 50px 20px 20px 20px
   z-index: 5
   overflow: auto
   box-shadow: none
@@ -87,9 +87,10 @@
           display: block
           padding: 0 30px
         a
-          font-size: 14px
+          font-size: 20px
           padding: 10px 0
           +breakpoint(lg)
+            font-size: 14px
             color: #0066BA
             font-weight: 500
             &:hover
@@ -144,11 +145,14 @@
   a
     display: inline-block
     font-weight: 500
-    font-size: 14px
-    line-height: 19px
+    font-size: 20px
+    line-height: 32px
     color: #ffffff
     text-transform: uppercase
     padding: 15px 0
+    +breakpoint(lg)
+      font-size: 14px
+      line-height: 19px
     &.active
       color: #7EB5F9
 
@@ -253,12 +257,12 @@
     &:after
       left: -5%
       background-color: #D11586
-      transform: translate(0px,-20%) skew(-.312rad)
+      transform: translate(0px,-15%) skew(-.312rad)
 
     &:before
       right: -5%
       background-color: #7EB5F9
-      transform: translate(0px,20%) skew(-.312rad)
+      transform: translate(0px,15%) skew(-.312rad)
       opacity: 1
 
     &:hover

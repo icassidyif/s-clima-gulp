@@ -15,6 +15,8 @@ if(burgerMenu != null){
 }
 // end menu
 
+
+
 //dropdown sub-menu
 
 function changeMaxHeight (li, ul, height) {
@@ -43,3 +45,20 @@ hasSubmenus.forEach(element => {
   })
 });
 // end dropdown-menu
+
+
+//  hover background-color
+window.addEventListener('scroll',(event) => {
+  const header = document.querySelector('.header-main');
+  console.log(pageYOffset);
+  if(pageYOffset > 50) {
+    if(!header.classList.contains('header-main_scroll')) {
+      header.classList.add('header-main_scroll');
+    }
+  }else {
+    if(header.classList.contains('header-main_scroll')) {
+      header.classList.remove('header-main_scroll');
+    }
+  }
+})
+// end hover background-color

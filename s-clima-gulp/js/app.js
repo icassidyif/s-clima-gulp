@@ -125,6 +125,22 @@ hasSubmenus.forEach(function (element) {
     changeMaxHeight(liItem, subMenu, heightSubmenu);
   });
 }); // end dropdown-menu
+//  hover background-color
+
+window.addEventListener('scroll', function (event) {
+  var header = document.querySelector('.header-main');
+  console.log(pageYOffset);
+
+  if (pageYOffset > 50) {
+    if (!header.classList.contains('header-main_scroll')) {
+      header.classList.add('header-main_scroll');
+    }
+  } else {
+    if (header.classList.contains('header-main_scroll')) {
+      header.classList.remove('header-main_scroll');
+    }
+  }
+}); // end hover background-color
 //Check scroll position=by Cassidy=======================================================
 //=========================================================================//init SmoothScroll========================================================
 
@@ -398,11 +414,11 @@ $('#languagesForm').validate({
   }
 });
 $(document).ready(function () {
-  $('.comments__slider').slick({
+  $('.slider-comments').slick({
     arrows: true,
-    dots: true,
+    dots: false,
     adaptiveHeight: true,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     speed: 500,
     easing: 'ease',
@@ -420,117 +436,19 @@ $(document).ready(function () {
     waitForAnimate: true,
     centerMode: false,
     variableWidth: false,
+    lazyLoad: 'ondemand',
     responsive: [{
       breakpoint: 992,
-      settings: {
-        slidesToShow: 2
+      settings: {// slidesToShow: 2
       }
     }, {
       breakpoint: 768,
-      settings: {
-        slidesToShow: 1
+      settings: {// slidesToShow: 1
       }
     }, {
       breakpoint: 576,
-      settings: {
-        slidesToShow: 1,
-        arrows: false
-      }
-    }]
-  });
-  $('.slider-garden').slick({
-    arrows: true,
-    adaptiveHeight: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 500,
-    easing: 'ease',
-    infinite: true,
-    autoplay: false,
-    autoplaySpeed: 2500,
-    mobileFirst: true,
-    responsive: [{
-      breakpoint: 576,
-      settings: {
-        arrows: true
-      }
-    }, {
-      breakpoint: 992,
-      settings: {
-        arrows: true,
-        adaptiveHeight: false
-      }
-    }]
-  });
-  $('.slider-school-camp').slick({
-    arrows: true,
-    adaptiveHeight: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 500,
-    easing: 'ease',
-    infinite: true,
-    autoplay: false,
-    autoplaySpeed: 2500,
-    mobileFirst: true,
-    responsive: [{
-      breakpoint: 576,
-      settings: {
-        arrows: true
-      }
-    }, {
-      breakpoint: 992,
-      settings: {
-        arrows: true,
-        adaptiveHeight: false
-      }
-    }]
-  });
-  $('.slider-karpaty-camp').slick({
-    arrows: true,
-    adaptiveHeight: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 500,
-    easing: 'ease',
-    infinite: true,
-    autoplay: false,
-    autoplaySpeed: 2500,
-    mobileFirst: true,
-    responsive: [{
-      breakpoint: 576,
-      settings: {
-        arrows: true
-      }
-    }, {
-      breakpoint: 992,
-      settings: {
-        arrows: true,
-        adaptiveHeight: false
-      }
-    }]
-  });
-  $('.slider-foreign-camp').slick({
-    arrows: true,
-    adaptiveHeight: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 500,
-    easing: 'ease',
-    infinite: true,
-    autoplay: false,
-    autoplaySpeed: 2500,
-    mobileFirst: true,
-    responsive: [{
-      breakpoint: 576,
-      settings: {
-        arrows: true
-      }
-    }, {
-      breakpoint: 992,
-      settings: {
-        arrows: true,
-        adaptiveHeight: false
+      settings: {// slidesToShow: 1,
+        // arrows: false
       }
     }]
   });
