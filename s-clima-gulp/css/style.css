@@ -1257,6 +1257,10 @@ no-webp .parallax-main__layer-4 {
   margin: 0 0 20px 0;
 }
 
+.banners {
+  margin: 0 0 55px 0;
+}
+
 .item-comments {
   padding: 10px 10px 0 10px;
   display: flex;
@@ -1498,6 +1502,38 @@ no-webp .parallax-main__layer-4 {
   -webkit-transform: translateY(190%) translateX(200%);
       -ms-transform: translateY(190%) translateX(200%);
           transform: translateY(190%) translateX(200%);
+}
+
+.slider-banners img {
+  width: 100%;
+}
+
+.slider-banners .slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  font-size: 0;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.slider-banners .slick-prev {
+  bottom: 0;
+  left: 10px;
+  width: 18px;
+  height: 35px;
+  background: url("../img/icons/icons.svg#slide-prev") no-repeat -8px;
+  background-size: 35px 52px;
+}
+
+.slider-banners .slick-next {
+  right: 10px;
+  width: 18px;
+  height: 35px;
+  bottom: 0;
+  background: url("../img/icons/icons.svg#slide-next") no-repeat -8px;
+  background-size: 35px 52px;
 }
 
 .footer {
@@ -1909,7 +1945,7 @@ no-webp .parallax-main__layer-4 {
   }
 
   .pick-up {
-    margin: 0 0 70px 0;
+    margin: 0 0 40px 0;
   }
 
   .pick-up__object {
@@ -1956,6 +1992,10 @@ no-webp .parallax-main__layer-4 {
     margin: 0 0 30px 0;
   }
 
+  .banners {
+    margin: 0 0 70px 0;
+  }
+
   .item-comments__text {
     font-size: 20px;
     line-height: 34px;
@@ -1983,6 +2023,10 @@ no-webp .parallax-main__layer-4 {
     -webkit-transform: none;
         -ms-transform: none;
             transform: none;
+  }
+
+  .slider-banners .slick-slide {
+    margin: 0;
   }
 }
 
@@ -2259,18 +2303,21 @@ no-webp .parallax-main__layer-4 {
   }
 
   .pick-up {
+    margin: 0 0 70px 0;
     overflow: hidden;
-    margin: 0 0 100px 0;
   }
 
   .pick-up__object {
     overflow: visible;
     padding: 0;
-    margin: 0 0 55px 0;
   }
 
   .pick-up__object:before {
     display: none;
+  }
+
+  .pick-up__object:not(:last-child) {
+    margin: 0 0 55px 0;
   }
 
   .pick-up__object_right .pick-up__content {
@@ -2317,6 +2364,10 @@ no-webp .parallax-main__layer-4 {
 
   .content-pick-up__text {
     color: #8C8C8C;
+  }
+
+  .banners {
+    margin: 0 0 100px 0;
   }
 
   .parallax-container {

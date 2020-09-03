@@ -36,8 +36,6 @@
 
 // Comments slider styles
 .slider-comments
-
-  &__item
   .slick-arrow
     position: absolute
     top: 50%
@@ -72,9 +70,37 @@
       top: 50%
       right: 10px
       transform: none
-
-
-
-
 //=========================================================
 
+// Banners slider
+.slider-banners
+  .slick-slide
+    +breakpoint(md)
+      margin: 0
+  img
+    width: 100%
+  .slick-arrow
+    position: absolute
+    top: 50%
+    z-index: 1
+    font-size: 0
+    transform: translateY(-50%)
+
+  .slick-prev
+    bottom: 0
+    left: 10px
+    width: 18px
+    height: 35px
+    background: url('../img/icons/icons.svg#slide-prev') no-repeat -8px
+    background-size: 35px 52px
+
+
+
+  .slick-next
+    right: 10px
+    width: 18px
+    height: 35px
+    bottom: 0
+    background: url('../img/icons/icons.svg#slide-next') no-repeat -8px
+    background-size: 35px 52px
+// end banners slider
