@@ -158,7 +158,7 @@ window.addEventListener('scroll', function (event) {
 
 var scroll = new SmoothScroll('a[href*="#"]', {
   header: '[data-scroll-header]',
-  speed: 300,
+  speed: 500,
   topOnEmptyHash: true,
   clip: true,
   easing: 'easeInOutCubic',

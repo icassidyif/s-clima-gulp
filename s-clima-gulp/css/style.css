@@ -233,33 +233,36 @@ h6 {
 }
 
 .svg-serv-cond {
-  width: 66px;
+  width: 65px;
   height: 65px;
 }
 
 .svg-serv-dry-clean {
-  width: 64px;
-  height: 44px;
+  fill: #126EB9;
+  width: 65px;
+  height: 65px;
 }
 
 .svg-serv-project {
-  width: 66px;
+  fill: #126EB9;
+  width: 65px;
   height: 65px;
 }
 
 .svg-serv-serv {
-  width: 66px;
-  height: 66px;
+  fill: #126EB9;
+  width: 65px;
+  height: 65px;
 }
 
 .svg-serv-temp {
-  width: 44px;
+  width: 65px;
   height: 65px;
 }
 
 .svg-serv-vent {
-  width: 68px;
-  height: 66px;
+  width: 65px;
+  height: 65px;
 }
 
 .svg-slide-prev {
@@ -723,7 +726,7 @@ html {
 
 body {
   font-family: "Roboto";
-  color: #919191;
+  color: #8c8c8c;
 }
 
 body.lock {
@@ -1180,6 +1183,37 @@ no-webp .parallax-main__layer-4 {
   font-size: 14px;
   line-height: 22px;
   color: #CDE3FF;
+  display: none;
+  visibility: hidden;
+}
+
+.services {
+  margin: 0 0 25px 0;
+}
+
+.services__column {
+  margin: 0 0 30px 0;
+}
+
+.card-services {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.card-services__icon {
+  margin: 0 25px 0 0;
+}
+
+.card-services__title {
+  color: #2C2C2C;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.card-services__desc {
   display: none;
   visibility: hidden;
 }
@@ -1832,6 +1866,48 @@ no-webp .parallax-main__layer-4 {
     min-height: 41px;
   }
 
+  .services {
+    margin: 0 0 40px 0;
+  }
+
+  .card-services {
+    padding: 40px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+  }
+
+  .card-services__icon {
+    margin: 0 0 20px 0;
+  }
+
+  .card-services__title {
+    flex: 1 0 auto;
+    position: relative;
+    font-size: 26px;
+    line-height: 34px;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+    text-align: center;
+  }
+
+  .card-services__title:after {
+    content: none;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 52px;
+    height: 2px;
+    background-color: #126EB9;
+  }
+
+  .card-services__desc {
+    display: block;
+    visibility: visible;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+  }
+
   .pick-up {
     margin: 0 0 70px 0;
   }
@@ -2174,7 +2250,16 @@ no-webp .parallax-main__layer-4 {
     visibility: hidden;
   }
 
+  .services {
+    margin: 0 0 70px 0;
+  }
+
+  .card-services {
+    padding: 50px;
+  }
+
   .pick-up {
+    overflow: hidden;
     margin: 0 0 100px 0;
   }
 
