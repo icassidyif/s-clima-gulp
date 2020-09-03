@@ -19,6 +19,14 @@ body
   //padding: 75px 0 0 0
 //end-
 
+//vertical margin
+.m-b
+  margin: 0 0 $v-step-small 0
+  +breakpoint(md)
+    margin: 0 0 $v-step-medium 0
+  +breakpoint(lg)
+    margin: 0 0 $v-step-large 0
+//end
 
 // MODAL WINDOWS
 
@@ -26,7 +34,50 @@ body
 //
 
 
-//
+// Animations group classes
+.anim-show
+  opacity: 0
+  transition: opacity .5s ease-out 0s
+  &.active,
+  .active.anim-show
+    opacity: 1
+
+.anim-show-from-right
+  transform: translateX(100px)
+  opacity: 0
+  transition: all .5s ease-out 0s
+  &.active,
+  .active.anim-show-from-right
+    opacity: 1
+    transform: translateX(0)
+
+.anim-show-from-left
+  transform: translateX(-100px)
+  opacity: 0
+  transition: all .5s ease-out 0s
+  &.active,
+  .active.anim-show-from-left
+    opacity: 1
+    transform: translateX(0)
+
+.anim-show-from-top
+  transform: translateY(-100px)
+  opacity: 0
+  transition: all .5s ease-out 0s
+  &.active,
+  .active.anim-show-from-right
+    opacity: 1
+    transform: translateY(0)
+
+.anim-show-from-bottom
+  opacity: 0
+  transform: translateY(100px)
+  transition: all .5s ease-out 0s
+  &.active,
+  .active.anim-show-from-right
+    opacity: 1
+    transform: translateY(0)
+
 //
 
 //

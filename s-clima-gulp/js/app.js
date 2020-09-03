@@ -129,7 +129,6 @@ hasSubmenus.forEach(function (element) {
 
 window.addEventListener('scroll', function (event) {
   var header = document.querySelector('.header-main');
-  console.log(pageYOffset);
 
   if (pageYOffset > 50) {
     if (!header.classList.contains('header-main_scroll')) {
@@ -139,6 +138,19 @@ window.addEventListener('scroll', function (event) {
     if (header.classList.contains('header-main_scroll')) {
       header.classList.remove('header-main_scroll');
     }
+  } // change background for submenu
+
+
+  if (pageYOffset > window.screen.height) {
+    hasSubmenus.forEach(function (element) {
+      var subMenu = element.parentElement.querySelector('ul');
+      subMenu.style.backgroundColor = 'rgb(249 249 249)';
+    });
+  } else {
+    hasSubmenus.forEach(function (element) {
+      var subMenu = element.parentElement.querySelector('ul');
+      subMenu.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+    });
   }
 }); // end hover background-color
 //Check scroll position=by Cassidy=======================================================
@@ -453,52 +465,73 @@ $(document).ready(function () {
     }]
   });
 }); //Spoiler=========================================================================
+// $('.spoiler').click(function(){
+//   $(this).toggleClass('opened').toggleClass('closed').prev().slideToggle(700);
+//   if($(this).hasClass('opened')) {
+//     $(this).find('label').html('Згорнути текст');
+//   }
+//   else {
+//     $(this).find('label').html('Читати далі');
+//   }
+// });
+//
+// Animation scroll-----
+// .anim-item
+// .anim-no-hide
+// Працює по класу .active
 
-$('.spoiler').click(function () {
-  $(this).toggleClass('opened').toggleClass('closed').prev().slideToggle(700);
+var animItems = document.querySelectorAll('.anim-item');
 
-  if ($(this).hasClass('opened')) {
-    $(this).find('label').html('Згорнути текст');
-  } else {
-    $(this).find('label').html('Читати далі');
-  }
-}); //
-//TABS===================================================================
+if (animItems.length > 0) {
+  var animScroll = function animScroll() {
+    animItems.forEach(function (animItem) {
+      var animItemHeight = animItem.offsetHeight;
+      var animItemPosition = offset(animItem).top;
+      var animStart = 4;
+      var animItemPoint = animItemHeight > window.innerHeight ? window.innerHeight - window.innerHeight / animStart : window.innerHeight - animItemHeight / animStart; // Знаходимо чи є елементи , які зміщені по осі Y і компенсуємо зміщення
 
-$('.tabs__item').each(function (i, item) {
-  var target = $(this).attr('href');
+      var style = getComputedStyle(animItem);
+      var matrix = new WebKitCSSMatrix(style.webkitTransform);
+      var translateY = matrix.m42;
 
-  if ($(this).hasClass('active')) {
-    $(target).show();
-  } else {
-    $(target).hide();
-  }
-}).click(function (e) {
-  e.preventDefault();
-  var target = $(this).attr('href');
+      if (translateY !== 0) {
+        animItemPosition += -translateY;
+      } // кынець
 
-  if ($(this).hasClass('active')) {
-    return false;
-  } else {
-    $('.tabs__item').removeClass('active');
-    $('.tabs__tab').hide();
-    $(target).fadeIn(500);
-    $(target).find('.camp__slider').slick('refresh');
-    $(this).addClass('active');
-  }
-}); //footer copyright====================================================
+
+      if (pageYOffset > animItemPosition - animItemPoint && pageYOffset < animItemPosition + animItemHeight) {
+        animItem.classList.add('active');
+      } else {
+        if (!animItem.classList.contains('anim-no-hide')) {
+          animItem.classList.remove('active');
+        }
+      }
+    });
+  };
+
+  window.addEventListener('scroll', animScroll);
+  setTimeout(function () {
+    animScroll();
+  }, 300);
+} // Функція , яка визначає позицію елемента по X та Y
+
+
+function offset(el) {
+  var rect = el.getBoundingClientRect(),
+      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return {
+    top: rect.top + scrollTop,
+    left: rect.left + scrollLeft
+  };
+} // end Animation Scroll
+//footer copyright====================================================
+
 
 var spanElement = document.createElement('span');
 var copyRight = "Smartik \xA9 2017 - ".concat(new Date().getFullYear(), ".  \u0420\u043E\u0437\u0440\u043E\u0431\u043B\u0435\u043D\u043E <a href=\"#\"> d-wave </a>");
 spanElement.innerHTML = copyRight;
 $('.footer__copyright').append(spanElement); //=========================================================================
-//=========================================================================
-//=========================================================================
-//=========================================================================
-//=========================================================================
-//=========================================================================
-//=========================================================================
-//=========================================================================
 //=========================================================================
 //=========================================================================
 //=========================================================================

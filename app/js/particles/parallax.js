@@ -8,8 +8,6 @@ let parallax = document.querySelector('.parallax-main');
 let layers = parallax.querySelectorAll('.parallax-main__layer');
 parallax.addEventListener('mousemove', parallaxEffect);
 
-
-
 //Scroll parallax
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.parallax');

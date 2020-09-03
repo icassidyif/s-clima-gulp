@@ -31,6 +31,7 @@ function changeMaxHeight (li, ul, height) {
 
 let hasSubmenus = document.querySelectorAll('.menu-main ul li a:not(:only-child)');
 
+
 hasSubmenus.forEach(element => {
   let subMenu = element.parentElement.querySelector('ul');
   let heightSubmenu = subMenu.clientHeight;
@@ -50,7 +51,7 @@ hasSubmenus.forEach(element => {
 //  hover background-color
 window.addEventListener('scroll',(event) => {
   const header = document.querySelector('.header-main');
-  console.log(pageYOffset);
+
   if(pageYOffset > 50) {
     if(!header.classList.contains('header-main_scroll')) {
       header.classList.add('header-main_scroll');
@@ -60,5 +61,18 @@ window.addEventListener('scroll',(event) => {
       header.classList.remove('header-main_scroll');
     }
   }
+  // change background for submenu
+  if(pageYOffset > window.screen.height) {
+    hasSubmenus.forEach(element => {
+      let subMenu = element.parentElement.querySelector('ul');
+      subMenu.style.backgroundColor = 'rgb(249 249 249)';
+    })
+  }else {
+    hasSubmenus.forEach(element => {
+      let subMenu = element.parentElement.querySelector('ul');
+      subMenu.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+    })
+  }
+
 })
 // end hover background-color
