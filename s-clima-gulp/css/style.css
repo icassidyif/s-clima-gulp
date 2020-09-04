@@ -486,8 +486,8 @@ h6 {
 .link {
   text-decoration: none;
   font-size: 14px;
+  line-height: 25px;
   font-weight: 500;
-  line-height: 1.5625em;
   color: #D11586;
   letter-spacing: 0.16em;
   position: relative;
@@ -497,7 +497,7 @@ h6 {
 .link:after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
   width: 100%;
   height: 2px;
@@ -1265,6 +1265,22 @@ no-webp .parallax-main__layer-4 {
   margin: 0 0 55px 0;
 }
 
+.works__container {
+  overflow: visible;
+}
+
+.works__slider {
+  margin: 0 0 20px 0 !important;
+}
+
+.works__link {
+  text-align: center;
+}
+
+.comments {
+  margin: 0 0 55px 0;
+}
+
 .item-comments {
   padding: 10px 10px 0 10px;
   display: flex;
@@ -1846,6 +1862,10 @@ no-webp .parallax-main__layer-4 {
     display: block;
     visibility: visible;
   }
+
+  .slider-works img {
+    max-height: 250px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1937,6 +1957,10 @@ no-webp .parallax-main__layer-4 {
     width: 27.27273%;
   }
 
+  .link {
+    font-size: 16px;
+  }
+
   .title {
     font-size: 38px;
     line-height: 45px;
@@ -1983,13 +2007,16 @@ no-webp .parallax-main__layer-4 {
   }
 
   .card-services__title:after {
-    content: none;
+    content: '';
     position: absolute;
     bottom: -20px;
-    left: 0;
+    left: 50%;
     width: 52px;
     height: 2px;
     background-color: #126EB9;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
 
   .card-services__desc {
@@ -2056,6 +2083,18 @@ no-webp .parallax-main__layer-4 {
     margin: 0 0 70px 0;
   }
 
+  .works__slider {
+    margin: 0 0 55px 0 !important;
+  }
+
+  .works__link {
+    text-align: right;
+  }
+
+  .comments {
+    margin: 0 0 70px 0;
+  }
+
   .item-comments__text {
     font-size: 20px;
     line-height: 34px;
@@ -2091,10 +2130,6 @@ no-webp .parallax-main__layer-4 {
 
   .slider-works {
     margin: 0;
-  }
-
-  .slider-works img {
-    max-height: 250px;
   }
 
   .slider-works .slick-arrow {
@@ -2465,6 +2500,10 @@ no-webp .parallax-main__layer-4 {
   }
 
   .works {
+    margin: 0 0 100px 0;
+  }
+
+  .comments {
     margin: 0 0 100px 0;
   }
 
