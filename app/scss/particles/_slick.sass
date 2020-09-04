@@ -1,7 +1,7 @@
 // Slider
 .slick-slider
   min-width: 0
-  position: relative
+  //position: relative
 // Bounding shell
 .slick-list
   overflow: hidden
@@ -36,6 +36,7 @@
 
 // Comments slider styles
 .slider-comments
+  position: relative
   .slick-arrow
     position: absolute
     top: 50%
@@ -56,7 +57,6 @@
       left: 10px
       transform: none
 
-
   .slick-next
     top: unset
     right: 50%
@@ -74,9 +74,11 @@
 
 // Banners slider
 .slider-banners
+  position: relative
   .slick-slide
     +breakpoint(md)
       margin: 0
+
   img
     width: 100%
   .slick-arrow
@@ -94,8 +96,6 @@
     background: url('../img/icons/icons.svg#slide-prev') no-repeat -8px
     background-size: 35px 52px
 
-
-
   .slick-next
     right: 10px
     width: 18px
@@ -104,3 +104,58 @@
     background: url('../img/icons/icons.svg#slide-next') no-repeat -8px
     background-size: 35px 52px
 // end banners slider
+
+
+// Works slider
+.slider-works
+  position: relative
+  +breakpoint(md)
+    margin: 0
+  .slick-list
+    margin: 0 -15px
+  img
+    min-width: 100%
+    max-height: 200px
+    object-fit: cover
+    height: 100%
+    +breakpoint(md)
+      max-height: 250px
+
+  &__item
+    overflow: hidden
+
+  .slick-arrow
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    font-size: 0
+    width: 32px
+    height: 32px
+    background: none
+    z-index: 2
+    +breakpoint(md)
+      top: -100px + 22.5px - 16px
+      transform: translateY(0)
+      border: 2px solid #126EB9
+
+  .slick-prev
+    left: 0
+    background: url("../img/work-arrow-prev-light.svg") no-repeat center center
+    background-size: contain
+    +breakpoint(md)
+      background: url("../img/work-arrow-prev-dark.svg") no-repeat center center
+      left: unset
+      right: 52px
+      &:active
+        background: url("../img/work-arrow-prev-light.svg") no-repeat center center #126EB9
+
+  .slick-next
+    right: 0
+    background: url("../img/work-arrow-next-light.svg") no-repeat center center
+    background-size: contain
+    +breakpoint(md)
+      background: url("../img/work-arrow-next-dark.svg") no-repeat center center
+      &:active
+        background: url("../img/work-arrow-next-light.svg") no-repeat center center #126EB9
+
+// end Works slider

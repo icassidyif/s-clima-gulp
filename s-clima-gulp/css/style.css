@@ -1261,6 +1261,10 @@ no-webp .parallax-main__layer-4 {
   margin: 0 0 55px 0;
 }
 
+.works {
+  margin: 0 0 55px 0;
+}
+
 .item-comments {
   padding: 10px 10px 0 10px;
   display: flex;
@@ -1455,7 +1459,6 @@ no-webp .parallax-main__layer-4 {
 
 .slick-slider {
   min-width: 0;
-  position: relative;
 }
 
 .slick-list {
@@ -1469,6 +1472,10 @@ no-webp .parallax-main__layer-4 {
 
 .slick-slide {
   text-align: center;
+}
+
+.slider-comments {
+  position: relative;
 }
 
 .slider-comments .slick-arrow {
@@ -1504,6 +1511,10 @@ no-webp .parallax-main__layer-4 {
           transform: translateY(190%) translateX(200%);
 }
 
+.slider-banners {
+  position: relative;
+}
+
 .slider-banners img {
   width: 100%;
 }
@@ -1534,6 +1545,51 @@ no-webp .parallax-main__layer-4 {
   bottom: 0;
   background: url("../img/icons/icons.svg#slide-next") no-repeat -8px;
   background-size: 35px 52px;
+}
+
+.slider-works {
+  position: relative;
+}
+
+.slider-works .slick-list {
+  margin: 0 -15px;
+}
+
+.slider-works img {
+  min-width: 100%;
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
+.slider-works__item {
+  overflow: hidden;
+}
+
+.slider-works .slick-arrow {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 0;
+  width: 32px;
+  height: 32px;
+  background: none;
+  z-index: 2;
+}
+
+.slider-works .slick-prev {
+  left: 0;
+  background: url("../img/work-arrow-prev-light.svg") no-repeat center center;
+  background-size: contain;
+}
+
+.slider-works .slick-next {
+  right: 0;
+  background: url("../img/work-arrow-next-light.svg") no-repeat center center;
+  background-size: contain;
 }
 
 .footer {
@@ -1996,6 +2052,10 @@ no-webp .parallax-main__layer-4 {
     margin: 0 0 70px 0;
   }
 
+  .works {
+    margin: 0 0 70px 0;
+  }
+
   .item-comments__text {
     font-size: 20px;
     line-height: 34px;
@@ -2027,6 +2087,40 @@ no-webp .parallax-main__layer-4 {
 
   .slider-banners .slick-slide {
     margin: 0;
+  }
+
+  .slider-works {
+    margin: 0;
+  }
+
+  .slider-works img {
+    max-height: 250px;
+  }
+
+  .slider-works .slick-arrow {
+    top: -93.5px;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    border: 2px solid #126EB9;
+  }
+
+  .slider-works .slick-prev {
+    background: url("../img/work-arrow-prev-dark.svg") no-repeat center center;
+    left: unset;
+    right: 52px;
+  }
+
+  .slider-works .slick-prev:active {
+    background: url("../img/work-arrow-prev-light.svg") no-repeat center center #126EB9;
+  }
+
+  .slider-works .slick-next {
+    background: url("../img/work-arrow-next-dark.svg") no-repeat center center;
+  }
+
+  .slider-works .slick-next:active {
+    background: url("../img/work-arrow-next-light.svg") no-repeat center center #126EB9;
   }
 }
 
@@ -2367,6 +2461,10 @@ no-webp .parallax-main__layer-4 {
   }
 
   .banners {
+    margin: 0 0 100px 0;
+  }
+
+  .works {
     margin: 0 0 100px 0;
   }
 
