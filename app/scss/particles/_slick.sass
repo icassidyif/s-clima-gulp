@@ -115,7 +115,15 @@
   +breakpoint(md)
     margin: 0
   .slick-list
-    margin: 0 -15px
+    margin: 0 -10px
+    +breakpoint(md)
+      margin: 0 -15px
+  .slick-slide
+    margin: 0 10px
+    +breakpoint(md)
+      margin: 0 15px
+
+
   img
     min-width: 100%
     max-height: 200px
@@ -171,10 +179,14 @@
     margin: 0
 
   .slick-list
-    margin: 0 -15px
+    margin: 0 -10px
+    +breakpoint(md)
+      margin: 0 -15px
 
   .slick-slide
-
+    margin: 0 10px
+    +breakpoint(md)
+      margin: 0 15px
 
   img
     min-width: 100%
@@ -237,8 +249,6 @@
 
   .slick-slide
     margin: 0 15px
-
-
   img
     min-width: 100%
     width: 100%
@@ -285,5 +295,72 @@
       transform: translateX(0)
       right: 0
 
-
 // end Achievements slider
+
+
+
+// Partners slider
+.slider-partners
+
+
+
+  .slick-list
+    margin: 0 -10px
+    +breakpoint(md)
+      margin: 0 -15px
+    +breakpoint(lg)
+      margin: 0 -30px
+
+  .slick-slide
+    margin: 0 10px
+    max-height: 110px
+    +breakpoint(md)
+      margin: 0 15px
+    +breakpoint(lg)
+      margin: 0 30px
+
+
+
+  a
+    display: block
+    height: auto
+    filter: opacity(50%) grayscale(90%)
+    transition: all 0.5s ease 0s
+    &:hover
+      filter: opacity(100%) grayscale(0)
+
+  img
+    max-width: 100%
+    max-height: 100%
+
+  &__item
+
+  .slick-track
+
+  .slick-arrow
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    font-size: 0
+    width: 32px
+    height: 32px
+    background: none
+    z-index: 2
+
+
+  .slick-prev
+    left: 10px
+    background: url("../img/work-arrow-prev-dark.svg") no-repeat center center
+    background-size: contain
+    &:active
+      background: url("../img/work-arrow-prev-light.svg") no-repeat center center
+
+  .slick-next
+    right: 10px
+    background: url("../img/work-arrow-next-dark.svg") no-repeat center center
+    background-size: contain
+    &:active
+      background: url("../img/work-arrow-next-light.svg") no-repeat center center
+
+
+// end Partners slider
