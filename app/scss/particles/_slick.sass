@@ -34,6 +34,9 @@
   button
 
 
+
+
+
 // Comments slider styles
 .slider-comments
   position: relative
@@ -120,7 +123,6 @@
     height: 100%
     +breakpoint(sm)
       max-height: 250px
-
   &__item
     overflow: hidden
 
@@ -140,22 +142,90 @@
 
   .slick-prev
     left: 0
-    background: url("../img/work-arrow-prev-light.svg") no-repeat center center
+    background: url("../img/work-arrow-prev-light.svg") no-repeat 7px 5px
     background-size: contain
     +breakpoint(md)
-      background: url("../img/work-arrow-prev-dark.svg") no-repeat center center
+      background: url("../img/work-arrow-prev-dark.svg") no-repeat 7px 5px
       left: unset
       right: 52px
       &:active
-        background: url("../img/work-arrow-prev-light.svg") no-repeat center center #126EB9
+        background: url("../img/work-arrow-prev-light.svg") no-repeat 7px 5px #126EB9
 
   .slick-next
     right: 0
-    background: url("../img/work-arrow-next-light.svg") no-repeat center center
+    background: url("../img/work-arrow-next-light.svg") no-repeat 9px 5px
     background-size: contain
     +breakpoint(md)
-      background: url("../img/work-arrow-next-dark.svg") no-repeat center center
+      background: url("../img/work-arrow-next-dark.svg") no-repeat 9px 5px
       &:active
-        background: url("../img/work-arrow-next-light.svg") no-repeat center center #126EB9
+        background: url("../img/work-arrow-next-light.svg") no-repeat 9px 5px #126EB9
 
 // end Works slider
+
+
+// Articles slider
+.slider-articles
+  margin: 0 0 52px 0
+  position: relative
+  +breakpoint(md)
+    margin: 0
+
+  .slick-list
+    margin: 0 -15px
+    //overflow: hidden
+
+  .slick-slide
+   // margin: 0 0 52px 0
+    +breakpoint(md)
+      margin: 0 15px
+
+  img
+    min-width: 100%
+    max-height: 200px
+    object-fit: cover
+    height: 100%
+    +breakpoint(sm)
+      max-height: 250px
+  &__item
+    padding: 10px 0
+
+  .slick-track
+
+
+  .slick-arrow
+    position: absolute
+    bottom: -52px
+    font-size: 0
+    width: 32px
+    height: 32px
+    background: none
+    z-index: 2
+    border: 2px solid #126EB9
+    +breakpoint(md)
+      top: -100px + 22.5px - 16px
+      bottom: unset
+
+  .slick-prev
+    left: 50%
+    transform: translateX(calc(-100% - 10px))
+    background: url("../img/work-arrow-prev-dark.svg") no-repeat 7px 5px
+    &:active
+      background: url("../img/work-arrow-prev-light.svg") no-repeat 7px 5px #126EB9
+    +breakpoint(md)
+      transform: translateX(0)
+      left: unset
+      right: 52px
+
+
+  .slick-next
+    right: 50%
+    transform: translateX(calc(100% + 10px))
+    background: url("../img/work-arrow-next-dark.svg") no-repeat 9px 5px
+    &:active
+      background: url("../img/work-arrow-next-light.svg") no-repeat 9px 5px #126EB9
+    +breakpoint(md)
+      transform: translateX(0)
+      right: 0
+
+
+// end Articles slider

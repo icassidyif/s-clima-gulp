@@ -53,7 +53,7 @@ let path = {
     cssVendor: `${sourceFolder}/scss/style-vendors.sass`,
     js: `${sourceFolder}/js/app.js`,
     jsVendors: `${sourceFolder}/js/vendors.js`,
-    img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
+    img: `${sourceFolder}/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}`,
     fonts: `${sourceFolder}/fonts/**/*.ttf`
   },
   watch: {
@@ -61,7 +61,7 @@ let path = {
     css: `${sourceFolder}/scss/**/*.sass`,
     cssVendor: `${sourceFolder}/scss/style-vendors.sass`,
     js: `${sourceFolder}/js/**/*.js`,
-    img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
+    img: `${sourceFolder}/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}`,
     favicon: `${sourceFolder}/img/favicon.png}`
   },
   clean: `./${projectFolder}/`

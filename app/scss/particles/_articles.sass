@@ -1,3 +1,76 @@
 .articles
+  margin: 0 0 55px 0
+  +breakpoint(md)
+    margin: 0 0 60px 0
+  +breakpoint(lg)
+    margin: 0 0 90px 0
+
+
+
+
+.article-card
+  display: flex
+  flex-direction: column
+  text-align: center
+  padding: 0 0 40px 0
+  height: 100%
+  background-color: #ffffff
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1)
+
+
+  &__thumb
+    position: relative
+    margin: 0 0 50px 0
+  &__date
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translateX(-50%) translateY(50%)
+    color: #ffffff
+    font-size: 16px
+    font-weight: 800
+    letter-spacing: 0.16em
+    display: inline-block
+    padding: 10px 25px
+    z-index: 2
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background-color: #126EB9
+      transform: skew(-.312rad)
+      z-index: -1
+
   &__title
-  &__container
+    color: #2c2c2c
+    font-weight: 800
+    font-size: 22px
+    line-height: 26px
+    margin: 0 0 15px 0
+    flex: 1 0 auto
+
+  &__content
+    display: flex
+    flex-direction: column
+    padding: 0 30px
+    height: 100%
+
+  &__text
+    font-size: 16px
+    line-height: 28px
+    margin: 0 0 15px 0
+
+  &__link
+    display: inline
+
+  img
+    width: 100%
+    max-height: 165px
+    height: 165px
+    object-fit: cover
+    +breakpoint(md)
+      max-height: 200px
+      height: 200px
