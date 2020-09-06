@@ -167,18 +167,16 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 }); //=========================================================================
 //=========================================================================//
 
-function parallaxEffect(event) {
-  layers.forEach(function (layer) {
-    var speed = layer.getAttribute('data-speed');
-    layer.style.transform = "translate(".concat(event.clientX * speed / 1000, "px, ").concat(event.clientY * speed / 1300, "px )");
-  });
-}
-
 if (document.querySelector('.parallax-main')) {
+  var parallaxEffect = function parallaxEffect(event) {
+    layers.forEach(function (layer) {
+      var speed = layer.getAttribute('data-speed');
+      layer.style.transform = "translate(".concat(event.clientX * speed / 1000, "px, ").concat(event.clientY * speed / 1300, "px )");
+    });
+  };
+
   var parallax = document.querySelector('.parallax-main');
-
-  var _layers = parallax.querySelectorAll('.parallax-main__layer');
-
+  var layers = parallax.querySelectorAll('.parallax-main__layer');
   parallax.addEventListener('mousemove', parallaxEffect);
 } //Scroll parallax
 
@@ -188,10 +186,9 @@ if (document.querySelectorAll('.parallax')) {
     var elems = document.querySelectorAll('.parallax');
     var instances = M.Parallax.init(elems);
   });
-}
-
-; //end scroll parallax
+} //end scroll parallax
 ////=include ./particles/swipper.js
+
 
 $(document).ready(function () {
   $('.popup-gallery').magnificPopup({

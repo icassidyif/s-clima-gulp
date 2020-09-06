@@ -3,8 +3,14 @@ include particles/_head
 body
   .wrapper
     include particles/_header
-    include  particles/_parallax-page
+    include  particles/_parallax-page-condition
     section.page
+      .container
+        .row
+          .column.column-lg-1-4
+            .sidebar
+          .column.column-lg-3-4
+            .content
       include particles/_services
 
 

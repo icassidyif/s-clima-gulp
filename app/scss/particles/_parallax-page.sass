@@ -1,14 +1,12 @@
 .parallax-page
   height: auto
-
+  margin: 0 0 55px 0
+  +breakpoint(md)
+    margin: 0 0 70px 0
+  +breakpoint(lg)
+    margin: 0 0 100px 0
   .parallax
     position: static
-
-
-
-
-
-  &__container
 
   &__body
     padding: 50px 0 0 0
@@ -17,9 +15,40 @@
     position: relative
     z-index: 1
     +breakpoint(sm)
-      padding: 80px 0 0 0
+      padding: 110px 0 0 0
     +breakpoint(lg)
-      padding: 80px 0 0 0
+      padding: 110px 15px 0 15px
+      max-width: $container-width
+      margin: 0 auto
 
+  &__nav-info
+    display: flex
+    flex-direction: column
+    background-color: rgba(0, 0, 0, 0.15)
+    padding: 25px 0
+    +breakpoint(lg)
+      display: inline-flex
+      width: fit-content
+      padding: 25px 50px
+      margin: 80px 0 0 0
 
-
+.breadcumps
+  display: flex
+  align-items: center
+  margin: 0 0 12px 0
+.breadcumps,
+.breadcumps__link
+  color: #ffffff
+  font-size: 14px
+  line-height: 16px
+  +breakpoint(md)
+    font-size: 18px
+    line-height: 21px
+  svg
+    margin: 0 2px 0 0
+  span
+    margin: 0 3px
+  &__link
+    transition: color .3s ease-out
+    &:hover
+      color: #7EB5F9
