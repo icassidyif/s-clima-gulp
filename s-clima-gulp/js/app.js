@@ -141,19 +141,19 @@ window.addEventListener('scroll', function (event) {
   } // change background for submenu
 
 
-  if (pageYOffset > window.screen.height) {
+  if (pageYOffset > 80) {
     hasSubmenus.forEach(function (element) {
       var subMenu = element.parentElement.querySelector('ul');
-      subMenu.style.backgroundColor = 'rgb(249 249 249)';
+      subMenu.classList.add('change-bg');
     });
   } else {
     hasSubmenus.forEach(function (element) {
       var subMenu = element.parentElement.querySelector('ul');
-      subMenu.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+      subMenu.classList.remove('change-bg');
     });
-  }
-}); // end hover background-color
-//Check scroll position=by Cassidy=======================================================
+  } // end hover background-color
+
+}); //Check scroll position=by Cassidy=======================================================
 //=========================================================================//init SmoothScroll========================================================
 
 var scroll = new SmoothScroll('a[href*="#"]', {
@@ -174,14 +174,23 @@ function parallaxEffect(event) {
   });
 }
 
-var parallax = document.querySelector('.parallax-main');
-var layers = parallax.querySelectorAll('.parallax-main__layer');
-parallax.addEventListener('mousemove', parallaxEffect); //Scroll parallax
+if (document.querySelector('.parallax-main')) {
+  var parallax = document.querySelector('.parallax-main');
 
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.parallax');
-  var instances = M.Parallax.init(elems);
-}); //end scroll parallax
+  var _layers = parallax.querySelectorAll('.parallax-main__layer');
+
+  parallax.addEventListener('mousemove', parallaxEffect);
+} //Scroll parallax
+
+
+if (document.querySelectorAll('.parallax')) {
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.parallax');
+    var instances = M.Parallax.init(elems);
+  });
+}
+
+; //end scroll parallax
 ////=include ./particles/swipper.js
 
 $(document).ready(function () {

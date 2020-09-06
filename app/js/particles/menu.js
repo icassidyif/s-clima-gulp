@@ -61,18 +61,20 @@ window.addEventListener('scroll',(event) => {
       header.classList.remove('header-main_scroll');
     }
   }
+
+
   // change background for submenu
-  if(pageYOffset > window.screen.height) {
+
+  if(pageYOffset > 80) {
     hasSubmenus.forEach(element => {
       let subMenu = element.parentElement.querySelector('ul');
-      subMenu.style.backgroundColor = 'rgb(249 249 249)';
+      subMenu.classList.add('change-bg');
     })
   }else {
     hasSubmenus.forEach(element => {
       let subMenu = element.parentElement.querySelector('ul');
-      subMenu.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+      subMenu.classList.remove('change-bg');
     })
   }
-
-})
 // end hover background-color
+})

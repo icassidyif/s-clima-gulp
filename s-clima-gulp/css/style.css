@@ -492,6 +492,7 @@ h6 {
   letter-spacing: 0.16em;
   position: relative;
   display: inline-block;
+  transition: color .3s ease-out;
 }
 
 .link:after {
@@ -502,6 +503,19 @@ h6 {
   width: 100%;
   height: 2px;
   background-color: #D11586;
+  opacity: 1;
+  transition: all .3s ease-out;
+  pointer-events: none;
+}
+
+.link:hover {
+  color: #126EB9;
+}
+
+.link:hover:after {
+  background-color: #126EB9;
+  opacity: 0;
+  width: 0;
 }
 
 .link_2 {
@@ -1279,6 +1293,16 @@ no-webp .parallax-main__layer-4 {
   margin: 0 0 55px 0;
 }
 
+.comments__parallax {
+  position: relative;
+  height: auto;
+  padding: 45px 0 100px 0;
+}
+
+.comments__parallax .parallax {
+  position: static;
+}
+
 .item-comments {
   padding: 10px 10px 0 10px;
   display: flex;
@@ -1332,16 +1356,6 @@ no-webp .parallax-main__layer-4 {
   font-style: italic;
   font-weight: normal;
   max-width: 700px;
-}
-
-.parallax-container {
-  position: relative;
-  height: auto;
-  padding: 45px 0 100px 0;
-}
-
-.parallax-container .parallax {
-  position: static;
 }
 
 .articles {
@@ -1435,6 +1449,22 @@ no-webp .parallax-main__layer-4 {
   padding: 30px 0;
   position: relative;
   background-color: #FBFBFB;
+}
+
+.parallax-page {
+  height: auto;
+}
+
+.parallax-page .parallax {
+  position: static;
+}
+
+.parallax-page__body {
+  padding: 50px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 /* overlay at start */
@@ -1835,6 +1865,7 @@ no-webp .parallax-main__layer-4 {
 
 .slider-partners a {
   display: block;
+  position: relative;
   height: auto;
   -webkit-filter: opacity(50%) grayscale(90%);
           filter: opacity(50%) grayscale(90%);
@@ -1884,8 +1915,9 @@ no-webp .parallax-main__layer-4 {
   background: url("../img/work-arrow-next-light.svg") no-repeat center center;
 }
 
-.footer {
-  background-color: #3F3F3F;
+.footer__background {
+  background-color: #2F446D;
+  padding: 50px 0;
 }
 
 @media (min-width: 320px) {
@@ -2140,6 +2172,10 @@ no-webp .parallax-main__layer-4 {
     visibility: visible;
   }
 
+  .parallax-page__body {
+    padding: 80px 0 0 0;
+  }
+
   .slider-works img {
     max-height: 250px;
   }
@@ -2376,13 +2412,13 @@ no-webp .parallax-main__layer-4 {
     margin: 0 0 70px 0;
   }
 
+  .comments__parallax {
+    padding: 60px 0 70px 0;
+  }
+
   .item-comments__text {
     font-size: 20px;
     line-height: 34px;
-  }
-
-  .parallax-container {
-    padding: 60px 0 70px 0;
   }
 
   .articles {
@@ -2640,6 +2676,10 @@ no-webp .parallax-main__layer-4 {
     display: flex;
   }
 
+  .menu-main > ul .has-submenu ul.change-bg {
+    background-color: #f9f9f9;
+  }
+
   .menu-main > ul .has-submenu ul {
     background-color: rgba(255, 255, 255, 0.8);
     position: absolute;
@@ -2877,7 +2917,7 @@ no-webp .parallax-main__layer-4 {
     margin: 0 0 100px 0;
   }
 
-  .parallax-container {
+  .comments__parallax {
     padding: 90px 0 100px 0;
   }
 
@@ -2891,6 +2931,10 @@ no-webp .parallax-main__layer-4 {
 
   .partners__body {
     padding: 70px 0;
+  }
+
+  .parallax-page__body {
+    padding: 80px 0 0 0;
   }
 
   .slider-partners .slick-list {
