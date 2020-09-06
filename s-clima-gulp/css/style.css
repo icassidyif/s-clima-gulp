@@ -157,12 +157,6 @@ h6 {
   padding: 0 15px;
 }
 
-.sidebar,
-.content {
-  background-color: #0f9d58;
-  height: 100px;
-}
-
 .svg-add-room {
   width: 34px;
   height: 34px;
@@ -1522,6 +1516,42 @@ no-webp .parallax-main__layer-4 {
   color: #7EB5F9;
 }
 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__title {
+  color: #0066BA;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  margin: 0 0 25px;
+}
+
+.sidebar .input-field {
+  margin: 0 0 30px 0;
+}
+
+.sidebar .input-field input[type='text'] {
+  color: #2C2C2C !important;
+  line-height: 19px !important;
+  height: 35px !important;
+}
+
+.sidebar .input-field input[type='text']:focus {
+  border-bottom: 1px solid #126EB9 !important;
+  box-shadow: 0 1px 0 0 #126EB9 !important;
+}
+
+.sidebar .input-field input[type='text']:focus + label {
+  color: #126EB9 !important;
+}
+
+.sidebar .input-field label {
+  font-size: 16px;
+}
+
 /* overlay at start */
 
 .mfp-fade.mfp-bg {
@@ -2228,7 +2258,7 @@ no-webp .parallax-main__layer-4 {
   }
 
   .parallax-page__body {
-    padding: 110px 0 0 0;
+    padding: 80px 0 0 0;
   }
 
   .slider-works img {

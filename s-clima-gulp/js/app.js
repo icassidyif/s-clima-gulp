@@ -687,18 +687,7 @@ $(document).ready(function () {
       }
     }]
   });
-}); //Spoiler=========================================================================
-// $('.spoiler').click(function(){
-//   $(this).toggleClass('opened').toggleClass('closed').prev().slideToggle(700);
-//   if($(this).hasClass('opened')) {
-//     $(this).find('label').html('Згорнути текст');
-//   }
-//   else {
-//     $(this).find('label').html('Читати далі');
-//   }
-// });
-//
-// Animation scroll-----
+}); // Animation scroll-----
 // .anim-item
 // .anim-no-hide
 // Працює по класу .active
@@ -759,3 +748,9 @@ $('.footer__copyright').append(spanElement); //=================================
 //=========================================================================
 //=========================================================================
 // 29.33% 45deg   70.67   scale(0.7067)
+// Materialize initializations
+
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems);
+}); // END Materialize initializations

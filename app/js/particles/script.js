@@ -1,15 +1,3 @@
-//Spoiler=========================================================================
-// $('.spoiler').click(function(){
-//   $(this).toggleClass('opened').toggleClass('closed').prev().slideToggle(700);
-//   if($(this).hasClass('opened')) {
-//     $(this).find('label').html('Згорнути текст');
-//   }
-//   else {
-//     $(this).find('label').html('Читати далі');
-//   }
-// });
-//
-
 
 // Animation scroll-----
 // .anim-item
@@ -59,8 +47,9 @@ function offset (el) {
   }
 }
 
-
 // end Animation Scroll
+
+
 
 //footer copyright====================================================
 let spanElement = document.createElement('span');
@@ -73,3 +62,11 @@ $('.footer__copyright').append(spanElement);
 //=========================================================================
 
 // 29.33% 45deg   70.67   scale(0.7067)
+
+
+// Materialize initializations
+document.addEventListener('DOMContentLoaded', function() {
+  let elems = document.querySelectorAll('select');
+  let instances = M.FormSelect.init(elems);
+});
+// END Materialize initializations
