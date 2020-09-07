@@ -6,5 +6,7 @@
 ////=include ../../node_modules/swiper/js/swiper.min.js
 //=include ../../node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js
 //=include ../../node_modules/magnific-popup/dist/jquery.magnific-popup.min.js
+//=include ../../node_modules/materialize-css/extras/noUiSlider/nouislider.min.js
+//=include ../../node_modules/wnumb/wNumb.min.js
 
 //=include ../../app/js/libs/dynamic-adaptive.js

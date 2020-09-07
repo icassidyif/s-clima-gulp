@@ -577,6 +577,17 @@ h6 {
   padding: 15px 25px;
 }
 
+.btn-main_min {
+  background-color: #7EB5F9 !important;
+  padding: 8px 13px;
+  font-size: 12px;
+}
+
+.btn-main_min:after,
+.btn-main_min:before {
+  display: none;
+}
+
 .form {
   font-family: Roboto, serif;
 }
@@ -1521,6 +1532,21 @@ no-webp .parallax-main__layer-4 {
   flex-direction: column;
 }
 
+.sidebar__section {
+  margin: 0 0 50px 0;
+}
+
+.sidebar__section #price-from,
+.sidebar__section #price-to {
+  max-width: 70px;
+  margin: 0 30px 0 0;
+}
+
+.sidebar__section #power {
+  color: #D11586;
+  font-weight: 500;
+}
+
 .sidebar__title {
   color: #0066BA;
   font-weight: 700;
@@ -1529,12 +1555,52 @@ no-webp .parallax-main__layer-4 {
   margin: 0 0 25px;
 }
 
+.sidebar__calculate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar__calculate .input-field {
+  max-width: 70px;
+  margin: 0 !important;
+}
+
+.sidebar form p {
+  height: 20px;
+  margin: 0 0 20px 0;
+}
+
+.sidebar form p label input[type='checkbox'] + span {
+  font-size: 16px !important;
+  color: #2c2c2c !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.sidebar form p label input[type='checkbox'] + span:before {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.sidebar form p label input[type='checkbox']:checked + span:before {
+  width: 12px !important;
+  height: 22px !important;
+  border-right: 2px solid #0066BA;
+  border-bottom: 2px solid #0066BA;
+}
+
+.sidebar form + span {
+  font-family: Roboto, serif !important;
+  font-size: 16px;
+  line-height: 19px;
+}
+
 .sidebar .input-field {
   margin: 0 0 30px 0;
 }
 
 .sidebar .input-field input[type='text'] {
-  color: #2C2C2C !important;
+  font-family: Roboto, serif !important;
   line-height: 19px !important;
   height: 35px !important;
 }
@@ -1550,6 +1616,36 @@ no-webp .parallax-main__layer-4 {
 
 .sidebar .input-field label {
   font-size: 16px;
+}
+
+.sidebar .input-field .select-dropdown {
+  font-size: 16px !important;
+  color: #9e9e9e !important;
+}
+
+.sidebar .input-field .dropdown-content li > span {
+  color: #126EB9;
+}
+
+.sidebar .input-field .dropdown-content .selected > span {
+  color: #9e9e9e;
+}
+
+.sidebar .input-field_inline {
+  display: inline-block;
+}
+
+.sidebar .noUi-connect {
+  background: #0066BA;
+}
+
+.sidebar .noUi-horizontal .noUi-handle,
+.sidebar .noUi-vertical .noUi-handle {
+  background: #0066BA;
+}
+
+.sidebar .noUi-target.noUi-horizontal .noUi-tooltip {
+  background-color: #0066BA;
 }
 
 /* overlay at start */

@@ -77,15 +77,52 @@
         <div class="row">
           <div class="column column-lg-1-4">
             <div class="sidebar">
-              <h4 class="sidebar__title">Розрахунок потужності</h4>
-              <div class="input-field"><input class="validate" id="square" type="text"><label for="square">Площа приміщення (м2)</label></div>
-              <div class="input-field"><input class="validate" id="height" type="text"><label for="height">Висота приміщення (м)</label></div>
-              <div class="input-field"><select>
-                  <option value="" disabled selected>Оберіть опцію</option>
-                  <option value="1">Слабке</option>
-                  <option value="2">Середнє</option>
-                  <option value="3">Високе</option>
-                </select><label>Сонячне освітлення приміщення</label></div>
+              <div class="sidebar__section">
+                <h4 class="sidebar__title">Розрахунок потужності</h4>
+                <div class="input-field"><input class="validate" id="square" type="text"><label for="square">Площа приміщення (м2)</label></div>
+                <div class="input-field"><input class="validate" id="height" type="text"><label for="height">Висота приміщення (м)</label></div>
+                <div class="input-field"><select>
+                    <option value="" disabled selected>Сонячне освітлення приміщення</option>
+                    <option value="1">Слабке</option>
+                    <option value="2">Середнє</option>
+                    <option value="3">Високе</option>
+                  </select></div>
+                <div class="sidebar__calculate">
+                  <div class="sidebar__btn"><a class="btn-main btn-main_min" href="#">Розрахувати</a></div>
+                  <div class="input-field"><input class="validate" id="power" type="text" value="3.5"><label for="power">кВт</label></div>
+                </div>
+              </div>
+              <div class="sidebar__section">
+                <h4 class="sidebar__title">Ціновий діапазон (грн)</h4>
+                <div class="input-field input-field_inline"><input class="validate" id="price-from" type="text"><label for="price-from">Від</label></div>
+                <div class="input-field input-field_inline"><input class="validate" id="price-to" type="text"><label for="price-to">До</label></div>
+                <div id="price-range"></div>
+              </div>
+              <div class="sidebar__section">
+                <h4 class="sidebar__title">Бренд</h4>
+                <form action="#">
+                  <p><label><input type="checkbox"><span>Electrolux</span></label></p>
+                  <p><label><input type="checkbox"><span>LG</span></label></p>
+                  <p><label><input type="checkbox"><span>Mitsubishi Electric</span></label></p>
+                  <p><label><input type="checkbox"><span>Samsung</span></label></p>
+                </form>
+              </div>
+              <div class="sidebar__section">
+                <h4 class="sidebar__title">Тип</h4>
+                <form action="#">
+                  <p><label><input type="checkbox"><span>Настінний</span></label></p>
+                  <p><label><input type="checkbox"><span>Касетнний</span></label></p>
+                  <p><label><input type="checkbox"><span>Канальний</span></label></p>
+                  <p><label><input type="checkbox"><span>Підлогово-стельовий</span></label></p>
+                </form>
+              </div>
+              <div class="sidebar__section">
+                <h4 class="sidebar__title">Компресор</h4>
+                <form action="#">
+                  <p><label><input type="checkbox"><span>Інверторний</span></label></p>
+                  <p><label><input type="checkbox"><span>Роторний</span></label></p><button type="submit">Go</button>
+                </form>
+              </div>
             </div>
           </div>
           <div class="column column-lg-3-4">

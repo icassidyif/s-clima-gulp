@@ -754,3 +754,20 @@ document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems);
 }); // END Materialize initializations
+//Range Slider Sidebar
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  var slider = document.getElementById('price-range');
+  noUiSlider.create(slider, {
+    start: [20, 80],
+    connect: true,
+    step: 1,
+    range: {
+      'min': 0,
+      'max': 100
+    },
+    format: wNumb({
+      decimals: 0
+    })
+  });
+}); // END Range Slider Sidebar

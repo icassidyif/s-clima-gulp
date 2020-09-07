@@ -1,18 +1,80 @@
 .sidebar
-  h4.sidebar__title Розрахунок потужності
-  .input-field
-    input(id='square' type="text" class="validate")
-    label(for="square") Площа приміщення (м2)
-  .input-field
-    input(id='height' type="text" class="validate")
-    label(for="height") Висота приміщення (м)
-  .input-field
-    select
-      option(value="" disabled selected) Оберіть опцію
-      option(value='1') Слабке
-      option(value='2') Середнє
-      option(value='3') Високе
-    label Сонячне освітлення приміщення
-
-
-
+  .sidebar__section
+    h4.sidebar__title Розрахунок потужності
+    .input-field
+      input(id='square' type="text" class="validate")
+      label(for="square") Площа приміщення (м2)
+    .input-field
+      input(id='height' type="text" class="validate")
+      label(for="height") Висота приміщення (м)
+    .input-field
+      select
+        option(value="" disabled selected) Сонячне освітлення приміщення
+        option(value='1') Слабке
+        option(value='2') Середнє
+        option(value='3') Високе
+    .sidebar__calculate
+      .sidebar__btn
+        a(href='#').btn-main.btn-main_min Розрахувати
+      .input-field
+        input(id='power' type="text" class="validate" value='3.5')
+        label(for="power") кВт
+  .sidebar__section
+    h4.sidebar__title Ціновий діапазон (грн)
+    .input-field.input-field_inline
+      input(id='price-from' type="text" class="validate")
+      label(for="price-from") Від
+    .input-field.input-field_inline
+      input(id='price-to' type="text" class="validate")
+      label(for="price-to") До
+    #price-range
+  .sidebar__section
+    h4.sidebar__title Бренд
+    form(action='#')
+      p
+        label
+          input(type="checkbox")
+          span Electrolux
+      p
+        label
+          input(type="checkbox")
+          span LG
+      p
+        label
+          input(type="checkbox")
+          span Mitsubishi Electric
+      p
+        label
+          input(type="checkbox")
+          span Samsung
+  .sidebar__section
+    h4.sidebar__title Тип
+    form(action='#')
+      p
+        label
+          input(type="checkbox")
+          span Настінний
+      p
+        label
+          input(type="checkbox")
+          span Касетнний
+      p
+        label
+          input(type="checkbox")
+          span Канальний
+      p
+        label
+          input(type="checkbox")
+          span Підлогово-стельовий
+  .sidebar__section
+    h4.sidebar__title Компресор
+    form(action='#')
+      p
+        label
+          input(type="checkbox")
+          span Інверторний
+      p
+        label
+          input(type="checkbox")
+          span Роторний
+      button(type="submit") Go
