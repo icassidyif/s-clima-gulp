@@ -757,35 +757,37 @@ document.addEventListener('DOMContentLoaded', function () {
 //Range Slider Sidebar
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  var slider = document.getElementById('price-range');
-  noUiSlider.create(slider, {
-    start: [20, 80],
-    connect: true,
-    step: 1,
-    range: {
-      'min': 0,
-      'max': 100
-    },
-    format: wNumb({
-      decimals: 0
-    })
-  });
-  var priceFrom = document.getElementById('price-from');
-  var priceFromLabel = document.querySelector('#price-from + label');
-  var priceTo = document.getElementById('price-to');
-  var priceToLabel = document.querySelector('#price-to + label');
-  slider.noUiSlider.on('update', function (values, handle) {
-    var value = values[handle];
+  if (document.getElementById('price-range')) {
+    var slider = document.getElementById('price-range');
+    noUiSlider.create(slider, {
+      start: [20, 80],
+      connect: true,
+      step: 1,
+      range: {
+        'min': 0,
+        'max': 100
+      },
+      format: wNumb({
+        decimals: 0
+      })
+    });
+    var priceFrom = document.getElementById('price-from');
+    var priceFromLabel = document.querySelector('#price-from + label');
+    var priceTo = document.getElementById('price-to');
+    var priceToLabel = document.querySelector('#price-to + label');
+    slider.noUiSlider.on('update', function (values, handle) {
+      var value = values[handle];
 
-    if (handle) {
-      priceTo.value = value;
-      priceToLabel.classList.add('active');
-    } else {
-      priceFrom.value = value;
-      priceFromLabel.classList.add('active');
-    }
-  });
-  priceTo.addEventListener('change', function () {
-    slider.noUiSlider.set([null, this.value]);
-  });
+      if (handle) {
+        priceTo.value = value;
+        priceToLabel.classList.add('active');
+      } else {
+        priceFrom.value = value;
+        priceFromLabel.classList.add('active');
+      }
+    });
+    priceTo.addEventListener('change', function () {
+      slider.noUiSlider.set([null, this.value]);
+    });
+  }
 }); // END Range Slider Sidebar

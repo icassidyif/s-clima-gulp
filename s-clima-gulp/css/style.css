@@ -1252,6 +1252,10 @@ no-webp .parallax-main__layer-4 {
   margin: 0;
 }
 
+.card-services__title h4 {
+  margin: 0;
+}
+
 .card-services__desc {
   display: none;
   visibility: hidden;
@@ -1485,11 +1489,12 @@ no-webp .parallax-main__layer-4 {
 }
 
 .parallax-page .parallax img {
-  max-width: 100%;
-  min-width: 2000px;
-  min-height: 1000px;
-  max-height: 2000px;
-  bottom: 110px;
+  max-width: 2200px;
+  min-width: 100%;
+  min-height: 85vh;
+  -o-object-fit: fill;
+     object-fit: fill;
+  bottom: 0;
 }
 
 .parallax-page__body {
@@ -1497,7 +1502,7 @@ no-webp .parallax-main__layer-4 {
   display: flex;
   flex-direction: column;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .parallax-page__nav-info {
@@ -2527,7 +2532,6 @@ no-webp .parallax-main__layer-4 {
 
   .card-services__title {
     flex: 1 0 auto;
-    position: relative;
     font-size: 26px;
     line-height: 34px;
     font-weight: 700;
@@ -2535,7 +2539,11 @@ no-webp .parallax-main__layer-4 {
     text-align: center;
   }
 
-  .card-services__title:after {
+  .card-services__title h4 {
+    position: relative;
+  }
+
+  .card-services__title h4:after {
     content: '';
     position: absolute;
     bottom: -20px;
