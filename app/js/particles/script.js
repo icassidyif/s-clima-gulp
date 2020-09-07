@@ -93,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   let priceTo = document.getElementById('price-to');
   let priceToLabel = document.querySelector('#price-to + label');
 
-
   slider.noUiSlider.on('update', function (values,handle) {
     let value = values[handle];
     if (handle) {
