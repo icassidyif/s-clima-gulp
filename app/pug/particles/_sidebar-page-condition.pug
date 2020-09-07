@@ -24,11 +24,12 @@
     h4.sidebar__title Ціновий діапазон (грн)
     form
       .input-field.input-field_inline
-        input(id='price-from' type="text" class="validate")
+        input(id='price-from' type="number" class="validate")
         label(for="price-from") Від
       .input-field.input-field_inline
-        input(id='price-to' type="text" class="validate")
+        input(id='price-to' type="number" class="validate")
         label(for="price-to") До
+    // Range slider DIV
     #price-range
   .sidebar__section
     h4.sidebar__title Бренд

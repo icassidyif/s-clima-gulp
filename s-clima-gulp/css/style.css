@@ -581,11 +581,16 @@ h6 {
   background-color: #7EB5F9 !important;
   padding: 8px 13px;
   font-size: 12px;
+  transition: background-color .3s ease-out;
 }
 
 .btn-main_min:after,
 .btn-main_min:before {
   display: none;
+}
+
+.btn-main_min:hover {
+  background-color: #126EB9 !important;
 }
 
 .form {
@@ -1616,6 +1621,16 @@ no-webp .parallax-main__layer-4 {
 
 .sidebar .input-field input[type='number']:focus + label {
   color: #126EB9 !important;
+}
+
+.sidebar .input-field input.valid[type='number'] {
+  border-bottom: 1px solid #126EB9 !important;
+  box-shadow: 0 1px 0 0 #126EB9 !important;
+}
+
+.sidebar .input-field input.valid[type='number']:focus {
+  border-bottom: 1px solid #126EB9 !important;
+  box-shadow: 0 1px 0 0 #126EB9 !important;
 }
 
 .sidebar .input-field label {
