@@ -48,8 +48,8 @@ hasSubmenus.forEach(element => {
 // end dropdown-menu
 
 
-//  hover background-color
-window.addEventListener('scroll',(event) => {
+//  change background-color
+function bgMenu() {
   const header = document.querySelector('.header-main');
 
   if(pageYOffset > 50) {
@@ -61,10 +61,13 @@ window.addEventListener('scroll',(event) => {
       header.classList.remove('header-main_scroll');
     }
   }
+}
 
+
+window.addEventListener('scroll',(event) => {
+  bgMenu();
 
   // change background for submenu
-
   if(pageYOffset > 80) {
     hasSubmenus.forEach(element => {
       let subMenu = element.parentElement.querySelector('ul');
@@ -76,5 +79,7 @@ window.addEventListener('scroll',(event) => {
       subMenu.classList.remove('change-bg');
     })
   }
-// end hover background-color
+// end change background-color
 })
+
+bgMenu();
