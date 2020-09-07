@@ -1570,6 +1570,10 @@ no-webp .parallax-main__layer-4 {
   margin: 0 0 20px 0;
 }
 
+.sidebar form p:last-child {
+  margin: 0;
+}
+
 .sidebar form p label input[type='checkbox'] + span {
   font-size: 16px !important;
   color: #2c2c2c !important;
@@ -1599,18 +1603,18 @@ no-webp .parallax-main__layer-4 {
   margin: 0 0 30px 0;
 }
 
-.sidebar .input-field input[type='text'] {
+.sidebar .input-field input[type='number'] {
   font-family: Roboto, serif !important;
   line-height: 19px !important;
   height: 35px !important;
 }
 
-.sidebar .input-field input[type='text']:focus {
+.sidebar .input-field input[type='number']:focus {
   border-bottom: 1px solid #126EB9 !important;
   box-shadow: 0 1px 0 0 #126EB9 !important;
 }
 
-.sidebar .input-field input[type='text']:focus + label {
+.sidebar .input-field input[type='number']:focus + label {
   color: #126EB9 !important;
 }
 
