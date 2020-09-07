@@ -1608,29 +1608,28 @@ no-webp .parallax-main__layer-4 {
   margin: 0 0 30px 0;
 }
 
-.sidebar .input-field input[type='number'] {
+.sidebar .input-field input[type='number'],
+.sidebar .input-field input[type='text'] {
   font-family: Roboto, serif !important;
   line-height: 19px !important;
   height: 35px !important;
 }
 
-.sidebar .input-field input[type='number']:focus {
+.sidebar .input-field input[type='number'].valid,
+.sidebar .input-field input[type='text'].valid {
   border-bottom: 1px solid #126EB9 !important;
   box-shadow: 0 1px 0 0 #126EB9 !important;
 }
 
-.sidebar .input-field input[type='number']:focus + label {
+.sidebar .input-field input[type='number']:focus,
+.sidebar .input-field input[type='text']:focus {
+  border-bottom: 1px solid #126EB9 !important;
+  box-shadow: 0 1px 0 0 #126EB9 !important;
+}
+
+.sidebar .input-field input[type='number']:focus + label,
+.sidebar .input-field input[type='text']:focus + label {
   color: #126EB9 !important;
-}
-
-.sidebar .input-field input.valid[type='number'] {
-  border-bottom: 1px solid #126EB9 !important;
-  box-shadow: 0 1px 0 0 #126EB9 !important;
-}
-
-.sidebar .input-field input.valid[type='number']:focus {
-  border-bottom: 1px solid #126EB9 !important;
-  box-shadow: 0 1px 0 0 #126EB9 !important;
 }
 
 .sidebar .input-field label {

@@ -87,5 +87,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
       decimals: 0
     })
   });
+
+  let priceFrom = document.getElementById('price-from');
+  let priceFromLabel = document.querySelector('#price-from + label');
+  let priceTo = document.getElementById('price-to');
+  let priceToLabel = document.querySelector('#price-to + label');
+
+
+  slider.noUiSlider.on('update', function (values,handle) {
+    let value = values[handle];
+    if (handle) {
+      priceTo.value = value;
+      priceToLabel.classList.add('active');
+    } else {
+      priceFrom.value = value;
+      priceFromLabel.classList.add('active');
+    }
+  })
+  priceTo.addEventListener('change', function () {
+    slider.noUiSlider.set([null, this.value]);
+  });
+
 });
 // END Range Slider Sidebar

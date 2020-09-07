@@ -69,21 +69,20 @@
 
   .input-field
     margin: 0 0 30px 0
-    input[type='number']
+    input[type='number'],
+    input[type='text']
       font-family: Roboto, serif!important
       line-height: 19px!important
       height: 35px!important
+      &.valid
+        border-bottom: 1px solid #126EB9!important
+        box-shadow: 0 1px 0 0 #126EB9!important
+
       &:focus
         border-bottom: 1px solid #126EB9!important
         box-shadow: 0 1px 0 0 #126EB9!important
         + label
           color: #126EB9!important
-    input.valid[type='number']
-      border-bottom: 1px solid #126EB9!important
-      box-shadow: 0 1px 0 0 #126EB9!important
-      &:focus
-        border-bottom: 1px solid #126EB9!important
-        box-shadow: 0 1px 0 0 #126EB9!important
 
     label
       font-size: 16px

@@ -770,4 +770,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
       decimals: 0
     })
   });
+  var priceFrom = document.getElementById('price-from');
+  var priceFromLabel = document.querySelector('#price-from + label');
+  var priceTo = document.getElementById('price-to');
+  var priceToLabel = document.querySelector('#price-to + label');
+  slider.noUiSlider.on('update', function (values, handle) {
+    var value = values[handle];
+
+    if (handle) {
+      priceTo.value = value;
+      priceToLabel.classList.add('active');
+    } else {
+      priceFrom.value = value;
+      priceFromLabel.classList.add('active');
+    }
+  });
+  priceTo.addEventListener('change', function () {
+    slider.noUiSlider.set([null, this.value]);
+  });
 }); // END Range Slider Sidebar
