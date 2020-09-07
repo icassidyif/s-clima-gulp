@@ -1484,6 +1484,14 @@ no-webp .parallax-main__layer-4 {
   position: static;
 }
 
+.parallax-page .parallax img {
+  max-width: 100%;
+  min-width: 2000px;
+  min-height: 1000px;
+  max-height: 2000px;
+  bottom: 110px;
+}
+
 .parallax-page__body {
   padding: 50px 0 0 0;
   display: flex;
@@ -2646,6 +2654,10 @@ no-webp .parallax-main__layer-4 {
     margin: 0 0 70px 0;
   }
 
+  .parallax-page .parallax img {
+    bottom: 80px;
+  }
+
   .breadcumps,
   .breadcumps__link {
     font-size: 18px;
@@ -3149,6 +3161,10 @@ no-webp .parallax-main__layer-4 {
 
   .parallax-page {
     margin: 0 0 100px 0;
+  }
+
+  .parallax-page .parallax img {
+    bottom: -100px;
   }
 
   .parallax-page__body {
