@@ -90,6 +90,7 @@
     span
       color: #ffffff
       max-width: 160px
+      line-height: 20px
 
   &__email
     a
@@ -101,7 +102,12 @@
     display: flex
     align-items: center
     svg
+      margin: 0
+    a:not(:last-child)
       margin: 0 20px 0 0
+      +breakpoint(sm)
+        margin: 0
+
 
 
 
@@ -111,6 +117,7 @@
       margin: -10px 0
     li
       a
+        color:
         display: block
         color: #BACFF8
         text-transform: uppercase
@@ -132,8 +139,7 @@
 
 .copyright
   border-top: 1px solid rgba(186, 207, 248, 0.25)
-  +breakpoint(lg)
-    border: none
+
   &__container
     padding: 25px 0
     flex: 1 1 100%
@@ -148,6 +154,7 @@
       flex-direction: row
       justify-content: space-between
     a
+      color: #BACFF8
       transition: color .3s ease-out
       &:hover
         color: #ffffff

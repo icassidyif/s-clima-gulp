@@ -2313,6 +2313,7 @@ no-webp .parallax-main__layer-4 {
 .footer__adress span {
   color: #ffffff;
   max-width: 160px;
+  line-height: 20px;
 }
 
 .footer__email a:hover {
@@ -2325,6 +2326,10 @@ no-webp .parallax-main__layer-4 {
 }
 
 .footer__social svg {
+  margin: 0;
+}
+
+.footer__social a:not(:last-child) {
   margin: 0 20px 0 0;
 }
 
@@ -2363,6 +2368,7 @@ no-webp .parallax-main__layer-4 {
 }
 
 .copyright__container a {
+  color: #BACFF8;
   transition: color .3s ease-out;
 }
 
@@ -2658,6 +2664,10 @@ no-webp .parallax-main__layer-4 {
 
   .footer__contacts-container svg {
     margin: 0 20px 0 0;
+  }
+
+  .footer__social a:not(:last-child) {
+    margin: 0;
   }
 
   .copyright__container {
@@ -3488,10 +3498,6 @@ no-webp .parallax-main__layer-4 {
 
   .footer__contacts {
     flex: 1 0 205px;
-  }
-
-  .copyright {
-    border: none;
   }
 }
 
