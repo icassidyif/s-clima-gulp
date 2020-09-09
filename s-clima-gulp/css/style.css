@@ -1317,6 +1317,18 @@ no-webp .parallax-main__layer-4 {
   cursor: pointer;
 }
 
+.works__item:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: #7EB5F9;
+  z-index: 2;
+  transition: width .4s ease-out;
+}
+
 .works__item:hover .works__info {
   justify-content: center;
 }
@@ -1329,7 +1341,11 @@ no-webp .parallax-main__layer-4 {
 }
 
 .works__item:hover .works__name {
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
+}
+
+.works__item:hover:after {
+  width: 100%;
 }
 
 .works__item_mobile {
@@ -1344,20 +1360,21 @@ no-webp .parallax-main__layer-4 {
 }
 
 .works__item_mobile .works__name {
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
 }
 
 .works__info {
   position: absolute;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  padding: 15px 30px;
+  padding: 20px 30px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   color: #ffffff;
   transition: all .9s ease-out;
+  z-index: 1;
 }
 
 .works__date {
