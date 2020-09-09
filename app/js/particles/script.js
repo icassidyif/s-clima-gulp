@@ -56,9 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //footer copyright====================================================
   let spanElement = document.createElement('span');
-  let copyRight = `Smartik © 2019 - ${new Date().getFullYear()}.  Розроблено <a href="#"> d-wave </a>`;
+  let copyRight = `<a href="#">S-Clima</a> © 2019 - ${new Date().getFullYear()}р.`;
+  let devRight = `Розроблено студією <a target="_blank" href="https://dwave.space/"> d-wave </a>`
   spanElement.innerHTML = copyRight;
-  $('.footer__copyright').append(spanElement);
+  $('.copyright__main').append(spanElement);
+  $('.copyright__develop').append(devRight);
 //=========================================================================
 //=========================================================================
 //=========================================================================

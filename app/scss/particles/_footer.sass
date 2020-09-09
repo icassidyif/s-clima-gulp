@@ -1,4 +1,159 @@
 .footer
   &__background
     background-color: #2F446D
-    padding: 50px 0
+
+  &__body
+    padding: 55px 0 20px 0
+    display: flex
+    flex-wrap: wrap
+    color: #ffffff
+
+
+  &__block
+    display: flex
+    flex-direction: column
+    align-items: center
+    flex: 1 0 100%
+    margin: 0 0 35px 0
+    text-align: center
+    +breakpoint(sm)
+      flex: 1 0 50%
+      align-items: flex-start
+      text-align: left
+
+  &__info
+    display: flex
+    flex-direction: column
+    +breakpoint(lg)
+      flex: 2 0 300px
+
+  &__menu
+    +breakpoint(lg)
+      flex: 2 0 150px
+
+  &__catalog
+    +breakpoint(lg)
+      flex: 2 0 170px
+
+
+  &__contacts
+    a,
+    span
+      color: #BACFF8
+      display: block
+      font-size: 13px
+      line-height: 15px
+    +breakpoint(lg)
+        flex: 1 0 205px
+
+  &__copyright
+
+
+  &__logo
+    max-width: 150px
+    margin: 0 0 30px 0
+    img
+      width: 100%
+
+  &__desc
+    font-size: 13px
+    line-height: 22px
+    max-width: 270px
+
+
+  &__contacts-container
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin: 0 0 20px 0
+    +breakpoint(sm)
+      flex-direction: row
+    &:last-child
+      margin: 0
+    svg
+      margin: 0 0 20px 0
+      height: 25px
+      width: 25px
+      +breakpoint(sm)
+        margin: 0 20px 0 0
+
+
+  &__phones
+    a
+      margin: 0 0 8px 0
+      &:hover
+        color: #ffffff
+      &:last-child
+        margin: 0
+
+  &__adress
+    span
+      color: #ffffff
+      max-width: 160px
+
+  &__email
+    a
+      //line-height: 22px
+      &:hover
+        color: #ffffff
+
+  &__social
+    display: flex
+    align-items: center
+    svg
+      margin: 0 20px 0 0
+
+
+
+  ul
+    margin: -8px 0
+    +breakpoint(md)
+      margin: -10px 0
+    li
+      a
+        display: block
+        color: #BACFF8
+        text-transform: uppercase
+        font-size: 13px
+        line-height: 15px
+        padding: 8px 0
+        transition: color .3s ease-out
+        &:hover
+          color: #ffffff
+        +breakpoint(md)
+          padding: 10px 0
+
+
+
+
+
+
+
+
+.copyright
+  border-top: 1px solid rgba(186, 207, 248, 0.25)
+  +breakpoint(lg)
+    border: none
+  &__container
+    padding: 25px 0
+    flex: 1 1 100%
+    color: rgba(255, 255, 255, 0.25)
+    font-size: 13px
+    line-height: 15px
+    display: flex
+    flex-direction: column
+    align-items: center
+    transition: color .3s ease-out
+    +breakpoint(sm)
+      flex-direction: row
+      justify-content: space-between
+    a
+      transition: color .3s ease-out
+      &:hover
+        color: #ffffff
+
+  &__main
+    margin: 0 0 15px 0
+    +breakpoint(sm)
+      margin: 0
+

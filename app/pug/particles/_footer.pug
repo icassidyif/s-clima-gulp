@@ -2,6 +2,62 @@ footer.footer
   .footer__background
     .footer__container.container
       .footer__body
-        .footer__logo
-          +image('logo.png')
-      .footer__menu
+        .footer__info.footer__block
+          .footer__logo
+            +image('logo.png')
+          .footer__desc
+            p Пропонуємо комплексний підхід до проєктування та встановлення систем вентиляції, кондиціонування та опалення для промислових та побутових об'єктів.
+        .footer__menu.footer__block
+          h4.footer__title.title.title_small Навігація
+          ul
+            li
+              a(href='#') Промислові об'єкти
+            li
+              a(href='#') Побутові об'єкти
+            li
+              a(href='#') Готові роботи
+            li
+              a(href='#') Статті
+            li
+              a(href='#') Контакти
+        .footer__catalog.footer__block
+          h4.footer__title.title.title_small Каталог
+          ul
+            li
+              a(href='#') Кондиціонери
+            li
+              a(href='#') ОСУШУВАЧІ / ОЧИЩУВАЧІ ПОВІТРЯ
+            li
+              a(href='#') ТЕПЛОВІ ЗАВІСИ
+            li
+              a(href='#') ТЕПЛОВІ НАСОСИ
+            li
+              a(href='#') ВЕНТИЛЯЦІЯ
+        .footer__contacts.footer__block
+          h4.footer__title.title.title_small Контакти
+          .footer__contacts-container
+            +icon('phone')
+            .footer__phones
+              a(href='tel:+380677865345').link.link_2 (067) 77-77-777
+              a(href='tel:+380677865345').link.link_2 (067) 77-77-777
+          .footer__contacts-container
+            +icon('home')
+            .footer__adress
+              span  м. Івано-Франківськ, Мельничука 16Б, офіс 609
+          .footer__contacts-container
+            +icon('email')
+            .footer__email
+              a(href='mailto:sclima@gmail.com').link.link_2 sclima@gmail.com
+          .footer__contacts-container
+            .footer__social
+              a(href='#')
+                +icon('fb')
+              a(href='#')
+                +icon('insta')
+              a(href='#')
+                +icon('yt')
+    .footer__copyright.copyright
+      .footer__container.container
+        .copyright__container
+          .copyright__main
+          .copyright__develop

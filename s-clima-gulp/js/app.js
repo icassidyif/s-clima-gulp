@@ -745,9 +745,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   var spanElement = document.createElement('span');
-  var copyRight = "Smartik \xA9 2019 - ".concat(new Date().getFullYear(), ".  \u0420\u043E\u0437\u0440\u043E\u0431\u043B\u0435\u043D\u043E <a href=\"#\"> d-wave </a>");
+  var copyRight = "<a href=\"#\">S-Clima</a> \xA9 2019 - ".concat(new Date().getFullYear(), "\u0440.");
+  var devRight = "\u0420\u043E\u0437\u0440\u043E\u0431\u043B\u0435\u043D\u043E \u0441\u0442\u0443\u0434\u0456\u0454\u044E <a target=\"_blank\" href=\"https://dwave.space/\"> d-wave </a>";
   spanElement.innerHTML = copyRight;
-  $('.footer__copyright').append(spanElement); //=========================================================================
+  $('.copyright__main').append(spanElement);
+  $('.copyright__develop').append(devRight); //=========================================================================
   //=========================================================================
   //=========================================================================
   //=========================================================================
