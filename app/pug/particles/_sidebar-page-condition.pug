@@ -1,25 +1,24 @@
 .sidebar
   .sidebar__section
     h4.sidebar__title Розрахунок потужності
-    form
+    form.power-calc
       .input-field
-        input(id='square' type="number" class="validate" step='.1')
+        input(id='square' type="number" class="validate"  step='.1').square
         label(for="square") Площа приміщення (м2)
       .input-field
-        input(id='height' type="number" step='.1' class="validate")
+        input(id='height' type="number" step='.1' class="validate").height
         label(for="height") Висота приміщення (м)
       .input-field
-        select
+        select(name='sun-light')#sun-light.sun-light
           option(value="" disabled selected) Сонячне освітлення приміщення
-          option(value='1') Слабке
-          option(value='2') Середнє
-          option(value='3') Високе
-      .sidebar__calculate
-        .sidebar__btn
-          a(href='#').btn-main.btn-main_min Розрахувати
-        .input-field
-          input(id='power' type="number" step='.1' class="validate" value='3.5')
-          label(for="power") кВт
+          option(value= 1) Слабке
+          option(value= 2) Середнє
+          option(value= 3) Високе
+      .sidebar__btn
+        button(type='button').calc-power.btn-main.btn-main_min Розрахувати
+      .input-field.input-field_inline
+        input(id='power' type="number" step='.1' class="validate").power
+        label(for="power") кВт
   .sidebar__section
     h4.sidebar__title Ціновий діапазон (грн)
     form

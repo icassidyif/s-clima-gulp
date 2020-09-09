@@ -4,27 +4,27 @@ $.validator.addMethod('customphone', function (value, element) {
   return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value);
 }, "Please enter a valid phone number");
 
-$('#callMeForm').validate({
-  rules: {
-    phone: {
-      required: true,
-      customphone: true
-    }
-  },
-  messages: {
-    phone: {
-      required: "Це обов'язкове поле",
-      customphone: 'Невірний номер телефону'
-    }
-  },
-  submitHandler: function (form) {
-    $.magnificPopup.close();
-    let url = '/php/call.php';
-    let formData = $(form).serializeArray();
-    ajaxSend(formData, url);
-    form.reset();
-  }
-});
+
+//
+// $('#power-calc').validate({
+//   rules: {
+//     square: {
+//       required: true
+//     }
+//   },
+//   messages: {
+//     square: {
+//       required: "Це обов'язкове поле"
+//     }
+//   },
+//   submitHandler: function (form) {
+//     //$.magnificPopup.close();
+//     // let url = '/php/call.php';
+//     // let formData = $(form).serializeArray();
+//     // ajaxSend(formData, url);
+//     form.reset();
+//   }
+// });
 
 
 $('#gardenForm').validate({

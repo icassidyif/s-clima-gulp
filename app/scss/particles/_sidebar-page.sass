@@ -16,15 +16,10 @@
     line-height: 26px
     margin: 0 0 25px
 
-  &__calculate
-    display: flex
-    justify-content: space-between
-    .input-field
-      max-width: 70px
-      margin: 0!important
-
-
-
+  &__btn
+    display: inline-block
+    + .input-field
+      float: right
 
 
 
@@ -101,6 +96,12 @@
 
     &_inline
       display: inline-block
+      margin: 0 30px 30px 0
+      max-width: 70px
+
+    &:last-child
+      margin: 0
+
 
 
   .noUi-connect
@@ -109,3 +110,4 @@
     background: #0066BA
   .noUi-target.noUi-horizontal .noUi-tooltip
     background-color: #0066BA
+

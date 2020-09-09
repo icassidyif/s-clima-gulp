@@ -84,10 +84,8 @@ function showPopupError() {
     $.magnificPopup.close();
   });
 } //end popup alert
+//Menu BURGER
 
-
-var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-console.log(supportsTouch); //Menu BURGER
 
 var burgerMenu = document.querySelector('.burger-menu');
 var body = document.querySelector('body');
@@ -125,9 +123,9 @@ hasSubmenus.forEach(function (element) {
     changeMaxHeight(liItem, subMenu, heightSubmenu);
   });
 }); // end dropdown-menu
-//  hover background-color
+//  change background-color
 
-window.addEventListener('scroll', function (event) {
+function bgMenu() {
   var header = document.querySelector('.header-main');
 
   if (pageYOffset > 50) {
@@ -138,8 +136,11 @@ window.addEventListener('scroll', function (event) {
     if (header.classList.contains('header-main_scroll')) {
       header.classList.remove('header-main_scroll');
     }
-  } // change background for submenu
+  }
+}
 
+window.addEventListener('scroll', function (event) {
+  bgMenu(); // change background for submenu
 
   if (pageYOffset > 80) {
     hasSubmenus.forEach(function (element) {
@@ -151,9 +152,10 @@ window.addEventListener('scroll', function (event) {
       var subMenu = element.parentElement.querySelector('ul');
       subMenu.classList.remove('change-bg');
     });
-  } // end hover background-color
+  } // end change background-color
 
-}); //Check scroll position=by Cassidy=======================================================
+});
+bgMenu(); //Check scroll position=by Cassidy=======================================================
 //=========================================================================//init SmoothScroll========================================================
 
 var scroll = new SmoothScroll('a[href*="#"]', {
@@ -226,28 +228,27 @@ $(document).ready(function () {
 $("#phone").mask("+38 (999) 999-99-99");
 $.validator.addMethod('customphone', function (value, element) {
   return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value);
-}, "Please enter a valid phone number");
-$('#callMeForm').validate({
-  rules: {
-    phone: {
-      required: true,
-      customphone: true
-    }
-  },
-  messages: {
-    phone: {
-      required: "Це обов'язкове поле",
-      customphone: 'Невірний номер телефону'
-    }
-  },
-  submitHandler: function submitHandler(form) {
-    $.magnificPopup.close();
-    var url = '/php/call.php';
-    var formData = $(form).serializeArray();
-    ajaxSend(formData, url);
-    form.reset();
-  }
-});
+}, "Please enter a valid phone number"); //
+// $('#power-calc').validate({
+//   rules: {
+//     square: {
+//       required: true
+//     }
+//   },
+//   messages: {
+//     square: {
+//       required: "Це обов'язкове поле"
+//     }
+//   },
+//   submitHandler: function (form) {
+//     //$.magnificPopup.close();
+//     // let url = '/php/call.php';
+//     // let formData = $(form).serializeArray();
+//     // ajaxSend(formData, url);
+//     form.reset();
+//   }
+// });
+
 $('#gardenForm').validate({
   rules: {
     parentName: {
@@ -687,76 +688,78 @@ $(document).ready(function () {
       }
     }]
   });
-}); // Animation scroll-----
-// .anim-item
-// .anim-no-hide
-// Працює по класу .active
-
-var animItems = document.querySelectorAll('.anim-item');
-
-if (animItems.length > 0) {
-  var animScroll = function animScroll() {
-    animItems.forEach(function (animItem) {
-      var animItemHeight = animItem.offsetHeight;
-      var animItemPosition = offset(animItem).top;
-      var animStart = 4;
-      var animItemPoint = animItemHeight > window.innerHeight ? window.innerHeight - window.innerHeight / animStart : window.innerHeight - animItemHeight / animStart; // Знаходимо чи є елементи , які зміщені по осі Y і компенсуємо зміщення
-
-      var style = getComputedStyle(animItem);
-      var matrix = new WebKitCSSMatrix(style.webkitTransform);
-      var translateY = matrix.m42;
-
-      if (translateY !== 0) {
-        animItemPosition += -translateY;
-      } // кынець
-
-
-      if (pageYOffset > animItemPosition - animItemPoint && pageYOffset < animItemPosition + animItemHeight) {
-        animItem.classList.add('active');
-      } else {
-        if (!animItem.classList.contains('anim-no-hide')) {
-          animItem.classList.remove('active');
-        }
-      }
-    });
-  };
-
-  window.addEventListener('scroll', animScroll);
-  setTimeout(function () {
-    animScroll();
-  }, 300);
-} // Функція , яка визначає позицію елемента по X та Y
-
-
-function offset(el) {
-  var rect = el.getBoundingClientRect(),
-      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  return {
-    top: rect.top + scrollTop,
-    left: rect.left + scrollLeft
-  };
-} // end Animation Scroll
-//footer copyright====================================================
-
-
-var spanElement = document.createElement('span');
-var copyRight = "Smartik \xA9 2017 - ".concat(new Date().getFullYear(), ".  \u0420\u043E\u0437\u0440\u043E\u0431\u043B\u0435\u043D\u043E <a href=\"#\"> d-wave </a>");
-spanElement.innerHTML = copyRight;
-$('.footer__copyright').append(spanElement); //=========================================================================
-//=========================================================================
-//=========================================================================
-//=========================================================================
-// 29.33% 45deg   70.67   scale(0.7067)
-// Materialize initializations
-
+});
 document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems);
-}); // END Materialize initializations
-//Range Slider Sidebar
+  var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+  console.log(supportsTouch); // Animation scroll-----
+  // .anim-item
+  // .anim-no-hide
+  // Працює по класу .active
 
-document.addEventListener("DOMContentLoaded", function (event) {
+  var animItems = document.querySelectorAll('.anim-item');
+
+  if (animItems.length > 0) {
+    var animScroll = function animScroll() {
+      animItems.forEach(function (animItem) {
+        var animItemHeight = animItem.offsetHeight;
+        var animItemPosition = offset(animItem).top;
+        var animStart = 4;
+        var animItemPoint = animItemHeight > window.innerHeight ? window.innerHeight - window.innerHeight / animStart : window.innerHeight - animItemHeight / animStart; // Знаходимо чи є елементи , які зміщені по осі Y і компенсуємо зміщення
+
+        var style = getComputedStyle(animItem);
+        var matrix = new WebKitCSSMatrix(style.webkitTransform);
+        var translateY = matrix.m42;
+
+        if (translateY !== 0) {
+          animItemPosition += -translateY;
+        } // кынець
+
+
+        if (pageYOffset > animItemPosition - animItemPoint && pageYOffset < animItemPosition + animItemHeight) {
+          animItem.classList.add('active');
+        } else {
+          if (!animItem.classList.contains('anim-no-hide')) {
+            animItem.classList.remove('active');
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', animScroll);
+    setTimeout(function () {
+      animScroll();
+    }, 300);
+  } // Функція , яка визначає позицію елемента по X та Y
+
+
+  function offset(el) {
+    var rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return {
+      top: rect.top + scrollTop,
+      left: rect.left + scrollLeft
+    };
+  } // end Animation Scroll
+  //footer copyright====================================================
+
+
+  var spanElement = document.createElement('span');
+  var copyRight = "Smartik \xA9 2019 - ".concat(new Date().getFullYear(), ".  \u0420\u043E\u0437\u0440\u043E\u0431\u043B\u0435\u043D\u043E <a href=\"#\"> d-wave </a>");
+  spanElement.innerHTML = copyRight;
+  $('.footer__copyright').append(spanElement); //=========================================================================
+  //=========================================================================
+  //=========================================================================
+  //=========================================================================
+  // 29.33% 45deg   70.67   scale(0.7067)
+  // Materialize initializations
+
+  var selectElements = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(selectElements); //let instance = instances[0];
+  //console.log(instance);
+  // END Materialize initializations
+  //Range Slider Sidebar
+
   if (document.getElementById('price-range')) {
     var slider = document.getElementById('price-range');
     noUiSlider.create(slider, {
@@ -789,5 +792,87 @@ document.addEventListener("DOMContentLoaded", function (event) {
     priceTo.addEventListener('change', function () {
       slider.noUiSlider.set([null, this.value]);
     });
+  } // END Range Slider Sidebar
+  //Validate and Calculate power
+
+
+  function calculatePower(square, height, light) {
+    var volume = square * height;
+
+    switch (light) {
+      case 1:
+        light = 30;
+        break;
+
+      case 2:
+        light = 35;
+        break;
+
+      case 3:
+        light = 40;
+        break;
+    }
+
+    return volume * light / 1000;
   }
-}); // END Range Slider Sidebar
+
+  if (document.querySelector('form.power-calc')) {
+    var calcForms = document.querySelectorAll('form.power-calc');
+    calcForms.forEach(function (form) {
+      var calcBtn = form.querySelector('.calc-power');
+      var resultInput = form.querySelector('.power');
+      var resultLabel = form.querySelector('.power + label');
+      var square = form.querySelector('.square');
+      var height = form.querySelector('.height');
+      var light = form.querySelector('.sun-light');
+      var instance = M.FormSelect.getInstance(light);
+      var valueSquare, valueHeight, valueLight;
+      calcBtn.addEventListener('click', calculate);
+
+      function calculate() {
+        valueSquare = validateInput(square, 'Вкажіть площу приміщення');
+        valueHeight = validateInput(height, 'Вкажіть висоту приміщення');
+        valueLight = validateInput(light, 'Виберіть тип освітлення');
+        var power = calculatePower(valueSquare, valueHeight, valueLight);
+        power = Math.ceil(power * 10) / 10;
+        resultInput.value = power;
+        resultLabel.classList.add('active');
+      }
+
+      function validateInput(input, errorMsg) {
+        if (!input.value) {
+          if (input === light) {
+            instance.input.classList.add('invalid');
+          }
+
+          input.classList.add('invalid');
+          M.toast({
+            html: errorMsg,
+            classes: 'toast-error'
+          });
+        } else {
+          return getValueInput(input);
+        }
+      }
+
+      function getValueInput(input) {
+        if (input === light) {
+          instance.input.classList.remove('invalid');
+          instance.input.classList.add('valid');
+        }
+
+        return parseInt(input.value);
+      }
+    });
+  } //END Validate and Calculate power
+  // show full version of vorks slider if touchscreen
+
+
+  if (supportsTouch) {
+    var worksItems = document.querySelectorAll('.works__item');
+    worksItems.forEach(function (item) {
+      item.classList.add('works__item_mobile');
+      console.log(item);
+    });
+  }
+});

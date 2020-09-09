@@ -1,6 +1,3 @@
-let supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-console.log(supportsTouch);
-
 
 //Menu BURGER
 let burgerMenu = document.querySelector('.burger-menu');

@@ -5,6 +5,56 @@
   +breakpoint(lg)
     margin: 0 0 90px 0
 
+  &__item
+    position: relative
+    cursor: pointer
+    &:hover
+      .works__info
+        justify-content: center
+      .works__btn
+        max-height: fit-content
+        padding: 8px 13px
+      .works__name
+        margin: 0 0 20px 0
+    &_mobile
+      .works__info
+      justify-content: center
+      .works__btn
+        max-height: fit-content
+        padding: 8px 13px
+      .works__name
+        margin: 0 0 20px 0
+
+
+  &__info
+    position: absolute
+    bottom: 0
+    background: rgba(0, 0, 0, 0.5)
+    padding: 15px 30px
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    color: #ffffff
+    transition: all .9s ease-out
+
+  &__date
+    font-size: 14px
+    line-height: 16px
+    margin: 0 0 5px 0
+  &__name
+    font-size: 16px
+    line-height: 19px
+    font-weight: 700
+    margin: 0
+    transition: margin .2s ease-out
+  &__btn
+    display: block
+    overflow: auto
+    max-height: 0
+    padding: 0
+    transition: all .2s ease-out
+
   &__slider
     margin: 0 0 20px 0!important
     +breakpoint(md)

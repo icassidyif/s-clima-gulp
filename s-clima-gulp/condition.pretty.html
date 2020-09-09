@@ -79,19 +79,17 @@
             <div class="sidebar">
               <div class="sidebar__section">
                 <h4 class="sidebar__title">Розрахунок потужності</h4>
-                <form>
-                  <div class="input-field"><input class="validate" id="square" type="number" step=".1"><label for="square">Площа приміщення (м2)</label></div>
-                  <div class="input-field"><input class="validate" id="height" type="number" step=".1"><label for="height">Висота приміщення (м)</label></div>
-                  <div class="input-field"><select>
+                <form class="power-calc">
+                  <div class="input-field"><input class="validate square" id="square" type="number" step=".1"><label for="square">Площа приміщення (м2)</label></div>
+                  <div class="input-field"><input class="validate height" id="height" type="number" step=".1"><label for="height">Висота приміщення (м)</label></div>
+                  <div class="input-field"><select class="sun-light" name="sun-light" id="sun-light">
                       <option value="" disabled selected>Сонячне освітлення приміщення</option>
                       <option value="1">Слабке</option>
                       <option value="2">Середнє</option>
                       <option value="3">Високе</option>
                     </select></div>
-                  <div class="sidebar__calculate">
-                    <div class="sidebar__btn"><a class="btn-main btn-main_min" href="#">Розрахувати</a></div>
-                    <div class="input-field"><input class="validate" id="power" type="number" step=".1" value="3.5"><label for="power">кВт</label></div>
-                  </div>
+                  <div class="sidebar__btn"><button class="calc-power btn-main btn-main_min" type="button">Розрахувати</button></div>
+                  <div class="input-field input-field_inline"><input class="validate power" id="power" type="number" step=".1"><label for="power">кВт</label></div>
                 </form>
               </div>
               <div class="sidebar__section">
