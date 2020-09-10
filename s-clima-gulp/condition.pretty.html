@@ -76,7 +76,10 @@
       <div class="container">
         <div class="row">
           <div class="column column-lg-1-4">
-            <div class="sidebar">
+            <div class="sidebar" id="filter">
+              <div class="sidebar__close-btn" id="sidebar__close-btn"><svg class="svg-sidebar-close ">
+                  <use xlink:href="img/icons/icons.svg#sidebar-close"></use>
+                </svg></div>
               <div class="sidebar__section">
                 <h4 class="sidebar__title">Розрахунок потужності</h4>
                 <form class="power-calc">
@@ -126,60 +129,51 @@
                 </form>
               </div>
             </div>
+            <div id="sidebar-overlay"></div>
           </div>
           <div class="column column-lg-3-4">
-            <section class="articles">
-              <div class="articles__container container">
-                <h2 class="articles__title title title_black">Корисна інформація</h2>
-                <div class="articles__slider slider-articles">
-                  <div class="slider-articles__item">
-                    <div class="article-card">
-                      <div class="article-card__thumb"><img class=" " src="img/articles/01.jpeg" alt="articles/01.jpeg" />
-                        <div class="article-card__date">18/07</div>
-                      </div>
-                      <div class="article-card__content">
-                        <h4 class="article-card__title">Побутові об’єкти</h4>
-                        <p class="article-card__text">Up hung mr we give rest half. Way own uncommonly travelling now acceptance bed compliment solicitude. Ecstatic elegance gay but</p>
-                        <div class="articles__link"><a class="link" href="#">Читати далі</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slider-articles__item">
-                    <div class="article-card">
-                      <div class="article-card__thumb"><img class=" " src="img/articles/02.jpeg" alt="articles/02.jpeg" />
-                        <div class="article-card__date">23/09</div>
-                      </div>
-                      <div class="article-card__content">
-                        <h4 class="article-card__title">Про вентиляційні системи</h4>
-                        <p class="article-card__text">Up hung mr we give rest half. Way own uncommonly travelling now acceptance bed compliment solicitude. Ecstatic elegance gay but</p>
-                        <div class="articles__link"><a class="link" href="#">Читати далі</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slider-articles__item">
-                    <div class="article-card">
-                      <div class="article-card__thumb"><img class=" " src="img/articles/03.jpeg" alt="articles/03.jpeg" />
-                        <div class="article-card__date">03/10</div>
-                      </div>
-                      <div class="article-card__content">
-                        <h4 class="article-card__title">Правильний підхід до вибору</h4>
-                        <p class="article-card__text">Up hung mr we give rest half. Way own uncommonly travelling now acceptance bed compliment solicitude. Ecstatic elegance gay but</p>
-                        <div class="articles__link"><a class="link" href="#">Читати далі</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="slider-articles__item">
-                    <div class="article-card">
-                      <div class="article-card__thumb"><img class=" " src="img/articles/02.jpeg" alt="articles/02.jpeg" />
-                        <div class="article-card__date">23/09</div>
-                      </div>
-                      <div class="article-card__content">
-                        <h4 class="article-card__title">Про вентиляційні системи</h4>
-                        <p class="article-card__text">Up hung mr we give rest half. Way own uncommonly travelling now acceptance bed compliment solicitude. Ecstatic elegance gay but</p>
-                        <div class="articles__link"><a class="link" href="#">Читати далі</a></div>
-                      </div>
-                    </div>
-                  </div>
+            <section class="page-top-section">
+              <div class="page-top-section__params params-filter">
+                <div class="params-filter__item"><span>Mitsubishi Electric</span><svg class="svg-bread-close ">
+                    <use xlink:href="img/icons/icons.svg#bread-close"></use>
+                  </svg></div>
+                <div class="params-filter__item"><span>Інверторний</span><svg class="svg-bread-close ">
+                    <use xlink:href="img/icons/icons.svg#bread-close"></use>
+                  </svg></div>
+                <div class="params-filter__item"><span>Інверторний</span><svg class="svg-bread-close ">
+                    <use xlink:href="img/icons/icons.svg#bread-close"></use>
+                  </svg></div>
+                <div class="params-filter__item"><span>Mitsubishi Electric</span><svg class="svg-bread-close ">
+                    <use xlink:href="img/icons/icons.svg#bread-close"></use>
+                  </svg></div>
+                <div class="params-filter__item"><span>Інверторний</span><svg class="svg-bread-close ">
+                    <use xlink:href="img/icons/icons.svg#bread-close"></use>
+                  </svg></div>
+                <div class="params-filter__item"><span>Інверторний</span><svg class="svg-bread-close ">
+                    <use xlink:href="img/icons/icons.svg#bread-close"></use>
+                  </svg></div><a class="params-filter__link link" href="#">Скинути фільтр</a>
+              </div>
+              <div class="page-top-section__sort">
+                <div class="page-top-section__btn"><a class="btn-main btn-main_min" href="#" id="filter-btn"><svg class="svg-filter ">
+                      <use xlink:href="img/icons/icons.svg#filter"></use>
+                    </svg>Фільтр</a></div>
+                <div class="input-field"><select class="sun-light" name="sun-light" id="sun-light">
+                    <option value="1" selected>Від дешевих до дорогих</option>
+                    <option value="2">Від дорогих до дешевих</option>
+                    <option value="3">По імені</option>
+                  </select></div>
+              </div>
+            </section>
+            <section class="products">
+              <div class="row">
+                <div class="column column-sm-1-2 column-md-1-3">
+                  <div class="products__card card-product">ddded</div>
+                </div>
+                <div class="column column-sm-1-2 column-md-1-3">
+                  <div class="products__card card-product">ddded</div>
+                </div>
+                <div class="column column-sm-1-2 column-md-1-3">
+                  <div class="products__card card-product">ddded</div>
                 </div>
               </div>
             </section>

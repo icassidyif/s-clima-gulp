@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// show full version of vorks slider if touchscreen
+// show full version of works slider if touchscreen
   if(supportsTouch) {
     let worksItems = document.querySelectorAll('.works__item');
     worksItems.forEach(item => {
@@ -206,5 +206,33 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log(item);
     })
   }
+// END show full version of works slider if touchscreen
+
+
+//  filter show-hide
+  if(document.querySelector('#filter')) {
+    let filterBtn = document.querySelector('#filter-btn');
+    let filterCloseBtn = document.querySelector('#sidebar__close-btn');
+    let filter = document.querySelector('#filter');
+    let overlay = document.querySelector('#sidebar-overlay');
+    filterBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      body.classList.toggle('lock');
+      filter.classList.toggle('active');
+      overlay.classList.toggle('active');
+    })
+    filterCloseBtn.addEventListener('click', function (e) {
+      body.classList.toggle('lock');
+      filter.classList.toggle('active');
+      overlay.classList.toggle('active');
+    })
+    overlay.addEventListener('click', function (e) {
+      body.classList.toggle('lock');
+      filter.classList.toggle('active');
+      overlay.classList.toggle('active');
+    })
+
+  }
+//  end filter show-hide
 
 })

@@ -867,7 +867,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   } //END Validate and Calculate power
-  // show full version of vorks slider if touchscreen
+  // show full version of works slider if touchscreen
 
 
   if (supportsTouch) {
@@ -876,5 +876,31 @@ document.addEventListener('DOMContentLoaded', function () {
       item.classList.add('works__item_mobile');
       console.log(item);
     });
-  }
+  } // END show full version of works slider if touchscreen
+  //  filter show-hide
+
+
+  if (document.querySelector('#filter')) {
+    var filterBtn = document.querySelector('#filter-btn');
+    var filterCloseBtn = document.querySelector('#sidebar__close-btn');
+    var filter = document.querySelector('#filter');
+    var overlay = document.querySelector('#sidebar-overlay');
+    filterBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      body.classList.toggle('lock');
+      filter.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+    filterCloseBtn.addEventListener('click', function (e) {
+      body.classList.toggle('lock');
+      filter.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+    overlay.addEventListener('click', function (e) {
+      body.classList.toggle('lock');
+      filter.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+  } //  end filter show-hide
+
 });

@@ -316,6 +316,21 @@ h6 {
   height: 30px;
 }
 
+.svg-filter {
+  width: 20px;
+  height: 20px;
+}
+
+.svg-sidebar-close {
+  width: 20px;
+  height: 20px;
+}
+
+.svg-bread-close {
+  width: 10px;
+  height: 10px;
+}
+
 .burger-menu {
   position: relative;
   display: flex;
@@ -790,6 +805,7 @@ body.lock {
 
 .page {
   flex: 1 1 auto;
+  margin: 0 0 55px 0;
 }
 
 .m-b {
@@ -1648,12 +1664,36 @@ no-webp .parallax-main__layer-4 {
 }
 
 .sidebar {
+  position: fixed;
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
+  padding: 55px 40px;
+  top: 20px;
+  left: -100%;
+  bottom: 20px;
+  overflow: auto;
+  overflow-x: hidden;
+  min-width: 350px;
+  max-width: 350px;
+  z-index: 5;
+  transition: left .3s ease-out;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar.active .sidebar__close-btn {
+  display: block;
 }
 
 .sidebar__section {
   margin: 0 0 50px 0;
+}
+
+.sidebar__section:last-child {
+  margin: 0;
 }
 
 .sidebar__section #price-from,
@@ -1683,106 +1723,195 @@ no-webp .parallax-main__layer-4 {
   float: right;
 }
 
-.sidebar form p {
+.sidebar__close-btn {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 4;
+}
+
+form p {
   height: 20px;
   margin: 0 0 20px 0;
 }
 
-.sidebar form p:last-child {
+form p:last-child {
   margin: 0;
 }
 
-.sidebar form p label input[type='checkbox'] + span {
+form p label input[type='checkbox'] + span {
   font-size: 16px !important;
   color: #2c2c2c !important;
   display: inline-flex !important;
   align-items: center !important;
 }
 
-.sidebar form p label input[type='checkbox'] + span:before {
+form p label input[type='checkbox'] + span:before {
   width: 20px !important;
   height: 20px !important;
+  margin-top: 0 !important;
 }
 
-.sidebar form p label input[type='checkbox']:checked + span:before {
+form p label input[type='checkbox']:checked + span:before {
   width: 12px !important;
   height: 22px !important;
   border-right: 2px solid #0066BA;
   border-bottom: 2px solid #0066BA;
 }
 
-.sidebar form + span {
+form + span {
   font-family: Roboto, serif !important;
   font-size: 16px;
   line-height: 19px;
 }
 
-.sidebar .input-field {
+.input-field {
   margin: 0 0 30px 0;
 }
 
-.sidebar .input-field input[type='number'],
-.sidebar .input-field input[type='text'] {
+.input-field input[type='number'],
+.input-field input[type='text'] {
   font-family: Roboto, serif !important;
   line-height: 19px !important;
   height: 35px !important;
 }
 
-.sidebar .input-field input[type='number'].valid,
-.sidebar .input-field input[type='text'].valid {
+.input-field input[type='number'].valid,
+.input-field input[type='text'].valid {
   border-bottom: 1px solid #126EB9 !important;
   box-shadow: 0 1px 0 0 #126EB9 !important;
 }
 
-.sidebar .input-field input[type='number']:focus,
-.sidebar .input-field input[type='text']:focus {
+.input-field input[type='number']:focus,
+.input-field input[type='text']:focus {
   border-bottom: 1px solid #126EB9 !important;
   box-shadow: 0 1px 0 0 #126EB9 !important;
 }
 
-.sidebar .input-field input[type='number']:focus + label,
-.sidebar .input-field input[type='text']:focus + label {
+.input-field input[type='number']:focus + label,
+.input-field input[type='text']:focus + label {
   color: #126EB9 !important;
 }
 
-.sidebar .input-field label {
+.input-field label {
   font-size: 16px;
 }
 
-.sidebar .input-field .select-dropdown {
+.input-field .select-dropdown {
   font-size: 16px !important;
   color: #9e9e9e !important;
 }
 
-.sidebar .input-field .dropdown-content li > span {
+.input-field .dropdown-content li > span {
   color: #126EB9;
 }
 
-.sidebar .input-field .dropdown-content .selected > span {
+.input-field .dropdown-content .selected > span {
   color: #9e9e9e;
 }
 
-.sidebar .input-field_inline {
+.input-field_inline {
   display: inline-block;
   margin: 0 30px 30px 0;
   max-width: 70px;
 }
 
-.sidebar .input-field:last-child {
+.input-field:last-child {
   margin: 0;
 }
 
-.sidebar .noUi-connect {
+.noUi-connect {
   background: #0066BA;
 }
 
-.sidebar .noUi-horizontal .noUi-handle,
-.sidebar .noUi-vertical .noUi-handle {
+.noUi-horizontal .noUi-handle,
+.noUi-vertical .noUi-handle {
   background: #0066BA;
 }
 
-.sidebar .noUi-target.noUi-horizontal .noUi-tooltip {
+.noUi-target.noUi-horizontal .noUi-tooltip {
   background-color: #0066BA;
+}
+
+#sidebar-overlay {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(63, 63, 63, 0.56);
+  z-index: 4;
+}
+
+#sidebar-overlay.active {
+  display: block;
+}
+
+.page-top-section__btn a {
+  display: inline-flex;
+  align-items: center;
+  line-height: unset;
+}
+
+.page-top-section__btn svg {
+  margin: 0 12px 0 0;
+}
+
+.page-top-section__sort {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 20px 0;
+}
+
+.page-top-section__sort .input-field {
+  width: 220px;
+}
+
+.params-filter {
+  display: block;
+}
+
+.params-filter__item {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 20px 20px 0;
+  padding: 6px 10px;
+  border: 1px solid #A7A7A7;
+  transition: border .3s ease-out;
+}
+
+.params-filter__item:hover {
+  border: 1px solid #808080;
+}
+
+.params-filter__item:hover span {
+  text-decoration: line-through;
+}
+
+.params-filter__item span {
+  font-size: 14px;
+  color: #A4A4A4;
+  display: block;
+  margin: 0 10px 0 0;
+}
+
+.params-filter__link {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.params-filter__link:after {
+  bottom: -5px;
+}
+
+.card-product {
+  background-color: #3F3F3F;
 }
 
 /* overlay at start */
@@ -2775,6 +2904,10 @@ no-webp .parallax-main__layer-4 {
     margin: 0 0 55px 0;
   }
 
+  .page {
+    margin: 0 0 70px 0;
+  }
+
   .m-b {
     margin: 0 0 70px 0;
   }
@@ -3288,6 +3421,10 @@ no-webp .parallax-main__layer-4 {
     opacity: 0;
   }
 
+  .page {
+    margin: 0 0 100px 0;
+  }
+
   .m-b {
     margin: 0 0 100px 0;
   }
@@ -3474,6 +3611,22 @@ no-webp .parallax-main__layer-4 {
     width: fit-content;
     padding: 25px 50px;
     margin: 80px 0 0 0;
+  }
+
+  .sidebar {
+    overflow: unset;
+    padding: 0;
+    background: none;
+    position: static;
+    min-width: auto;
+  }
+
+  .page-top-section__btn {
+    display: none;
+  }
+
+  .page-top-section__sort {
+    justify-content: flex-end;
   }
 
   .slider-partners .slick-list {

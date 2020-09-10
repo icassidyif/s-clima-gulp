@@ -1,0 +1,59 @@
+.page-top-section
+  &__btn
+    +breakpoint(lg)
+      display: none
+    a
+      display: inline-flex
+      align-items: center
+      line-height: unset
+    svg
+      margin: 0 12px 0 0
+
+  &__sort
+    display: flex
+    justify-content: space-between
+    margin: 0 0 20px 0
+    +breakpoint(lg)
+      justify-content: flex-end
+    .input-field
+      width: 220px
+
+
+.params-filter
+  display: block
+
+
+
+  &__item
+    cursor: pointer
+    display: inline-flex
+    align-items: center
+    margin: 0 20px 20px 0
+    padding: 6px 10px
+    border: 1px solid #A7A7A7
+    transition: border .3s ease-out
+    &:hover
+      border: 1px solid #808080
+      span
+        text-decoration: line-through
+    span
+      font-size: 14px
+      color: #A4A4A4
+      display: block
+      margin: 0 10px 0 0
+
+
+
+
+  &__link
+    margin: 0 0 20px 0
+    font-size: 14px
+    line-height: 16px
+    font-weight: 500
+    &:after
+      bottom: -5px
+
+
+
+
+
