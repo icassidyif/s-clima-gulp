@@ -4,4 +4,118 @@
 
 
 .card-product
-  background-color: #3F3F3F
+  background-color: #ffffff
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1)
+  margin: 0 0 30px 0
+  overflow: hidden
+  &.opened
+    .card-product__more
+      span
+        transform: rotate(-45deg - 180deg) translateX(14.67%) translateY(-14.67%)
+    .card-product__rest
+
+
+
+  &__rest
+    transition: height .5s
+    height: 0
+    //overflow: hidden
+
+
+  &__container
+    padding: 0 15px
+
+  &__slider
+    margin: 0 0 10px 0
+
+  &__title
+    margin: 0 0 10px 0
+    color: #2C2C2C
+    font-size: 14px
+    line-height: 22px
+    font-weight: 700
+
+  &__inline
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 0 0 5px 0
+    &_sub
+      margin: 0 0 5px 10px
+
+
+  &__price
+    color: #D11586
+    font-size: 18px
+    line-height: 22px
+    font-weight: 700
+
+  &__cart
+    cursor: pointer
+
+  &__label
+    color: #949494
+    font-weight: 500
+    font-size: 12px
+    line-height: 18px
+
+  &__value
+    font-size: 12px
+    line-height: 18px
+    color: #000000
+
+  &__link
+    font-size: 12px
+    line-height: 20px
+    font-weight: 500
+    letter-spacing: unset
+    margin: 0 0 20px 0
+
+
+  &__more
+    background: #f7f7f7
+    height: 30px
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    position: relative
+    z-index: 3
+    span
+      display: block
+      width: 14px
+      height: 14px
+      border-bottom: 3px solid #D0D0D0
+      border-left: 3px solid #D0D0D0
+      border-right: 3px solid transparent
+      border-top: 3px solid transparent
+      transform: rotate(-45deg) translateY(-14.67%) translateX(14.67%)
+      transition: all .3s ease-out
+    &:hover
+      span
+        border-bottom: 3px solid #7EB5F9
+        border-left: 3px solid #7EB5F9
+
+
+
+
+
+
+
+
+
+  &_mobile
+    a
+      position: relative
+      &:after
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        background: url("../img/icons/icons.svg#search") 50% 50% no-repeat
+        background-size: 15%
+
+
+

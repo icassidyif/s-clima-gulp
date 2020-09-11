@@ -75,10 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
   let instances = M.FormSelect.init(selectElements);
 
 
-  //let instance = instances[0];
-  //console.log(instance);
-
-
 // END Materialize initializations
 
 
@@ -198,12 +194,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// show full version of works slider if touchscreen
+// show full version of works slider if touchscreen and product slider
   if(supportsTouch) {
     let worksItems = document.querySelectorAll('.works__item');
     worksItems.forEach(item => {
       item.classList.add('works__item_mobile');
-      console.log(item);
+    })
+
+    let cardProducts = document.querySelectorAll('.card-product');
+    cardProducts.forEach(card => {
+      card.classList.add('card-product_mobile');
     })
   }
 // END show full version of works slider if touchscreen
@@ -234,5 +234,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
   }
 //  end filter show-hide
+
+
+//  collapse product information
+  function collapseProduct() {
+    let products = document.querySelectorAll('.card-product');
+    products.forEach(product => {
+      let moreBlock = product.querySelector('.card-product__rest');
+      let expandBtn = product.querySelector('.card-product__more');
+      let wrapper = product.querySelector('.card-product__wrapper');
+      expandBtn.addEventListener('click', function(event){
+        product.classList.toggle('opened');
+        if(moreBlock.clientHeight) {
+          moreBlock.style.height = 0;
+        } else {
+          moreBlock.style.height = wrapper.clientHeight + "px";
+        }
+      });
+    })
+  }
+  if(document.querySelector('.products')) {
+    collapseProduct();
+  }
+// END collapse product information
+
 
 })

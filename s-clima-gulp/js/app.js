@@ -688,6 +688,30 @@ $(document).ready(function () {
       }
     }]
   });
+  $('.slider-card-product').slick({
+    arrows: false,
+    dots: false,
+    adaptiveHeight: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 500,
+    easing: 'ease',
+    infinite: true,
+    initialSlide: 1,
+    autoplay: false,
+    autoplaySpeed: 3500,
+    pauseOnFocus: true,
+    pauseOnHover: true,
+    pauseOnDotsHover: true,
+    draggable: true,
+    swipe: true,
+    touchThreshold: 5,
+    touchMove: true,
+    waitForAnimate: true,
+    centerMode: false,
+    variableWidth: false,
+    lazyLoad: 'ondemand'
+  });
 });
 document.addEventListener('DOMContentLoaded', function () {
   var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
@@ -757,9 +781,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Materialize initializations
 
   var selectElements = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(selectElements); //let instance = instances[0];
-  //console.log(instance);
-  // END Materialize initializations
+  var instances = M.FormSelect.init(selectElements); // END Materialize initializations
   //Range Slider Sidebar
 
   if (document.getElementById('price-range')) {
@@ -867,14 +889,17 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   } //END Validate and Calculate power
-  // show full version of works slider if touchscreen
+  // show full version of works slider if touchscreen and product slider
 
 
   if (supportsTouch) {
     var worksItems = document.querySelectorAll('.works__item');
     worksItems.forEach(function (item) {
       item.classList.add('works__item_mobile');
-      console.log(item);
+    });
+    var cardProducts = document.querySelectorAll('.card-product');
+    cardProducts.forEach(function (card) {
+      card.classList.add('card-product_mobile');
     });
   } // END show full version of works slider if touchscreen
   //  filter show-hide
@@ -902,5 +927,29 @@ document.addEventListener('DOMContentLoaded', function () {
       overlay.classList.toggle('active');
     });
   } //  end filter show-hide
+  //  collapse product information
+
+
+  function collapseProduct() {
+    var products = document.querySelectorAll('.card-product');
+    products.forEach(function (product) {
+      var moreBlock = product.querySelector('.card-product__rest');
+      var expandBtn = product.querySelector('.card-product__more');
+      var wrapper = product.querySelector('.card-product__wrapper');
+      expandBtn.addEventListener('click', function (event) {
+        product.classList.toggle('opened');
+
+        if (moreBlock.clientHeight) {
+          moreBlock.style.height = 0;
+        } else {
+          moreBlock.style.height = wrapper.clientHeight + "px";
+        }
+      });
+    });
+  }
+
+  if (document.querySelector('.products')) {
+    collapseProduct();
+  } // END collapse product information
 
 });

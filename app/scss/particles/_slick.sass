@@ -301,9 +301,6 @@
 
 // Partners slider
 .slider-partners
-
-
-
   .slick-list
     margin: 0 -10px
     +breakpoint(md)
@@ -334,7 +331,6 @@
 
   &__item
 
-
   .slick-arrow
     position: absolute
     top: 50%
@@ -359,6 +355,50 @@
     background-size: contain
     &:active
       background: url("../img/work-arrow-next-light.svg") no-repeat center center
-
-
 // end Partners slider
+
+
+
+
+
+// slider card product
+.slider-card-product
+  height: 260px
+  overflow: hidden
+  +breakpoint(md)
+    height: 200px
+  +breakpoint(lg)
+    height: 230px
+  .slick-list
+    margin: 0 -10px
+    overflow: unset
+    height: 100%
+    +breakpoint(md)
+      margin: 0 -15px
+    +breakpoint(lg)
+      margin: 0 -30px
+  .slick-track
+    align-items: center
+    height: 100%
+
+  .slick-slide
+    margin: 0 10px
+    +breakpoint(md)
+      margin: 0 15px
+    +breakpoint(lg)
+      margin: 0 30px
+
+  a
+    display: block
+
+    &:hover
+      cursor: zoom-in
+
+
+  img
+    width: 100%
+
+
+  &__item
+
+// end slider card product
