@@ -237,22 +237,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //  collapse product information
+  function getInstances(product) {
+    let moreBlock = product.querySelector('.card-product__rest');
+    let expandBtn = product.querySelector('.card-product__more');
+    let wrapper = product.querySelector('.card-product__wrapper');
+    let column = product.parentElement.parentElement;
+    return {
+      moreBlock,
+      expandBtn,
+      wrapper,
+      column
+    }
+  }
+
+
   function collapseProduct() {
     let products = document.querySelectorAll('.card-product');
+
     products.forEach(product => {
-      let moreBlock = product.querySelector('.card-product__rest');
-      let expandBtn = product.querySelector('.card-product__more');
-      let wrapper = product.querySelector('.card-product__wrapper');
-      expandBtn.addEventListener('click', function(event){
+      let instances = getInstances(product);
+      // set column height for product
+      instances.column.style.height = product.clientHeight + 30 + 'px';
+      // add event listener for expand button
+      instances.expandBtn.addEventListener('click', function(event){
         product.classList.toggle('opened');
-        if(moreBlock.clientHeight) {
-          moreBlock.style.height = 0;
+
+        if(instances.moreBlock.clientHeight) {
+          instances.moreBlock.style.height = 0;
         } else {
-          moreBlock.style.height = wrapper.clientHeight + "px";
+          instances.moreBlock.style.height = instances.wrapper.clientHeight + "px";
         }
+
+        products.forEach(prod => {
+          if(prod === product) {
+            prod.style.transition = 'unset';
+            product.style.zIndex = '2';
+
+          } else {
+            prod.classList.remove('opened');
+
+            getInstances(prod).moreBlock.style.height = 0;
+            prod.style.transition = 'z-index .5s ease-out';
+            prod.style.zIndex = '1';
+
+
+          }
+        })
+
+
       });
     })
   }
+
   if(document.querySelector('.products')) {
     collapseProduct();
   }
