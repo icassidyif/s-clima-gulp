@@ -73,6 +73,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let selectElements = document.querySelectorAll('select');
   let instances = M.FormSelect.init(selectElements);
+  let modals = document.querySelectorAll('.modal');
+  const modalInstance = M.Modal.init(modals, {
+    dismissible: true,
+    opacity: .4,
+    startingTop: '-10%',
+    endingTop: '5%',
+    inDuration: 350,
+    outDuration: 350
+  });
+  //modalInstance.open();
+
 
 
 // END Materialize initializations
@@ -250,7 +261,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-
   function collapseProduct() {
     let products = document.querySelectorAll('.card-product');
 
@@ -279,11 +289,8 @@ document.addEventListener('DOMContentLoaded', function() {
             getInstances(prod).moreBlock.style.height = 0;
             prod.style.transition = 'z-index .5s ease-out';
             prod.style.zIndex = '1';
-
-
           }
         })
-
 
       });
     })

@@ -100,19 +100,26 @@ form
 .input-field
   margin: 0 0 30px 0
   input[type='number'],
-  input[type='text']
+  input[type='text'],
+  textarea
+    min-height: unset!important
     font-family: Roboto, serif!important
     line-height: 19px!important
     height: 35px!important
     &.valid
       border-bottom: 1px solid #126EB9!important
       box-shadow: 0 1px 0 0 #126EB9!important
-
     &:focus
       border-bottom: 1px solid #126EB9!important
       box-shadow: 0 1px 0 0 #126EB9!important
       + label
         color: #126EB9!important
+
+  textarea
+    padding: .5rem 0
+    &:focus
+      + label
+        top: 5px
 
   label
     font-size: 16px

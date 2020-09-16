@@ -16,6 +16,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/style-vendors.min.css" type="text/css">
   <link rel="stylesheet" href="css/style.min.css" type="text/css">
 </head>
@@ -51,13 +52,62 @@
               <li><a href="#">Статті</a></li>
               <li><a href="#">Контакти</a></li>
             </ul>
-          </div><a class="header-main__cart" href="#"><svg class="svg-cart ">
+          </div><a class="header-main__cart modal-trigger" href="#cart" id="cart-main"><svg class="svg-cart ">
               <use xlink:href="img/icons/icons.svg#cart"></use>
             </svg><span>12</span></a>
           <div class="burger-menu"><span></span></div>
         </div>
       </div>
     </header>
+    <div class="modal" id="cart">
+      <div class="cart">
+        <div class="cart__container">
+          <h4 class="cart__title title title_black">Кошик</h4>
+          <div class="cart__close modal-close"><svg class="svg-close-modal ">
+              <use xlink:href="img/icons/icons.svg#close-modal"></use>
+            </svg></div>
+          <div class="cart__content">
+            <div class="cart__item cart__item_1 cart__row">
+              <div class="cart__remove"><svg class="svg-remove-cart-item ">
+                  <use xlink:href="img/icons/icons.svg#remove-cart-item"></use>
+                </svg></div>
+              <h6 class="cart__name">Кондиціонер Neoclima Therminator 2.0 ( -7 С ) NS/NU-07AHEw</h6>
+              <div class="cart__photo" data-da="cart__item_1,1,576,min"><img class=" " src="img/../img/products/1.png" alt="../img/products/1.png" /></div>
+              <div class="cart__control">
+                <div class="cart__minus"></div>
+                <div class="input-field inline"><input class="validate count-product" type="number" step="1" min="0"></div>
+                <div class="cart__plus"></div>
+              </div>
+              <div class="cart__price"><span>5357</span><span> грн</span></div>
+            </div>
+            <div class="cart__item cart__item_2 cart__row">
+              <div class="cart__remove"><svg class="svg-remove-cart-item ">
+                  <use xlink:href="img/icons/icons.svg#remove-cart-item"></use>
+                </svg></div>
+              <h6 class="cart__name">Кондиціонер Neoclima Therminator 2.0 ( -7 С ) NS/NU-07AHEw</h6>
+              <div class="cart__photo" data-da="cart__item_2,1,576,min"><img class=" " src="img/../img/products/1.png" alt="../img/products/1.png" /></div>
+              <div class="cart__control">
+                <div class="cart__minus"></div>
+                <div class="input-field inline"><input class="validate count-product" type="number" step="1" min="0"></div>
+                <div class="cart__plus"></div>
+              </div>
+              <div class="cart__price"><span>5357</span><span> грн</span></div>
+            </div>
+          </div>
+          <div class="cart__total"><span>Разом:</span><span>22 598</span><span>грн</span></div>
+          <form class="cart__form">
+            <div class="cart__inline">
+              <div class="input-field"><i class="material-icons prefix">person</i><input class="validate" type="text" id="cart-order-name"><label for="cart-order-name">Ім'я</label></div>
+              <div class="input-field"><i class="material-icons prefix">phone</i><input class="validate" type="text" id="cart-order-phone"><label for="cart-order-phone">Контактний номер</label></div>
+            </div>
+            <div class="input-field"><i class="material-icons prefix">mode_edit</i><textarea class="materialize-textarea" id="cart-order-text"></textarea><label for="cart-order-text">Коментар до замовлення</label></div>
+            <div class="cart__button"><a class="btn-main btn-main_min" href="#">Оформити замовлення</a></div>
+          </form>
+        </div>
+        <!--button#clear_cart Очистити корзину-->
+        <!--button#checkout Показати корзину-->
+      </div>
+    </div>
     <section class="parallax-main m-b">
       <div class="parallax-main__scene">
         <div class="parallax-main__layer parallax-main__bg" data-speed="0"></div>

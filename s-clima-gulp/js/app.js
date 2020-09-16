@@ -84,8 +84,9 @@ function showPopupError() {
     $.magnificPopup.close();
   });
 } //end popup alert
-//Menu BURGER
 
+
+console.log('this is a class file'); //Menu BURGER
 
 var burgerMenu = document.querySelector('.burger-menu');
 var body = document.querySelector('body');
@@ -713,6 +714,7 @@ $(document).ready(function () {
     lazyLoad: 'ondemand'
   });
 });
+console.log('this is a script class file');
 document.addEventListener('DOMContentLoaded', function () {
   var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
   console.log(supportsTouch); // Animation scroll-----
@@ -781,7 +783,17 @@ document.addEventListener('DOMContentLoaded', function () {
   // Materialize initializations
 
   var selectElements = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(selectElements); // END Materialize initializations
+  var instances = M.FormSelect.init(selectElements);
+  var modals = document.querySelectorAll('.modal');
+  var modalInstance = M.Modal.init(modals, {
+    dismissible: true,
+    opacity: .4,
+    startingTop: '-10%',
+    endingTop: '5%',
+    inDuration: 350,
+    outDuration: 350
+  }); //modalInstance.open();
+  // END Materialize initializations
   //Range Slider Sidebar
 
   if (document.getElementById('price-range')) {
