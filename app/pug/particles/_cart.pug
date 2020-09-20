@@ -6,57 +6,21 @@
         +icon('close-modal')
       .cart__out
         .cart__content
+      //    goods container
 
-    //    .cart__item.cart__item_1.cart__row
-    //      .cart__remove
-    //        +icon('remove-cart-item')
-    //      h6.cart__name Кондиціонер Neoclima Therminator 2.0 ( -7 С ) NS/NU-07AHEw
-    //      .cart__photo(data-da="cart__item_1,1,576,min")
-    //        +image('../img/products/1.png')
-    //      .cart__control
-    //        .cart__minus
-    //        .input-field.inline
-    //          input(type="number" class="validate"  step='1' min="0").count-product
-    //        .cart__plus
-    //      .cart__price
-    //        span 5357
-    //        span  грн
-    //
-    //
-    //    .cart__item.cart__item_2.cart__row
-    //      .cart__remove
-    //        +icon('remove-cart-item')
-    //
-    //      h6.cart__name Кондиціонер Neoclima Therminator 2.0 ( -7 С ) NS/NU-07AHEw
-    //      .cart__photo(data-da="cart__item_2,1,576,min")
-    //        +image('../img/products/1.png')
-    //      .cart__control
-    //        .cart__minus
-    //        .input-field.inline
-    //          input(type="number" class="validate"  step='1' min="0").count-product
-    //        .cart__plus
-    //      .cart__price
-    //        span 5357
-    //        span  грн
-    //  .cart__total
-    //    span Разом:
-    //    span 22 598
-    //    span грн
-    //
-    //  form.cart__form
-    //    .cart__inline
-    //      .input-field
-    //        i.material-icons.prefix person
-    //        input(type="text")#cart-order-name.validate
-    //        label(for='cart-order-name') Ім'я
-    //      .input-field
-    //        i.material-icons.prefix phone
-    //        input(type="text")#cart-order-phone.validate
-    //        label(for='cart-order-phone') Контактний номер
-    //    .input-field
-    //      i.material-icons.prefix mode_edit
-    //      textarea.materialize-textarea#cart-order-text
-    //      label(for='cart-order-text') Коментар до замовлення
-    //    .cart__button
-    //      a(href='#').btn-main.btn-main_min Оформити замовлення
-    //
+      form(action='' method='get' id='order-form').cart__form
+        .cart__inline
+          .input-field
+            i.material-icons.prefix person
+            input(type="text" name='cartOrderName')#cart-order-name
+            label(for='cart-order-name') Ім'я
+          .input-field
+            i.material-icons.prefix phone
+            input(type="text" name='cartOrderPhone')#cart-order-phone
+            label(for='cart-order-phone') Контактний номер
+        .input-field
+          i.material-icons.prefix mode_edit
+          textarea(name='cartOrderMessage').materialize-textarea#cart-order-text
+          label(for='cart-order-text') Коментар до замовлення
+        .cart__button
+          button(type='submit').btn-main.btn-main_min Оформити замовлення

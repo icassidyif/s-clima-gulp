@@ -32,7 +32,6 @@ class Cart {
     }
     return total;
   }
-
   buildRemoveBtn(id) {
     let cartRemoveBnt = document.createElement('div');
     cartRemoveBnt.classList.add(`cart__remove`);
@@ -104,11 +103,13 @@ class Cart {
     total.appendChild(totalSpan);
     return total;
   }
+
   render() {
     const container = document.createElement('div');
     container.classList.add('cart__content');
     if(Object.keys(this.products).length === 0 && this.products.constructor === Object) {
       const emptyMessage = document.createElement('span');
+      emptyMessage.classList.add('cart__empty');
       emptyMessage.innerHTML = 'В корзині немає товарів!';
       container.appendChild(emptyMessage);
       return container;
@@ -122,7 +123,6 @@ class Cart {
         container.appendChild(productItem);
       }
       //  Append
-      container.appendChild(this.buildTotal());
       return container;
     }
   }

@@ -226,6 +226,7 @@ var Cart = /*#__PURE__*/function () {
 
       if (Object.keys(this.products).length === 0 && this.products.constructor === Object) {
         var emptyMessage = document.createElement('span');
+        emptyMessage.classList.add('cart__empty');
         emptyMessage.innerHTML = 'В корзині немає товарів!';
         container.appendChild(emptyMessage);
         return container;
@@ -241,15 +242,27 @@ var Cart = /*#__PURE__*/function () {
         } //  Append
 
 
-        container.appendChild(this.buildTotal());
         return container;
       }
     }
   }]);
 
   return Cart;
-}(); //Menu BURGER
+}(); // Materialize initializations
 
+
+var selectElements = document.querySelectorAll('select');
+var instances = M.FormSelect.init(selectElements);
+var modals = document.querySelectorAll('.modal');
+var modalInstance = M.Modal.init(modals, {
+  dismissible: true,
+  opacity: .4,
+  startingTop: '-10%',
+  endingTop: '5%',
+  inDuration: 350,
+  outDuration: 350
+}); //modalInstance.open();
+//Menu BURGER
 
 var burgerMenu = document.querySelector('.burger-menu');
 var body = document.querySelector('body');
@@ -388,213 +401,6 @@ $(document).ready(function () {
   $('.my-custom-close').click(function () {
     $.magnificPopup.close();
   });
-});
-$("#phone").mask("+38 (999) 999-99-99");
-$.validator.addMethod('customphone', function (value, element) {
-  return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value);
-}, "Please enter a valid phone number"); //
-// $('#power-calc').validate({
-//   rules: {
-//     square: {
-//       required: true
-//     }
-//   },
-//   messages: {
-//     square: {
-//       required: "Це обов'язкове поле"
-//     }
-//   },
-//   submitHandler: function (form) {
-//     //$.magnificPopup.close();
-//     // let url = '/php/call.php';
-//     // let formData = $(form).serializeArray();
-//     // ajaxSend(formData, url);
-//     form.reset();
-//   }
-// });
-
-$('#gardenForm').validate({
-  rules: {
-    parentName: {
-      required: true,
-      minlength: 2
-    },
-    parentSurname: {
-      required: true,
-      minlength: 2
-    },
-    phone: {
-      required: true,
-      customphone: true
-    },
-    childName: {
-      required: true,
-      minlength: 2
-    },
-    childSurname: {
-      required: true,
-      minlength: 2
-    },
-    age: {
-      required: true,
-      number: true
-    }
-  },
-  messages: {
-    parentName: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке ім'я"
-    },
-    parentSurname: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке прізвище"
-    },
-    phone: {
-      required: "Це обов'язкове поле",
-      customphone: 'Невірний номер телефону'
-    },
-    childName: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке ім'я"
-    },
-    childSurname: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке прізвище"
-    },
-    age: {
-      required: "Це обов'язкове поле",
-      number: 'Введіть число'
-    }
-  },
-  submitHandler: function submitHandler(form) {
-    $.magnificPopup.close();
-    var url = '/php/garden.php';
-    var formData = $(form).serializeArray();
-    ajaxSend(formData, url);
-    form.reset();
-  }
-});
-$('#campForm').validate({
-  rules: {
-    parentName: {
-      required: true,
-      minlength: 2
-    },
-    parentSurname: {
-      required: true,
-      minlength: 2
-    },
-    phone: {
-      required: true,
-      customphone: true
-    },
-    childName: {
-      required: true,
-      minlength: 2
-    },
-    childSurname: {
-      required: true,
-      minlength: 2
-    },
-    age: {
-      required: true,
-      number: true
-    }
-  },
-  messages: {
-    parentName: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке ім'я"
-    },
-    parentSurname: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке прізвище"
-    },
-    phone: {
-      required: "Це обов'язкове поле",
-      customphone: 'Невірний номер телефону'
-    },
-    childName: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке ім'я"
-    },
-    childSurname: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке прізвище"
-    },
-    age: {
-      required: "Це обов'язкове поле",
-      number: 'Введіть число'
-    }
-  },
-  submitHandler: function submitHandler(form) {
-    $.magnificPopup.close();
-    var url = '/php/camp.php';
-    var formData = $(form).serializeArray();
-    ajaxSend(formData, url);
-    form.reset();
-  }
-});
-$('#languagesForm').validate({
-  rules: {
-    parentName: {
-      required: true,
-      minlength: 2
-    },
-    parentSurname: {
-      required: true,
-      minlength: 2
-    },
-    phone: {
-      required: true,
-      customphone: true
-    },
-    childName: {
-      required: true,
-      minlength: 2
-    },
-    childSurname: {
-      required: true,
-      minlength: 2
-    },
-    age: {
-      required: true,
-      number: true
-    }
-  },
-  messages: {
-    parentName: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке ім'я"
-    },
-    parentSurname: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке прізвище"
-    },
-    phone: {
-      required: "Це обов'язкове поле",
-      customphone: 'Невірний номер телефону'
-    },
-    childName: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке ім'я"
-    },
-    childSurname: {
-      required: "Це обов'язкове поле",
-      minlength: "Надто коротке прізвище"
-    },
-    age: {
-      required: "Це обов'язкове поле",
-      number: 'Введіть число'
-    }
-  },
-  submitHandler: function submitHandler(form) {
-    $.magnificPopup.close();
-    var url = '/php/languages.php';
-    var formData = $(form).serializeArray();
-    ajaxSend(formData, url);
-    form.reset();
-  }
 });
 $(document).ready(function () {
   $('.slider-comments').slick({
@@ -876,114 +682,11 @@ $(document).ready(function () {
     variableWidth: false,
     lazyLoad: 'ondemand'
   });
-}); // let productsPage = document.querySelector('.products');
-// let cartDiv = document.querySelector('.cart');
-//
-//
-//
-// if(productsPage) {
-//   function addToCart(product) {
-//     const cartProducts = JSON.parse(localStorage.getItem('cart')) || {};
-//     const id = product.querySelector('.card-product__cart').dataset.id;
-//     const title = product.querySelector('.card-product__title').innerHTML;
-//     const image = product.querySelector('.slider-card-product a').getAttribute('href');
-//     const price = parseInt(product.querySelector('.card-product__price').innerHTML);
-//     if (cartProducts[id] !== undefined) {
-//       cartProducts[id]['count']++;
-//     }
-//     else {
-//       cartProducts[id] = {
-//         'title': title,
-//         'image': image,
-//         'price': price,
-//         'count': 1
-//       }
-//       //cartProducts[id]['count'] = 1;
-//     }
-//     localStorage.setItem('cart', JSON.stringify(cartProducts));
-//     M.toast({html: 'Товар додано в корзину'});
-//     rebuildCart();
-//   }
-//
-// //  Event listener for add to cart button
-//   productsPage.addEventListener('click',function (e) {
-//     if(e.target.classList.contains('card-product__cart') ||e.target.closest('.card-product__cart')) {
-//       let product = e.target.closest('.card-product');
-//       addToCart(product);
-//     }
-//   })
-// }
-//
-//
-// // actions with CART DIV and elements into
-//
-//
-// rebuildCart();
-//
-// function rebuildCart() {
-//   let cart = JSON.parse(localStorage.getItem('cart'));
-//   let shopCart = new Cart(cart); // cart - массив товаров в корзине
-//
-//   if(localStorage.getItem('cart') && (localStorage.getItem('cart') !== '{}')) {
-//
-//     cartDiv.innerHTML = '';
-//     cartDiv.append(shopCart.render());
-//
-//
-//     cartDiv.addEventListener('change', e => {
-//       if (e.target.classList.contains('count-product')) {
-//         if(!e.target.value) {
-//           e.target.value = 1;
-//         }
-//         shopCart.productCountChange(e.target.dataset['id'], parseInt(e.target.value));
-//         cartDiv.innerHTML = '';
-//         cartDiv.append(shopCart.render());
-//         localStorage.setItem('cart', JSON.stringify(shopCart.products));
-//       }
-//     })
-//
-//
-//     // listener
-//     cartDiv.addEventListener('click', e => {
-//       if(e.target.classList.contains('cart__remove') || e.target.closest('.cart__remove')) {
-//         shopCart.productRemove(e.target.closest('.cart__remove').dataset['id']);
-//         if(Object.keys(shopCart.products).length === 0 && shopCart.products.constructor === Object) {
-//           localStorage.removeItem('cart');
-//           rebuildCart();
-//         } else {
-//           cartDiv.innerHTML = '';
-//           cartDiv.append(shopCart.render());
-//           localStorage.setItem('cart', JSON.stringify(shopCart.products));
-//         }
-//
-//       }
-//       if(e.target.classList.contains('cart__plus')) {
-//         shopCart.productPlus(e.target.dataset['id'])
-//         cartDiv.innerHTML = '';
-//         cartDiv.append(shopCart.render());
-//         localStorage.setItem('cart', JSON.stringify(shopCart.products));
-//
-//       }
-//       if(e.target.classList.contains('cart__minus')) {
-//         shopCart.productMinus(e.target.dataset['id'])
-//         cartDiv.innerHTML = '';
-//         cartDiv.append(shopCart.render());
-//         localStorage.setItem('cart', JSON.stringify(shopCart.products));
-//
-//       }
-//     })
-//   } else {
-//     cartDiv.innerHTML = '';
-//     cartDiv.append(shopCart.renderEmpty());
-//   }
-// }
-//
-//
-//
-//-------------------------------------------------------------------------------
+}); //-------------------------------------------------------------------------------
 
 var cartOut = document.querySelector('.cart__out');
 var products = {};
+var orderForm = document.querySelector('#order-form');
 updateFromLocalStorage();
 var cart = new Cart(products);
 updateCartContent();
@@ -999,6 +702,12 @@ function loadToLocalStorage() {
 function updateCartContent() {
   cartOut.innerHTML = '';
   cartOut.append(cart.render());
+  cartOut.append(cart.buildTotal());
+  showForm();
+
+  if (Object.keys(cart.products).length === 0 && cart.products.constructor === Object) {
+    hideForm();
+  }
 } // ADD TO CART Event listener for ADD TO CART Buttons
 
 
@@ -1067,6 +776,57 @@ cartOut.addEventListener('change', function (e) {
     loadToLocalStorage();
     updateCartContent();
   }
+}); // Hide for if cart is empty
+
+function hideForm() {
+  orderForm.style.display = 'none';
+}
+
+function showForm() {
+  orderForm.style.display = 'block';
+  orderForm.reset();
+}
+
+$("#phone").mask("+38 (999) 999-99-99");
+$.validator.addMethod('customphone', function (value, element) {
+  return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value);
+}, "Please enter a valid phone number");
+$('#order-form').validate({
+  rules: {
+    cartOrderName: {
+      required: true
+    },
+    cartOrderPhone: {
+      required: true,
+      customphone: true
+    },
+    cartOrderMessage: {}
+  },
+  messages: {
+    cartOrderName: {
+      required: "Це обов'язкове поле"
+    },
+    cartOrderPhone: {
+      required: "Це обов'язкове поле",
+      customphone: 'Невірний номер телефону'
+    }
+  },
+  submitHandler: function submitHandler(form) {
+    //$.magnificPopup.close();
+    // let url = '/php/call.php';
+    var CurrentCart = JSON.parse(localStorage.getItem('cart'));
+    var formData = $(form).serializeArray(); // ajaxSend(formData, url);
+
+    console.log(formData, CurrentCart); //clear
+
+    form.reset();
+    cart.products = {};
+    products = cart.products;
+    loadToLocalStorage();
+    updateCartContent();
+    var modal = M.Modal.getInstance($('#cart'));
+    modal.close();
+  }
 });
 document.addEventListener('DOMContentLoaded', function () {
   var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
@@ -1133,19 +893,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //=========================================================================
   //=========================================================================
   // 29.33% 45deg   70.67   scale(0.7067)
-  // Materialize initializations
-
-  var selectElements = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(selectElements);
-  var modals = document.querySelectorAll('.modal');
-  var modalInstance = M.Modal.init(modals, {
-    dismissible: true,
-    opacity: .4,
-    startingTop: '-10%',
-    endingTop: '5%',
-    inDuration: 350,
-    outDuration: 350
-  }); //modalInstance.open();
   // END Materialize initializations
   //Range Slider Sidebar
 
