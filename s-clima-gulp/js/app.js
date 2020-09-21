@@ -38,28 +38,6 @@ function ibg() {
     }
   });
 } //end img like BG
-// form send process
-
-
-var ajaxSend = function ajaxSend(formData, url) {
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-  }).then(function (response) {
-    return response.json();
-  }).then(function (data) {
-    if (data === 'true') {
-      showPopupSuccess();
-    } else {
-      showPopupError();
-    }
-  }).catch(function (error) {
-    console.error(error);
-  });
-}; // end
 // show popup alert
 
 
@@ -248,8 +226,49 @@ var Cart = /*#__PURE__*/function () {
   }]);
 
   return Cart;
-}(); // Materialize initializations
+}();
 
+$("#phone").mask("+38 (999) 999-99-99");
+$.validator.addMethod('customphone', function (value, element) {
+  return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value);
+}, "Please enter a valid phone number");
+$('#order-form').validate({
+  rules: {
+    cartOrderName: {
+      required: true
+    },
+    cartOrderPhone: {
+      required: true,
+      customphone: true
+    },
+    cartOrderMessage: {}
+  },
+  messages: {
+    cartOrderName: {
+      required: "Це обов'язкове поле"
+    },
+    cartOrderPhone: {
+      required: "Це обов'язкове поле",
+      customphone: 'Невірний номер телефону'
+    }
+  },
+  submitHandler: function submitHandler(form) {
+    //$.magnificPopup.close();
+    // let url = '/php/call.php';
+    var CurrentCart = JSON.parse(localStorage.getItem('cart'));
+    var formData = $(form).serializeArray(); // ajaxSend(formData, url);
+
+    console.log(formData, CurrentCart); //clear
+
+    form.reset();
+    cart.products = {};
+    products = cart.products;
+    loadToLocalStorage();
+    updateCartContent();
+    var modal = M.Modal.getInstance($('#cart'));
+    modal.close();
+  }
+}); // Materialize initializations
 
 var selectElements = document.querySelectorAll('select');
 var instances = M.FormSelect.init(selectElements);
@@ -685,6 +704,7 @@ $(document).ready(function () {
 }); //-------------------------------------------------------------------------------
 
 var cartOut = document.querySelector('.cart__out');
+var cartHeaderCount = document.querySelector('.header-main__cart span');
 var products = {};
 var orderForm = document.querySelector('#order-form');
 updateFromLocalStorage();
@@ -704,9 +724,13 @@ function updateCartContent() {
   cartOut.append(cart.render());
   cartOut.append(cart.buildTotal());
   showForm();
+  cartHeaderCount.innerHTML = Object.keys(cart.products).length;
+  cartHeaderCount.classList.add('active');
 
   if (Object.keys(cart.products).length === 0 && cart.products.constructor === Object) {
     hideForm();
+    cartHeaderCount.innerHTML = '';
+    cartHeaderCount.classList.remove('active');
   }
 } // ADD TO CART Event listener for ADD TO CART Buttons
 
@@ -785,49 +809,35 @@ function hideForm() {
 function showForm() {
   orderForm.style.display = 'block';
   orderForm.reset();
-}
+} //update count
 
-$("#phone").mask("+38 (999) 999-99-99");
-$.validator.addMethod('customphone', function (value, element) {
-  return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value);
-}, "Please enter a valid phone number");
-$('#order-form').validate({
-  rules: {
-    cartOrderName: {
-      required: true
+
+function updateCount() {
+  cartHeaderCount.style.display = 'none';
+} // form send process
+
+
+var ajaxSend = function ajaxSend(formData, url) {
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
     },
-    cartOrderPhone: {
-      required: true,
-      customphone: true
-    },
-    cartOrderMessage: {}
-  },
-  messages: {
-    cartOrderName: {
-      required: "Це обов'язкове поле"
-    },
-    cartOrderPhone: {
-      required: "Це обов'язкове поле",
-      customphone: 'Невірний номер телефону'
+    body: JSON.stringify(formData)
+  }).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    if (data === 'true') {
+      showPopupSuccess();
+    } else {
+      showPopupError();
     }
-  },
-  submitHandler: function submitHandler(form) {
-    //$.magnificPopup.close();
-    // let url = '/php/call.php';
-    var CurrentCart = JSON.parse(localStorage.getItem('cart'));
-    var formData = $(form).serializeArray(); // ajaxSend(formData, url);
+  }).catch(function (error) {
+    console.error(error);
+  });
+}; // end
 
-    console.log(formData, CurrentCart); //clear
 
-    form.reset();
-    cart.products = {};
-    products = cart.products;
-    loadToLocalStorage();
-    updateCartContent();
-    var modal = M.Modal.getInstance($('#cart'));
-    modal.close();
-  }
-});
 document.addEventListener('DOMContentLoaded', function () {
   var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
   console.log(supportsTouch); // Animation scroll-----
@@ -893,7 +903,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //=========================================================================
   //=========================================================================
   // 29.33% 45deg   70.67   scale(0.7067)
-  // END Materialize initializations
   //Range Slider Sidebar
 
   if (document.getElementById('price-range')) {

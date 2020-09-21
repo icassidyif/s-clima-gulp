@@ -1,5 +1,7 @@
 //-------------------------------------------------------------------------------
 let cartOut = document.querySelector('.cart__out');
+let cartHeaderCount = document.querySelector('.header-main__cart span');
+
 let products = {};
 const orderForm = document.querySelector('#order-form');
 updateFromLocalStorage();
@@ -16,8 +18,12 @@ function updateCartContent() {
   cartOut.append(cart.render());
   cartOut.append(cart.buildTotal());
   showForm();
+  cartHeaderCount.innerHTML = Object.keys(cart.products).length;
+  cartHeaderCount.classList.add('active');
   if(Object.keys(cart.products).length === 0 && cart.products.constructor === Object) {
     hideForm();
+    cartHeaderCount.innerHTML = '';
+    cartHeaderCount.classList.remove('active');
   }
 }
 // ADD TO CART Event listener for ADD TO CART Buttons
@@ -88,4 +94,10 @@ function hideForm() {
 function showForm() {
   orderForm.style.display = 'block';
   orderForm.reset();
+}
+
+//update count
+function updateCount() {
+
+  cartHeaderCount.style.display = 'none';
 }

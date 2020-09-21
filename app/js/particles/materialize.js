@@ -1,5 +1,4 @@
 // Materialize initializations
-
 let selectElements = document.querySelectorAll('select');
 let instances = M.FormSelect.init(selectElements);
 let modals = document.querySelectorAll('.modal');

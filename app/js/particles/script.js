@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// END Materialize initializations
 
 
 //Range Slider Sidebar

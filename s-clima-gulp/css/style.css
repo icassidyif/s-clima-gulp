@@ -957,6 +957,10 @@ body.lock {
 }
 
 .header-main__cart span {
+  display: none;
+}
+
+.header-main__cart span.active {
   position: absolute;
   font-size: 10px;
   color: #ffffff;

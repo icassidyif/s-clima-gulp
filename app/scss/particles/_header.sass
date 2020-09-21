@@ -70,19 +70,21 @@
     svg
       fill: #ffffff
     span
-      position: absolute
-      font-size: 10px
-      color: #ffffff
-      top: -3px
-      display: flex
-      align-items: center
-      justify-content: center
-      right: -10px
-      width: 17px
-      height: 17px
-      background-color: #D11586
-      border-radius: 50%
-      line-height: 15px
+      display: none
+      &.active
+        position: absolute
+        font-size: 10px
+        color: #ffffff
+        top: -3px
+        display: flex
+        align-items: center
+        justify-content: center
+        right: -10px
+        width: 17px
+        height: 17px
+        background-color: #D11586
+        border-radius: 50%
+        line-height: 15px
   a
     transition: color .1s ease-out
 
