@@ -326,7 +326,7 @@ h6 {
   height: 20px;
 }
 
-.svg-sidebar-close {
+.svg-filter-close {
   width: 20px;
   height: 20px;
 }
@@ -344,6 +344,11 @@ h6 {
 .svg-remove-cart-item {
   width: 16px;
   height: 16px;
+}
+
+.svg-project-btn {
+  width: 20px;
+  height: 17px;
 }
 
 .burger-menu {
@@ -1933,7 +1938,7 @@ no-webp .parallax-main__layer-4 {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  padding: 55px 40px;
+  padding: 45px 30px;
   top: 20px;
   left: -120%;
   bottom: 20px;
@@ -1953,41 +1958,6 @@ no-webp .parallax-main__layer-4 {
   display: block;
 }
 
-.sidebar__section {
-  margin: 0 0 50px 0;
-}
-
-.sidebar__section:last-child {
-  margin: 0;
-}
-
-.sidebar__section #price-from,
-.sidebar__section #price-to {
-  max-width: 70px;
-  margin: 0 30px 0 0;
-}
-
-.sidebar__section #power {
-  color: #D11586;
-  font-weight: 500;
-}
-
-.sidebar__title {
-  color: #0066BA;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 26px;
-  margin: 0 0 25px;
-}
-
-.sidebar__btn {
-  display: inline-block;
-}
-
-.sidebar__btn + .input-field {
-  float: right;
-}
-
 .sidebar__close-btn {
   display: none;
   position: absolute;
@@ -1997,7 +1967,7 @@ no-webp .parallax-main__layer-4 {
   z-index: 4;
 }
 
-#sidebar-overlay {
+.sidebar-overlay {
   position: fixed;
   display: none;
   top: 0;
@@ -2008,8 +1978,165 @@ no-webp .parallax-main__layer-4 {
   z-index: 4;
 }
 
-#sidebar-overlay.active {
+.sidebar-overlay.active {
   display: block;
+}
+
+.filter__section {
+  margin: 0 0 50px 0;
+}
+
+.filter__section:last-child {
+  margin: 0;
+}
+
+.filter__section #price-from,
+.filter__section #price-to {
+  max-width: 70px;
+  margin: 0 30px 0 0;
+}
+
+.filter__section #power {
+  color: #D11586;
+  font-weight: 500;
+}
+
+.filter__title {
+  color: #0066BA;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  margin: 0 0 25px;
+}
+
+.filter__btn {
+  display: inline-block;
+}
+
+.filter__btn + .input-field {
+  float: right;
+}
+
+.filter__main-title {
+  margin: 0 0 35px 0;
+  font-size: 26px;
+  line-height: 30px;
+}
+
+.filter__main-title:before {
+  background-color: #D11586;
+}
+
+.project-list,
+.project-list ul,
+.project-list li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+  color: #2c2c2c;
+}
+
+.project-list span {
+  display: inline-block;
+  font-weight: 900;
+  vertical-align: middle;
+  margin: 0 0 0 15px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.project-list ul ul {
+  margin: 0 0 0 8px;
+  padding: 0 0 0 15px;
+  border-left: 1px solid #0066BA;
+}
+
+.project-list ul ul li:not(:last-child) {
+  margin: 0 0 20px 0;
+}
+
+.project-list ul li .project-list__item {
+  margin: 20px 0 20px 0;
+}
+
+.project-list ul li:first-child .project-list__item {
+  margin: 0 0 20px 0;
+}
+
+.project-list .drop-icon {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #0066BA;
+  position: relative;
+}
+
+.project-list .drop-icon:after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 5px);
+  top: calc(50% - 1px);
+  width: 10px;
+  height: 1px;
+  background-color: #0066BA;
+}
+
+.project-list .drop-icon:before {
+  content: "";
+  position: absolute;
+  left: calc(50% - 5px);
+  top: calc(50% - 1px);
+  width: 10px;
+  height: 1px;
+  background-color: #0066BA;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.project-list a {
+  display: inline-block;
+  text-decoration: none;
+  color: #2c2c2c;
+  line-height: 19px;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.project-list a:hover {
+  color: #0066BA;
+  -webkit-transform: translateX(5px);
+      -ms-transform: translateX(5px);
+          transform: translateX(5px);
+}
+
+.project-list a.active {
+  color: #0066BA;
+}
+
+.project-list__item {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.project-list__item.open .drop-icon:before {
+  display: none;
+}
+
+.project-list__title {
+  color: #0066BA;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  margin: 0 0 25px;
 }
 
 .page-top-section__btn {
@@ -2039,6 +2166,7 @@ no-webp .parallax-main__layer-4 {
 
 .params-filter {
   display: block;
+  margin: 0 0 35px 0;
 }
 
 .params-filter__item {
@@ -2203,6 +2331,73 @@ no-webp .parallax-main__layer-4 {
   right: 0;
   background: url("../img/icons/icons.svg#search") 50% 50% no-repeat;
   background-size: 15%;
+}
+
+.work__btn {
+  background-color: #7EB5F9;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  letter-spacing: 0.16em;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: unset;
+  cursor: pointer;
+  margin: 0 0 35px 0;
+}
+
+.work__btn svg {
+  margin: 0 15px 0 0;
+}
+
+.work__title {
+  font-size: 26px;
+  line-height: 30px;
+  color: #2C2C2C;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
+.work__desc {
+  font-size: 18px;
+  line-height: 30px;
+  margin: 0 0 25px 0;
+}
+
+.work__sort {
+  margin: 0 0 30px 0;
+}
+
+.work__sort ul {
+  display: flex;
+  justify-content: center;
+}
+
+.work__sort ul li:last-child a {
+  margin: 0;
+}
+
+.work__sort ul li a {
+  font-size: 14px;
+  line-height: 16px;
+  color: #2C2C2C;
+  margin: 0 20px 0 0;
+  position: relative;
+}
+
+.work__sort ul li a.active {
+  color: #0066BA;
+}
+
+.work__sort ul li a.active:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #0066BA;
+  bottom: -7px;
+  left: 0;
 }
 
 /* overlay at start */
@@ -3461,6 +3656,14 @@ no-webp .parallax-main__layer-4 {
     line-height: 21px;
   }
 
+  .filter__main-title {
+    display: none;
+  }
+
+  .work__btn {
+    display: none;
+  }
+
   .slick-slide {
     margin: 0 15px;
   }
@@ -4020,6 +4223,10 @@ no-webp .parallax-main__layer-4 {
   }
 
   .page-top-section__sort {
+    justify-content: flex-end;
+  }
+
+  .work__sort ul {
     justify-content: flex-end;
   }
 

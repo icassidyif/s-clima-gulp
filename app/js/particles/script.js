@@ -69,12 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // 29.33% 45deg   70.67   scale(0.7067)
 
 
-
-
-
-
-
-
 //Range Slider Sidebar
   if (document.getElementById('price-range')) {
     let slider = document.getElementById('price-range');
@@ -133,9 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return volume * light / 1000;
   }
 
-
   if (document.querySelector('form.power-calc')) {
-
     let calcForms = document.querySelectorAll('form.power-calc');
     calcForms.forEach(form => {
       let calcBtn = form.querySelector('.calc-power');
@@ -206,31 +198,30 @@ document.addEventListener('DOMContentLoaded', function() {
 // END show full version of works slider if touchscreen
 
 
-//  filter show-hide
-  if(document.querySelector('#filter')) {
-    let filterBtn = document.querySelector('#filter-btn');
-    let filterCloseBtn = document.querySelector('#sidebar__close-btn');
-    let filter = document.querySelector('#filter');
-    let overlay = document.querySelector('#sidebar-overlay');
-    filterBtn.addEventListener('click', function (e) {
+//  sidebar show-hide
+  if(document.querySelector('.sidebar')) {
+    let sidebarBtn = document.querySelector('.sidebar-btn');
+    let sidebarCloseBtn = document.querySelector('.sidebar__close-btn');
+    let sidebar = document.querySelector('.sidebar');
+    let overlay = document.querySelector('.sidebar-overlay');
+    sidebarBtn.addEventListener('click', function (e) {
       e.preventDefault();
       body.classList.toggle('lock');
-      filter.classList.toggle('active');
+      sidebar.classList.toggle('active');
       overlay.classList.toggle('active');
     })
-    filterCloseBtn.addEventListener('click', function (e) {
+    sidebarCloseBtn.addEventListener('click', function (e) {
       body.classList.toggle('lock');
-      filter.classList.toggle('active');
+      sidebar.classList.toggle('active');
       overlay.classList.toggle('active');
     })
     overlay.addEventListener('click', function (e) {
       body.classList.toggle('lock');
-      filter.classList.toggle('active');
+      sidebar.classList.toggle('active');
       overlay.classList.toggle('active');
     })
-
   }
-//  end filter show-hide
+//  end sidebar show-hide
 
 
 //  collapse product information
@@ -287,5 +278,56 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 // END collapse product information
 
+
+//  Projects list sidebar
+  $(".project-list ul ul").each(function (index) {
+    if (index != 0) {
+      $(this).slideToggle(0);
+    } else {
+      $(this).prev().toggleClass("open");
+    }
+  });
+  $(".project-list__item").click(function () {
+    $(this).toggleClass("open");
+    $(this).next().slideToggle(300);
+  });
+
+  $(".project-list a").each(function (index) {
+    if (index === 0) {
+      $(this).addClass("active");
+    }
+  });
+
+  $(".project-list a").on("click", function (e) {
+    e.preventDefault();
+    $(".project-list a").removeClass();
+    $(this).addClass("active");
+  });
+  // END Projects list sidebar
+
+  //  sidebar show-hide
+  // if(document.querySelector('#filter')) {
+  //   let filterBtn = document.querySelector('#filter-btn');
+  //   let filterCloseBtn = document.querySelector('#filter-btn');
+  //   let filter = document.querySelector('#filter');
+  //   let overlay = document.querySelector('#filter-overlay');
+  //   filterBtn.addEventListener('click', function (e) {
+  //     e.preventDefault();
+  //     body.classList.toggle('lock');
+  //     filter.classList.toggle('active');
+  //     overlay.classList.toggle('active');
+  //   })
+  //   filterCloseBtn.addEventListener('click', function (e) {
+  //     body.classList.toggle('lock');
+  //     filter.classList.toggle('active');
+  //     overlay.classList.toggle('active');
+  //   })
+  //   overlay.addEventListener('click', function (e) {
+  //     body.classList.toggle('lock');
+  //     filter.classList.toggle('active');
+  //     overlay.classList.toggle('active');
+  //   })
+  // }
+//  end sidebar show-hide
 
 })

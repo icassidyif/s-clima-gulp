@@ -1023,31 +1023,31 @@ document.addEventListener('DOMContentLoaded', function () {
       card.classList.add('card-product_mobile');
     });
   } // END show full version of works slider if touchscreen
-  //  filter show-hide
+  //  sidebar show-hide
 
 
-  if (document.querySelector('#filter')) {
-    var filterBtn = document.querySelector('#filter-btn');
-    var filterCloseBtn = document.querySelector('#sidebar__close-btn');
-    var filter = document.querySelector('#filter');
-    var overlay = document.querySelector('#sidebar-overlay');
-    filterBtn.addEventListener('click', function (e) {
+  if (document.querySelector('.sidebar')) {
+    var sidebarBtn = document.querySelector('.sidebar-btn');
+    var sidebarCloseBtn = document.querySelector('.sidebar__close-btn');
+    var sidebar = document.querySelector('.sidebar');
+    var overlay = document.querySelector('.sidebar-overlay');
+    sidebarBtn.addEventListener('click', function (e) {
       e.preventDefault();
       body.classList.toggle('lock');
-      filter.classList.toggle('active');
+      sidebar.classList.toggle('active');
       overlay.classList.toggle('active');
     });
-    filterCloseBtn.addEventListener('click', function (e) {
+    sidebarCloseBtn.addEventListener('click', function (e) {
       body.classList.toggle('lock');
-      filter.classList.toggle('active');
+      sidebar.classList.toggle('active');
       overlay.classList.toggle('active');
     });
     overlay.addEventListener('click', function (e) {
       body.classList.toggle('lock');
-      filter.classList.toggle('active');
+      sidebar.classList.toggle('active');
       overlay.classList.toggle('active');
     });
-  } //  end filter show-hide
+  } //  end sidebar show-hide
   //  collapse product information
 
 
@@ -1098,5 +1098,52 @@ document.addEventListener('DOMContentLoaded', function () {
   if (document.querySelector('.products')) {
     collapseProduct();
   } // END collapse product information
+  //  Projects list sidebar
 
+
+  $(".project-list ul ul").each(function (index) {
+    if (index != 0) {
+      $(this).slideToggle(0);
+    } else {
+      $(this).prev().toggleClass("open");
+    }
+  });
+  $(".project-list__item").click(function () {
+    $(this).toggleClass("open");
+    $(this).next().slideToggle(300);
+  });
+  $(".project-list a").each(function (index) {
+    if (index === 0) {
+      $(this).addClass("active");
+    }
+  });
+  $(".project-list a").on("click", function (e) {
+    e.preventDefault();
+    $(".project-list a").removeClass();
+    $(this).addClass("active");
+  }); // END Projects list sidebar
+  //  sidebar show-hide
+  // if(document.querySelector('#filter')) {
+  //   let filterBtn = document.querySelector('#filter-btn');
+  //   let filterCloseBtn = document.querySelector('#filter-btn');
+  //   let filter = document.querySelector('#filter');
+  //   let overlay = document.querySelector('#filter-overlay');
+  //   filterBtn.addEventListener('click', function (e) {
+  //     e.preventDefault();
+  //     body.classList.toggle('lock');
+  //     filter.classList.toggle('active');
+  //     overlay.classList.toggle('active');
+  //   })
+  //   filterCloseBtn.addEventListener('click', function (e) {
+  //     body.classList.toggle('lock');
+  //     filter.classList.toggle('active');
+  //     overlay.classList.toggle('active');
+  //   })
+  //   overlay.addEventListener('click', function (e) {
+  //     body.classList.toggle('lock');
+  //     filter.classList.toggle('active');
+  //     overlay.classList.toggle('active');
+  //   })
+  // }
+  //  end sidebar show-hide
 });

@@ -59,17 +59,17 @@
           </div>
           <div class="header-main__menu menu-main">
             <ul>
-              <li><a class="active" href="#">Головна</a></li>
+              <li><a class="active" href="/">Головна</a></li>
               <li><a href="#">Каталог</a>
                 <ul>
-                  <li><a href="#">Кондиціонери</a></li>
+                  <li><a href="/condition.html">Кондиціонери</a></li>
                   <li><a href="#">Осушувачі/Очищувачі повітря</a></li>
                   <li><a href="#">Теплові завіси</a></li>
                   <li><a href="#">Теплові насоси</a></li>
                   <li><a href="#">Вентиляція</a></li>
                 </ul>
               </li>
-              <li><a href="#">Роботи</a></li>
+              <li><a href="/works.html">Роботи</a></li>
               <li><a href="#">Статті</a></li>
               <li><a href="#">Контакти</a></li>
             </ul>
@@ -98,12 +98,13 @@
       <div class="container">
         <div class="row">
           <div class="column column-lg-1-4">
-            <div class="sidebar" id="filter">
-              <div class="sidebar__close-btn" id="sidebar__close-btn"><svg class="svg-sidebar-close ">
-                  <use xlink:href="img/icons/icons.svg#sidebar-close"></use>
+            <aside class="filter sidebar">
+              <div class="filter__close-btn sidebar__close-btn"><svg class="svg-filter-close ">
+                  <use xlink:href="img/icons/icons.svg#filter-close"></use>
                 </svg></div>
-              <div class="sidebar__section">
-                <h4 class="sidebar__title">Розрахунок потужності</h4>
+              <h3 class="filter__main-title title title_black">Фільтр</h3>
+              <div class="filter__section">
+                <h4 class="filter__title">Розрахунок потужності</h4>
                 <form class="power-calc">
                   <div class="input-field"><input class="validate square" id="square" type="number" step=".1"><label for="square">Площа приміщення (м2)</label></div>
                   <div class="input-field"><input class="validate height" id="height" type="number" step=".1"><label for="height">Висота приміщення (м)</label></div>
@@ -113,20 +114,20 @@
                       <option value="2">Середнє</option>
                       <option value="3">Високе</option>
                     </select></div>
-                  <div class="sidebar__btn"><button class="calc-power btn-main btn-main_min" type="button">Розрахувати</button></div>
+                  <div class="filter__btn"><button class="calc-power btn-main btn-main_min" type="button">Розрахувати</button></div>
                   <div class="input-field input-field_inline"><input class="validate power" id="power" type="number" step=".1"><label for="power">кВт</label></div>
                 </form>
               </div>
-              <div class="sidebar__section">
-                <h4 class="sidebar__title">Ціновий діапазон (грн)</h4>
+              <div class="filter__section">
+                <h4 class="filter__title">Ціновий діапазон (грн)</h4>
                 <form>
                   <div class="input-field input-field_inline"><input class="validate" id="price-from" type="number"><label for="price-from">Від</label></div>
                   <div class="input-field input-field_inline"><input class="validate" id="price-to" type="number"><label for="price-to">До</label></div>
                 </form><!-- Range slider DIV-->
                 <div id="price-range"></div>
               </div>
-              <div class="sidebar__section">
-                <h4 class="sidebar__title">Бренд</h4>
+              <div class="filter__section">
+                <h4 class="filter__title">Бренд</h4>
                 <form>
                   <p><label><input type="checkbox"><span>Electrolux</span></label></p>
                   <p><label><input type="checkbox"><span>LG</span></label></p>
@@ -134,8 +135,8 @@
                   <p><label><input type="checkbox"><span>Samsung</span></label></p>
                 </form>
               </div>
-              <div class="sidebar__section">
-                <h4 class="sidebar__title">Тип</h4>
+              <div class="filter__section">
+                <h4 class="filter__title">Тип</h4>
                 <form>
                   <p><label><input type="checkbox"><span>Настінний</span></label></p>
                   <p><label><input type="checkbox"><span>Касетнний</span></label></p>
@@ -143,19 +144,19 @@
                   <p><label><input type="checkbox"><span>Підлогово-стельовий</span></label></p>
                 </form>
               </div>
-              <div class="sidebar__section">
-                <h4 class="sidebar__title">Компресор</h4>
+              <div class="filter__section">
+                <h4 class="filter__title">Компресор</h4>
                 <form>
                   <p><label><input type="checkbox"><span>Інверторний</span></label></p>
                   <p><label><input type="checkbox"><span>Роторний</span></label></p>
                 </form>
               </div>
-            </div>
-            <div id="sidebar-overlay"></div>
+            </aside>
+            <div class="sidebar-overlay" id="filter-overlay"></div>
           </div>
           <div class="column column-lg-3-4">
             <section class="page-top-section">
-              <div class="page-top-section__params params-filter" data-da="sidebar,first,992,max">
+              <div class="page-top-section__params params-filter" data-da="filter,2,992,max">
                 <div class="params-filter__item"><span>Mitsubishi Electric</span><svg class="svg-bread-close ">
                     <use xlink:href="img/icons/icons.svg#bread-close"></use>
                   </svg></div>
@@ -176,7 +177,7 @@
                   </svg></div><a class="params-filter__link link" href="#">Скинути фільтр</a>
               </div>
               <div class="page-top-section__sort">
-                <div class="page-top-section__btn"><a class="btn-main btn-main_min" href="#" id="filter-btn"><svg class="svg-filter ">
+                <div class="page-top-section__btn"><a class="btn-main btn-main_min sidebar-btn" href="#" id="filter-btn"><svg class="svg-filter ">
                       <use xlink:href="img/icons/icons.svg#filter"></use>
                     </svg>Фільтр</a></div>
                 <div class="input-field"><select class="sun-light" name="sun-light" id="sun-light">

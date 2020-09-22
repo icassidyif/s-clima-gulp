@@ -1,0 +1,81 @@
+
+.project-list,
+.project-list ul,
+.project-list li
+  margin: 0
+  padding: 0
+  list-style: none
+  font-size: 16px
+  color: #2c2c2c
+
+.project-list
+
+  span
+    display: inline-block
+    font-weight: 900
+    vertical-align: middle
+    margin: 0 0 0 15px
+    user-select: none
+  ul
+    ul
+      margin: 0 0 0 8px
+      padding: 0 0 0 15px
+      border-left: 1px solid #0066BA
+      li:not(:last-child)
+        margin: 0 0 20px 0
+    li
+      .project-list__item
+        margin: 20px 0 20px 0
+      &:first-child
+        .project-list__item
+          margin: 0 0 20px 0
+  .drop-icon
+    display: inline-block
+    width: 17px
+    height: 17px
+    border: 1px solid #0066BA
+    position: relative
+    &:after
+      content: ""
+      position: absolute
+      left: calc(50% - 5px)
+      top: calc(50% - 1px)
+      width: 10px
+      height: 1px
+      background-color: #0066BA
+    &:before
+      content: ""
+      position: absolute
+      left: calc(50% - 5px)
+      top: calc(50% - 1px)
+      width: 10px
+      height: 1px
+      background-color: #0066BA
+      transform: rotate(90deg)
+  a
+    display: inline-block
+    text-decoration: none
+    color: #2c2c2c
+    line-height: 19px
+    transition: transform .5s
+    transform: translateX(0px)
+    &:hover
+      color: #0066BA
+      transform: translateX(5px)
+    &.active
+      color: #0066BA
+  &__item
+    display: flex
+    cursor: pointer
+    align-items: center
+    &.open
+      .drop-icon
+        &:before
+          display: none
+
+  &__title
+    color: #0066BA
+    font-weight: 700
+    font-size: 22px
+    line-height: 26px
+    margin: 0 0 25px

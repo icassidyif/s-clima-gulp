@@ -1,8 +1,9 @@
-#filter.sidebar
-  .sidebar__close-btn#sidebar__close-btn
-    +icon('sidebar-close')
-  .sidebar__section
-    h4.sidebar__title Розрахунок потужності
+aside.filter.sidebar
+  .filter__close-btn.sidebar__close-btn
+    +icon('filter-close')
+  h3.filter__main-title.title.title_black Фільтр
+  .filter__section
+    h4.filter__title Розрахунок потужності
     form.power-calc
       .input-field
         input(id='square' type="number" class="validate"  step='.1').square
@@ -16,13 +17,13 @@
           option(value= 1) Слабке
           option(value= 2) Середнє
           option(value= 3) Високе
-      .sidebar__btn
+      .filter__btn
         button(type='button').calc-power.btn-main.btn-main_min Розрахувати
       .input-field.input-field_inline
         input(id='power' type="number" step='.1' class="validate").power
         label(for="power") кВт
-  .sidebar__section
-    h4.sidebar__title Ціновий діапазон (грн)
+  .filter__section
+    h4.filter__title Ціновий діапазон (грн)
     form
       .input-field.input-field_inline
         input(id='price-from' type="number" class="validate")
@@ -32,8 +33,8 @@
         label(for="price-to") До
     // Range slider DIV
     #price-range
-  .sidebar__section
-    h4.sidebar__title Бренд
+  .filter__section
+    h4.filter__title Бренд
     form
       p
         label
@@ -51,8 +52,8 @@
         label
           input(type="checkbox")
           span Samsung
-  .sidebar__section
-    h4.sidebar__title Тип
+  .filter__section
+    h4.filter__title Тип
     form
       p
         label
@@ -70,8 +71,8 @@
         label
           input(type="checkbox")
           span Підлогово-стельовий
-  .sidebar__section
-    h4.sidebar__title Компресор
+  .filter__section
+    h4.filter__title Компресор
     form
       p
         label
@@ -82,4 +83,4 @@
           input(type="checkbox")
           span Роторний
 
-#sidebar-overlay
+#filter-overlay.sidebar-overlay
