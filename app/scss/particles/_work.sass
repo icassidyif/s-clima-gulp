@@ -1,4 +1,10 @@
 .work
+  &__column
+    &.hide-project
+      //opacity: 1!important
+      animation-name: hideProject
+      animation-duration: .5s
+      animation-fill-mode: forwards
   &__btn
     background-color: #7EB5F9
     display: inline-flex
@@ -54,6 +60,16 @@
               left: 0
 
 
+@keyframes hideProject
+  to
+    opacity: 0
+    min-height: 0
+    min-width: 0
+    padding: 0
+    margin: 0
+    border: 0
+    width: 0
+    height: 0
 
 .gallery-work
   margin: 0 0 -30px 0
@@ -66,6 +82,7 @@
     z-index: 1
     overflow: hidden
     background: rgba(0, 71, 255, 1)
+
     +breakpoint(md)
       height: 215px
       max-height: 215px
@@ -129,5 +146,6 @@
         transition: opacity 0.3s
         position: relative
         display: block
+
 
 

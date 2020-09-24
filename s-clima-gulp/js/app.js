@@ -403,22 +403,16 @@ $(document).ready(function () {
     image: {
       tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
     },
-    removalDelay: 300
-  });
-  $('.popup-with-move-anim').magnificPopup({
-    type: 'inline',
-    fixedContentPos: true,
-    fixedBgPos: true,
-    overflowY: 'auto',
-    preloader: false,
-    midClick: true,
     removalDelay: 300,
-    mainClass: 'my-mfp-slide-bottom',
-    showCloseBtn: true,
-    closeBtnInside: true
-  });
-  $('.my-custom-close').click(function () {
-    $.magnificPopup.close();
+    callbacks: {
+      elementParse: function elementParse(item) {
+        if (item.el.hasClass("video")) {
+          item.type = 'iframe';
+        } else {
+          item.type = 'image';
+        }
+      }
+    }
   });
 });
 $(document).ready(function () {
@@ -1146,4 +1140,35 @@ document.addEventListener('DOMContentLoaded', function () {
   //   })
   // }
   //  end sidebar show-hide
+  //  filter projects
+
+  var projects = document.querySelectorAll('.gallery-work__item a');
+  var workSort = document.querySelector('.work__sort');
+
+  if (projects.length) {
+    var sortLinks = workSort.querySelectorAll('a');
+    workSort.addEventListener('click', function (e) {
+      if (e.target.tagName !== 'A') {
+        return false;
+      } else {
+        e.preventDefault();
+        var className = e.target.dataset.filter;
+        sortLinks.forEach(function (sortLink) {
+          if (sortLink.dataset.filter === className) {
+            sortLink.classList.add('active');
+          } else {
+            sortLink.classList.remove('active');
+          }
+        });
+        projects.forEach(function (project) {
+          project.parentElement.parentElement.classList.remove('hide-project');
+
+          if (!project.classList.contains(className) && className !== 'all') {
+            project.parentElement.parentElement.classList.add('hide-project');
+          }
+        });
+      }
+    });
+  } //  END filter projects
+
 });

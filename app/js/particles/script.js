@@ -330,4 +330,33 @@ document.addEventListener('DOMContentLoaded', function() {
   // }
 //  end sidebar show-hide
 
+
+//  filter projects
+  const projects = document.querySelectorAll('.gallery-work__item a');
+  const workSort = document.querySelector('.work__sort');
+  if(projects.length){
+    let sortLinks = workSort.querySelectorAll('a');
+    workSort.addEventListener('click', e => {
+      if (e.target.tagName !== 'A') {
+        return false;
+      } else {
+        e.preventDefault();
+        let className = e.target.dataset.filter;
+        sortLinks.forEach(sortLink => {
+          if(sortLink.dataset.filter === className) {
+            sortLink.classList.add('active');
+          }else {
+            sortLink.classList.remove('active');
+          }
+        })
+        projects.forEach(project => {
+          project.parentElement.parentElement.classList.remove('hide-project');
+          if(!project.classList.contains(className) && className !== 'all') {
+            project.parentElement.parentElement.classList.add('hide-project');
+          }
+        })
+      }
+    })
+  }
+//  END filter projects
 })

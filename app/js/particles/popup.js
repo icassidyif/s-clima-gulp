@@ -12,26 +12,17 @@ $(document).ready(function () {
     image: {
       tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
     },
-    removalDelay: 300
-  });
-
-
-  $('.popup-with-move-anim').magnificPopup({
-    type: 'inline',
-    fixedContentPos: true,
-    fixedBgPos: true,
-    overflowY: 'auto',
-    preloader: false,
-    midClick: true,
     removalDelay: 300,
-    mainClass: 'my-mfp-slide-bottom',
-    showCloseBtn: true,
-    closeBtnInside: true
+    callbacks: {
+      elementParse: function(item) {
+        if(item.el.hasClass("video")){
+          item.type = 'iframe';
+        }else {
+          item.type = 'image';
+        }
+      }
+    }
   });
 
-
-  $('.my-custom-close').click(function(){
-    $.magnificPopup.close();
-  });
 })
 
