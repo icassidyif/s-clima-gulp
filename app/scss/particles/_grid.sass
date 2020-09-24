@@ -3,7 +3,7 @@
   width: 100%
   margin: 0 auto
   padding: 0 $gutter/2-$diff-padd
-  overflow: hidden
+  //overflow: hidden
   +breakpoint(lg)
     overflow: visible
   +breakpoint(md)
@@ -13,11 +13,16 @@
 .row
   display: flex
   flex-wrap: wrap
-  margin: 0 #{-$gutter/2}
+  margin: 0 #{-$gutter/2+5}
+  +breakpoint(md)
+    margin: 0 #{-$gutter/2}
 
 .column
   width: 100%
-  padding: 0 $gutter/2
+  padding: 0 $gutter/2-5
+  +breakpoint(md)
+    padding: 0 $gutter/2
+
   @each $dim in $dims
     &-#{$dim}
       +breakpoint($dim)
@@ -27,9 +32,6 @@
             @else
               &-#{$i}-#{$j}
                 width: percentage(1/$j)*$i
-
-
-
 
 //  atomic automatic step
 //$step: 5

@@ -6,13 +6,12 @@ body
     include particles/_header
     include  particles/_parallax-page-works
     section.page
-      .container
-        .row
-          .column.column-lg-1-4
+      .page__container.container
+        .page__row.row
+          .page__column.column.column-lg-1-4
             include particles/_sidebar-page-works
-          .column.column-lg-3-4
+          .page__column.column.column-lg-3-4
             include particles/_work
-
     include particles/_footer
   script(src='js/vendors.js')
   script(src='js/app.min.js')
