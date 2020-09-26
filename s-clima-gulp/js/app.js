@@ -226,52 +226,11 @@ var Cart = /*#__PURE__*/function () {
   }]);
 
   return Cart;
-}();
+}(); // Materialize initializations
 
-$("#phone").mask("+38 (999) 999-99-99");
-$.validator.addMethod('customphone', function (value, element) {
-  return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value);
-}, "Please enter a valid phone number");
-$('#order-form').validate({
-  rules: {
-    cartOrderName: {
-      required: true
-    },
-    cartOrderPhone: {
-      required: true,
-      customphone: true
-    },
-    cartOrderMessage: {}
-  },
-  messages: {
-    cartOrderName: {
-      required: "Це обов'язкове поле"
-    },
-    cartOrderPhone: {
-      required: "Це обов'язкове поле",
-      customphone: 'Невірний номер телефону'
-    }
-  },
-  submitHandler: function submitHandler(form) {
-    //$.magnificPopup.close();
-    // let url = '/php/call.php';
-    var CurrentCart = JSON.parse(localStorage.getItem('cart'));
-    var formData = $(form).serializeArray(); // ajaxSend(formData, url);
-
-    console.log(formData, CurrentCart); //clear
-
-    form.reset();
-    cart.products = {};
-    products = cart.products;
-    loadToLocalStorage();
-    updateCartContent();
-    var modal = M.Modal.getInstance($('#cart'));
-    modal.close();
-  }
-}); // Materialize initializations
 
 var selectElements = document.querySelectorAll('select');
-var instances = M.FormSelect.init(selectElements);
+var selectInstances = M.FormSelect.init(selectElements);
 var modals = document.querySelectorAll('.modal');
 var modalInstance = M.Modal.init(modals, {
   dismissible: true,
@@ -414,6 +373,130 @@ $(document).ready(function () {
       }
     }
   });
+});
+$("select").css({
+  display: "block",
+  position: 'absolute',
+  visibility: 'hidden'
+});
+$("#phone").mask("+38 (999) 999-99-99");
+$.validator.addMethod('customPhone', function (value, element) {
+  return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value);
+}, "Please enter a valid phone number");
+
+function calculatePower(square, height, light) {
+  var volume = square * height;
+
+  switch (light) {
+    case 1:
+      light = 30;
+      break;
+
+    case 2:
+      light = 35;
+      break;
+
+    case 3:
+      light = 40;
+      break;
+  }
+
+  return volume * light / 1000;
+}
+
+$('#order-form').validate({
+  rules: {
+    cartOrderName: {
+      required: true
+    },
+    cartOrderPhone: {
+      required: true,
+      customPhone: true
+    },
+    cartOrderMessage: {}
+  },
+  messages: {
+    cartOrderName: {
+      required: "Це обов'язкове поле"
+    },
+    cartOrderPhone: {
+      required: "Це обов'язкове поле",
+      customPhone: 'Невірний номер телефону'
+    }
+  },
+  submitHandler: function submitHandler(form) {
+    //$.magnificPopup.close();
+    // let url = '/php/call.php';
+    var CurrentCart = JSON.parse(localStorage.getItem('cart'));
+    var formData = $(form).serializeArray(); // ajaxSend(formData, url);
+
+    console.log(formData, CurrentCart); //clear
+
+    form.reset();
+    cart.products = {};
+    products = cart.products;
+    loadToLocalStorage();
+    updateCartContent();
+    var modal = M.Modal.getInstance($('#cart'));
+    modal.close();
+  }
+});
+$('#power-calc').validate({
+  rules: {
+    square: {
+      required: true,
+      min: '1',
+      max: '900',
+      step: '.1',
+      number: true
+    },
+    height: {
+      required: true,
+      min: '1',
+      max: '50',
+      step: '.1',
+      number: true
+    },
+    sunlight: {
+      required: true
+    },
+    power: {
+      number: true,
+      step: .1
+    }
+  },
+  messages: {
+    square: {
+      required: 'Введіть площу приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    },
+    height: {
+      required: 'Введіть висоту приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    },
+    sunlight: {
+      required: 'Виберіть варіант зі списку'
+    },
+    power: {
+      number: ' ',
+      step: ' '
+    }
+  },
+  submitHandler: function submitHandler(form) {
+    var resultInput = form.querySelector('.power');
+    var resultLabel = form.querySelector('.power + label');
+    var data = $(form).serializeArray();
+    var result = calculatePower(parseInt(data[0].value), parseInt(data[1].value), parseInt(data[2].value));
+    result = Math.ceil(result * 10) / 10;
+    resultInput.value = result;
+    resultLabel.classList.add('active'); //   SEND AJAX
+  }
 });
 $(document).ready(function () {
   $('.slider-comments').slick({
@@ -932,78 +1015,6 @@ document.addEventListener('DOMContentLoaded', function () {
       slider.noUiSlider.set([null, this.value]);
     });
   } // END Range Slider Sidebar
-  //Validate and Calculate power
-
-
-  function calculatePower(square, height, light) {
-    var volume = square * height;
-
-    switch (light) {
-      case 1:
-        light = 30;
-        break;
-
-      case 2:
-        light = 35;
-        break;
-
-      case 3:
-        light = 40;
-        break;
-    }
-
-    return volume * light / 1000;
-  }
-
-  if (document.querySelector('form.power-calc')) {
-    var calcForms = document.querySelectorAll('form.power-calc');
-    calcForms.forEach(function (form) {
-      var calcBtn = form.querySelector('.calc-power');
-      var resultInput = form.querySelector('.power');
-      var resultLabel = form.querySelector('.power + label');
-      var square = form.querySelector('.square');
-      var height = form.querySelector('.height');
-      var light = form.querySelector('.sun-light');
-      var instance = M.FormSelect.getInstance(light);
-      var valueSquare, valueHeight, valueLight;
-      calcBtn.addEventListener('click', calculate);
-
-      function calculate() {
-        valueSquare = validateInput(square, 'Вкажіть площу приміщення');
-        valueHeight = validateInput(height, 'Вкажіть висоту приміщення');
-        valueLight = validateInput(light, 'Виберіть тип освітлення');
-        var power = calculatePower(valueSquare, valueHeight, valueLight);
-        power = Math.ceil(power * 10) / 10;
-        resultInput.value = power;
-        resultLabel.classList.add('active');
-      }
-
-      function validateInput(input, errorMsg) {
-        if (!input.value) {
-          if (input === light) {
-            instance.input.classList.add('invalid');
-          }
-
-          input.classList.add('invalid');
-          M.toast({
-            html: errorMsg,
-            classes: 'toast-error'
-          });
-        } else {
-          return getValueInput(input);
-        }
-      }
-
-      function getValueInput(input) {
-        if (input === light) {
-          instance.input.classList.remove('invalid');
-          instance.input.classList.add('valid');
-        }
-
-        return parseInt(input.value);
-      }
-    });
-  } //END Validate and Calculate power
   // show full version of works slider if touchscreen and product slider
 
 
@@ -1116,30 +1127,6 @@ document.addEventListener('DOMContentLoaded', function () {
     $(".project-list a").removeClass();
     $(this).addClass("active");
   }); // END Projects list sidebar
-  //  sidebar show-hide
-  // if(document.querySelector('#filter')) {
-  //   let filterBtn = document.querySelector('#filter-btn');
-  //   let filterCloseBtn = document.querySelector('#filter-btn');
-  //   let filter = document.querySelector('#filter');
-  //   let overlay = document.querySelector('#filter-overlay');
-  //   filterBtn.addEventListener('click', function (e) {
-  //     e.preventDefault();
-  //     body.classList.toggle('lock');
-  //     filter.classList.toggle('active');
-  //     overlay.classList.toggle('active');
-  //   })
-  //   filterCloseBtn.addEventListener('click', function (e) {
-  //     body.classList.toggle('lock');
-  //     filter.classList.toggle('active');
-  //     overlay.classList.toggle('active');
-  //   })
-  //   overlay.addEventListener('click', function (e) {
-  //     body.classList.toggle('lock');
-  //     filter.classList.toggle('active');
-  //     overlay.classList.toggle('active');
-  //   })
-  // }
-  //  end sidebar show-hide
   //  filter projects
 
   var projects = document.querySelectorAll('.gallery-work__item a');
@@ -1170,5 +1157,19 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   } //  END filter projects
+  //  filter listener for AJAX
+
+
+  if (document.querySelector('.filter')) {
+    var powerInput = document.querySelector('#power');
+    powerInput.addEventListener('change', function (e) {
+      var value = e.target.value;
+
+      if (value) {
+        // SEND AJAX
+        console.log(value);
+      }
+    });
+  } //  END filter listener for AJAX
 
 });

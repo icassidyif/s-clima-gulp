@@ -792,6 +792,19 @@ form + span {
   background-color: #0066BA;
 }
 
+.select-wrapper .caret {
+  margin: unset;
+  top: .4em;
+}
+
+.select-wrapper input ~ label {
+  color: red;
+}
+
+.select-wrapper input.valid ~ label {
+  display: none;
+}
+
 html {
   font-size: 18px;
 }

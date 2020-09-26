@@ -109,77 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-//Validate and Calculate power
-
-  function calculatePower(square, height, light) {
-    let volume = square * height;
-    switch (light) {
-      case 1:
-        light = 30;
-        break;
-      case 2:
-        light = 35;
-        break;
-      case 3:
-        light = 40;
-        break;
-    }
-    return volume * light / 1000;
-  }
-
-  if (document.querySelector('form.power-calc')) {
-    let calcForms = document.querySelectorAll('form.power-calc');
-    calcForms.forEach(form => {
-      let calcBtn = form.querySelector('.calc-power');
-      let resultInput = form.querySelector('.power');
-      let resultLabel = form.querySelector('.power + label');
-
-      let square = form.querySelector('.square');
-      let height = form.querySelector('.height');
-      let light = form.querySelector('.sun-light');
-      let instance = M.FormSelect.getInstance(light);
-
-      let valueSquare,
-        valueHeight,
-        valueLight
-
-
-      calcBtn.addEventListener('click', calculate);
-
-      function calculate() {
-        valueSquare = validateInput(square, 'Вкажіть площу приміщення');
-        valueHeight = validateInput(height, 'Вкажіть висоту приміщення');
-        valueLight = validateInput(light, 'Виберіть тип освітлення');
-
-        let power = calculatePower(valueSquare, valueHeight, valueLight);
-        power = Math.ceil(power * 10) / 10;
-        resultInput.value = power;
-        resultLabel.classList.add('active');
-
-      }
-
-      function validateInput(input, errorMsg) {
-        if (!input.value) {
-          if (input === light) {
-            instance.input.classList.add('invalid');
-          }
-          input.classList.add('invalid');
-          M.toast({html: errorMsg, classes: 'toast-error'});
-        } else {
-          return getValueInput(input);
-        }
-      }
-      function getValueInput(input) {
-        if(input === light) {
-          instance.input.classList.remove('invalid');
-          instance.input.classList.add('valid');
-        }
-        return parseInt(input.value);
-      }
-    })
-  }
-
-//END Validate and Calculate power
 
 
 
@@ -305,30 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   // END Projects list sidebar
 
-  //  sidebar show-hide
-  // if(document.querySelector('#filter')) {
-  //   let filterBtn = document.querySelector('#filter-btn');
-  //   let filterCloseBtn = document.querySelector('#filter-btn');
-  //   let filter = document.querySelector('#filter');
-  //   let overlay = document.querySelector('#filter-overlay');
-  //   filterBtn.addEventListener('click', function (e) {
-  //     e.preventDefault();
-  //     body.classList.toggle('lock');
-  //     filter.classList.toggle('active');
-  //     overlay.classList.toggle('active');
-  //   })
-  //   filterCloseBtn.addEventListener('click', function (e) {
-  //     body.classList.toggle('lock');
-  //     filter.classList.toggle('active');
-  //     overlay.classList.toggle('active');
-  //   })
-  //   overlay.addEventListener('click', function (e) {
-  //     body.classList.toggle('lock');
-  //     filter.classList.toggle('active');
-  //     overlay.classList.toggle('active');
-  //   })
-  // }
-//  end sidebar show-hide
+
 
 
 //  filter projects
@@ -359,4 +265,20 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   }
 //  END filter projects
+
+
+//  filter listener for AJAX
+  if(document.querySelector('.filter')) {
+    let powerInput = document.querySelector('#power');
+    powerInput.addEventListener('change', e => {
+      let value = e.target.value;
+      if (value) {
+        // SEND AJAX
+        console.log(value);
+      }
+    })
+  }
+
+//  END filter listener for AJAX
+
 })

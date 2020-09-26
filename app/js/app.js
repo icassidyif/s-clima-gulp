@@ -1,6 +1,5 @@
 //=include ./particles/functions.js
 //=include ./particles/Cart.js
-//=include ./particles/validate.js
 //=include ./particles/materialize.js
 //=include ./particles/menu.js
 //=include ./particles/smooth-scroll.js
@@ -10,7 +9,7 @@
 
 //=include ./particles/popup.js
 
-
+//=include ./particles/validate.js
 
 //=include ./particles/slick.js
 //=include ./particles/cart-script.js

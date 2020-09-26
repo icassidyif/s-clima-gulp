@@ -94,11 +94,22 @@ form
     margin: 0
 
 
-
 .noUi-connect
   background: #0066BA
 .noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle
   background: #0066BA
 .noUi-target.noUi-horizontal .noUi-tooltip
   background-color: #0066BA
+
+
+.select-wrapper
+  .caret
+    margin: unset
+    top: .4em
+  input
+    ~ label
+      color: red
+    &.valid
+      ~ label
+        display: none
 
