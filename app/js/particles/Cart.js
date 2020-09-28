@@ -72,6 +72,7 @@ class Cart {
     input.setAttribute('type','number');
     input.setAttribute('step','1');
     input.setAttribute('min','0');
+    input.setAttribute('disabled', '');
     input.value = product['count'];
     inputField.appendChild(input);
     const cartPlus = document.createElement('div');

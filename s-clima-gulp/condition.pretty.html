@@ -70,7 +70,7 @@
                 </ul>
               </li>
               <li><a href="/works.html">Роботи</a></li>
-              <li><a href="#">Статті</a></li>
+              <li><a href="/posts.html">Статті</a></li>
               <li><a href="#">Контакти</a></li>
             </ul>
           </div><a class="header-main__cart modal-trigger" href="#cart" id="cart-main"><svg class="svg-cart ">
@@ -121,7 +121,7 @@
               <div class="filter__section">
                 <h4 class="filter__title">Ціновий діапазон (грн)</h4>
                 <form>
-                  <div class="input-field input-field_inline"><input class="validate" id="price-from" type="number"><label for="price-from">Від</label></div>
+                  <div class="input-field input-field_inline"><input class="validate" id="price-from" type="number" min="0"><label for="price-from">Від</label></div>
                   <div class="input-field input-field_inline"><input class="validate" id="price-to" type="number"><label for="price-to">До</label></div>
                 </form><!-- Range slider DIV-->
                 <div id="price-range"></div>
@@ -394,7 +394,7 @@
                   </div>
                 </div>
               </div>
-              <ul class="products__pagination pagination">
+              <ul class="pagination">
                 <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                 <li class="active"><a href="#!">1</a></li>
                 <li class="waves-effect"><a href="#!">2</a></li>

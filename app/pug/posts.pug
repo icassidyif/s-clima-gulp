@@ -1,0 +1,13 @@
+include particles/_mixins
+include particles/_head
+body
+  .wrapper
+    include particles/_cart
+    include particles/_header
+    include particles/_parallax-page-posts
+    section.page
+      include particles/_page-top-section-posts
+      include particles/_posts
+    include particles/_footer
+  script(src='js/vendors.js')
+  script(src='js/app.min.js')

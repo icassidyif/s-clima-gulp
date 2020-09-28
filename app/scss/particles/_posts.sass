@@ -1,0 +1,43 @@
+.posts
+  &__pagination
+    justify-content: center
+
+.item-post
+  margin: 0 0 45px 0
+  +breakpoint(md)
+    margin: 0 0 56px 0
+  +breakpoint(lg)
+    margin: 0 0 70px 0
+  &__date
+    height: 100%
+    display: flex
+    color: #7EB5F9
+    font-weight: 700
+    margin: 0 0 10px 0
+    +breakpoint(md)
+      flex-direction: column
+      align-items: flex-end
+      padding: 0 30px 0 0
+      border-right: 3px solid #EBEBEB
+      margin: 0
+    span
+      font-size: 16px
+      line-height: 19px
+      margin: 0 5px 0 0
+      +breakpoint(md)
+        font-size: 28px
+        line-height: 28px
+        margin: 0 0 15px 0
+        &:first-child
+          font-size: 78px
+          line-height: 60px
+  &__title
+    margin: 0 0 20px 0
+    color: #2C2C2C
+    font-weight: 700
+    font-size: 26px
+    line-height: 30px
+  &__desc
+    font-size: 18px
+    line-height: 28px
+    margin: 0 0 17px 0

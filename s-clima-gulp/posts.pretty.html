@@ -1,0 +1,249 @@
+<!-- insert icon from iconSprite=========================-->
+<!--======================================================-->
+<!--insert img tag========================================-->
+<!--======================================================-->
+<!--======================================================-->
+<!--======================================================-->
+<!--======================================================-->
+<!--======================================================-->
+<!--======================================================-->
+<!--======================================================-->
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+  <title>S-Clima Продаж та обслуговування кліматичної техніки</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style-vendors.min.css" type="text/css">
+  <link rel="stylesheet" href="css/style.min.css" type="text/css">
+</head>
+
+</html>
+
+<body>
+  <div class="wrapper">
+    <div class="modal" id="cart">
+      <div class="cart">
+        <div class="cart__container">
+          <h4 class="cart__title title title_black">Кошик</h4>
+          <div class="cart__close modal-close"><svg class="svg-close-modal ">
+              <use xlink:href="img/icons/icons.svg#close-modal"></use>
+            </svg></div>
+          <div class="cart__out">
+            <div class="cart__content"></div>
+          </div><!--    goods container-->
+          <form class="cart__form" id="order-form">
+            <div class="cart__inline">
+              <div class="input-field"><i class="material-icons prefix">person</i><input type="text" name="cartOrderName" id="cart-order-name"><label for="cart-order-name">Ім'я</label></div>
+              <div class="input-field"><i class="material-icons prefix">phone</i><input type="text" name="cartOrderPhone" id="cart-order-phone"><label for="cart-order-phone">Контактний номер</label></div>
+            </div>
+            <div class="input-field"><i class="material-icons prefix">mode_edit</i><textarea class="materialize-textarea" name="cartOrderMessage" id="cart-order-text"></textarea><label for="cart-order-text">Коментар до замовлення</label></div>
+            <div class="cart__button"><button class="btn-main btn-main_min" type="submit">Оформити замовлення</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <header class="header-main" data-scroll-header>
+      <div class="header-main__container container">
+        <div class="header-main__body"><a class="header-main__logo" href="#">
+            <picture>
+              <source srcset="img/logo-min.webp" type="image/webp"><img class="logo-min" src="img/logo-min.png" alt="logo-min.png" /></picture><img class="logo-full" src="img/logo.png" alt="logo.png" />
+          </a>
+          <div class="header-main__contacts"><svg class="svg-phone ">
+              <use xlink:href="img/icons/icons.svg#phone"></use>
+            </svg>
+            <div class="header-main__phones"><a class="link link_2" href="tel:+380507777777">(050) 77-77-777</a><a class="link link_2" href="tel:+380507777777">(050) 77-77-777</a></div>
+          </div>
+          <div class="header-main__menu menu-main">
+            <ul>
+              <li><a class="active" href="/">Головна</a></li>
+              <li><a href="#">Каталог</a>
+                <ul>
+                  <li><a href="/condition.html">Кондиціонери</a></li>
+                  <li><a href="#">Осушувачі/Очищувачі повітря</a></li>
+                  <li><a href="#">Теплові завіси</a></li>
+                  <li><a href="#">Теплові насоси</a></li>
+                  <li><a href="#">Вентиляція</a></li>
+                </ul>
+              </li>
+              <li><a href="/works.html">Роботи</a></li>
+              <li><a href="/posts.html">Статті</a></li>
+              <li><a href="#">Контакти</a></li>
+            </ul>
+          </div><a class="header-main__cart modal-trigger" href="#cart" id="cart-main"><svg class="svg-cart ">
+              <use xlink:href="img/icons/icons.svg#cart"></use>
+            </svg><span></span></a>
+          <div class="burger-menu"><span></span></div>
+        </div>
+      </div>
+    </header>
+    <section class="parallax-page parallax-container">
+      <div class="parallax"><img class=" " src="img/header-parallax-scroll.jpg" alt="header-parallax-scroll.jpg" />
+        <div class="parallax-page__body">
+          <div class="parallax-page__nav-info">
+            <div class="parallax-page__container container">
+              <div class="parallax-page__breadcumps breadcumps"><a href="#"><svg class="svg-home ">
+                    <use xlink:href="img/icons/icons.svg#home"></use>
+                  </svg></a><span>/</span><a class="breadcumps__link" href="#">Статті</a></div>
+              <h1 class="parallax-page__title title title_page">Статті</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="page">
+      <section class="page-top-section">
+        <div class="page-top-section__container container">
+          <div class="page-top-section__sort page-top-section__sort_single">
+            <div class="input-field"><select class="sun-light" name="sun-light" id="sun-light">
+                <option value="1" selected>Спочатку новіші</option>
+                <option value="2">Спочатку старші</option>
+              </select></div>
+          </div>
+        </div>
+      </section>
+      <section class="posts">
+        <div class="posts__container container">
+          <div class="posts__item item-post">
+            <div class="item-post__row row">
+              <div class="item-post__column column column-md-1-4">
+                <div class="item-post__date"><span>18</span><span>Липня</span><span>2020</span></div>
+              </div>
+              <div class="item-post__column column column-md-3-4">
+                <h2 class="item-post__title">Як правильно підібрати осушувач повітря</h2>
+                <p class="item-post__desc">Значимость этих проблем настолько очевидна, что консультация с широким активом в значительной степени обуславливает создание форм развития. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание форм развития.</p><a class="item-post__more link" href="/single-post.html">Читати далі</a>
+              </div>
+            </div>
+          </div>
+          <div class="posts__item item-post">
+            <div class="item-post__row row">
+              <div class="item-post__column column column-md-1-4">
+                <div class="item-post__date"><span>07</span><span>Травня</span><span>2020</span></div>
+              </div>
+              <div class="item-post__column column column-md-3-4">
+                <h2 class="item-post__title">Про вентиляційні системи</h2>
+                <p class="item-post__desc">Значимость этих проблем настолько очевидна, что консультация с широким активом в значительной степени обуславливает создание форм развития. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание форм развития.</p><a class="item-post__more link" href="/single-post.html">Читати далі</a>
+              </div>
+            </div>
+          </div>
+          <div class="posts__item item-post">
+            <div class="item-post__row row">
+              <div class="item-post__column column column-md-1-4">
+                <div class="item-post__date"><span>18</span><span>Липня</span><span>2020</span></div>
+              </div>
+              <div class="item-post__column column column-md-3-4">
+                <h2 class="item-post__title">Як правильно підібрати осушувач повітря</h2>
+                <p class="item-post__desc">Значимость этих проблем настолько очевидна, что консультация с широким активом в значительной степени обуславливает создание форм развития. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание форм развития.</p><a class="item-post__more link" href="/single-post.html">Читати далі</a>
+              </div>
+            </div>
+          </div>
+          <div class="posts__item item-post">
+            <div class="item-post__row row">
+              <div class="item-post__column column column-md-1-4">
+                <div class="item-post__date"><span>07</span><span>Травня</span><span>2020</span></div>
+              </div>
+              <div class="item-post__column column column-md-3-4">
+                <h2 class="item-post__title">Про вентиляційні системи</h2>
+                <p class="item-post__desc">Значимость этих проблем настолько очевидна, что консультация с широким активом в значительной степени обуславливает создание форм развития. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание форм развития.</p><a class="item-post__more link" href="/single-post.html">Читати далі</a>
+              </div>
+            </div>
+          </div>
+          <div class="posts__item item-post">
+            <div class="item-post__row row">
+              <div class="item-post__column column column-md-1-4">
+                <div class="item-post__date"><span>18</span><span>Липня</span><span>2020</span></div>
+              </div>
+              <div class="item-post__column column column-md-3-4">
+                <h2 class="item-post__title">Як правильно підібрати осушувач повітря</h2>
+                <p class="item-post__desc">Значимость этих проблем настолько очевидна, что консультация с широким активом в значительной степени обуславливает создание форм развития. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание форм развития.</p><a class="item-post__more link" href="/single-post.html">Читати далі</a>
+              </div>
+            </div>
+          </div>
+          <ul class="pagination posts__pagination">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+          </ul>
+        </div>
+      </section>
+    </section>
+    <footer class="footer">
+      <div class="footer__background">
+        <div class="footer__container container">
+          <div class="footer__body">
+            <div class="footer__info footer__block">
+              <div class="footer__logo"><img class=" " src="img/logo.png" alt="logo.png" /></div>
+              <div class="footer__desc">
+                <p>Пропонуємо комплексний підхід до проєктування та встановлення систем вентиляції, кондиціонування та опалення для промислових та побутових об'єктів.</p>
+              </div>
+            </div>
+            <div class="footer__menu footer__block">
+              <h4 class="footer__title title title_small">Навігація</h4>
+              <ul>
+                <li><a href="#">Промислові об'єкти</a></li>
+                <li><a href="#">Побутові об'єкти</a></li>
+                <li><a href="#">Готові роботи</a></li>
+                <li><a href="#">Статті</a></li>
+                <li><a href="#">Контакти</a></li>
+              </ul>
+            </div>
+            <div class="footer__catalog footer__block">
+              <h4 class="footer__title title title_small">Каталог</h4>
+              <ul>
+                <li><a href="#">Кондиціонери</a></li>
+                <li><a href="#">ОСУШУВАЧІ / ОЧИЩУВАЧІ ПОВІТРЯ</a></li>
+                <li><a href="#">ТЕПЛОВІ ЗАВІСИ</a></li>
+                <li><a href="#">ТЕПЛОВІ НАСОСИ</a></li>
+                <li><a href="#">ВЕНТИЛЯЦІЯ</a></li>
+              </ul>
+            </div>
+            <div class="footer__contacts footer__block">
+              <h4 class="footer__title title title_small">Контакти</h4>
+              <div class="footer__contacts-container"><svg class="svg-phone ">
+                  <use xlink:href="img/icons/icons.svg#phone"></use>
+                </svg>
+                <div class="footer__phones"><a class="link link_2" href="tel:+380677865345">(067) 77-77-777</a><a class="link link_2" href="tel:+380677865345">(067) 77-77-777</a></div>
+              </div>
+              <div class="footer__contacts-container"><svg class="svg-home ">
+                  <use xlink:href="img/icons/icons.svg#home"></use>
+                </svg>
+                <div class="footer__adress"><span> м. Івано-Франківськ, Мельничука 16Б, офіс 609</span></div>
+              </div>
+              <div class="footer__contacts-container"><svg class="svg-email ">
+                  <use xlink:href="img/icons/icons.svg#email"></use>
+                </svg>
+                <div class="footer__email"><a class="link link_2" href="mailto:sclima@gmail.com">sclima@gmail.com</a></div>
+              </div>
+              <div class="footer__contacts-container">
+                <div class="footer__social"><a href="#"><svg class="svg-fb ">
+                      <use xlink:href="img/icons/icons.svg#fb"></use>
+                    </svg></a><a href="#"><svg class="svg-insta ">
+                      <use xlink:href="img/icons/icons.svg#insta"></use>
+                    </svg></a><a href="#"><svg class="svg-yt ">
+                      <use xlink:href="img/icons/icons.svg#yt"></use>
+                    </svg></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__copyright copyright">
+          <div class="footer__container container">
+            <div class="copyright__container">
+              <div class="copyright__main"></div>
+              <div class="copyright__develop"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/vendors.js"></script>
+  <script src="js/app.min.js"></script>
+</body>

@@ -165,6 +165,7 @@ var Cart = /*#__PURE__*/function () {
       input.setAttribute('type', 'number');
       input.setAttribute('step', '1');
       input.setAttribute('min', '0');
+      input.setAttribute('disabled', '');
       input.value = product['count'];
       inputField.appendChild(input);
       var cartPlus = document.createElement('div');
