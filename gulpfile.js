@@ -291,9 +291,9 @@ function svgSprite() {
             dest: 'icons/',
             sprite: 'icons.svg',
             render: {
-              scss: true
+              scss: false
             },
-            example: true
+            example: false
           }
         },
       }))

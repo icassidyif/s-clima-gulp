@@ -1,0 +1,80 @@
+.contacts
+  position: relative
+  &__wrapper
+    display: flex
+    position: static
+    +breakpoint(lg)
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      z-index: 1
+  &__column
+    +breakpoint(lg)
+      width: 100%
+
+  &__section
+    margin: 0 0 50px 0
+
+  &__block
+    position: relative
+    z-index: 2
+    +breakpoint(lg)
+      display: inline-block
+      max-width: 320px
+
+  &__item
+
+    margin: 0 0 30px 0
+    display: flex
+    align-items: center
+    &:last-child
+      margin: 0
+    svg
+      margin: 0 18px 0 0
+      transition: all .2s ease-out
+    a
+      transition: color .2s ease-out
+      color: #2C2C2C
+      &:hover
+        color: #126eb9
+        svg
+          transform: scale(1.2)
+    p
+      color: #2C2C2C
+      line-height: 1.5em
+      display: flex
+      flex-direction: column
+
+
+
+
+
+
+
+  &__left-block
+    height: 0
+    +breakpoint(lg)
+      width: calc(50% - 150px)
+
+  &__map
+    width: 100%
+    margin: 0 0 -55px 0
+    position: relative
+    z-index: 5
+    +breakpoint(md)
+      margin: 0 0 -70px 0
+    +breakpoint(lg)
+      width: calc(50% + 150px)
+      height: auto
+      margin: -100px 0
+
+
+  &__title
+    margin: 0 0 30px 0
+    color: #2C2C2C
+    font-weight: 500
+    font-size: 22px
+    line-height: 26px
+
