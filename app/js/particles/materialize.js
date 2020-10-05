@@ -1,6 +1,9 @@
 // Materialize initializations
-let selectElements = document.querySelectorAll('select');
-let selectInstances = M.FormSelect.init(selectElements);
+function initMaterializeSelect() {
+  let selectElements = document.querySelectorAll('select');
+  let selectInstances = M.FormSelect.init(selectElements);
+}
+
 let modals = document.querySelectorAll('.modal');
 const modalInstance = M.Modal.init(modals, {
   dismissible: true,
@@ -11,3 +14,11 @@ const modalInstance = M.Modal.init(modals, {
   outDuration: 350
 });
 //modalInstance.open();
+
+initMaterializeSelect();
+
+//
+// const selectList = document.querySelector('form select');
+// console.log(selectList);
+// let sddsd = M.FormSelect.getInstance(selectList).getSelectedValues();
+// console.log(sddsd);

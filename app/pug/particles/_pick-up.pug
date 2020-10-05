@@ -1,30 +1,97 @@
 section#pick-up.pick-up
   .pick-up__container.container
-    h2.pick-up__title.title.title_black Підбір обладнання
+    h2.pick-up__title.title.title_black.anim-item.anim-show-from-bottom.anim-no-hide Підбір обладнання
     // OBJECT ITEM
     .pick-up__object.pick-up__object_right
       .pick-up__row.row
         .pick-up__column.column.column-lg-1-2
-          .pick-up__photo
+          .pick-up__photo.anim-item.anim-show-from-left.anim-no-hide
             +image('industry.jpg')
         .pick-up__column.column.column-lg-1-2
-          .pick-up__content.content-pick-up
+          .pick-up__content.content-pick-up.anim-item.anim-show-from-right.anim-no-hide
             h4.content-pick-up__title Промислові об'єкти
             p.content-pick-up__text Заклади харчування, виробництво, торгові чи складські приміщення та інші промислові приміщення, все це потребує якісної системи кондиціонування та опалення. Ви можете підібрати найоптимальніший варіант просто зараз.
             .content-pick-up__btn
-              a(href='#').btn-main Підібрати
+              a(href='#prom-pick-up').btn-main.modal-trigger Підібрати
       // OBJECT ITEM
     .pick-up__object.pick-up__object_left
       .pick-up__row.row
         .pick-up__column.column.column-lg-1-2
-          .pick-up__photo
+          .pick-up__photo.anim-item.anim-show-from-right.anim-no-hide
             +image('household.jpg')
         .pick-up__column.column.column-lg-1-2
-          .pick-up__content.content-pick-up
+          .pick-up__content.content-pick-up.anim-item.anim-show-from-left.anim-no-hide
             h4.content-pick-up__title Побутові об'єкти
             p.content-pick-up__text Створіть сприятливий мікроклімат в квартирі чи приватному будинку правильно, підібравши системи кондиціонування та опалення за допомогою нашого спеціаліста просто зараз.
             .content-pick-up__btn
               a(href='#').btn-main Підібрати
+
+
+#prom-pick-up.modal
+  .modal__container
+    .prom-pick-up
+      h4.prom-pick-up__title.title.title_black Підбір обладнання для проимслових об’єктів
+      .modal-close
+        +icon('close-modal')
+      //form.form#form-calculate
+      //  section.form__type-of-product
+      //    .row
+      //      .column.column-md-1-2
+      //        .input-field
+      //          select(name='categories' required='')
+      //            option(value= 1 selected) Кондиціонери
+      //            option(value= 2) Осушувачі/Очищувачі повітря
+      //            option(value= 3) Теплові завіси
+      //            option(value= 4) Теплові насоси
+      //            option(value= 5) Вентиляція
+      //      .column.column-md-1-2
+      //        .form__details
+      //          span Ознайомитись
+      //          span
+      //            a(href='#').link детальніше
+      //  section.form__type-pick-up
+      //    .row
+      //      .column.column-md-1-2
+      //        label
+      //          input(type="radio" name="typePickUp" checked).with-gap
+      //          span Підібрати самостійно
+      //      .column.column-md-1-2
+      //        label
+      //          input(type="radio" name="typePickUp").with-gap
+      //          span Довірити вибір спеціалісту
+      //  section.form__calculate
+      //    .row
+      //      .column
+      //        .form__title
+      //          span Параметри приміщення
+      //      .column.column-sm-1-2
+      //        .input-field
+      //          input(type="number" name='formCalculateSquare')#form-calculate-square
+      //          label(for='form-calculate-square') Площа приміщення
+      //      .column.column-sm-1-2
+      //        .input-field
+      //          input(type="number" name='formCalculateHeight')#form-calculate-height
+      //          label(for='form-calculate-height') Висота приміщення
+      //      .column.column-sm-1-2
+      //        .input-field
+      //          select(name='form-sunlight' required='')#form-calculate-sun-light
+      //            option(value="default" disabled selected) Сонячне освітлення приміщення
+      //            option(value= 1) Слабке
+      //            option(value= 2) Середнє
+      //            option(value= 3) Високе
+      //      .column.column-sm-1-2
+      //        button(type='button').form__calculate-btn Розрахувати
+      //        .input-field.input-field_inline
+      //          input(name='power' type="number" step='.1')#form-calculate-power.power
+      //          label(for="form-calculate-power") кВт
+      //
+    //        button(type='submit').form__btn Розрахувати
+
+
+
+
+
+
 
 
 

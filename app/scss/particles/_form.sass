@@ -1,5 +1,6 @@
 // Custom style for materialize forms
 form
+  color: #2C2C2C
   p
     height: 20px
     margin: 0 0 20px 0
@@ -24,6 +25,17 @@ form
               height: 22px!important
               border-right: 2px solid #0066BA!important
               border-bottom: 2px solid #0066BA!important
+
+  input[type='radio']
+    &.with-gap
+      &:checked
+        + span
+          &:before
+            border: 2px solid #0066BA
+          &:after
+            background-color: #0066BA
+    + span
+      color: #2C2C2C
 
   + span
     font-family: Roboto, serif!important

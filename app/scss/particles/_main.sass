@@ -51,6 +51,36 @@ body
 //END Toast custom styles
 
 
+//modal windows
+.modal
+  width: 100%
+  max-width: 800px
+  max-height: 90%
+  padding: 50px 10px
+  &__container
+    position: relative
+    width: 100%
+  .title
+    font-size: 26px
+    line-height: 30px
+    margin: 0 0 50px 0
+    &:before
+      width: 4px
+      background-color: #D11586
+  +breakpoint(sm)
+    padding: 50px 20px
+  +breakpoint(md)
+    padding: 50px
+  &-close
+    position: absolute
+    top: 0
+    right: 0
+    cursor: pointer
+    transition: all .1s ease-out
+    &:active
+      transform: scale(.8)
+//End modal windows
+
 // Animations group classes
 .anim-show
   opacity: 0
@@ -62,7 +92,7 @@ body
 .anim-show-from-right
   transform: translateX(100px)
   opacity: 0
-  transition: all .5s ease-out 0s
+  transition: all .5s ease-out 0.2s
   &.active,
   .active.anim-show-from-right
     opacity: 1
@@ -94,6 +124,12 @@ body
   .active.anim-show-from-right
     opacity: 1
     transform: translateY(0)
+  &_2
+    transition: all .5s ease-out 0.1s
+  &_3
+    transition: all .5s ease-out 0.2s
+  &_4
+    transition: all .5s ease-out 0.3s
 
 //
 

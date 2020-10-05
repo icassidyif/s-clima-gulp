@@ -706,6 +706,10 @@ h6 {
   font-size: 20px;
 }
 
+form {
+  color: #2C2C2C;
+}
+
 form p {
   height: 20px;
   margin: 0 0 20px 0;
@@ -733,6 +737,18 @@ form p label input[type='checkbox']:checked + span:before {
   height: 22px !important;
   border-right: 2px solid #0066BA !important;
   border-bottom: 2px solid #0066BA !important;
+}
+
+form input[type='radio'].with-gap:checked + span:before {
+  border: 2px solid #0066BA;
+}
+
+form input[type='radio'].with-gap:checked + span:after {
+  background-color: #0066BA;
+}
+
+form input[type='radio'] + span {
+  color: #2C2C2C;
 }
 
 form + span {
@@ -907,6 +923,43 @@ body.lock {
   background-color: #f44336;
 }
 
+.modal {
+  width: 100%;
+  max-width: 800px;
+  max-height: 90%;
+  padding: 50px 10px;
+}
+
+.modal__container {
+  position: relative;
+  width: 100%;
+}
+
+.modal .title {
+  font-size: 26px;
+  line-height: 30px;
+  margin: 0 0 50px 0;
+}
+
+.modal .title:before {
+  width: 4px;
+  background-color: #D11586;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  transition: all .1s ease-out;
+}
+
+.modal-close:active {
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
 .anim-show {
   opacity: 0;
   transition: opacity .5s ease-out 0s;
@@ -922,7 +975,7 @@ body.lock {
       -ms-transform: translateX(100px);
           transform: translateX(100px);
   opacity: 0;
-  transition: all .5s ease-out 0s;
+  transition: all .5s ease-out 0.2s;
 }
 
 .anim-show-from-right.active,
@@ -979,6 +1032,18 @@ body.lock {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
+}
+
+.anim-show-from-bottom_2 {
+  transition: all .5s ease-out 0.1s;
+}
+
+.anim-show-from-bottom_3 {
+  transition: all .5s ease-out 0.2s;
+}
+
+.anim-show-from-bottom_4 {
+  transition: all .5s ease-out 0.3s;
 }
 
 .header-main {
@@ -1081,22 +1146,10 @@ body.lock {
   z-index: 7;
 }
 
-.modal {
-  width: 100%;
-  max-width: 800px;
-  max-height: 90%;
-}
-
 .cart {
-  padding: 50px 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.cart__container {
-  position: relative;
-  width: 100%;
 }
 
 .cart__content {
@@ -1106,20 +1159,6 @@ body.lock {
 
 .cart__item {
   margin: 0 0 35px 0;
-}
-
-.cart__close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  cursor: pointer;
-  transition: all .1s ease-out;
-}
-
-.cart__close:active {
-  -webkit-transform: scale(0.8);
-      -ms-transform: scale(0.8);
-          transform: scale(0.8);
 }
 
 .cart__row {
@@ -1138,17 +1177,6 @@ body.lock {
   -webkit-transform: scale(0.8);
       -ms-transform: scale(0.8);
           transform: scale(0.8);
-}
-
-.cart__title {
-  font-size: 26px !important;
-  line-height: 30px !important;
-  margin: 0 0 35px 0 !important;
-}
-
-.cart__title:before {
-  width: 4px;
-  background-color: #D11586;
 }
 
 .cart__photo {
@@ -1694,6 +1722,66 @@ no-webp .parallax-main__layer-4 {
   font-size: 16px;
   line-height: 28px;
   margin: 0 0 20px 0;
+}
+
+.form .column {
+  margin: 0 0 35px 0;
+}
+
+.form .column:last-child {
+  margin: 0;
+}
+
+.form__title {
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 14px;
+}
+
+.form__details {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.form__details span {
+  line-height: 25px;
+  margin: 0 10px 0 0;
+}
+
+.form__details span a {
+  letter-spacing: unset;
+  font-size: 18px;
+}
+
+.form__calculate-btn {
+  text-transform: uppercase;
+  color: #126EB9;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  padding: 12px 15px;
+  border: 2px solid #126EB9;
+  background-color: transparent;
+  margin: 0 25px 0 0;
+}
+
+.form__btn-submit {
+  display: flex;
+  justify-content: center;
+}
+
+.form__btn-submit button {
+  margin: 15px 0 0 0;
+  background-color: #126EB9;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 18px 23px;
 }
 
 .banners {
@@ -3787,6 +3875,10 @@ no-webp .parallax-main__layer-4 {
     margin: 0 0 25px 0 !important;
   }
 
+  .modal {
+    padding: 50px 20px;
+  }
+
   .header-main__body {
     height: 80px;
   }
@@ -3806,10 +3898,6 @@ no-webp .parallax-main__layer-4 {
   .header-main__phones a {
     font-size: 14px;
     line-height: 22px;
-  }
-
-  .cart {
-    padding: 50px 20px;
   }
 
   .cart__photo {
@@ -4075,7 +4163,7 @@ no-webp .parallax-main__layer-4 {
     margin: 0 0 70px 0;
   }
 
-  .cart {
+  .modal {
     padding: 50px;
   }
 

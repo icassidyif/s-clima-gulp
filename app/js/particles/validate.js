@@ -128,3 +128,48 @@ $('#power-calc').validate({
   }
 })
 
+
+
+
+
+
+
+$('#form-calculate').validate({
+  rules: {
+    formCalculateSquare: {
+      required: false,
+      min: '1',
+      max: '900',
+      step: '.1',
+      number: true
+    },
+    formCalculateHeight: {
+      required: false,
+      min: '1',
+      max: '50',
+      step: '.1',
+      number: true
+    }
+  },
+  messages: {
+    square: {
+      required: 'Введіть площу приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    },
+    height: {
+      required: 'Введіть висоту приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    }
+  },
+  submitHandler: function (form) {
+    console.log('form1 submit');
+  }
+})
+
+

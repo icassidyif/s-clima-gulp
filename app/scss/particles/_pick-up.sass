@@ -5,10 +5,6 @@
   +breakpoint(lg)
     margin: 0 0 70px 0
     overflow: hidden
-
-  &__container
-  &__title
-
   &__object
     position: relative
     margin: 0 0 35px 0
@@ -44,8 +40,6 @@
       .row
         +breakpoint(lg)
           flex-direction: row-reverse
-
-  &__row
   &__column
     +breakpoint(lg)
       align-self: center
@@ -61,8 +55,6 @@
       width: 100%
     +breakpoint(lg)
       position: relative
-
-
       &:before
         content: ''
         position: absolute
@@ -75,8 +67,6 @@
         z-index: -1
     img
       width: 100%
-
-  &__content
 
 
 
@@ -115,3 +105,51 @@
     +breakpoint(lg)
       color: #8C8C8C
 
+
+.prom-pick-up
+
+
+.form
+  .column
+    margin: 0 0 35px 0
+    &:last-child
+      margin: 0
+  &__title
+    display: flex
+    justify-content: center
+    background: rgba(0, 0, 0, 0.03)
+    padding: 14px
+  &__details
+    display: flex
+    height: 100%
+    align-items: center
+    span
+      line-height: 25px
+      margin: 0 10px 0 0
+      a
+        letter-spacing: unset
+        font-size: 18px
+  &__calculate-btn
+    text-transform: uppercase
+    color: #126EB9
+    font-size: 14px
+    line-height: 20px
+    font-weight: 700
+    padding: 12px 15px
+    border: 2px solid #126EB9
+    background-color: transparent
+    margin: 0 25px 0 0
+
+  &__btn-submit
+    display: flex
+    justify-content: center
+    button
+      margin: 15px 0 0 0
+      background-color: #126EB9
+      font-size: 14px
+      line-height: 25px
+      font-weight: 900
+      letter-spacing: 0.16em
+      color: #ffffff
+      text-transform: uppercase
+      padding: 18px 23px

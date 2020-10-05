@@ -227,21 +227,153 @@ var Cart = /*#__PURE__*/function () {
   }]);
 
   return Cart;
-}(); // Materialize initializations
+}();
 
+var Form = /*#__PURE__*/function () {
+  function Form() {
+    _classCallCheck(this, Form);
 
-var selectElements = document.querySelectorAll('select');
-var selectInstances = M.FormSelect.init(selectElements);
-var modals = document.querySelectorAll('.modal');
-var modalInstance = M.Modal.init(modals, {
-  dismissible: true,
-  opacity: .4,
-  startingTop: '-10%',
-  endingTop: '5%',
-  inDuration: 350,
-  outDuration: 350
-}); //modalInstance.open();
-//Menu BURGER
+    this.inputText = document.createElement('input');
+  }
+
+  _createClass(Form, [{
+    key: "createTitle",
+    value: function createTitle() {
+      var column = document.createElement('div');
+      column.classList.add('column');
+      var titleBlock = document.createElement('div');
+      titleBlock.classList.add('form__title');
+      var title = document.createElement('span');
+      column.append(titleBlock);
+      titleBlock.append(title);
+      return column;
+    }
+  }, {
+    key: "createButton",
+    value: function createButton() {
+      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'button';
+      var className = arguments.length > 1 ? arguments[1] : undefined;
+      var button = document.createElement('button');
+      button.classList.add(className);
+      button.setAttribute('type', type); // appending
+
+      return button;
+    }
+  }, {
+    key: "createInput",
+    value: function createInput(type, name) {
+      var id = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+      var min = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+      var max = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : '';
+      var column = document.createElement('div');
+      column.classList.add('column');
+      var inputField = document.createElement('div');
+      inputField.classList.add('input-field');
+      var input = document.createElement('input');
+      input.setAttribute('id', id);
+      input.setAttribute('type', type);
+      input.setAttribute('name', name);
+      input.setAttribute('min', min);
+      input.setAttribute('max', max);
+      var label = document.createElement('label');
+      label.setAttribute('for', id); // appending
+
+      column.append(inputField);
+      inputField.append(input);
+      inputField.append(label);
+      return column;
+    }
+  }, {
+    key: "createRadio",
+    value: function createRadio(name, value, checked) {
+      var label = document.createElement('label');
+      var radio = document.createElement('input');
+      radio.setAttribute('type', 'radio');
+      radio.setAttribute('value', value);
+      radio.classList.add('with-gap');
+      var column = document.createElement('div');
+      column.classList.add('column');
+
+      if (checked === true) {
+        radio.setAttribute('checked', '');
+      }
+
+      radio.setAttribute('name', name); //appending
+
+      label.append(radio);
+      column.append(label);
+      return column;
+    }
+  }, {
+    key: "createSelect",
+    value: function createSelect(name, values) {
+      var select = document.createElement('select');
+      var column = document.createElement('div');
+      column.classList.add('column');
+      var container = document.createElement('div');
+      container.classList.add('input-field');
+      select.setAttribute('name', name);
+      select.setAttribute('required', '');
+      values.forEach(function (value, index) {
+        var option = document.createElement('option');
+        option.setAttribute('value', index + 1);
+
+        if (index + 1 === 1) {
+          option.setAttribute('selected', '');
+        }
+
+        if (typeof value === "string") {
+          option.append(value);
+        } else {
+          option.dataset.link = value.url;
+          option.append(value.name);
+        }
+
+        select.append(option);
+      }); // appending
+
+      column.append(container);
+      container.append(select);
+      return column;
+    }
+  }, {
+    key: "createDetails",
+    value: function createDetails(link) {
+      var column = document.createElement('div');
+      column.classList.add('column');
+      var details = document.createElement('div');
+      details.classList.add('form__details');
+      var text = document.createElement('span');
+      text.innerHTML = 'Ознайомитись';
+      var textLink = document.createElement('span');
+      var detailsLink = document.createElement('a');
+      detailsLink.setAttribute('href', link);
+      detailsLink.classList.add('link');
+      detailsLink.innerHTML = 'детальніше'; // appending
+
+      column.append(details);
+      details.append(text);
+      details.append(textLink);
+      textLink.append(detailsLink);
+      return column;
+    }
+  }, {
+    key: "createForm",
+    value: function createForm(id) {
+      var form = document.createElement('form');
+      form.classList.add('form');
+      form.id = id;
+      var row = document.createElement('div');
+      row.classList.add('row'); //appending
+
+      form.append(row);
+      return form;
+    }
+  }]);
+
+  return Form;
+}(); //Menu BURGER
+
 
 var burgerMenu = document.querySelector('.burger-menu');
 var body = document.querySelector('body');
@@ -374,130 +506,6 @@ $(document).ready(function () {
       }
     }
   });
-});
-$("select").css({
-  display: "block",
-  position: 'absolute',
-  visibility: 'hidden'
-});
-$("#phone").mask("+38 (999) 999-99-99");
-$.validator.addMethod('customPhone', function (value, element) {
-  return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value);
-}, "Please enter a valid phone number");
-
-function calculatePower(square, height, light) {
-  var volume = square * height;
-
-  switch (light) {
-    case 1:
-      light = 30;
-      break;
-
-    case 2:
-      light = 35;
-      break;
-
-    case 3:
-      light = 40;
-      break;
-  }
-
-  return volume * light / 1000;
-}
-
-$('#order-form').validate({
-  rules: {
-    cartOrderName: {
-      required: true
-    },
-    cartOrderPhone: {
-      required: true,
-      customPhone: true
-    },
-    cartOrderMessage: {}
-  },
-  messages: {
-    cartOrderName: {
-      required: "Це обов'язкове поле"
-    },
-    cartOrderPhone: {
-      required: "Це обов'язкове поле",
-      customPhone: 'Невірний номер телефону'
-    }
-  },
-  submitHandler: function submitHandler(form) {
-    //$.magnificPopup.close();
-    // let url = '/php/call.php';
-    var CurrentCart = JSON.parse(localStorage.getItem('cart'));
-    var formData = $(form).serializeArray(); // ajaxSend(formData, url);
-
-    console.log(formData, CurrentCart); //clear
-
-    form.reset();
-    cart.products = {};
-    products = cart.products;
-    loadToLocalStorage();
-    updateCartContent();
-    var modal = M.Modal.getInstance($('#cart'));
-    modal.close();
-  }
-});
-$('#power-calc').validate({
-  rules: {
-    square: {
-      required: true,
-      min: '1',
-      max: '900',
-      step: '.1',
-      number: true
-    },
-    height: {
-      required: true,
-      min: '1',
-      max: '50',
-      step: '.1',
-      number: true
-    },
-    sunlight: {
-      required: true
-    },
-    power: {
-      number: true,
-      step: .1
-    }
-  },
-  messages: {
-    square: {
-      required: 'Введіть площу приміщення',
-      min: 'Надто мале значення',
-      max: 'Надто велике значення',
-      step: 'Невірне значення',
-      number: 'Введіть числове значення'
-    },
-    height: {
-      required: 'Введіть висоту приміщення',
-      min: 'Надто мале значення',
-      max: 'Надто велике значення',
-      step: 'Невірне значення',
-      number: 'Введіть числове значення'
-    },
-    sunlight: {
-      required: 'Виберіть варіант зі списку'
-    },
-    power: {
-      number: ' ',
-      step: ' '
-    }
-  },
-  submitHandler: function submitHandler(form) {
-    var resultInput = form.querySelector('.power');
-    var resultLabel = form.querySelector('.power + label');
-    var data = $(form).serializeArray();
-    var result = calculatePower(parseInt(data[0].value), parseInt(data[1].value), parseInt(data[2].value));
-    result = Math.ceil(result * 10) / 10;
-    resultInput.value = result;
-    resultLabel.classList.add('active'); //   SEND AJAX
-  }
 });
 $(document).ready(function () {
   $('.slider-comments').slick({
@@ -779,7 +787,178 @@ $(document).ready(function () {
     variableWidth: false,
     lazyLoad: 'ondemand'
   });
-}); //-------------------------------------------------------------------------------
+});
+var promForm = new Form();
+var householdForm = new Form();
+var categories = [{
+  name: 'Кондиціонери',
+  url: '/cond'
+}, {
+  name: 'Осушувачі/Очищувачі повітря',
+  url: '/osy'
+}, {
+  name: 'Теплові завіси',
+  url: '/teplZav'
+}, {
+  name: 'Теплові насоси',
+  url: '/teplNas'
+}, {
+  name: 'Вентиляція',
+  url: '/vent'
+}]; //-------------- CREATE FORM FROM ELEMENTS
+
+if (document.querySelector('#pick-up')) {
+  // functions
+  var detectSelectedOption = function detectSelectedOption(selectEl) {
+    return selectEl.querySelector('option[selected]').dataset.link;
+  };
+
+  var createPickUpBySelfContent = function createPickUpBySelfContent() {
+    console.log('content for pickUpBySelf');
+    var title = promForm.createTitle();
+    title.firstChild.innerHTML = 'Параметри приміщення';
+    var inputSquare = promForm.createInput('number', 'formCalculateSquare', 'form-calculate-square');
+    inputSquare.classList.add('column-sm-1-2');
+    inputSquare.querySelector('label').innerHTML = 'Площа приміщення (м2)';
+    var inputHeight = promForm.createInput('number', 'formCalculateHeight', 'form-calculate-height');
+    inputHeight.classList.add('column-sm-1-2');
+    inputHeight.querySelector('label').innerHTML = 'Висота приміщення (м)';
+    var select = promForm.createSelect('form-sunlight', ['Слабке', 'Середнє', 'Високе']);
+    select.classList.add('column-sm-1-2');
+    var column = document.createElement('div');
+    column.classList.add('column');
+    column.classList.add('column-sm-1-2');
+    var buttonCalc = promForm.createButton('button', 'form__calculate-btn');
+    buttonCalc.innerHTML = 'Розрахувати';
+    var inputCalc = promForm.createInput('number', 'power', 'form-calculate-power');
+    inputCalc.classList.add('input-field_inline');
+    inputCalc.querySelector('label').innerHTML = 'кВт';
+    column.append(buttonCalc);
+    column.append(inputCalc);
+    var columnSubmit = document.createElement('div');
+    columnSubmit.classList.add('column');
+    var buttonDiv = document.createElement('div');
+    buttonDiv.classList.add('form__btn-submit');
+    var buttonSubmit = promForm.createButton('submit', 'form__btn');
+    buttonSubmit.innerHTML = 'Показати товари';
+    columnSubmit.append(buttonDiv);
+    buttonDiv.append(buttonSubmit); //  clear before insert
+
+    $('.container2').nextAll().remove(); //appending
+
+    promFormElement.firstChild.append(title);
+    promFormElement.firstChild.append(inputSquare);
+    promFormElement.firstChild.append(inputHeight);
+    promFormElement.firstChild.append(select);
+    promFormElement.firstChild.append(column);
+    promFormElement.firstChild.append(columnSubmit);
+    initMaterializeSelect();
+  };
+
+  var createPickUpByProfContent = function createPickUpByProfContent() {
+    console.log('content for pickUpByProf'); //  clear before insert
+
+    $('.container2').nextAll().remove();
+  };
+
+  var createCondtitonContent = function createCondtitonContent() {
+    console.log('go condition content');
+    var pickUpSelf = promForm.createRadio('typePickUp', 'pickUpBySelf', true);
+    pickUpSelf.classList.add('column-sm-1-2');
+    var spanSelf = document.createElement('span');
+    spanSelf.innerHTML = 'Підібрати самостійно';
+    pickUpSelf.firstChild.append(spanSelf);
+    var pickUpProf = promForm.createRadio('typePickUp', 'pickUpByProf', false);
+    pickUpProf.classList.add('column-sm-1-2');
+    var spanProf = document.createElement('span');
+    spanProf.innerHTML = 'Довірити вибір спеціалісту';
+    pickUpProf.firstChild.append(spanProf); //creating container2
+
+    var container2 = document.createElement('div');
+    container2.classList.add('container2'); //  clear before insert
+
+    $(container1).nextAll().remove(); //appending
+
+    promFormElement.firstChild.append(pickUpSelf);
+    promFormElement.firstChild.append(pickUpProf);
+    promFormElement.firstChild.append(container2); //  event listening
+
+    var inputsRadio = promFormElement.querySelectorAll('input[name="typePickUp"]');
+    inputsRadio.forEach(function (inputRadio) {
+      inputRadio.addEventListener('change', function (e) {
+        if (e.target.value === 'pickUpBySelf') {
+          createPickUpBySelfContent();
+        } else if (e.target.value === 'pickUpByProf') {
+          createPickUpByProfContent();
+        }
+      });
+
+      if (inputRadio.checked && inputRadio.value === 'pickUpBySelf') {
+        createPickUpBySelfContent();
+      } else if (inputRadio.checked && inputRadio.value === 'pickUpByProf') {
+        createPickUpByProfContent();
+      }
+    });
+  };
+
+  var createAnotherContent = function createAnotherContent() {
+    console.log('go another content');
+    $(container1).nextAll().remove();
+  }; //create form
+
+
+  var promFormElement = promForm.createForm('form-calculate'); //create Select
+
+  var promFormSelect = promForm.createSelect('categories', categories);
+  promFormSelect.classList.add('column-sm-1-2'); //appending
+
+  promFormElement.firstChild.appendChild(promFormSelect); //query Select
+
+  var selectElement = promFormElement.querySelector('select'); //create details with active options
+
+  var promFormDetails = promForm.createDetails(detectSelectedOption(selectElement));
+  promFormDetails.classList.add('column-sm-1-2'); //create container-1
+
+  var container1 = document.createElement('div');
+  container1.classList.add('container1'); //appending
+
+  promFormElement.firstChild.appendChild(promFormDetails);
+  promFormElement.firstChild.appendChild(container1);
+
+  if (+selectElement.querySelector('option[selected]').value === 1) {
+    createCondtitonContent();
+  } else {
+    createAnotherContent();
+  } // insert form into modal
+
+
+  var outPromPickUp = document.querySelector('.prom-pick-up');
+  outPromPickUp.appendChild(promFormElement); //  event listening
+
+  selectElement.addEventListener('change', function (e) {
+    promFormDetails.querySelector('a').setAttribute('href', e.target[+e.target.value - 1].dataset.link);
+
+    if (+e.target.value !== 1) {
+      createAnotherContent();
+    } else {
+      createCondtitonContent();
+    }
+  });
+} //
+//   //listener
+//   const selectElement = promFormElement.querySelector('select');
+//   console.log(selectElement);
+//   selectElement.addEventListener('change', e => {
+//     console.log(e.target.value);
+//   })
+//
+//
+// }
+//Event work
+//const checkedSelect = instance.getSelectedValues();
+//console.log(checkedSelect);
+//-------------------------------------------------------------------------------
+
 
 var cartOut = document.querySelector('.cart__out');
 var cartHeaderCount = document.querySelector('.header-main__cart span');
@@ -892,8 +1071,191 @@ function showForm() {
 
 function updateCount() {
   cartHeaderCount.style.display = 'none';
-} // form send process
+}
 
+$("select").css({
+  display: "block",
+  position: 'absolute',
+  visibility: 'hidden'
+});
+$("#phone").mask("+38 (999) 999-99-99");
+$.validator.addMethod('customPhone', function (value, element) {
+  return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(value);
+}, "Please enter a valid phone number");
+
+function calculatePower(square, height, light) {
+  var volume = square * height;
+
+  switch (light) {
+    case 1:
+      light = 30;
+      break;
+
+    case 2:
+      light = 35;
+      break;
+
+    case 3:
+      light = 40;
+      break;
+  }
+
+  return volume * light / 1000;
+}
+
+$('#order-form').validate({
+  rules: {
+    cartOrderName: {
+      required: true
+    },
+    cartOrderPhone: {
+      required: true,
+      customPhone: true
+    },
+    cartOrderMessage: {}
+  },
+  messages: {
+    cartOrderName: {
+      required: "Це обов'язкове поле"
+    },
+    cartOrderPhone: {
+      required: "Це обов'язкове поле",
+      customPhone: 'Невірний номер телефону'
+    }
+  },
+  submitHandler: function submitHandler(form) {
+    //$.magnificPopup.close();
+    // let url = '/php/call.php';
+    var CurrentCart = JSON.parse(localStorage.getItem('cart'));
+    var formData = $(form).serializeArray(); // ajaxSend(formData, url);
+
+    console.log(formData, CurrentCart); //clear
+
+    form.reset();
+    cart.products = {};
+    products = cart.products;
+    loadToLocalStorage();
+    updateCartContent();
+    var modal = M.Modal.getInstance($('#cart'));
+    modal.close();
+  }
+});
+$('#power-calc').validate({
+  rules: {
+    square: {
+      required: true,
+      min: '1',
+      max: '900',
+      step: '.1',
+      number: true
+    },
+    height: {
+      required: true,
+      min: '1',
+      max: '50',
+      step: '.1',
+      number: true
+    },
+    sunlight: {
+      required: true
+    },
+    power: {
+      number: true,
+      step: .1
+    }
+  },
+  messages: {
+    square: {
+      required: 'Введіть площу приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    },
+    height: {
+      required: 'Введіть висоту приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    },
+    sunlight: {
+      required: 'Виберіть варіант зі списку'
+    },
+    power: {
+      number: ' ',
+      step: ' '
+    }
+  },
+  submitHandler: function submitHandler(form) {
+    var resultInput = form.querySelector('.power');
+    var resultLabel = form.querySelector('.power + label');
+    var data = $(form).serializeArray();
+    var result = calculatePower(parseInt(data[0].value), parseInt(data[1].value), parseInt(data[2].value));
+    result = Math.ceil(result * 10) / 10;
+    resultInput.value = result;
+    resultLabel.classList.add('active'); //   SEND AJAX
+  }
+});
+$('#form-calculate').validate({
+  rules: {
+    formCalculateSquare: {
+      required: false,
+      min: '1',
+      max: '900',
+      step: '.1',
+      number: true
+    },
+    formCalculateHeight: {
+      required: false,
+      min: '1',
+      max: '50',
+      step: '.1',
+      number: true
+    }
+  },
+  messages: {
+    square: {
+      required: 'Введіть площу приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    },
+    height: {
+      required: 'Введіть висоту приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    }
+  },
+  submitHandler: function submitHandler(form) {
+    console.log('form1 submit');
+  }
+}); // Materialize initializations
+
+function initMaterializeSelect() {
+  var selectElements = document.querySelectorAll('select');
+  var selectInstances = M.FormSelect.init(selectElements);
+}
+
+var modals = document.querySelectorAll('.modal');
+var modalInstance = M.Modal.init(modals, {
+  dismissible: true,
+  opacity: .4,
+  startingTop: '-10%',
+  endingTop: '5%',
+  inDuration: 350,
+  outDuration: 350
+}); //modalInstance.open();
+
+initMaterializeSelect(); //
+// const selectList = document.querySelector('form select');
+// console.log(selectList);
+// let sddsd = M.FormSelect.getInstance(selectList).getSelectedValues();
+// console.log(sddsd);
+// form send process
 
 var ajaxSend = function ajaxSend(formData, url) {
   fetch(url, {
