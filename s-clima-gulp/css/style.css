@@ -1059,6 +1059,10 @@ body.lock {
   transition: all .5s ease-out 0.3s;
 }
 
+.noUi-handle-touch-area {
+  z-index: 5 !important;
+}
+
 .header-main {
   position: fixed;
   top: 0;

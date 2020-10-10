@@ -194,8 +194,29 @@ $('#form-calculate').validate({
   },
   submitHandler: function (form) {
     let data = $(form).serializeArray();
-    console.log('form1 submit');
-    console.log(data);
+    let pickUpBySelf;
+    let instanceModal = M.Modal.getInstance(document.getElementById('prom-pick-up'));
+    data.forEach(element => {
+      if (element.name === 'typePickUp') {
+        pickUpBySelf = (element.value === 'pickUpBySelf');
+      }
+    })
+    if(pickUpBySelf) {
+      let powerValue ;
+      data.forEach(element => {
+        if (element.name === 'power') {
+          powerValue = +element.value;
+        }
+      })
+      form.reset();
+      instanceModal.close();
+      window.open(`https://www.google.ru/?power=${powerValue}`, '_self');
+    } else {
+      console.log(data);
+      form.reset();
+      instanceModal.close();
+      M.toast({html: 'Дякуємо за звернення! Наш менежер скоро зв\'яжеться з Вами.'});
+    }
   }
 })
 
@@ -263,6 +284,29 @@ $('#form-calculate2').validate({
     }
   },
   submitHandler: function (form) {
-    console.log('form2 submit');
+    let data = $(form).serializeArray();
+    let pickUpBySelf;
+    let instanceModal = M.Modal.getInstance(document.getElementById('pob-pick-up'));
+    data.forEach(element => {
+      if (element.name === 'typePickUp') {
+        pickUpBySelf = (element.value === 'pickUpBySelf');
+      }
+    })
+    if(pickUpBySelf) {
+      let powerValue ;
+      data.forEach(element => {
+        if (element.name === 'power') {
+          powerValue = +element.value;
+        }
+      })
+      form.reset();
+      instanceModal.close();
+      window.open(`https://www.google.ru/?power=${powerValue}`, '_self');
+    } else {
+      console.log(data);
+      form.reset();
+      instanceModal.close();
+      M.toast({html: 'Дякуємо за звернення! Наш менежер скоро зв\'яжеться з Вами.'});
+    }
   }
 })

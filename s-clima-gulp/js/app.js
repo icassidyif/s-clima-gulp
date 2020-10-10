@@ -1759,8 +1759,32 @@ $('#form-calculate').validate({
   },
   submitHandler: function submitHandler(form) {
     var data = $(form).serializeArray();
-    console.log('form1 submit');
-    console.log(data);
+    var pickUpBySelf;
+    var instanceModal = M.Modal.getInstance(document.getElementById('prom-pick-up'));
+    data.forEach(function (element) {
+      if (element.name === 'typePickUp') {
+        pickUpBySelf = element.value === 'pickUpBySelf';
+      }
+    });
+
+    if (pickUpBySelf) {
+      var powerValue;
+      data.forEach(function (element) {
+        if (element.name === 'power') {
+          powerValue = +element.value;
+        }
+      });
+      form.reset();
+      instanceModal.close();
+      window.open("https://www.google.ru/?power=".concat(powerValue), '_self');
+    } else {
+      console.log(data);
+      form.reset();
+      instanceModal.close();
+      M.toast({
+        html: 'Дякуємо за звернення! Наш менежер скоро зв\'яжеться з Вами.'
+      });
+    }
   }
 });
 $('#form-calculate2').validate({
@@ -1826,7 +1850,33 @@ $('#form-calculate2').validate({
     }
   },
   submitHandler: function submitHandler(form) {
-    console.log('form2 submit');
+    var data = $(form).serializeArray();
+    var pickUpBySelf;
+    var instanceModal = M.Modal.getInstance(document.getElementById('pob-pick-up'));
+    data.forEach(function (element) {
+      if (element.name === 'typePickUp') {
+        pickUpBySelf = element.value === 'pickUpBySelf';
+      }
+    });
+
+    if (pickUpBySelf) {
+      var powerValue;
+      data.forEach(function (element) {
+        if (element.name === 'power') {
+          powerValue = +element.value;
+        }
+      });
+      form.reset();
+      instanceModal.close();
+      window.open("https://www.google.ru/?power=".concat(powerValue), '_self');
+    } else {
+      console.log(data);
+      form.reset();
+      instanceModal.close();
+      M.toast({
+        html: 'Дякуємо за звернення! Наш менежер скоро зв\'яжеться з Вами.'
+      });
+    }
   }
 }); // Materialize initializations
 
@@ -1944,6 +1994,7 @@ if (rangeSlider) {
       'min': 0,
       'max': 100
     },
+    behaviour: 'drag',
     format: wNumb({
       decimals: 0
     })

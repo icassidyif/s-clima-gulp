@@ -81,6 +81,7 @@ if (rangeSlider) {
       'min': 0,
       'max': 100
     },
+    behaviour: 'drag',
     format: wNumb({
       decimals: 0
     })
@@ -114,11 +115,7 @@ function updateRangeSlider(start, end, min, max) {
     }
   });
 }
-
 // END Range Slider Sidebar
-
-
-
 
 
 
