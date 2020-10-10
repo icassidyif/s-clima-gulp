@@ -288,3 +288,23 @@ if(document.querySelector('.filter')) {
 
 //  END filter listener for AJAX
 
+
+
+
+
+
+function createBlockFilter(id, textValue) {
+  const block = document.createElement('div');
+  block.classList.add('params-filter__item');
+  const span = document.createElement('span');
+  span.innerHTML = textValue;
+  const img = document.createElement('img');
+  img.classList.add('svg-bread-close');
+  img.dataset.id = id;
+  img.setAttribute('src', 'img/filter-block-close.svg');
+
+  block.append(span);
+  block.append(img);
+  return block;
+}
+

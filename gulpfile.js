@@ -389,4 +389,4 @@ exports.checkForFaviconUpdate = checkForFaviconUpdate;
 exports.browserSync = browserSync;
 exports.dev = dev;
 exports.build = build;
-exports.favicon = favicon;
+exports.favicon = favicon

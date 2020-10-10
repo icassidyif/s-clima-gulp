@@ -835,6 +835,11 @@ form + span {
   top: 5px;
 }
 
+.input-field .caret {
+  background-color: #ffffff;
+  z-index: 2;
+}
+
 .input-field label {
   font-size: 16px;
 }
