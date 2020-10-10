@@ -16,9 +16,3 @@ const modalInstance = M.Modal.init(modals, {
 //modalInstance.open();
 
 initMaterializeSelect();
-
-//
-// const selectList = document.querySelector('form select');
-// console.log(selectList);
-// let sddsd = M.FormSelect.getInstance(selectList).getSelectedValues();
-// console.log(sddsd);

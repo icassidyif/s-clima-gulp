@@ -234,18 +234,99 @@ var Form = /*#__PURE__*/function () {
     _classCallCheck(this, Form);
 
     this.inputText = document.createElement('input');
+    this.conumt = 1;
   }
 
   _createClass(Form, [{
+    key: "calculate",
+    value: function calculate(e) {
+      var block = !e.target ? e : e.target.closest('.form__block');
+      var square;
+      var height;
+      var light;
+      var result;
+      var resultLabel;
+
+      function refreshCalculateValues() {
+        square = +block.querySelector('input[name="formCalculateSquare"]').value;
+        height = +block.querySelector('input[name="formCalculateHeight"]').value;
+        light = +block.querySelector('select[name="form-sunlight"]').value;
+        result = block.querySelector('input[name="power"]');
+        resultLabel = block.querySelector('input[name="power"] + label');
+      }
+
+      function resetCalculateValues() {
+        block.querySelector('input[name="formCalculateSquare"]').value = '';
+        block.querySelector('input[name="formCalculateHeight"]').value = '';
+      }
+
+      refreshCalculateValues();
+      result.value = calculatePower(square, height, light);
+      resultLabel.classList.add('active');
+      resetCalculateValues();
+    }
+  }, {
+    key: "buildCalculateBlock",
+    value: function buildCalculateBlock() {
+      var mainColumn = document.createElement('div');
+      mainColumn.classList.add('column');
+      mainColumn.classList.add('form__block');
+      var mainRow = document.createElement('div');
+      mainRow.classList.add('row');
+      var title = this.createTitle("\u041F\u0440\u0438\u043C\u0456\u0449\u0435\u043D\u043D\u044F #");
+      var closeBtn = document.createElement('div');
+      closeBtn.classList.add('form__remove-btn');
+      var image = document.createElement('img');
+      image.setAttribute('src', '../img/form-room-close.svg');
+      var inputSquare = this.createInput('number', 'formCalculateSquare', 'form-calculate-square');
+      inputSquare.classList.add('column-sm-1-2');
+      inputSquare.querySelector('label').innerHTML = 'Площа приміщення (м2)';
+      var inputHeight = this.createInput('number', 'formCalculateHeight', 'form-calculate-height');
+      inputHeight.classList.add('column-sm-1-2');
+      inputHeight.querySelector('label').innerHTML = 'Висота приміщення (м)';
+      var select = this.createSelect('form-sunlight', ['Слабке', 'Середнє', 'Високе']);
+      select.classList.add('column-sm-1-2');
+      var column = document.createElement('div');
+      column.classList.add('column');
+      column.classList.add('column-sm-1-2');
+      var buttonCalc = this.createButton('button', 'form__calculate-btn');
+      buttonCalc.innerHTML = 'Розрахувати';
+      var inputCalc = this.createInput('number', 'power', 'form-calculate-power');
+      inputCalc.classList.add('input-field_inline');
+      inputCalc.querySelector('label').innerHTML = 'кВт';
+      column.append(buttonCalc);
+      column.append(inputCalc); //appending
+
+      mainColumn.append(mainRow);
+      mainRow.append(title);
+      title.firstChild.append(closeBtn);
+      closeBtn.append(image);
+      mainRow.append(inputSquare);
+      mainRow.append(inputHeight);
+      mainRow.append(select);
+      mainRow.append(column); // listening
+
+      buttonCalc.addEventListener('click', this.calculate);
+      this.calculate(mainColumn);
+      return mainColumn;
+    }
+  }, {
     key: "createTitle",
-    value: function createTitle() {
+    value: function createTitle(text) {
       var column = document.createElement('div');
       column.classList.add('column');
       var titleBlock = document.createElement('div');
       titleBlock.classList.add('form__title');
       var title = document.createElement('span');
+      var spanCount = document.createElement('span');
+
+      if (text) {
+        title.innerHTML = text;
+      }
+
       column.append(titleBlock);
       titleBlock.append(title);
+      titleBlock.append(spanCount);
       return column;
     }
   }, {
@@ -260,26 +341,91 @@ var Form = /*#__PURE__*/function () {
       return button;
     }
   }, {
+    key: "createInfoText",
+    value: function createInfoText(text) {
+      var column = document.createElement('div');
+      column.classList.add('column');
+      var paragraph = document.createElement('div');
+      paragraph.innerHTML = text;
+      paragraph.classList.add('form__info-text'); //appending
+
+      column.append(paragraph);
+      return column;
+    }
+  }, {
+    key: "createAddBtn",
+    value: function createAddBtn() {
+      var column = document.createElement('div');
+      column.classList.add('column');
+      var icon = document.createElement('div');
+      icon.classList.add('form__icon-add');
+      var image = document.createElement('img');
+      image.classList.add('svg-form-add-btn');
+      image.setAttribute('src', '../img/form-add-btn.svg'); // appending
+
+      icon.append(image);
+      column.append(icon);
+      return column;
+    }
+  }, {
     key: "createInput",
     value: function createInput(type, name) {
       var id = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
-      var min = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
-      var max = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : '';
+      var iconName = arguments.length > 3 ? arguments[3] : undefined;
+      var index = Math.random().toString(36).substr(2, 9);
       var column = document.createElement('div');
       column.classList.add('column');
       var inputField = document.createElement('div');
       inputField.classList.add('input-field');
+
+      if (iconName) {
+        var icon = document.createElement('i');
+        icon.classList.add('material-icons');
+        icon.classList.add('prefix');
+        icon.innerHTML = iconName;
+        inputField.append(icon);
+      }
+
       var input = document.createElement('input');
-      input.setAttribute('id', id);
+      input.setAttribute('id', id + index);
       input.setAttribute('type', type);
       input.setAttribute('name', name);
-      input.setAttribute('min', min);
-      input.setAttribute('max', max);
       var label = document.createElement('label');
-      label.setAttribute('for', id); // appending
+      label.setAttribute('for', id + index); // appending
 
       column.append(inputField);
       inputField.append(input);
+      inputField.append(label);
+      return column;
+    }
+  }, {
+    key: "createTextarea",
+    value: function createTextarea() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var iconName = arguments.length > 1 ? arguments[1] : undefined;
+      var index = Math.random().toString(36).substr(2, 9);
+      var column = document.createElement('div');
+      column.classList.add('column');
+      var inputField = document.createElement('div');
+      inputField.classList.add('input-field');
+
+      if (iconName) {
+        var icon = document.createElement('i');
+        icon.classList.add('material-icons');
+        icon.classList.add('prefix');
+        icon.innerHTML = iconName;
+        inputField.append(icon);
+      }
+
+      var textArea = document.createElement('textarea');
+      textArea.setAttribute('id', id + index);
+      textArea.setAttribute('name', 'message');
+      textArea.classList.add('materialize-textarea');
+      var label = document.createElement('label');
+      label.setAttribute('for', id + index); // appending
+
+      column.append(inputField);
+      inputField.append(textArea);
       inputField.append(label);
       return column;
     }
@@ -808,156 +954,511 @@ var categories = [{
 }]; //-------------- CREATE FORM FROM ELEMENTS
 
 if (document.querySelector('#pick-up')) {
-  // functions
-  var detectSelectedOption = function detectSelectedOption(selectEl) {
-    return selectEl.querySelector('option[selected]').dataset.link;
-  };
+  var goPromForm = function goPromForm() {
+    // functions
+    function detectSelectedOption(selectEl) {
+      return selectEl.querySelector('option[selected]').dataset.link;
+    }
 
-  var createPickUpBySelfContent = function createPickUpBySelfContent() {
-    console.log('content for pickUpBySelf');
-    var title = promForm.createTitle();
-    title.firstChild.innerHTML = 'Параметри приміщення';
-    var inputSquare = promForm.createInput('number', 'formCalculateSquare', 'form-calculate-square');
-    inputSquare.classList.add('column-sm-1-2');
-    inputSquare.querySelector('label').innerHTML = 'Площа приміщення (м2)';
-    var inputHeight = promForm.createInput('number', 'formCalculateHeight', 'form-calculate-height');
-    inputHeight.classList.add('column-sm-1-2');
-    inputHeight.querySelector('label').innerHTML = 'Висота приміщення (м)';
-    var select = promForm.createSelect('form-sunlight', ['Слабке', 'Середнє', 'Високе']);
-    select.classList.add('column-sm-1-2');
-    var column = document.createElement('div');
-    column.classList.add('column');
-    column.classList.add('column-sm-1-2');
-    var buttonCalc = promForm.createButton('button', 'form__calculate-btn');
-    buttonCalc.innerHTML = 'Розрахувати';
-    var inputCalc = promForm.createInput('number', 'power', 'form-calculate-power');
-    inputCalc.classList.add('input-field_inline');
-    inputCalc.querySelector('label').innerHTML = 'кВт';
-    column.append(buttonCalc);
-    column.append(inputCalc);
-    var columnSubmit = document.createElement('div');
-    columnSubmit.classList.add('column');
-    var buttonDiv = document.createElement('div');
-    buttonDiv.classList.add('form__btn-submit');
-    var buttonSubmit = promForm.createButton('submit', 'form__btn');
-    buttonSubmit.innerHTML = 'Показати товари';
-    columnSubmit.append(buttonDiv);
-    buttonDiv.append(buttonSubmit); //  clear before insert
+    function createPickUpBySelfContent() {
+      console.log('content for pickUpBySelf');
+      var title = promForm.createTitle('Параметри приміщення'); // Calculate section
 
-    $('.container2').nextAll().remove(); //appending
+      var inputSquare = promForm.createInput('number', 'formCalculateSquare', 'form-calculate-square');
+      inputSquare.classList.add('column-sm-1-2');
+      inputSquare.querySelector('label').innerHTML = 'Площа приміщення (м2)';
+      var inputHeight = promForm.createInput('number', 'formCalculateHeight', 'form-calculate-height');
+      inputHeight.classList.add('column-sm-1-2');
+      inputHeight.querySelector('label').innerHTML = 'Висота приміщення (м)';
+      var select = promForm.createSelect('form-sunlight', ['Слабке', 'Середнє', 'Високе']);
+      select.classList.add('column-sm-1-2');
+      var column = document.createElement('div');
+      column.classList.add('column');
+      column.classList.add('column-sm-1-2');
+      var buttonCalc = promForm.createButton('button', 'form__calculate-btn');
+      buttonCalc.innerHTML = 'Розрахувати';
+      var inputCalc = promForm.createInput('number', 'power', 'form-calculate-power');
+      inputCalc.classList.add('input-field_inline');
+      inputCalc.querySelector('label').innerHTML = 'кВт';
+      column.append(buttonCalc);
+      column.append(inputCalc); // Submit section
 
-    promFormElement.firstChild.append(title);
-    promFormElement.firstChild.append(inputSquare);
-    promFormElement.firstChild.append(inputHeight);
-    promFormElement.firstChild.append(select);
-    promFormElement.firstChild.append(column);
-    promFormElement.firstChild.append(columnSubmit);
-    initMaterializeSelect();
-  };
+      var columnSubmit = document.createElement('div');
+      columnSubmit.classList.add('column');
+      var buttonDiv = document.createElement('div');
+      buttonDiv.classList.add('form__btn-submit');
+      var buttonSubmit = promForm.createButton('submit', 'form__btn');
+      buttonSubmit.innerHTML = 'Показати товари';
+      columnSubmit.append(buttonDiv);
+      buttonDiv.append(buttonSubmit); //  clear before insert
 
-  var createPickUpByProfContent = function createPickUpByProfContent() {
-    console.log('content for pickUpByProf'); //  clear before insert
+      $('#form-calculate .container2').nextAll().remove(); //appending
 
-    $('.container2').nextAll().remove();
-  };
+      promFormElement.firstChild.append(title);
+      promFormElement.firstChild.append(inputSquare);
+      promFormElement.firstChild.append(inputHeight);
+      promFormElement.firstChild.append(select);
+      promFormElement.firstChild.append(column);
+      promFormElement.firstChild.append(columnSubmit);
+      initMaterializeSelect(); // Listeners
 
-  var createCondtitonContent = function createCondtitonContent() {
-    console.log('go condition content');
-    var pickUpSelf = promForm.createRadio('typePickUp', 'pickUpBySelf', true);
-    pickUpSelf.classList.add('column-sm-1-2');
-    var spanSelf = document.createElement('span');
-    spanSelf.innerHTML = 'Підібрати самостійно';
-    pickUpSelf.firstChild.append(spanSelf);
-    var pickUpProf = promForm.createRadio('typePickUp', 'pickUpByProf', false);
-    pickUpProf.classList.add('column-sm-1-2');
-    var spanProf = document.createElement('span');
-    spanProf.innerHTML = 'Довірити вибір спеціалісту';
-    pickUpProf.firstChild.append(spanProf); //creating container2
+      var square;
+      var height;
+      var light;
+      var result;
+      var resultLabel;
 
-    var container2 = document.createElement('div');
-    container2.classList.add('container2'); //  clear before insert
+      function refreshCalculateValues() {
+        square = +promFormElement.querySelector('input[name="formCalculateSquare"]').value;
+        height = +promFormElement.querySelector('input[name="formCalculateHeight"]').value;
+        light = +promFormElement.querySelector('select[name="form-sunlight"]').value;
+        result = promFormElement.querySelector('input[name="power"]');
+        resultLabel = promFormElement.querySelector('input[name="power"] + label');
+      }
 
-    $(container1).nextAll().remove(); //appending
+      function resetCalculateValues() {
+        promFormElement.querySelector('input[name="formCalculateSquare"]').value = '';
+        promFormElement.querySelector('input[name="formCalculateHeight"]').value = '';
+      }
 
-    promFormElement.firstChild.append(pickUpSelf);
-    promFormElement.firstChild.append(pickUpProf);
-    promFormElement.firstChild.append(container2); //  event listening
+      refreshCalculateValues();
+      result.value = calculatePower(square, height, light);
+      resultLabel.classList.add('active');
+      buttonCalc.addEventListener('click', function (e) {
+        refreshCalculateValues();
+        result.value = calculatePower(square, height, light);
+        resultLabel.classList.add('active');
+        resetCalculateValues();
+      });
+    }
 
-    var inputsRadio = promFormElement.querySelectorAll('input[name="typePickUp"]');
-    inputsRadio.forEach(function (inputRadio) {
-      inputRadio.addEventListener('change', function (e) {
-        if (e.target.value === 'pickUpBySelf') {
+    function createPickUpByProfContent() {
+      console.log('content for pickUpByProf');
+
+      function refreshCount() {
+        if (promFormElement.querySelectorAll('.form__block').length >= 0) {
+          var calcBlocks = promFormElement.querySelectorAll('.form__block');
+          calcBlocks.forEach(function (calcBlock, index) {
+            var text = calcBlock.querySelector('.form__title span + span');
+            text.innerHTML = index + 1;
+          });
+        }
+      }
+
+      var nameInput = promForm.createInput('text', 'formName', 'form-name', 'person');
+      nameInput.classList.add('column-sm-1-2');
+      nameInput.querySelector('label').innerHTML = 'Ім\'я';
+      var phoneInput = promForm.createInput('text', 'formPhone', 'form-phone', 'phone');
+      phoneInput.classList.add('column-sm-1-2');
+      phoneInput.querySelector('label').innerHTML = 'Контактний номер';
+      var container3 = document.createElement('div');
+      container3.classList.add('container3');
+      var addBtn = promForm.createAddBtn();
+      var textInput = promForm.createTextarea('form-comment', 'mode_edit');
+      textInput.querySelector('label').innerHTML = 'Коментар до запиту'; // Submit section
+
+      var columnSubmit = document.createElement('div');
+      columnSubmit.classList.add('column');
+      var buttonDiv = document.createElement('div');
+      buttonDiv.classList.add('form__btn-submit');
+      var buttonSubmit = promForm.createButton('submit', 'form__btn');
+      buttonSubmit.innerHTML = 'Надіслати запит';
+      columnSubmit.append(buttonDiv);
+      buttonDiv.append(buttonSubmit); //  clear before insert
+
+      $('#form-calculate .container2').nextAll().remove(); // appending
+
+      promFormElement.firstChild.append(nameInput);
+      promFormElement.firstChild.append(phoneInput);
+      promFormElement.firstChild.append(container3);
+      promFormElement.firstChild.append(addBtn);
+      promFormElement.firstChild.append(textInput);
+      promFormElement.firstChild.append(columnSubmit); // listener
+
+      var addButton = promFormElement.querySelector('.form__icon-add');
+      addButton.addEventListener('click', addBlock);
+
+      function addBlock(e) {
+        var outPlace = promFormElement.querySelector('.container3');
+        var calculateRoomBlock = promForm.buildCalculateBlock(); //appending
+
+        outPlace.before(calculateRoomBlock);
+        refreshCount();
+        calculateRoomBlock.querySelector('.form__remove-btn').addEventListener('click', removeBlock);
+        initMaterializeSelect();
+      }
+
+      function removeBlock(e) {
+        var currentBlock = e.target.closest('.form__block');
+        currentBlock.remove();
+        refreshCount();
+      }
+    }
+
+    function createCondtitonContent(category) {
+      console.log('go condition content');
+      var pickUpSelf = promForm.createRadio('typePickUp', 'pickUpBySelf', true);
+      pickUpSelf.classList.add('column-sm-1-2');
+      var spanSelf = document.createElement('span');
+      spanSelf.innerHTML = 'Підібрати самостійно';
+      pickUpSelf.firstChild.append(spanSelf);
+      var pickUpProf = promForm.createRadio('typePickUp', 'pickUpByProf', false);
+      pickUpProf.classList.add('column-sm-1-2');
+      var spanProf = document.createElement('span');
+      spanProf.innerHTML = 'Довірити вибір спеціалісту';
+      pickUpProf.firstChild.append(spanProf); //creating container2
+
+      var container2 = document.createElement('div');
+      container2.classList.add('container2'); //  clear before insert
+
+      $('#form-calculate .container1').nextAll().remove(); //appending
+
+      promFormElement.firstChild.append(pickUpSelf);
+      promFormElement.firstChild.append(pickUpProf);
+      promFormElement.firstChild.append(container2); //  event listening
+
+      var inputsRadio = promFormElement.querySelectorAll('input[name="typePickUp"]');
+      inputsRadio.forEach(function (inputRadio) {
+        inputRadio.addEventListener('change', function (e) {
+          if (e.target.value === 'pickUpBySelf') {
+            createPickUpBySelfContent();
+          } else if (e.target.value === 'pickUpByProf') {
+            createPickUpByProfContent();
+          }
+        });
+
+        if (inputRadio.checked && inputRadio.value === 'pickUpBySelf') {
           createPickUpBySelfContent();
-        } else if (e.target.value === 'pickUpByProf') {
+        } else if (inputRadio.checked && inputRadio.value === 'pickUpByProf') {
           createPickUpByProfContent();
         }
       });
+    }
 
-      if (inputRadio.checked && inputRadio.value === 'pickUpBySelf') {
-        createPickUpBySelfContent();
-      } else if (inputRadio.checked && inputRadio.value === 'pickUpByProf') {
-        createPickUpByProfContent();
+    function createAnotherContent(category) {
+      console.log('go another content');
+      var textBlcok = promForm.createInfoText('Підбір обладнання для осушувачів/очищувачів повітря технічно складний процес, який потребує професійного підходу.  Будь ласка, заповніть форму нижче, щоб отримати консультацію спеціаліста.');
+      var nameInput = promForm.createInput('text', 'formName', 'form-name', 'person');
+      nameInput.classList.add('column-sm-1-2');
+      nameInput.querySelector('label').innerHTML = 'Ім\'я';
+      var phoneInput = promForm.createInput('text', 'formPhone', 'form-phone', 'phone');
+      phoneInput.classList.add('column-sm-1-2');
+      phoneInput.querySelector('label').innerHTML = 'Контактний номер';
+      var textInput = promForm.createTextarea('form-comment', 'mode_edit');
+      textInput.querySelector('label').innerHTML = 'Коментар до запиту'; // Submit section
+
+      var columnSubmit = document.createElement('div');
+      columnSubmit.classList.add('column');
+      var buttonDiv = document.createElement('div');
+      buttonDiv.classList.add('form__btn-submit');
+      var buttonSubmit = promForm.createButton('submit', 'form__btn');
+      buttonSubmit.innerHTML = 'Надіслати запит';
+      columnSubmit.append(buttonDiv);
+      buttonDiv.append(buttonSubmit); //  clear before insert
+
+      $('#form-calculate .container1').nextAll().remove(); //appending
+
+      promFormElement.firstChild.append(textBlcok);
+      promFormElement.firstChild.append(nameInput);
+      promFormElement.firstChild.append(phoneInput);
+      promFormElement.firstChild.append(textInput);
+      promFormElement.firstChild.append(columnSubmit);
+    } //create form
+
+
+    var promFormElement = promForm.createForm('form-calculate'); //create Select
+
+    var promFormSelect = promForm.createSelect('categories', categories);
+    promFormSelect.classList.add('column-sm-1-2'); //appending
+
+    promFormElement.firstChild.appendChild(promFormSelect); //query Select
+
+    var selectElement = promFormElement.querySelector('select'); //create details with active options
+
+    var promFormDetails = promForm.createDetails(detectSelectedOption(selectElement));
+    promFormDetails.classList.add('column-sm-1-2'); //create container-1
+
+    var container1 = document.createElement('div');
+    container1.classList.add('container1'); //appending
+
+    promFormElement.firstChild.appendChild(promFormDetails);
+    promFormElement.firstChild.appendChild(container1);
+
+    if (+selectElement.querySelector('option[selected]').value === 1) {
+      createCondtitonContent(+selectElement.querySelector('option[selected]').value);
+    } else {
+      createAnotherContent(+selectElement.querySelector('option[selected]').value);
+    } // insert form into modal
+
+
+    var outPromPickUp = document.querySelector('.prom-pick-up');
+    outPromPickUp.appendChild(promFormElement); //  event listening
+
+    selectElement.addEventListener('change', function (e) {
+      promFormDetails.querySelector('a').setAttribute('href', e.target[+e.target.value - 1].dataset.link);
+
+      if (+e.target.value !== 1) {
+        createAnotherContent(+e.target.value);
+      } else {
+        createCondtitonContent(+e.target.value);
       }
     });
   };
 
-  var createAnotherContent = function createAnotherContent() {
-    console.log('go another content');
-    $(container1).nextAll().remove();
-  }; //create form
-
-
-  var promFormElement = promForm.createForm('form-calculate'); //create Select
-
-  var promFormSelect = promForm.createSelect('categories', categories);
-  promFormSelect.classList.add('column-sm-1-2'); //appending
-
-  promFormElement.firstChild.appendChild(promFormSelect); //query Select
-
-  var selectElement = promFormElement.querySelector('select'); //create details with active options
-
-  var promFormDetails = promForm.createDetails(detectSelectedOption(selectElement));
-  promFormDetails.classList.add('column-sm-1-2'); //create container-1
-
-  var container1 = document.createElement('div');
-  container1.classList.add('container1'); //appending
-
-  promFormElement.firstChild.appendChild(promFormDetails);
-  promFormElement.firstChild.appendChild(container1);
-
-  if (+selectElement.querySelector('option[selected]').value === 1) {
-    createCondtitonContent();
-  } else {
-    createAnotherContent();
-  } // insert form into modal
-
-
-  var outPromPickUp = document.querySelector('.prom-pick-up');
-  outPromPickUp.appendChild(promFormElement); //  event listening
-
-  selectElement.addEventListener('change', function (e) {
-    promFormDetails.querySelector('a').setAttribute('href', e.target[+e.target.value - 1].dataset.link);
-
-    if (+e.target.value !== 1) {
-      createAnotherContent();
-    } else {
-      createCondtitonContent();
+  var goHouseHoldForm = function goHouseHoldForm() {
+    // functions
+    function detectSelectedOption(selectEl) {
+      return selectEl.querySelector('option[selected]').dataset.link;
     }
-  });
-} //
-//   //listener
-//   const selectElement = promFormElement.querySelector('select');
-//   console.log(selectElement);
-//   selectElement.addEventListener('change', e => {
-//     console.log(e.target.value);
-//   })
-//
-//
-// }
-//Event work
-//const checkedSelect = instance.getSelectedValues();
-//console.log(checkedSelect);
-//-------------------------------------------------------------------------------
+
+    function createPickUpBySelfContent() {
+      console.log('content for pickUpBySelf');
+      var title = householdForm.createTitle('Параметри приміщення'); // Calculate section
+
+      var inputSquare = householdForm.createInput('number', 'formCalculateSquare', 'form-calculate-square');
+      inputSquare.classList.add('column-sm-1-2');
+      inputSquare.querySelector('label').innerHTML = 'Площа приміщення (м2)';
+      var inputHeight = householdForm.createInput('number', 'formCalculateHeight', 'form-calculate-height');
+      inputHeight.classList.add('column-sm-1-2');
+      inputHeight.querySelector('label').innerHTML = 'Висота приміщення (м)';
+      var select = householdForm.createSelect('form-sunlight', ['Слабке', 'Середнє', 'Високе']);
+      select.classList.add('column-sm-1-2');
+      var column = document.createElement('div');
+      column.classList.add('column');
+      column.classList.add('column-sm-1-2');
+      var buttonCalc = householdForm.createButton('button', 'form__calculate-btn');
+      buttonCalc.innerHTML = 'Розрахувати';
+      var inputCalc = householdForm.createInput('number', 'power', 'form-calculate-power');
+      inputCalc.classList.add('input-field_inline');
+      inputCalc.querySelector('label').innerHTML = 'кВт';
+      column.append(buttonCalc);
+      column.append(inputCalc); // Submit section
+
+      var columnSubmit = document.createElement('div');
+      columnSubmit.classList.add('column');
+      var buttonDiv = document.createElement('div');
+      buttonDiv.classList.add('form__btn-submit');
+      var buttonSubmit = householdForm.createButton('submit', 'form__btn');
+      buttonSubmit.innerHTML = 'Показати товари';
+      columnSubmit.append(buttonDiv);
+      buttonDiv.append(buttonSubmit); //  clear before insert
+
+      $('#form-calculate2 .container2').nextAll().remove(); //appending
+
+      promFormElement.firstChild.append(title);
+      promFormElement.firstChild.append(inputSquare);
+      promFormElement.firstChild.append(inputHeight);
+      promFormElement.firstChild.append(select);
+      promFormElement.firstChild.append(column);
+      promFormElement.firstChild.append(columnSubmit);
+      initMaterializeSelect(); // Listeners
+
+      var square;
+      var height;
+      var light;
+      var result;
+      var resultLabel;
+
+      function refreshCalculateValues() {
+        square = +promFormElement.querySelector('input[name="formCalculateSquare"]').value;
+        height = +promFormElement.querySelector('input[name="formCalculateHeight"]').value;
+        light = +promFormElement.querySelector('select[name="form-sunlight"]').value;
+        result = promFormElement.querySelector('input[name="power"]');
+        resultLabel = promFormElement.querySelector('input[name="power"] + label');
+      }
+
+      function resetCalculateValues() {
+        promFormElement.querySelector('input[name="formCalculateSquare"]').value = '';
+        promFormElement.querySelector('input[name="formCalculateHeight"]').value = '';
+      }
+
+      refreshCalculateValues();
+      result.value = calculatePower(square, height, light);
+      resultLabel.classList.add('active');
+      buttonCalc.addEventListener('click', function (e) {
+        refreshCalculateValues();
+        result.value = calculatePower(square, height, light);
+        resultLabel.classList.add('active');
+        resetCalculateValues();
+      });
+    }
+
+    function createPickUpByProfContent() {
+      console.log('content for pickUpByProf');
+
+      function refreshCount() {
+        if (promFormElement.querySelectorAll('.form__block').length >= 0) {
+          var calcBlocks = promFormElement.querySelectorAll('.form__block');
+          calcBlocks.forEach(function (calcBlock, index) {
+            var text = calcBlock.querySelector('.form__title span + span');
+            text.innerHTML = index + 1;
+          });
+        }
+      }
+
+      var nameInput = householdForm.createInput('text', 'formName', 'form-name', 'person');
+      nameInput.classList.add('column-sm-1-2');
+      nameInput.querySelector('label').innerHTML = 'Ім\'я';
+      var phoneInput = householdForm.createInput('text', 'formPhone', 'form-phone', 'phone');
+      phoneInput.classList.add('column-sm-1-2');
+      phoneInput.querySelector('label').innerHTML = 'Контактний номер';
+      var container3 = document.createElement('div');
+      container3.classList.add('container3');
+      var addBtn = householdForm.createAddBtn();
+      var textInput = householdForm.createTextarea('form-comment', 'mode_edit');
+      textInput.querySelector('label').innerHTML = 'Коментар до запиту'; // Submit section
+
+      var columnSubmit = document.createElement('div');
+      columnSubmit.classList.add('column');
+      var buttonDiv = document.createElement('div');
+      buttonDiv.classList.add('form__btn-submit');
+      var buttonSubmit = householdForm.createButton('submit', 'form__btn');
+      buttonSubmit.innerHTML = 'Надіслати запит';
+      columnSubmit.append(buttonDiv);
+      buttonDiv.append(buttonSubmit); //  clear before insert
+
+      $('#form-calculate2 .container2').nextAll().remove(); // appending
+
+      promFormElement.firstChild.append(nameInput);
+      promFormElement.firstChild.append(phoneInput);
+      promFormElement.firstChild.append(container3);
+      promFormElement.firstChild.append(addBtn);
+      promFormElement.firstChild.append(textInput);
+      promFormElement.firstChild.append(columnSubmit); // listener
+
+      var addButton = promFormElement.querySelector('.form__icon-add');
+      addButton.addEventListener('click', addBlock);
+
+      function addBlock(e) {
+        var outPlace = promFormElement.querySelector('.container3');
+        var calculateRoomBlock = householdForm.buildCalculateBlock(); //appending
+
+        outPlace.before(calculateRoomBlock);
+        refreshCount();
+        calculateRoomBlock.querySelector('.form__remove-btn').addEventListener('click', removeBlock);
+        initMaterializeSelect();
+      }
+
+      function removeBlock(e) {
+        var currentBlock = e.target.closest('.form__block');
+        currentBlock.remove();
+        refreshCount();
+      }
+    }
+
+    function createCondtitonContent(category) {
+      console.log('go condition content');
+      var pickUpSelf = householdForm.createRadio('typePickUp', 'pickUpBySelf', true);
+      pickUpSelf.classList.add('column-sm-1-2');
+      var spanSelf = document.createElement('span');
+      spanSelf.innerHTML = 'Підібрати самостійно';
+      pickUpSelf.firstChild.append(spanSelf);
+      var pickUpProf = householdForm.createRadio('typePickUp', 'pickUpByProf', false);
+      pickUpProf.classList.add('column-sm-1-2');
+      var spanProf = document.createElement('span');
+      spanProf.innerHTML = 'Довірити вибір спеціалісту';
+      pickUpProf.firstChild.append(spanProf); //creating container2
+
+      var container2 = document.createElement('div');
+      container2.classList.add('container2'); //  clear before insert
+
+      $('#form-calculate2 .container1').nextAll().remove(); //appending
+
+      promFormElement.firstChild.append(pickUpSelf);
+      promFormElement.firstChild.append(pickUpProf);
+      promFormElement.firstChild.append(container2); //  event listening
+
+      var inputsRadio = promFormElement.querySelectorAll('input[name="typePickUp"]');
+      inputsRadio.forEach(function (inputRadio) {
+        inputRadio.addEventListener('change', function (e) {
+          if (e.target.value === 'pickUpBySelf') {
+            createPickUpBySelfContent();
+          } else if (e.target.value === 'pickUpByProf') {
+            createPickUpByProfContent();
+          }
+        });
+
+        if (inputRadio.checked && inputRadio.value === 'pickUpBySelf') {
+          createPickUpBySelfContent();
+        } else if (inputRadio.checked && inputRadio.value === 'pickUpByProf') {
+          createPickUpByProfContent();
+        }
+      });
+    }
+
+    function createAnotherContent(category) {
+      console.log('go another content');
+      var textBlcok = householdForm.createInfoText('Підбір обладнання для осушувачів/очищувачів повітря технічно складний процес, який потребує професійного підходу.  Будь ласка, заповніть форму нижче, щоб отримати консультацію спеціаліста.');
+      var nameInput = householdForm.createInput('text', 'formName', 'form-name', 'person');
+      nameInput.classList.add('column-sm-1-2');
+      nameInput.querySelector('label').innerHTML = 'Ім\'я';
+      var phoneInput = householdForm.createInput('text', 'formPhone', 'form-phone', 'phone');
+      phoneInput.classList.add('column-sm-1-2');
+      phoneInput.querySelector('label').innerHTML = 'Контактний номер';
+      var textInput = householdForm.createTextarea('form-comment', 'mode_edit');
+      textInput.querySelector('label').innerHTML = 'Коментар до запиту'; // Submit section
+
+      var columnSubmit = document.createElement('div');
+      columnSubmit.classList.add('column');
+      var buttonDiv = document.createElement('div');
+      buttonDiv.classList.add('form__btn-submit');
+      var buttonSubmit = householdForm.createButton('submit', 'form__btn');
+      buttonSubmit.innerHTML = 'Надіслати запит';
+      columnSubmit.append(buttonDiv);
+      buttonDiv.append(buttonSubmit); //  clear before insert
+
+      $('#form-calculate2 .container1').nextAll().remove(); //appending
+
+      promFormElement.firstChild.append(textBlcok);
+      promFormElement.firstChild.append(nameInput);
+      promFormElement.firstChild.append(phoneInput);
+      promFormElement.firstChild.append(textInput);
+      promFormElement.firstChild.append(columnSubmit);
+    } //create form
+
+
+    var promFormElement = householdForm.createForm('form-calculate2'); //create Select
+
+    var promFormSelect = householdForm.createSelect('categories', categories);
+    promFormSelect.classList.add('column-sm-1-2'); //appending
+
+    promFormElement.firstChild.appendChild(promFormSelect); //query Select
+
+    var selectElement = promFormElement.querySelector('select'); //create details with active options
+
+    var promFormDetails = householdForm.createDetails(detectSelectedOption(selectElement));
+    promFormDetails.classList.add('column-sm-1-2'); //create container-1
+
+    var container1 = document.createElement('div');
+    container1.classList.add('container1'); //appending
+
+    promFormElement.firstChild.appendChild(promFormDetails);
+    promFormElement.firstChild.appendChild(container1);
+
+    if (+selectElement.querySelector('option[selected]').value === 1) {
+      createCondtitonContent(+selectElement.querySelector('option[selected]').value);
+    } else {
+      createAnotherContent(+selectElement.querySelector('option[selected]').value);
+    } // insert form into modal
+
+
+    var outPromPickUp = document.querySelector('.household-pick-up');
+    outPromPickUp.appendChild(promFormElement); //  event listening
+
+    selectElement.addEventListener('change', function (e) {
+      promFormDetails.querySelector('a').setAttribute('href', e.target[+e.target.value - 1].dataset.link);
+
+      if (+e.target.value !== 1) {
+        createAnotherContent(+e.target.value);
+      } else {
+        createCondtitonContent(+e.target.value);
+      }
+    });
+  };
+
+  goPromForm();
+  goHouseHoldForm();
+} //-------------------------------------------------------------------------------
 
 
 var cartOut = document.querySelector('.cart__out');
@@ -1100,7 +1601,7 @@ function calculatePower(square, height, light) {
       break;
   }
 
-  return volume * light / 1000;
+  return Math.ceil(volume * light / 1000 * 10) / 10;
 }
 
 $('#order-form').validate({
@@ -1124,7 +1625,6 @@ $('#order-form').validate({
     }
   },
   submitHandler: function submitHandler(form) {
-    //$.magnificPopup.close();
     // let url = '/php/call.php';
     var CurrentCart = JSON.parse(localStorage.getItem('cart'));
     var formData = $(form).serializeArray(); // ajaxSend(formData, url);
@@ -1191,9 +1691,7 @@ $('#power-calc').validate({
     var resultInput = form.querySelector('.power');
     var resultLabel = form.querySelector('.power + label');
     var data = $(form).serializeArray();
-    var result = calculatePower(parseInt(data[0].value), parseInt(data[1].value), parseInt(data[2].value));
-    result = Math.ceil(result * 10) / 10;
-    resultInput.value = result;
+    resultInput.value = calculatePower(parseInt(data[0].value), parseInt(data[1].value), parseInt(data[2].value));
     resultLabel.classList.add('active'); //   SEND AJAX
   }
 });
@@ -1201,37 +1699,134 @@ $('#form-calculate').validate({
   rules: {
     formCalculateSquare: {
       required: false,
-      min: '1',
-      max: '900',
-      step: '.1',
+      min: 1,
+      max: 900,
+      step: .1,
       number: true
     },
     formCalculateHeight: {
       required: false,
-      min: '1',
-      max: '50',
-      step: '.1',
+      min: 1,
+      max: 50,
+      step: .1,
       number: true
+    },
+    power: {
+      required: false,
+      min: 0,
+      max: 100,
+      step: .1,
+      number: true
+    },
+    formName: {
+      required: true,
+      minlength: 2
+    },
+    formPhone: {
+      required: true,
+      customPhone: true
     }
   },
   messages: {
-    square: {
+    formCalculateSquare: {
       required: 'Введіть площу приміщення',
       min: 'Надто мале значення',
       max: 'Надто велике значення',
       step: 'Невірне значення',
       number: 'Введіть числове значення'
     },
-    height: {
+    formCalculateHeight: {
       required: 'Введіть висоту приміщення',
       min: 'Надто мале значення',
       max: 'Надто велике значення',
       step: 'Невірне значення',
       number: 'Введіть числове значення'
+    },
+    formName: {
+      required: "Це обов'язкове поле",
+      minlength: 'Надто коротке ім\'я'
+    },
+    formPhone: {
+      required: "Це обов'язкове поле",
+      customPhone: 'Невірний номер телефону'
+    },
+    power: {
+      number: '',
+      min: '',
+      max: '',
+      step: ''
     }
   },
   submitHandler: function submitHandler(form) {
+    var data = $(form).serializeArray();
     console.log('form1 submit');
+    console.log(data);
+  }
+});
+$('#form-calculate2').validate({
+  rules: {
+    formCalculateSquare: {
+      required: false,
+      min: 1,
+      max: 900,
+      step: .1,
+      number: true
+    },
+    formCalculateHeight: {
+      required: false,
+      min: 1,
+      max: 50,
+      step: .1,
+      number: true
+    },
+    power: {
+      required: false,
+      min: 0,
+      max: 100,
+      step: .1,
+      number: true
+    },
+    formName: {
+      required: true,
+      minlength: 2
+    },
+    formPhone: {
+      required: true,
+      customPhone: true
+    }
+  },
+  messages: {
+    formCalculateSquare: {
+      required: 'Введіть площу приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    },
+    formCalculateHeight: {
+      required: 'Введіть висоту приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    },
+    formName: {
+      required: "Це обов'язкове поле",
+      minlength: 'Надто коротке ім\'я'
+    },
+    formPhone: {
+      required: "Це обов'язкове поле",
+      customPhone: 'Невірний номер телефону'
+    },
+    power: {
+      number: '',
+      min: '',
+      max: '',
+      step: ''
+    }
+  },
+  submitHandler: function submitHandler(form) {
+    console.log('form2 submit');
   }
 }); // Materialize initializations
 
@@ -1250,12 +1845,7 @@ var modalInstance = M.Modal.init(modals, {
   outDuration: 350
 }); //modalInstance.open();
 
-initMaterializeSelect(); //
-// const selectList = document.querySelector('form select');
-// console.log(selectList);
-// let sddsd = M.FormSelect.getInstance(selectList).getSelectedValues();
-// console.log(sddsd);
-// form send process
+initMaterializeSelect(); // form send process
 
 var ajaxSend = function ajaxSend(formData, url) {
   fetch(url, {
@@ -1345,15 +1935,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // 29.33% 45deg   70.67   scale(0.7067)
   //Range Slider Sidebar
 
-  if (document.getElementById('price-range')) {
+  function sidebarRangeInit(start, end, min, max) {
     var slider = document.getElementById('price-range');
     noUiSlider.create(slider, {
-      start: [20, 80],
+      start: [start, end],
       connect: true,
       step: 1,
       range: {
-        'min': 0,
-        'max': 100
+        'min': min,
+        'max': max
       },
       format: wNumb({
         decimals: 0
@@ -1377,6 +1967,10 @@ document.addEventListener('DOMContentLoaded', function () {
     priceTo.addEventListener('change', function () {
       slider.noUiSlider.set([null, this.value]);
     });
+  }
+
+  if (document.getElementById('price-range')) {
+    sidebarRangeInit(20, 80, 0, 100);
   } // END Range Slider Sidebar
   // show full version of works slider if touchscreen and product slider
 

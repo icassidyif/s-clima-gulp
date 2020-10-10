@@ -119,6 +119,9 @@
     justify-content: center
     background: rgba(0, 0, 0, 0.03)
     padding: 14px
+    position: relative
+    > span
+      margin: 0 5px 0 0
   &__details
     display: flex
     height: 100%
@@ -139,6 +142,32 @@
     border: 2px solid #126EB9
     background-color: transparent
     margin: 0 25px 0 0
+    transition: tranform .2s ease-out
+    &:focus
+      background-color: transparent
+    &:active
+      transform: scale(.97)
+
+  &__remove-btn
+    position: absolute
+    right: 10px
+    top: 50%
+    transform: translateY(-50%)
+    cursor: pointer
+
+  &__icon-add
+    background: rgba(18, 110, 185, 0.5)
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 34px
+    height: 34px
+    border-radius: 50%
+    margin: 0 auto
+    cursor: pointer
+    transition: all .1s ease-out
+    &:hover
+      transform: scale(1.1)
 
   &__btn-submit
     display: flex
@@ -153,3 +182,17 @@
       color: #ffffff
       text-transform: uppercase
       padding: 18px 23px
+      transition: tranform .2s ease-out
+      &:active
+        transform: scale(.97)
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='bumber']::-webkit-outer-spin-button
+    appearance: none
+    -webkit-appearance: none
+    margin: 0
+
+  &__info-text
+    max-width: 95%
+    color: #126EB9
+    font-size: 18px
+    line-height: 27px

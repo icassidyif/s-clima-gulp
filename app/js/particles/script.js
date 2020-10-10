@@ -70,15 +70,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //Range Slider Sidebar
-  if (document.getElementById('price-range')) {
+  function sidebarRangeInit(start, end, min, max) {
     let slider = document.getElementById('price-range');
     noUiSlider.create(slider, {
-      start: [20, 80],
+      start: [start, end],
       connect: true,
       step: 1,
       range: {
-        'min': 0,
-        'max': 100
+        'min': min,
+        'max': max
       },
       format: wNumb({
         decimals: 0
@@ -103,6 +103,9 @@ document.addEventListener('DOMContentLoaded', function() {
     priceTo.addEventListener('change', function () {
       slider.noUiSlider.set([null, this.value]);
     });
+  }
+  if (document.getElementById('price-range')) {
+    sidebarRangeInit(20, 80, 0, 100);
   }
 
 // END Range Slider Sidebar

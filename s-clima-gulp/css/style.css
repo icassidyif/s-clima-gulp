@@ -390,6 +390,11 @@ h6 {
   width: 11px;
 }
 
+.svg-form-add-btn {
+  width: 18px;
+  height: 18px;
+}
+
 .burger-menu {
   position: relative;
   display: flex;
@@ -855,6 +860,14 @@ form + span {
 
 .input-field:last-child {
   margin: 0;
+}
+
+.input-field .prefix {
+  font-size: 30px;
+}
+
+.input-field .prefix.active {
+  color: #126EB9;
 }
 
 .noUi-connect {
@@ -1367,14 +1380,6 @@ body.lock {
   margin-left: 2.5rem !important;
 }
 
-.cart form .input-field .prefix {
-  font-size: 30px;
-}
-
-.cart form .input-field .prefix.active {
-  color: #126EB9;
-}
-
 .parallax-main {
   padding: 50px 0 55px 0;
   display: flex;
@@ -1737,6 +1742,11 @@ no-webp .parallax-main__layer-4 {
   justify-content: center;
   background: rgba(0, 0, 0, 0.03);
   padding: 14px;
+  position: relative;
+}
+
+.form__title > span {
+  margin: 0 5px 0 0;
 }
 
 .form__details {
@@ -1765,6 +1775,46 @@ no-webp .parallax-main__layer-4 {
   border: 2px solid #126EB9;
   background-color: transparent;
   margin: 0 25px 0 0;
+  transition: tranform .2s ease-out;
+}
+
+.form__calculate-btn:focus {
+  background-color: transparent;
+}
+
+.form__calculate-btn:active {
+  -webkit-transform: scale(0.97);
+      -ms-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
+.form__remove-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.form__icon-add {
+  background: rgba(18, 110, 185, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all .1s ease-out;
+}
+
+.form__icon-add:hover {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .form__btn-submit {
@@ -1782,6 +1832,27 @@ no-webp .parallax-main__layer-4 {
   color: #ffffff;
   text-transform: uppercase;
   padding: 18px 23px;
+  transition: tranform .2s ease-out;
+}
+
+.form__btn-submit button:active {
+  -webkit-transform: scale(0.97);
+      -ms-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
+.form input[type='number']::-webkit-inner-spin-button,
+.form input[type='bumber']::-webkit-outer-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form__info-text {
+  max-width: 95%;
+  color: #126EB9;
+  font-size: 18px;
+  line-height: 27px;
 }
 
 .banners {

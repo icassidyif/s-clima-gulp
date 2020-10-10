@@ -24,7 +24,7 @@ function calculatePower(square, height, light) {
       light = 40;
       break;
   }
-  return volume * light / 1000;
+  return Math.ceil((volume * light / 1000) * 10) / 10;
 }
 
 
@@ -50,7 +50,6 @@ $('#order-form').validate({
     }
   },
   submitHandler: function (form) {
-    //$.magnificPopup.close();
     // let url = '/php/call.php';
     let CurrentCart = JSON.parse(localStorage.getItem('cart'));
     let formData = $(form).serializeArray();
@@ -119,10 +118,7 @@ $('#power-calc').validate({
     let resultInput = form.querySelector('.power');
     let resultLabel = form.querySelector('.power + label');
     let data = $(form).serializeArray();
-    let result = calculatePower(parseInt(data[0].value), parseInt(data[1].value), parseInt(data[2].value));
-    result = Math.ceil(result * 10) / 10;
-
-    resultInput.value = result;
+    resultInput.value = calculatePower(parseInt(data[0].value), parseInt(data[1].value), parseInt(data[2].value));
     resultLabel.classList.add('active');
   //   SEND AJAX
   }
@@ -138,38 +134,135 @@ $('#form-calculate').validate({
   rules: {
     formCalculateSquare: {
       required: false,
-      min: '1',
-      max: '900',
-      step: '.1',
+      min: 1,
+      max: 900,
+      step: .1,
       number: true
     },
     formCalculateHeight: {
       required: false,
-      min: '1',
-      max: '50',
-      step: '.1',
+      min: 1,
+      max: 50,
+      step: .1,
       number: true
+    },
+    power: {
+      required: false,
+      min: 0,
+      max: 100,
+      step: .1,
+      number: true
+    },
+    formName: {
+      required: true,
+      minlength: 2
+    },
+    formPhone: {
+      required: true,
+      customPhone: true
     }
   },
   messages: {
-    square: {
+    formCalculateSquare: {
       required: 'Введіть площу приміщення',
       min: 'Надто мале значення',
       max: 'Надто велике значення',
       step: 'Невірне значення',
       number: 'Введіть числове значення'
     },
-    height: {
+    formCalculateHeight: {
       required: 'Введіть висоту приміщення',
       min: 'Надто мале значення',
       max: 'Надто велике значення',
       step: 'Невірне значення',
       number: 'Введіть числове значення'
+    },
+    formName: {
+      required: "Це обов'язкове поле",
+      minlength: 'Надто коротке ім\'я'
+    },
+    formPhone: {
+      required: "Це обов'язкове поле",
+      customPhone: 'Невірний номер телефону'
+    },
+    power: {
+      number: '',
+      min: '',
+      max: '',
+      step: ''
     }
   },
   submitHandler: function (form) {
+    let data = $(form).serializeArray();
     console.log('form1 submit');
+    console.log(data);
   }
 })
 
 
+$('#form-calculate2').validate({
+  rules: {
+    formCalculateSquare: {
+      required: false,
+      min: 1,
+      max: 900,
+      step: .1,
+      number: true
+    },
+    formCalculateHeight: {
+      required: false,
+      min: 1,
+      max: 50,
+      step: .1,
+      number: true
+    },
+    power: {
+      required: false,
+      min: 0,
+      max: 100,
+      step: .1,
+      number: true
+    },
+    formName: {
+      required: true,
+      minlength: 2
+    },
+    formPhone: {
+      required: true,
+      customPhone: true
+    }
+  },
+  messages: {
+    formCalculateSquare: {
+      required: 'Введіть площу приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    },
+    formCalculateHeight: {
+      required: 'Введіть висоту приміщення',
+      min: 'Надто мале значення',
+      max: 'Надто велике значення',
+      step: 'Невірне значення',
+      number: 'Введіть числове значення'
+    },
+    formName: {
+      required: "Це обов'язкове поле",
+      minlength: 'Надто коротке ім\'я'
+    },
+    formPhone: {
+      required: "Це обов'язкове поле",
+      customPhone: 'Невірний номер телефону'
+    },
+    power: {
+      number: '',
+      min: '',
+      max: '',
+      step: ''
+    }
+  },
+  submitHandler: function (form) {
+    console.log('form2 submit');
+  }
+})
