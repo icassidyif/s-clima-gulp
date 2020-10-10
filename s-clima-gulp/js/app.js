@@ -1868,265 +1868,268 @@ var ajaxSend = function ajaxSend(formData, url) {
 }; // end
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-  console.log(supportsTouch); // Animation scroll-----
-  // .anim-item
-  // .anim-no-hide
-  // Працює по класу .active
+var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints; // Animation scroll-----
+// .anim-item
+// .anim-no-hide
+// Працює по класу .active
 
-  var animItems = document.querySelectorAll('.anim-item');
+var animItems = document.querySelectorAll('.anim-item');
 
-  if (animItems.length > 0) {
-    var animScroll = function animScroll() {
-      animItems.forEach(function (animItem) {
-        var animItemHeight = animItem.offsetHeight;
-        var animItemPosition = offset(animItem).top;
-        var animStart = 4;
-        var animItemPoint = animItemHeight > window.innerHeight ? window.innerHeight - window.innerHeight / animStart : window.innerHeight - animItemHeight / animStart; // Знаходимо чи є елементи , які зміщені по осі Y і компенсуємо зміщення
+if (animItems.length > 0) {
+  var animScroll = function animScroll() {
+    animItems.forEach(function (animItem) {
+      var animItemHeight = animItem.offsetHeight;
+      var animItemPosition = offset(animItem).top;
+      var animStart = 4;
+      var animItemPoint = animItemHeight > window.innerHeight ? window.innerHeight - window.innerHeight / animStart : window.innerHeight - animItemHeight / animStart; // Знаходимо чи є елементи , які зміщені по осі Y і компенсуємо зміщення
 
-        var style = getComputedStyle(animItem);
-        var matrix = new WebKitCSSMatrix(style.webkitTransform);
-        var translateY = matrix.m42;
+      var style = getComputedStyle(animItem);
+      var matrix = new WebKitCSSMatrix(style.webkitTransform);
+      var translateY = matrix.m42;
 
-        if (translateY !== 0) {
-          animItemPosition += -translateY;
-        } // кынець
+      if (translateY !== 0) {
+        animItemPosition += -translateY;
+      } // кынець
 
 
-        if (pageYOffset > animItemPosition - animItemPoint && pageYOffset < animItemPosition + animItemHeight) {
-          animItem.classList.add('active');
-        } else {
-          if (!animItem.classList.contains('anim-no-hide')) {
-            animItem.classList.remove('active');
-          }
-        }
-      });
-    };
-
-    window.addEventListener('scroll', animScroll);
-    setTimeout(function () {
-      animScroll();
-    }, 300);
-  } // Функція , яка визначає позицію елемента по X та Y
-
-
-  function offset(el) {
-    var rect = el.getBoundingClientRect(),
-        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    return {
-      top: rect.top + scrollTop,
-      left: rect.left + scrollLeft
-    };
-  } // end Animation Scroll
-  //footer copyright====================================================
-
-
-  var spanElement = document.createElement('span');
-  var copyRight = "<a href=\"#\">S-Clima</a> \xA9 2019 - ".concat(new Date().getFullYear(), "\u0440.");
-  var devRight = "\u0420\u043E\u0437\u0440\u043E\u0431\u043B\u0435\u043D\u043E \u0441\u0442\u0443\u0434\u0456\u0454\u044E <a target=\"_blank\" href=\"https://dwave.space/\"> d-wave </a>";
-  spanElement.innerHTML = copyRight;
-  $('.copyright__main').append(spanElement);
-  $('.copyright__develop').append(devRight); //=========================================================================
-  //=========================================================================
-  //=========================================================================
-  //=========================================================================
-  // 29.33% 45deg   70.67   scale(0.7067)
-  //Range Slider Sidebar
-
-  function sidebarRangeInit(start, end, min, max) {
-    var slider = document.getElementById('price-range');
-    noUiSlider.create(slider, {
-      start: [start, end],
-      connect: true,
-      step: 1,
-      range: {
-        'min': min,
-        'max': max
-      },
-      format: wNumb({
-        decimals: 0
-      })
-    });
-    var priceFrom = document.getElementById('price-from');
-    var priceFromLabel = document.querySelector('#price-from + label');
-    var priceTo = document.getElementById('price-to');
-    var priceToLabel = document.querySelector('#price-to + label');
-    slider.noUiSlider.on('update', function (values, handle) {
-      var value = values[handle];
-
-      if (handle) {
-        priceTo.value = value;
-        priceToLabel.classList.add('active');
+      if (pageYOffset > animItemPosition - animItemPoint && pageYOffset < animItemPosition + animItemHeight) {
+        animItem.classList.add('active');
       } else {
-        priceFrom.value = value;
-        priceFromLabel.classList.add('active');
+        if (!animItem.classList.contains('anim-no-hide')) {
+          animItem.classList.remove('active');
+        }
       }
     });
-    priceTo.addEventListener('change', function () {
-      slider.noUiSlider.set([null, this.value]);
-    });
-  }
+  };
 
-  if (document.getElementById('price-range')) {
-    sidebarRangeInit(20, 80, 0, 100);
-  } // END Range Slider Sidebar
-  // show full version of works slider if touchscreen and product slider
+  window.addEventListener('scroll', animScroll);
+  setTimeout(function () {
+    animScroll();
+  }, 300);
+} // Функція , яка визначає позицію елемента по X та Y
 
 
-  if (supportsTouch) {
-    var worksItems = document.querySelectorAll('.works__item');
-    worksItems.forEach(function (item) {
-      item.classList.add('works__item_mobile');
-    });
-    var cardProducts = document.querySelectorAll('.card-product');
-    cardProducts.forEach(function (card) {
-      card.classList.add('card-product_mobile');
-    });
-  } // END show full version of works slider if touchscreen
-  //  sidebar show-hide
+function offset(el) {
+  var rect = el.getBoundingClientRect(),
+      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return {
+    top: rect.top + scrollTop,
+    left: rect.left + scrollLeft
+  };
+} // end Animation Scroll
+//footer copyright====================================================
 
 
-  if (document.querySelector('.sidebar')) {
-    var sidebarBtn = document.querySelector('.sidebar-btn');
-    var sidebarCloseBtn = document.querySelector('.sidebar__close-btn');
-    var sidebar = document.querySelector('.sidebar');
-    var overlay = document.querySelector('.sidebar-overlay');
-    sidebarBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      body.classList.toggle('lock');
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-    });
-    sidebarCloseBtn.addEventListener('click', function (e) {
-      body.classList.toggle('lock');
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-    });
-    overlay.addEventListener('click', function (e) {
-      body.classList.toggle('lock');
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-    });
-  } //  end sidebar show-hide
-  //  collapse product information
+var spanElement = document.createElement('span');
+var copyRight = "<a href=\"#\">S-Clima</a> \xA9 2019 - ".concat(new Date().getFullYear(), "\u0440.");
+var devRight = "\u0420\u043E\u0437\u0440\u043E\u0431\u043B\u0435\u043D\u043E \u0441\u0442\u0443\u0434\u0456\u0454\u044E <a target=\"_blank\" href=\"https://dwave.space/\"> d-wave </a>";
+spanElement.innerHTML = copyRight;
+$('.copyright__main').append(spanElement);
+$('.copyright__develop').append(devRight); //=========================================================================
+//=========================================================================
+//=========================================================================
+//=========================================================================
+// 29.33% 45deg   70.67   scale(0.7067)
+//Range Slider Sidebar
 
+var rangeSlider = document.getElementById('price-range');
 
-  function getInstances(product) {
-    var moreBlock = product.querySelector('.card-product__rest');
-    var expandBtn = product.querySelector('.card-product__more');
-    var wrapper = product.querySelector('.card-product__wrapper');
-    var column = product.parentElement.parentElement;
-    return {
-      moreBlock: moreBlock,
-      expandBtn: expandBtn,
-      wrapper: wrapper,
-      column: column
-    };
-  }
+if (rangeSlider) {
+  noUiSlider.create(rangeSlider, {
+    start: ['20', '80'],
+    connect: true,
+    step: 1,
+    range: {
+      'min': 0,
+      'max': 100
+    },
+    format: wNumb({
+      decimals: 0
+    })
+  });
+  var priceFrom = document.getElementById('price-from');
+  var priceFromLabel = document.querySelector('#price-from + label');
+  var priceTo = document.getElementById('price-to');
+  var priceToLabel = document.querySelector('#price-to + label');
+  rangeSlider.noUiSlider.on('update', function (values, handle) {
+    var value = values[handle];
 
-  function collapseProduct() {
-    var products = document.querySelectorAll('.card-product');
-    products.forEach(function (product) {
-      var instances = getInstances(product); // set column height for product
-
-      instances.column.style.height = product.clientHeight + 30 + 'px'; // add event listener for expand button
-
-      instances.expandBtn.addEventListener('click', function (event) {
-        product.classList.toggle('opened');
-
-        if (instances.moreBlock.clientHeight) {
-          instances.moreBlock.style.height = 0;
-        } else {
-          instances.moreBlock.style.height = instances.wrapper.clientHeight + "px";
-        }
-
-        products.forEach(function (prod) {
-          if (prod === product) {
-            prod.style.transition = 'unset';
-            product.style.zIndex = '2';
-          } else {
-            prod.classList.remove('opened');
-            getInstances(prod).moreBlock.style.height = 0;
-            prod.style.transition = 'z-index .5s ease-out';
-            prod.style.zIndex = '1';
-          }
-        });
-      });
-    });
-  }
-
-  if (document.querySelector('.products')) {
-    collapseProduct();
-  } // END collapse product information
-  //  Projects list sidebar
-
-
-  $(".project-list ul ul").each(function (index) {
-    if (index != 0) {
-      $(this).slideToggle(0);
+    if (handle) {
+      priceTo.value = value;
+      priceToLabel.classList.add('active');
     } else {
-      $(this).prev().toggleClass("open");
+      priceFrom.value = value;
+      priceFromLabel.classList.add('active');
     }
   });
-  $(".project-list__item").click(function () {
-    $(this).toggleClass("open");
-    $(this).next().slideToggle(300);
+  priceTo.addEventListener('change', function () {
+    rangeSlider.noUiSlider.set([null, this.value]);
   });
-  $(".project-list a").each(function (index) {
-    if (index === 0) {
-      $(this).addClass("active");
+}
+
+function updateRangeSlider(start, end, min, max) {
+  rangeSlider.noUiSlider.updateOptions({
+    start: [start.toString(), end.toString()],
+    range: {
+      'min': min,
+      'max': max
     }
   });
-  $(".project-list a").on("click", function (e) {
+} // END Range Slider Sidebar
+// show full version of works slider if touchscreen and product slider
+
+
+if (supportsTouch) {
+  var worksItems = document.querySelectorAll('.works__item');
+  worksItems.forEach(function (item) {
+    item.classList.add('works__item_mobile');
+  });
+  var cardProducts = document.querySelectorAll('.card-product');
+  cardProducts.forEach(function (card) {
+    card.classList.add('card-product_mobile');
+  });
+} // END show full version of works slider if touchscreen
+//  sidebar show-hide
+
+
+if (document.querySelector('.sidebar')) {
+  var sidebarBtn = document.querySelector('.sidebar-btn');
+  var sidebarCloseBtn = document.querySelector('.sidebar__close-btn');
+  var sidebar = document.querySelector('.sidebar');
+  var overlay = document.querySelector('.sidebar-overlay');
+  sidebarBtn.addEventListener('click', function (e) {
     e.preventDefault();
-    $(".project-list a").removeClass();
-    $(this).addClass("active");
-  }); // END Projects list sidebar
-  //  filter projects
+    body.classList.toggle('lock');
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+  });
+  sidebarCloseBtn.addEventListener('click', function (e) {
+    body.classList.toggle('lock');
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+  });
+  overlay.addEventListener('click', function (e) {
+    body.classList.toggle('lock');
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+  });
+} //  end sidebar show-hide
+//  collapse product information
 
-  var projects = document.querySelectorAll('.gallery-work__item a');
-  var workSort = document.querySelector('.work__sort');
 
-  if (projects.length) {
-    var sortLinks = workSort.querySelectorAll('a');
-    workSort.addEventListener('click', function (e) {
-      if (e.target.tagName !== 'A') {
-        return false;
+function getInstances(product) {
+  var moreBlock = product.querySelector('.card-product__rest');
+  var expandBtn = product.querySelector('.card-product__more');
+  var wrapper = product.querySelector('.card-product__wrapper');
+  var column = product.parentElement.parentElement;
+  return {
+    moreBlock: moreBlock,
+    expandBtn: expandBtn,
+    wrapper: wrapper,
+    column: column
+  };
+}
+
+function collapseProduct() {
+  var products = document.querySelectorAll('.card-product');
+  products.forEach(function (product) {
+    var instances = getInstances(product); // set column height for product
+
+    instances.column.style.height = product.clientHeight + 30 + 'px'; // add event listener for expand button
+
+    instances.expandBtn.addEventListener('click', function (event) {
+      product.classList.toggle('opened');
+
+      if (instances.moreBlock.clientHeight) {
+        instances.moreBlock.style.height = 0;
       } else {
-        e.preventDefault();
-        var className = e.target.dataset.filter;
-        sortLinks.forEach(function (sortLink) {
-          if (sortLink.dataset.filter === className) {
-            sortLink.classList.add('active');
-          } else {
-            sortLink.classList.remove('active');
-          }
-        });
-        projects.forEach(function (project) {
-          project.parentElement.parentElement.classList.remove('hide-project');
-
-          if (!project.classList.contains(className) && className !== 'all') {
-            project.parentElement.parentElement.classList.add('hide-project');
-          }
-        });
+        instances.moreBlock.style.height = instances.wrapper.clientHeight + "px";
       }
+
+      products.forEach(function (prod) {
+        if (prod === product) {
+          prod.style.transition = 'unset';
+          product.style.zIndex = '2';
+        } else {
+          prod.classList.remove('opened');
+          getInstances(prod).moreBlock.style.height = 0;
+          prod.style.transition = 'z-index .5s ease-out';
+          prod.style.zIndex = '1';
+        }
+      });
     });
-  } //  END filter projects
-  //  filter listener for AJAX
+  });
+}
+
+if (document.querySelector('.products')) {
+  collapseProduct();
+} // END collapse product information
+//  Projects list sidebar
 
 
-  if (document.querySelector('.filter')) {
-    var powerInput = document.querySelector('#power');
-    powerInput.addEventListener('change', function (e) {
-      var value = e.target.value;
-
-      if (value) {
-        // SEND AJAX
-        console.log(value);
-      }
-    });
-  } //  END filter listener for AJAX
-
+$(".project-list ul ul").each(function (index) {
+  if (index != 0) {
+    $(this).slideToggle(0);
+  } else {
+    $(this).prev().toggleClass("open");
+  }
 });
+$(".project-list__item").click(function () {
+  $(this).toggleClass("open");
+  $(this).next().slideToggle(300);
+});
+$(".project-list a").each(function (index) {
+  if (index === 0) {
+    $(this).addClass("active");
+  }
+});
+$(".project-list a").on("click", function (e) {
+  e.preventDefault();
+  $(".project-list a").removeClass();
+  $(this).addClass("active");
+}); // END Projects list sidebar
+//  filter projects
+
+var projects = document.querySelectorAll('.gallery-work__item a');
+var workSort = document.querySelector('.work__sort');
+
+if (projects.length) {
+  var sortLinks = workSort.querySelectorAll('a');
+  workSort.addEventListener('click', function (e) {
+    if (e.target.tagName !== 'A') {
+      return false;
+    } else {
+      e.preventDefault();
+      var className = e.target.dataset.filter;
+      sortLinks.forEach(function (sortLink) {
+        if (sortLink.dataset.filter === className) {
+          sortLink.classList.add('active');
+        } else {
+          sortLink.classList.remove('active');
+        }
+      });
+      projects.forEach(function (project) {
+        project.parentElement.parentElement.classList.remove('hide-project');
+
+        if (!project.classList.contains(className) && className !== 'all') {
+          project.parentElement.parentElement.classList.add('hide-project');
+        }
+      });
+    }
+  });
+} //  END filter projects
+//  filter listener for AJAX
+
+
+if (document.querySelector('.filter')) {
+  var powerInput = document.querySelector('#power');
+  powerInput.addEventListener('change', function (e) {
+    var value = e.target.value;
+
+    if (value) {
+      // SEND AJAX
+      console.log(value);
+    }
+  });
+} //  END filter listener for AJAX
