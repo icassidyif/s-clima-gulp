@@ -288,11 +288,6 @@ if(document.querySelector('.filter')) {
 
 //  END filter listener for AJAX
 
-
-
-
-
-
 function createBlockFilter(id, textValue) {
   const block = document.createElement('div');
   block.classList.add('params-filter__item');
@@ -307,4 +302,7 @@ function createBlockFilter(id, textValue) {
   block.append(img);
   return block;
 }
+
+
+
 

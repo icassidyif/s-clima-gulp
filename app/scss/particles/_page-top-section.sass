@@ -30,10 +30,12 @@
     cursor: pointer
     display: inline-flex
     align-items: center
-    margin: 0 20px 20px 0
+    margin: 0 10px 10px 0
     padding: 6px 10px
     border: 1px solid #A7A7A7
     transition: border .3s ease-out
+    +breakpoint(lg)
+      margin: 0 20px 20px 0
     &:hover
       border: 1px solid #808080
       span

@@ -62,3 +62,61 @@ function showPopupError() {
 }
 
 //end popup alert
+
+//create filter show window
+function createFilterShow(count = 0, link = '#') {
+  const block = document.createElement('div');
+  block.classList.add('filter__show');
+  block.classList.add('show-filter');
+  const text = document.createElement('span');
+  text.classList.add('show-filter__text');
+  text.innerHTML = `Знайдено<span>${count}</span>товарів`;
+  const linkBtn = document.createElement('a');
+  linkBtn.classList.add('show-filter__link');
+  linkBtn.setAttribute('href', link);
+  linkBtn.innerHTML = 'Показати';
+  block.append(text);
+  block.append(linkBtn);
+  return block;
+}
+//end create filter show window
+
+// Append filter show window to element
+function bindFilterBlock(element, block) {
+  let target;
+  switch (element.tagName) {
+    case 'INPUT': {
+      target = element.parentElement;
+      block.classList.add('show-filter_right');
+      block.style.top = 0;
+      if(window.innerWidth < 768) {
+        $(target).after(block);
+      } else {
+        $(target).append(block);
+      }
+      break;
+    }
+    case 'LABEL': {
+      target = element;
+      if(window.innerWidth < 768) {
+        $(target.parentElement).after(block);
+      } else {
+        $(target).append(block);
+      }
+      break;
+    }
+    case 'DIV': {
+      target = element;
+      if(window.innerWidth < 768) {
+        block.style.marginTop = -20+'px';
+        block.style.marginBottom = 40+'px';
+        $(target.parentElement).after(block);
+      } else {
+        block.style.top = -15+'px';
+        $(target).append(block);
+      }
+    }
+      break;
+  }
+}
+//End Append filter show window to element

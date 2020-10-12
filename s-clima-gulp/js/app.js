@@ -68,6 +68,77 @@ function showPopupError() {
     $.magnificPopup.close();
   });
 } //end popup alert
+//create filter show window
+
+
+function createFilterShow() {
+  var count = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var link = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '#';
+  var block = document.createElement('div');
+  block.classList.add('filter__show');
+  block.classList.add('show-filter');
+  var text = document.createElement('span');
+  text.classList.add('show-filter__text');
+  text.innerHTML = "\u0417\u043D\u0430\u0439\u0434\u0435\u043D\u043E<span>".concat(count, "</span>\u0442\u043E\u0432\u0430\u0440\u0456\u0432");
+  var linkBtn = document.createElement('a');
+  linkBtn.classList.add('show-filter__link');
+  linkBtn.setAttribute('href', link);
+  linkBtn.innerHTML = 'Показати';
+  block.append(text);
+  block.append(linkBtn);
+  return block;
+} //end create filter show window
+// Append filter show window to element
+
+
+function bindFilterBlock(element, block) {
+  var target;
+
+  switch (element.tagName) {
+    case 'INPUT':
+      {
+        target = element.parentElement;
+        block.classList.add('show-filter_right');
+        block.style.top = 0;
+
+        if (window.innerWidth < 768) {
+          $(target).after(block);
+        } else {
+          $(target).append(block);
+        }
+
+        break;
+      }
+
+    case 'LABEL':
+      {
+        target = element;
+
+        if (window.innerWidth < 768) {
+          $(target.parentElement).after(block);
+        } else {
+          $(target).append(block);
+        }
+
+        break;
+      }
+
+    case 'DIV':
+      {
+        target = element;
+
+        if (window.innerWidth < 768) {
+          block.style.marginTop = -20 + 'px';
+          block.style.marginBottom = 40 + 'px';
+          $(target.parentElement).after(block);
+        } else {
+          block.style.top = -15 + 'px';
+          $(target).append(block);
+        }
+      }
+      break;
+  }
+} //End Append filter show window to element
 
 
 var Cart = /*#__PURE__*/function () {

@@ -715,6 +715,10 @@ form {
   color: #2C2C2C;
 }
 
+form label {
+  position: relative;
+}
+
 form p {
   height: 20px;
   margin: 0 0 20px 0;
@@ -2245,6 +2249,59 @@ no-webp .parallax-main__layer-4 {
   display: block;
 }
 
+.show-filter {
+  position: relative;
+  display: flex;
+  padding: 0 12px;
+  background-color: #7EB5F9;
+  font-size: 13px;
+  line-height: 15px;
+  color: #ffffff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0 20px 0;
+}
+
+.show-filter:before {
+  content: '';
+  height: 7px;
+  width: 25px;
+  background: url("../img/filter-show-top.svg") no-repeat;
+  position: absolute;
+  top: -7px;
+  left: 30px;
+}
+
+.show-filter__text {
+  display: flex;
+  padding: 9px 10px 9px 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.show-filter__text span {
+  margin: 0 5px 0 5px;
+  font-weight: 700;
+}
+
+.show-filter__link {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 10px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.show-filter_right {
+  margin: 0 0 20px auto;
+}
+
+.show-filter_right:before {
+  left: unset;
+  right: 50px;
+}
+
 .filter__section {
   margin: 0 0 50px 0;
 }
@@ -2440,7 +2497,7 @@ no-webp .parallax-main__layer-4 {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  margin: 0 20px 20px 0;
+  margin: 0 10px 10px 0;
   padding: 6px 10px;
   border: 1px solid #A7A7A7;
   transition: border .3s ease-out;
@@ -4438,6 +4495,28 @@ no-webp .parallax-main__layer-4 {
     max-width: 350px;
   }
 
+  .show-filter {
+    position: absolute;
+    left: calc(100% + 20px);
+    top: -8px;
+    margin: 0;
+    z-index: 2;
+  }
+
+  .show-filter:before {
+    height: 33px;
+    width: 6px;
+    top: 0;
+    bottom: 0;
+    left: -6px;
+    right: unset;
+    background: url("../img/filter-show-left.svg") no-repeat;
+  }
+
+  .show-filter_right {
+    margin: 0;
+  }
+
   .filter__main-title {
     display: none;
   }
@@ -5102,6 +5181,10 @@ no-webp .parallax-main__layer-4 {
 
   .page-top-section__sort {
     justify-content: flex-end;
+  }
+
+  .params-filter__item {
+    margin: 0 20px 20px 0;
   }
 
   .work__sort ul {
