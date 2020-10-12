@@ -105,6 +105,9 @@ if (rangeSlider) {
   priceTo.addEventListener('change', function () {
     rangeSlider.noUiSlider.set([null, this.value]);
   });
+  priceFrom.addEventListener('change', function () {
+    rangeSlider.noUiSlider.set([this.value, null]);
+  });
 }
 function updateRangeSlider(start, end, min, max) {
   rangeSlider.noUiSlider.updateOptions({
