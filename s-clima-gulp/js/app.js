@@ -2194,11 +2194,7 @@ if (document.querySelector('.products')) {
 
 
 $(".project-list ul ul").each(function (index) {
-  if (index != 0) {
-    $(this).slideToggle(0);
-  } else {
-    $(this).prev().toggleClass("open");
-  }
+  $(this).slideToggle(0);
 });
 $(".project-list__item").click(function () {
   $(this).toggleClass("open");
@@ -2208,11 +2204,6 @@ $(".project-list a").each(function (index) {
   if (index === 0) {
     $(this).addClass("active");
   }
-});
-$(".project-list a").on("click", function (e) {
-  e.preventDefault();
-  $(".project-list a").removeClass();
-  $(this).addClass("active");
 }); // END Projects list sidebar
 //  filter projects
 

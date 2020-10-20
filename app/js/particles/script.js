@@ -1,4 +1,3 @@
-
 let supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
 // Animation scroll-----
@@ -220,12 +219,9 @@ if(document.querySelector('.products')) {
 
 //  Projects list sidebar
 $(".project-list ul ul").each(function (index) {
-  if (index != 0) {
-    $(this).slideToggle(0);
-  } else {
-    $(this).prev().toggleClass("open");
-  }
+  $(this).slideToggle(0);
 });
+
 $(".project-list__item").click(function () {
   $(this).toggleClass("open");
   $(this).next().slideToggle(300);
@@ -237,11 +233,7 @@ $(".project-list a").each(function (index) {
   }
 });
 
-$(".project-list a").on("click", function (e) {
-  e.preventDefault();
-  $(".project-list a").removeClass();
-  $(this).addClass("active");
-});
+
 // END Projects list sidebar
 
 
@@ -305,7 +297,3 @@ function createBlockFilter(id, textValue) {
   block.append(img);
   return block;
 }
-
-
-
-

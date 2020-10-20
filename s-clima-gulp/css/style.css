@@ -4529,10 +4529,6 @@ no-webp .parallax-main__layer-4 {
     padding: 0 15px;
   }
 
-  .work__btn {
-    display: none;
-  }
-
   .gallery-work__item {
     height: 215px;
     max-height: 215px;
@@ -5185,6 +5181,10 @@ no-webp .parallax-main__layer-4 {
 
   .params-filter__item {
     margin: 0 20px 20px 0;
+  }
+
+  .work__btn {
+    display: none;
   }
 
   .work__sort ul {
