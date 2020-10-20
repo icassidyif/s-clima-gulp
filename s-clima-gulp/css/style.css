@@ -2700,7 +2700,7 @@ no-webp .parallax-main__layer-4 {
   margin: 0 0 20px 0;
 }
 
-.work__desc {
+.work p {
   font-size: 18px;
   line-height: 30px;
   margin: 0 0 25px 0;
@@ -2884,7 +2884,7 @@ no-webp .parallax-main__layer-4 {
   line-height: 30px;
 }
 
-.item-post__desc {
+.item-post p {
   font-size: 18px;
   line-height: 28px;
   margin: 0 0 17px 0;
