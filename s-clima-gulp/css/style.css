@@ -2944,7 +2944,7 @@ no-webp .parallax-main__layer-4 {
   margin: 0 0 15px 0;
 }
 
-.single-post__title {
+.single-post h2 {
   color: #2C2C2C;
   font-size: 22px;
   line-height: 28px;
