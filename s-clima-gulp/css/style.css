@@ -853,6 +853,10 @@ form + span {
   color: #9e9e9e !important;
 }
 
+.input-field .dropdown-content li {
+  z-index: 3;
+}
+
 .input-field .dropdown-content li > span {
   color: #126EB9;
 }
@@ -922,6 +926,7 @@ body.lock {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .page {
@@ -1077,7 +1082,7 @@ body.lock {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 3;
+  z-index: 4;
   transition: background-color .3s ease-out;
 }
 
@@ -1708,6 +1713,7 @@ no-webp .parallax-main__layer-4 {
 }
 
 .pick-up__object {
+  overflow-x: hidden;
   position: relative;
   margin: 0 0 35px 0;
 }
@@ -1719,6 +1725,10 @@ no-webp .parallax-main__layer-4 {
 
 .pick-up__photo img {
   width: 100%;
+}
+
+.pick-up__content {
+  overflow-x: hidden;
 }
 
 .content-pick-up {
@@ -1964,6 +1974,7 @@ no-webp .parallax-main__layer-4 {
 }
 
 .works__slider {
+  overflow-x: hidden;
   margin: 0 0 20px 0 !important;
 }
 
@@ -2042,6 +2053,7 @@ no-webp .parallax-main__layer-4 {
 }
 
 .articles {
+  overflow-x: hidden;
   margin: 0 0 55px 0;
 }
 
@@ -2125,7 +2137,12 @@ no-webp .parallax-main__layer-4 {
 }
 
 .achive {
+  overflow-x: hidden;
   margin: 0 0 55px 0;
+}
+
+.partners {
+  overflow-x: hidden;
 }
 
 .partners__body {
@@ -2228,8 +2245,8 @@ no-webp .parallax-main__layer-4 {
 .sidebar__close-btn {
   display: none;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
   z-index: 4;
 }
@@ -2247,59 +2264,6 @@ no-webp .parallax-main__layer-4 {
 
 .sidebar-overlay.active {
   display: block;
-}
-
-.show-filter {
-  position: relative;
-  display: flex;
-  padding: 0 12px;
-  background-color: #7EB5F9;
-  font-size: 13px;
-  line-height: 15px;
-  color: #ffffff;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 0 0 20px 0;
-}
-
-.show-filter:before {
-  content: '';
-  height: 7px;
-  width: 25px;
-  background: url("../img/filter-show-top.svg") no-repeat;
-  position: absolute;
-  top: -7px;
-  left: 30px;
-}
-
-.show-filter__text {
-  display: flex;
-  padding: 9px 10px 9px 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.show-filter__text span {
-  margin: 0 5px 0 5px;
-  font-weight: 700;
-}
-
-.show-filter__link {
-  display: flex;
-  align-items: center;
-  padding: 0 0 0 10px;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-.show-filter_right {
-  margin: 0 0 20px auto;
-}
-
-.show-filter_right:before {
-  left: unset;
-  right: 50px;
 }
 
 .filter__section {
@@ -2345,6 +2309,60 @@ no-webp .parallax-main__layer-4 {
 
 .filter__main-title:before {
   background-color: #D11586;
+}
+
+.show-filter {
+  position: relative;
+  display: flex;
+  padding: 0 12px;
+  background-color: #7EB5F9;
+  font-size: 13px;
+  line-height: 15px;
+  color: #ffffff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0 20px 0;
+  z-index: 3;
+}
+
+.show-filter:before {
+  content: '';
+  height: 7px;
+  width: 25px;
+  background: url("../img/filter-show-top.svg") no-repeat;
+  position: absolute;
+  top: -7px;
+  left: 30px;
+}
+
+.show-filter__text {
+  display: flex;
+  padding: 9px 10px 9px 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.show-filter__text span {
+  margin: 0 5px 0 5px;
+  font-weight: 700;
+}
+
+.show-filter__link {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 10px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.show-filter_right {
+  margin: 0 0 20px auto;
+}
+
+.show-filter_right:before {
+  left: unset;
+  right: 50px;
 }
 
 .project-list,
@@ -2882,6 +2900,8 @@ no-webp .parallax-main__layer-4 {
   font-weight: 700;
   font-size: 26px;
   line-height: 30px;
+  position: relative;
+  z-index: -1;
 }
 
 .item-post p {
@@ -3563,6 +3583,10 @@ no-webp .parallax-main__layer-4 {
 
 .slider-card-product img {
   width: 100%;
+}
+
+.footer {
+  overflow-x: hidden;
 }
 
 .footer__background {
@@ -4495,6 +4519,10 @@ no-webp .parallax-main__layer-4 {
     max-width: 350px;
   }
 
+  .filter__main-title {
+    display: none;
+  }
+
   .show-filter {
     position: absolute;
     left: calc(100% + 20px);
@@ -4515,10 +4543,6 @@ no-webp .parallax-main__layer-4 {
 
   .show-filter_right {
     margin: 0;
-  }
-
-  .filter__main-title {
-    display: none;
   }
 
   .products__row {

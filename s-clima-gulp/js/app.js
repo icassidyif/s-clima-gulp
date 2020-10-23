@@ -1949,6 +1949,31 @@ $('#form-calculate2').validate({
       });
     }
   }
+});
+$('#feedback-form').validate({
+  rules: {
+    contactName: {
+      required: true
+    },
+    contactPhone: {
+      required: true,
+      customPhone: true
+    }
+  },
+  messages: {
+    contactName: {
+      required: "Це обов'язкове поле"
+    },
+    contactPhone: {
+      required: "Це обов'язкове поле",
+      customPhone: 'Невірний номер телефону'
+    }
+  },
+  submitHandler: function submitHandler(form) {
+    var formData = $(form).serializeArray();
+    console.log(formData);
+    form.reset();
+  }
 }); // Materialize initializations
 
 function initMaterializeSelect() {

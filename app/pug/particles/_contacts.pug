@@ -33,15 +33,15 @@ section.contacts
                 +icon('contact-fb')
           .contacts__section.anim-item.anim-show-from-bottom.anim-no-hide
             h4.contacts__title Зворотній зв’язок
-            form
+            form#feedback-form
               .input-field
-                input(name='contact-name' type="text")#contact-name
+                input(name='contactName' type="text")#contact-name
                 label(for="contact-name") Ім'я
               .input-field
-                input(type="text" name='contact-phone')#contact-phone
+                input(type="text" name='contactPhone')#contact-phone
                 label(for='contact-phone') Контактний номер
               .input-field
-                textarea(name='contact-text').materialize-textarea#contact-text
+                textarea(name='contactText').materialize-textarea#contact-text
                 label(for='contact-text') Коментар
               .contact__button
                 button(type='submit').btn-main.btn-main_min Надіслати

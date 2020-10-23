@@ -6,6 +6,7 @@
     margin: 0 0 70px 0
     overflow: hidden
   &__object
+    overflow-x: hidden
     position: relative
     margin: 0 0 35px 0
     +breakpoint(md)
@@ -23,8 +24,6 @@
     +breakpoint(lg)
       overflow: visible
       padding: 0
-
-
       &:before
         display: none
       &:not(:last-child)
@@ -67,6 +66,8 @@
         z-index: -1
     img
       width: 100%
+  &__content
+    overflow-x: hidden
 
 
 

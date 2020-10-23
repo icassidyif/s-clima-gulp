@@ -32,3 +32,59 @@
       background-color: #D11586
     +breakpoint(md)
       display: none
+
+
+.show-filter
+  position: relative
+  display: flex
+  padding: 0 12px
+  background-color: #7EB5F9
+  font-size: 13px
+  line-height: 15px
+  color: #ffffff
+  width: fit-content
+  margin: 0 0 20px 0
+  z-index: 3
+  +breakpoint(md)
+    position: absolute
+    left: calc(100% + 20px)
+    top: -8px
+    margin: 0
+    z-index: 2
+  &:before
+    content: ''
+    height: 7px
+    width: 25px
+    background: url("../img/filter-show-top.svg") no-repeat
+    position: absolute
+    top: -7px
+    left: 30px
+    +breakpoint(md)
+      height: 33px
+      width: 6px
+      top: 0
+      bottom: 0
+      left: -6px
+      right: unset
+      background: url("../img/filter-show-left.svg") no-repeat
+  &__text
+    display: flex
+    padding: 9px 10px 9px 0
+    border-right: 1px solid rgba(255, 255, 255, 0.15)
+    span
+      margin: 0 5px 0 5px
+      font-weight: 700
+  &__link
+    display: flex
+    align-items: center
+    padding: 0 0 0 10px
+    font-weight: 700
+    color: #ffffff
+    text-decoration: underline
+  &_right
+    margin: 0 0 20px auto
+    +breakpoint(md)
+      margin: 0
+    &:before
+      left: unset
+      right: 50px
