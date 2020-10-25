@@ -50,11 +50,25 @@ $('#order-form').validate({
     }
   },
   submitHandler: function (form) {
-    // let url = '/php/call.php';
+
+    let url = '/send-data';
     let CurrentCart = JSON.parse(localStorage.getItem('cart'));
-    let formData = $(form).serializeArray();
-    // ajaxSend(formData, url);
-    console.log(formData, CurrentCart);
+    // ## just cond
+    let vFormData = $(form).serializeArray();
+    vFormData[3] = vFormData[0];
+    vFormData[0] = {'type' : 'air_cond'};
+    vFormData[4] = {'goods': ''};
+    vFormData[4]['goods'] = CurrentCart;
+
+    fetch(url, { method: 'POST', body: JSON.stringify(vFormData) })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (body) {
+        // console.log(body);
+      });
+    // ## just cond
+
     //clear
     form.reset();
     cart.products = {};
@@ -63,6 +77,7 @@ $('#order-form').validate({
     updateCartContent();
     let modal = M.Modal.getInstance($('#cart'));
     modal.close();
+    M.toast({html: 'Дякуємо за замовлення! Наш менежер скоро зв\'яжеться з Вами.'});
   }
 });
 
@@ -120,12 +135,8 @@ $('#power-calc').validate({
     let data = $(form).serializeArray();
     resultInput.value = calculatePower(parseInt(data[0].value), parseInt(data[1].value), parseInt(data[2].value));
     resultLabel.classList.add('active');
-  //   SEND AJAX
   }
 })
-
-
-
 
 
 
@@ -335,5 +346,6 @@ $('#feedback-form').validate({
     let formData = $(form).serializeArray();
     console.log(formData);
     form.reset();
+    M.toast({html: 'Дякуємо за звернення!'});
   }
 });

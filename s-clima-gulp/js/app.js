@@ -698,30 +698,31 @@ if (document.querySelectorAll('.parallax')) {
 
 
 $(document).ready(function () {
-  $('.popup-gallery').magnificPopup({
-    delegate: 'a',
-    type: 'image',
-    tLoading: 'Завантаження фото #%curr%...',
-    mainClass: 'mfp-fade',
-    gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-      preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-
-    },
-    image: {
-      tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-    },
-    removalDelay: 300,
-    callbacks: {
-      elementParse: function elementParse(item) {
-        if (item.el.hasClass("video")) {
-          item.type = 'iframe';
-        } else {
-          item.type = 'image';
+  $('.popup-gallery').each(function () {
+    $(this).magnificPopup({
+      delegate: 'a',
+      type: 'image',
+      tLoading: 'Завантаження фото #%curr%...',
+      mainClass: 'mfp-fade',
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        preload: [0, 2]
+      },
+      image: {
+        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+      },
+      removalDelay: 300,
+      callbacks: {
+        elementParse: function elementParse(item) {
+          if (item.el.hasClass("video")) {
+            item.type = 'iframe';
+          } else {
+            item.type = 'image';
+          }
         }
       }
-    }
+    });
   });
 });
 $(document).ready(function () {
@@ -734,7 +735,7 @@ $(document).ready(function () {
     speed: 500,
     easing: 'ease',
     infinite: true,
-    initialSlide: 1,
+    initialSlide: 0,
     autoplay: true,
     autoplaySpeed: 3500,
     pauseOnFocus: true,
@@ -772,7 +773,7 @@ $(document).ready(function () {
     speed: 500,
     easing: 'ease',
     infinite: true,
-    initialSlide: 1,
+    initialSlide: 0,
     autoplay: true,
     autoplaySpeed: 3500,
     pauseOnFocus: true,
@@ -810,7 +811,7 @@ $(document).ready(function () {
     speed: 500,
     easing: 'ease',
     infinite: true,
-    initialSlide: 1,
+    initialSlide: 0,
     autoplay: true,
     autoplaySpeed: 3500,
     pauseOnFocus: true,
@@ -851,7 +852,7 @@ $(document).ready(function () {
     speed: 500,
     easing: 'ease',
     infinite: true,
-    initialSlide: 1,
+    initialSlide: 0,
     autoplay: false,
     autoplaySpeed: 3500,
     pauseOnFocus: true,
@@ -896,7 +897,7 @@ $(document).ready(function () {
     speed: 500,
     easing: 'ease',
     infinite: true,
-    initialSlide: 1,
+    initialSlide: 0,
     autoplay: true,
     autoplaySpeed: 3500,
     pauseOnFocus: true,
@@ -942,7 +943,7 @@ $(document).ready(function () {
     speed: 500,
     easing: 'ease',
     infinite: true,
-    initialSlide: 1,
+    initialSlide: 0,
     autoplay: false,
     autoplaySpeed: 3500,
     pauseOnFocus: true,
@@ -988,8 +989,8 @@ $(document).ready(function () {
     slidesToScroll: 1,
     speed: 500,
     easing: 'ease',
-    infinite: true,
-    initialSlide: 1,
+    infinite: false,
+    initialSlide: 0,
     autoplay: false,
     autoplaySpeed: 3500,
     pauseOnFocus: true,
@@ -1696,11 +1697,26 @@ $('#order-form').validate({
     }
   },
   submitHandler: function submitHandler(form) {
-    // let url = '/php/call.php';
-    var CurrentCart = JSON.parse(localStorage.getItem('cart'));
-    var formData = $(form).serializeArray(); // ajaxSend(formData, url);
+    var url = '/send-data';
+    var CurrentCart = JSON.parse(localStorage.getItem('cart')); // ## just cond
 
-    console.log(formData, CurrentCart); //clear
+    var vFormData = $(form).serializeArray();
+    vFormData[3] = vFormData[0];
+    vFormData[0] = {
+      'type': 'air_cond'
+    };
+    vFormData[4] = {
+      'goods': ''
+    };
+    vFormData[4]['goods'] = CurrentCart;
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(vFormData)
+    }).then(function (response) {
+      return response.text();
+    }).then(function (body) {// console.log(body);
+    }); // ## just cond
+    //clear
 
     form.reset();
     cart.products = {};
@@ -1709,6 +1725,9 @@ $('#order-form').validate({
     updateCartContent();
     var modal = M.Modal.getInstance($('#cart'));
     modal.close();
+    M.toast({
+      html: 'Дякуємо за замовлення! Наш менежер скоро зв\'яжеться з Вами.'
+    });
   }
 });
 $('#power-calc').validate({
@@ -1763,7 +1782,7 @@ $('#power-calc').validate({
     var resultLabel = form.querySelector('.power + label');
     var data = $(form).serializeArray();
     resultInput.value = calculatePower(parseInt(data[0].value), parseInt(data[1].value), parseInt(data[2].value));
-    resultLabel.classList.add('active'); //   SEND AJAX
+    resultLabel.classList.add('active');
   }
 });
 $('#form-calculate').validate({
@@ -1973,6 +1992,9 @@ $('#feedback-form').validate({
     var formData = $(form).serializeArray();
     console.log(formData);
     form.reset();
+    M.toast({
+      html: 'Дякуємо за звернення!'
+    });
   }
 }); // Materialize initializations
 
@@ -2069,10 +2091,8 @@ function offset(el) {
 
 var spanElement = document.createElement('span');
 var copyRight = "<a href=\"#\">S-Clima</a> \xA9 2019 - ".concat(new Date().getFullYear(), "\u0440.");
-var devRight = "\u0420\u043E\u0437\u0440\u043E\u0431\u043B\u0435\u043D\u043E \u0441\u0442\u0443\u0434\u0456\u0454\u044E <a target=\"_blank\" href=\"https://dwave.space/\"> d-wave </a>";
 spanElement.innerHTML = copyRight;
-$('.copyright__main').append(spanElement);
-$('.copyright__develop').append(devRight); //=========================================================================
+$('.copyright__main').append(spanElement); //=========================================================================
 //=========================================================================
 //=========================================================================
 //=========================================================================

@@ -56,10 +56,8 @@ function offset(el) {
 //footer copyright====================================================
 let spanElement = document.createElement('span');
 let copyRight = `<a href="#">S-Clima</a> © 2019 - ${new Date().getFullYear()}р.`;
-let devRight = `Розроблено студією <a target="_blank" href="https://dwave.space/"> d-wave </a>`
 spanElement.innerHTML = copyRight;
 $('.copyright__main').append(spanElement);
-$('.copyright__develop').append(devRight);
 //=========================================================================
 //=========================================================================
 //=========================================================================

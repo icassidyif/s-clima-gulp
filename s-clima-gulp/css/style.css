@@ -3501,8 +3501,7 @@ no-webp .parallax-main__layer-4 {
   max-height: 110px;
 }
 
-.slider-partners a {
-  display: block;
+.slider-partners p {
   position: relative;
   height: auto;
   -webkit-filter: opacity(50%) grayscale(100%);
@@ -3510,7 +3509,7 @@ no-webp .parallax-main__layer-4 {
   transition: all 0.5s ease 0s;
 }
 
-.slider-partners a:hover {
+.slider-partners p:hover {
   -webkit-filter: opacity(100%) grayscale(0);
           filter: opacity(100%) grayscale(0);
 }
