@@ -2504,7 +2504,6 @@ no-webp .parallax-main__layer-4 {
 
 .params-filter {
   display: block;
-  margin: 0 0 35px 0;
 }
 
 .params-filter__item {
@@ -5157,10 +5156,6 @@ no-webp .parallax-main__layer-4 {
 
   .partners__body {
     padding: 70px 0;
-  }
-
-  .parallax-page {
-    margin: 0 0 100px 0;
   }
 
   .parallax-page .parallax img {
