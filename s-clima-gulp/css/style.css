@@ -839,11 +839,6 @@ form + span {
   top: 5px;
 }
 
-.input-field .caret {
-  background-color: #ffffff;
-  z-index: 2;
-}
-
 .input-field label {
   font-size: 16px;
 }
@@ -896,9 +891,17 @@ form + span {
   background-color: #0066BA;
 }
 
+.select-wrapper {
+  padding: 0 25px 0 0;
+}
+
 .select-wrapper .caret {
   margin: unset;
   top: .4em;
+}
+
+.select-wrapper .select-dropdown {
+  padding: 0 25px 0 0 !important;
 }
 
 .select-wrapper input ~ label {
@@ -2576,6 +2579,8 @@ no-webp .parallax-main__layer-4 {
 }
 
 .card-product__container {
+  display: flex;
+  flex-direction: column;
   padding: 0 15px;
 }
 
@@ -2584,6 +2589,7 @@ no-webp .parallax-main__layer-4 {
 }
 
 .card-product__title {
+  flex: 1 1 auto;
   margin: 0 0 10px 0;
   color: #2C2C2C;
   font-size: 14px;
