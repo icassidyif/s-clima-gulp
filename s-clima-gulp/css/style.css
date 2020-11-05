@@ -900,7 +900,7 @@ form + span {
   top: .4em;
 }
 
-.select-wrapper .select-dropdown {
+.select-wrapper input.select-dropdown {
   padding: 0 25px 0 0 !important;
 }
 
