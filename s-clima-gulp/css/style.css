@@ -4528,7 +4528,7 @@ no-webp .parallax-main__layer-4 {
     left: calc(100% + 20px);
     top: -8px;
     margin: 0;
-    z-index: 2;
+    z-index: 3;
   }
 
   .show-filter:before {
